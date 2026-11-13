@@ -1,1 +1,43 @@
-{"places":{},"events":[]}
+{
+ "places": {
+  "c_m53xp": {
+   "name": "逻些",
+   "ll": [
+    91.1,
+    29.65
+   ]
+  }
+ },
+ "events": [
+  {
+   "id": "c064102-ss4cu",
+   "date": "0641-02",
+   "prec": "month",
+   "place": "c_m53xp",
+   "kind": "dip",
+   "title": "测试：文成公主入藏",
+   "summary": "POC 测试，请勿合并。贞观十五年，文成公主由江夏王李道宗护送入吐蕃，与松赞干布成婚。",
+   "who": [
+    "文成公主",
+    "松赞干布"
+   ],
+   "importance": 1,
+   "evidence": [
+    {
+     "stance": "supports",
+     "confidence": "medium",
+     "detail": "",
+     "type": "text",
+     "title": "《旧唐书·吐蕃传》",
+     "cite": "《旧唐书》卷一百九十六上",
+     "url": "https://zh.wikisource.org/wiki/舊唐書/卷196上"
+    }
+   ],
+   "contrib": true,
+   "source": {
+    "issue": 1,
+    "by": "wilson21st"
+   }
+  }
+ ]
+}
