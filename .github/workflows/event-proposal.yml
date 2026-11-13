@@ -22,7 +22,7 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       N: ${{ github.event.issue.number }}
-      RESULT_FILE: ${{ runner.temp }}/result.json
+      RESULT_FILE: /tmp/event-proposal-result.json
     steps:
       - uses: actions/checkout@v4
         with:
