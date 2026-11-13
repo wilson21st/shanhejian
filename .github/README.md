@@ -9,7 +9,7 @@ people's journeys, recited Tang poems and 说书 (storyteller) scrolls.
 - Run locally: `node server.mjs` → http://127.0.0.1:7814 (`HS_PORT` to change).
 - Deploy: `tools/deploy/deploy-pages.sh` (Cloudflare Pages).
 
-Code: MIT (see `LICENSE`). Fonts: SIL OFL 1.1. Images: public domain / CC, credited in `data/**/CREDITS.md`.
+Code: MIT (see `LICENSE`). Third-party assets keep their own licences: fonts under `data/**/fonts` and `data/vendor` are SIL OFL 1.1 (licence text next to each file), three.js is MIT, paintings and photos are public domain or Creative Commons as listed in `data/**/CREDITS.md`, terrain from the Mapzen/AWS Terrain Tiles.
 The background music the live site plays is not included in this repository (not free-licensed).
 
 ## Contributing events · 补充史事

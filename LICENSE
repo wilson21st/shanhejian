@@ -19,12 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-The MIT licence covers the code in this repository. Third-party assets keep
-their own licences: the fonts under data/**/fonts and data/vendor are SIL Open
-Font License 1.1 (licence text next to each file), three.js is MIT
-(data/vendor/three@0.170.0/LICENSE), and the paintings and photos are public
-domain or Creative Commons as listed in the CREDITS.md files under data/.
-Terrain: Mapzen/AWS Terrain Tiles (see their attribution terms).
