@@ -15,7 +15,9 @@ import { dist, fly, setDist, setFOCUS, setTx, setTz, setYaw, setYawT, tx, tz, ya
    overlay instead of the handscroll. The one day still covered in detail (626-06-29 to 09-25) keeps its own dense
    EVS/SCROLL_IDS entries from world.json; era.json's own 玄武门之变 headline (s626xwm) is dropped so the two don't clash. */
 export const [WD,ERA,POEMS,ERAIMG]=await Promise.all([fetch('data/world.json'),fetch('data/era.json'),fetch('data/poems.json'),fetch('data/era-images/manifest.json')].map(r=>r.then(x=>x.json())));
-export const PL={...POEMS.places,...ERA.places,...WD.places}; // place lookup: world.json wins on id clash (e.g. changan), then era.json, then poems.json
+// contributed events (data/contrib-events.json, era.json shape; merged from event-proposal issues by .github/workflows/event-proposal.yml)
+export const CONTRIB=await fetch('data/contrib-events.json').then(r=>r.ok?r.json():null).catch(()=>null)||{places:{},events:[]};
+export const PL={...CONTRIB.places,...POEMS.places,...ERA.places,...WD.places}; // place lookup: world.json wins on id clash (e.g. changan), then era.json, then poems.json
 const ERAIMG_BY_KEY=new Map(ERAIMG.map(m=>[m.eventId+'|'+m.evidenceIndex,m]));
 const ordD=d=>{const [y,m,dd]=d.split('-').map(Number);return y*400+(m||6)*32+(dd||15)};
 export const llOf=id=>{const p=PL[id];if(!p)return null;const ca=PL.changan.ll;if(p.view==='palace'||Math.hypot(p.ll[0]-ca[0],p.ll[1]-ca[1])<1.2)return ca;return p.ll};
@@ -47,7 +49,8 @@ function setTld(d,si){const h=nianhao(d);
   tld.innerHTML=`<span class="t1">${ceOf(d)}</span><span class="t2">${h.dyn} · ${h.label}${si!==undefined?' · '+'春夏秋冬'[si]:''}</span>`}
 export const EVS=[...WD.events.filter(e=>e.phase!=='world'),
   ...ERA.events.filter(e=>e.id!=='s626xwm').map(e=>({id:e.id,date:e.date,place:e.place,kind:e.kind,title:e.title,_era:e})),
-  ...POEMS.events.map(e=>({id:e.id,date:e.date,place:e.place,kind:e.kind,title:e.title,_era:e}))]
+  ...POEMS.events.map(e=>({id:e.id,date:e.date,place:e.place,kind:e.kind,title:e.title,_era:e})),
+  ...CONTRIB.events.map(e=>({id:e.id,date:e.date,place:e.place,kind:e.kind,title:e.title,_era:e}))]
   .sort((a,b)=>ordD(a.date)-ordD(b.date));
 export const SCROLL_IDS=new Set(['e0629','e0701a','e0701b','e0701c','d1','d2','d3','d4','d5','d6','d7','d8','d9','d10','d11','d12','d13']);
 export var TL={i:0,playing:false,timer:null};export const rng=document.getElementById('rng'),tld=document.getElementById('tld'),play=document.getElementById('play');
@@ -97,6 +100,13 @@ export function openScroll(src,ll,onClose){stopTL();
 export const STEPS=[];for(let i=0;i<EVS.length;i++){const g=SCROLL_IDS.has(EVS[i].id);if(g&&STEPS.length&&SCROLL_IDS.has(EVS[STEPS[STEPS.length-1]].id))continue;STEPS.push(i)}
 rng.max=STEPS.length-1;
 setBorders(EVS[STEPS[0]].date,true);
+// add_event's local preview (js/webmcp.js): put one era-shaped event (and its new place) into the timeline of this tab only and
+// show it; STEPS is rebuilt the same way as above. Returns the step, or -1 if the place has no position.
+export function previewEvent(ev,place){if(place)PL[place.id]={name:place.name,ll:place.ll};if(!llOf(ev.place))return -1;
+  let i=EVS.findIndex(x=>x.id===ev.id);if(i<0){EVS.push({id:ev.id,date:ev.date,place:ev.place,kind:ev.kind,title:ev.title,_era:ev});EVS.sort((a,b)=>ordD(a.date)-ordD(b.date))}
+  else EVS[i]={...EVS[i],_era:ev};
+  STEPS.length=0;for(let j=0;j<EVS.length;j++){const g=SCROLL_IDS.has(EVS[j].id);if(g&&STEPS.length&&SCROLL_IDS.has(EVS[STEPS[STEPS.length-1]].id))continue;STEPS.push(j)}
+  rng.max=STEPS.length-1;for(const l of LBL)if(l.step!==undefined)l.until=performance.now();i=EVS.findIndex(x=>x.id===ev.id);const s=STEPS.indexOf(i);showEvent(s);const ll=llOf(ev.place);fly(MX(ll[0]),MZ(ll[1]),Math.min(dist,800),null);return s}
 const seasonOf=d=>{const m=+d.split('-')[1]||6;return m>=3&&m<=5?0:m>=6&&m<=8?1:m>=9&&m<=11?2:3};
 /* 交战双方 (2026-11-05 night, Wilson picked the design-war mock option A): data/battles.json gives each of the 14 battles its
    sides — realm, leaders, where that army set out from, route, result. While a battle's step is on screen, overlayFrame

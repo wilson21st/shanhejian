@@ -4,7 +4,7 @@
 set -e
 cd "$(dirname "$0")/../.."
 OUT="$(mktemp -d)/site"; mkdir -p "$OUT"
-cp index.html shuoshu.html shuoshu-list.html xuanwumen.html mawei.html "$OUT/"
+cp index.html shuoshu.html shuoshu-list.html xuanwumen.html mawei.html design-poem.html "$OUT/"
 cp -R js css "$OUT/"
 rsync -a --exclude voice-spike --exclude design-people --exclude .DS_Store data "$OUT/"
 printf '/data/vendor/*\n  Cache-Control: public, max-age=31536000, immutable\n' > "$OUT/_headers"

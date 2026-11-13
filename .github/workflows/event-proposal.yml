@@ -1,0 +1,59 @@
+# An issue labelled event-proposal (or titled "[event] …", as the add_event tool makes them) carries one event as a
+# ```json block. Validate it with js/contrib-schema.js, append it to data/contrib-events.json on branch event/<issue>,
+# and open a pull request that closes the issue. Only GITHUB_TOKEN; issue text is read from the event file, never
+# interpolated into a shell line. Editing the issue re-runs it and updates the same branch/PR.
+name: event-proposal
+on:
+  issues:
+    types: [opened, edited, labeled]
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+concurrency:
+  group: event-proposal-${{ github.event.issue.number }}
+  cancel-in-progress: true
+jobs:
+  propose:
+    if: >-
+      github.event.issue.state == 'open' &&
+      (contains(github.event.issue.labels.*.name, 'event-proposal') || startsWith(github.event.issue.title, '[event] '))
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      N: ${{ github.event.issue.number }}
+      RESULT_FILE: ${{ runner.temp }}/result.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Label
+        run: gh issue edit "$N" --add-label event-proposal || true
+      - name: Validate and append
+        run: node .github/scripts/event-proposal.mjs
+      - name: Comment text
+        run: |
+          node -e '
+            const r = require(process.env.RESULT_FILE), fs = require("fs");
+            const t = r.ok
+              ? `Thanks! The event **${r.title}** (${r.date}, ${r.place}) passed the checks as \`${r.id}\`. A pull request is open for review; once merged it appears on https://shanhejian.pages.dev.`
+              : "The proposal did not pass the checks. Edit the JSON in the issue body and save; this re-runs automatically.\n\n" + r.errors.map(e => "- " + e).join("\n");
+            fs.writeFileSync(process.env.RUNNER_TEMP + "/comment.md", t + "\n");
+            fs.appendFileSync(process.env.GITHUB_ENV, "OK=" + (r.ok ? 1 : 0) + "\nEVENT_ID=" + (r.id || "") + "\n");'
+      - name: Open pull request
+        if: env.OK == '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          B="event/$N"
+          git checkout -B "$B"
+          git add data/contrib-events.json
+          git commit -m "event: $EVENT_ID (from #$N)"
+          git push --force origin "$B"
+          if [ -z "$(gh pr list --head "$B" --state open --json number -q '.[].number')" ]; then
+            printf 'Adds contributed event `%s` from #%s to `data/contrib-events.json`.\n\nCloses #%s\n' "$EVENT_ID" "$N" "$N" > "$RUNNER_TEMP/pr.md"
+            gh pr create --head "$B" --base "${{ github.event.repository.default_branch }}" --title "event: $EVENT_ID (#$N)" --body-file "$RUNNER_TEMP/pr.md" --label event-proposal
+          fi
+      - name: Comment
+        if: always() && env.OK != ''
+        run: gh issue comment "$N" --body-file "$RUNNER_TEMP/comment.md"
