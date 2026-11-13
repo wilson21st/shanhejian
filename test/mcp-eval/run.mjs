@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Agent eval for the 山河鉴 remote MCP server: each task in tasks.json runs through Claude Code headless
 // (claude -p, only the shanhejian MCP server + WebFetch/WebSearch allowed, in an empty directory) against the live /mcp,
-// and is scored from its stream-json transcript plus the live /api/contrib.
-//   node test/mcp-eval/run.mjs [outDir] [--only id,id] [--par 3]
+// and is scored from its stream-json transcript plus the live /api/contrib. A task with "transport": "http" gets no MCP
+// server at all, only curl + WebFetch/WebSearch and the /llms.txt URL in its prompt: the plain-HTTP (REST) route.
+//   node test/mcp-eval/run.mjs [outDir] [--only id,id] [--par 3] [--rescore]   (--rescore: score the transcripts already in outDir)
 // Writes <outDir>/<task>.jsonl (transcripts) and <outDir>/results.json (per task + summary metrics).
 import { spawn } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -10,6 +11,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 const args = process.argv.slice(2), flag = k => { const i = args.indexOf(k); return i < 0 ? null : args.splice(i, 2)[1]; };
+const rescore = args.includes('--rescore') && args.splice(args.indexOf('--rescore'), 1);
 const only = flag('--only'), par = +(flag('--par') || 3), out = args[0] || join(tmpdir(), 'shj-mcp-eval');
 const BASE = process.env.SHJ_BASE || 'https://shanhejian.pages.dev';
 let TASKS = JSON.parse(readFileSync(new URL('tasks.json', import.meta.url), 'utf8'));
@@ -20,10 +22,14 @@ const mcpCfg = join(out, 'mcp.json');
 writeFileSync(mcpCfg, JSON.stringify({ mcpServers: { shanhejian: { type: 'http', url: BASE + '/mcp' } } }));
 
 function runClaude(t) {
+  if (rescore) { const lines = readFileSync(join(out, t.id + '.jsonl'), 'utf8').trim().split('\n');
+    const fin = lines.map(l => { try { return JSON.parse(l); } catch { return {}; } }).find(m => m.type === 'result') || {};
+    return Promise.resolve({ code: fin.is_error ? 1 : 0, ms: fin.duration_ms || 0, lines, err: '' }); }
   return new Promise(res => {
     const t0 = Date.now(), lines = [];
-    const p = spawn('claude', ['-p', t.prompt, '--output-format', 'stream-json', '--verbose', '--mcp-config', mcpCfg, '--strict-mcp-config',
-      '--allowedTools', 'mcp__shanhejian', 'WebFetch', 'WebSearch', '--max-turns', '40'], { cwd, stdio: ['ignore', 'pipe', 'pipe'] });
+    const http = t.transport === 'http';
+    const p = spawn('claude', ['-p', t.prompt, '--output-format', 'stream-json', '--verbose', '--strict-mcp-config', ...(http ? [] : ['--mcp-config', mcpCfg]),
+      '--allowedTools', ...(http ? ['Bash(curl:*)'] : ['mcp__shanhejian']), 'WebFetch', 'WebSearch', '--max-turns', '40'], { cwd, stdio: ['ignore', 'pipe', 'pipe'] });
     let buf = '';
     p.stdout.on('data', d => { buf += d; let i; while ((i = buf.indexOf('\n')) >= 0) { const l = buf.slice(0, i); buf = buf.slice(i + 1); if (l.trim()) lines.push(l); } });
     let err = ''; p.stderr.on('data', d => err += d);
@@ -33,7 +39,7 @@ function runClaude(t) {
 }
 
 const parseRes = c => { const text = Array.isArray(c) ? c.map(x => x.text || '').join('') : String(c || '');
-  try { return JSON.parse(text); } catch { return { raw: text.slice(0, 300) }; } };
+  try { return JSON.parse(text); } catch { return { raw: text.slice(0, 4000) }; } };
 const km = (a, b) => Math.hypot((a[0] - b[0]) * Math.cos(b[1] * Math.PI / 180), a[1] - b[1]) * 111;
 
 async function score(t, run, contrib) {
@@ -45,7 +51,15 @@ async function score(t, run, contrib) {
       const u = uses.get(c.tool_use_id), r = parseRes(c.content); u.result = r; u.error = !!c.is_error || r.ok === false; }
   }
   const final = msgs.find(m => m.type === 'result') || {};
-  const mcp = calls.filter(c => c.name.startsWith('mcp__shanhejian__')), adds = mcp.filter(c => /__add_/.test(c.name));
+  // over plain HTTP a "call" is a curl / WebFetch to the site; an add is a POST to /api/events|poems|shuoshu
+  const restCall = c => (c.name === 'Bash' && /shanhejian\.pages\.dev/.test(c.input.command || '')) || (c.name === 'WebFetch' && /shanhejian\.pages\.dev/.test(c.input.url || ''));
+  // only POSTs the server answered count: a local failure (sandbox refused a file write, no SSL certs) never reached the API
+  const restAdd = c => c.name === 'Bash' && /\/api\/(events|poems|shuoshu)\b/.test(c.input.command) && /(-X\s*POST|--data|-d\s|--json)/.test(c.input.command)
+    && /"ok"\s*:\s*(true|false)/.test((c.result && c.result.raw) || JSON.stringify(c.result || {}));
+  if (t.transport === 'http') for (const c of calls) if (restAdd(c)) { const raw = (c.result && c.result.raw) || JSON.stringify(c.result || {});
+    const okm = /"ok"\s*:\s*true/.test(raw), idm = raw.match(/"id"\s*:\s*"(c[\w-]+)"/); c.error = !okm; c.result = okm ? { ok: true, id: idm && idm[1] } : { ok: false, errors: [raw.slice(0, 300)] }; }
+  const mcp = t.transport === 'http' ? calls.filter(restCall) : calls.filter(c => c.name.startsWith('mcp__shanhejian__'));
+  const adds = t.transport === 'http' ? calls.filter(restAdd) : mcp.filter(c => /__add_/.test(c.name));
   const okAdds = adds.filter(c => !c.error && c.result && c.result.ok), ids = okAdds.map(c => c.result.id);
   const answer = final.result || '';
   const e = t.expect, checks = [];
@@ -75,7 +89,7 @@ async function score(t, run, contrib) {
   return { id: t.id, kind: t.kind, type: t.type, exit: run.code, wallS: Math.round(run.ms / 100) / 10, turns: final.num_turns, costUsd: final.total_cost_usd,
     mcpCalls: mcp.length, allToolCalls: calls.length, toolsUsed: [...new Set(calls.map(c => c.name.replace('mcp__shanhejian__', '')))],
     addCalls: adds.length, addErrors: adds.filter(c => c.error).map(c => c.result && c.result.errors), firstAddOk: adds.length ? !adds[0].error : null,
-    readErrors: mcp.filter(c => !/__add_/.test(c.name) && c.error).length, ids, item, checks, answer: answer.slice(0, 1500) };
+    transport: t.transport || 'mcp', readErrors: mcp.filter(c => !/__add_/.test(c.name) && !adds.includes(c) && c.error).length, ids, item, checks, answer: answer.slice(0, 1500) };
 }
 
 const results = [], queue = [...TASKS];

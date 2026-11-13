@@ -79,7 +79,7 @@ export function validateEvent(input, { places = {}, ids = new Set() } = {}) {
 // place: an id we know, or a new named point inside the map → { placeId, newPlace }
 function checkPlace(pl, places, errors, p) {
   let placeId = null, newPlace = null;
-  if (typeof pl === 'string') { if (places[pl]) placeId = pl; else errors.push(`${p}: unknown id "${pl}" — use a known place id (list_places; on the page: list_events {places:true}), or {name, ll:[lon, lat]}`); }
+  if (typeof pl === 'string') { if (places[pl]) placeId = pl; else errors.push(`${p}: unknown id "${pl}" — use a known place id (list_places or GET /api/places; on the page: list_events {places:true}), or {name, ll:[lon, lat]}`); }
   else if (pl && typeof pl === 'object' && !Array.isArray(pl)) {
     const { name, ll } = pl, n0 = errors.length;
     for (const k of Object.keys(pl)) if (k !== 'name' && k !== 'll') errors.push(`${p}: unknown field "${k}" (only name, ll)`);

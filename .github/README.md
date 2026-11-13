@@ -94,6 +94,39 @@ Add a server in the MCP settings with transport *Streamable HTTP* and the URL ab
 `"httpUrl"` in Gemini CLI's `settings.json`, *Settings → Connectors → Add custom connector* in Claude Desktop / claude.ai.)
 Only Claude Code was tested end to end (see *Metrics* below); the others are documented from their own docs.
 
+### OpenClaw
+
+```sh
+openclaw mcp add shanhejian --url https://shanhejian.pages.dev/mcp --transport streamable-http
+openclaw mcp doctor shanhejian --probe
+```
+(or `mcp.servers.shanhejian = { url, transport: "streamable-http" }` in the config). An OpenClaw agent with only
+`web_fetch` + `exec` can use the plain-HTTP route below instead, with no config at all.
+
+### Personal agents without MCP · plain HTTP
+
+Many assistants (Grok, ChatGPT, Gemini, a personal bot on WhatsApp/Telegram) cannot add an MCP server but can fetch a
+URL, send an HTTP request or run code. Give them one link:
+
+> **`https://shanhejian.pages.dev/llms.txt`** — read this, then add … to 山河鉴
+
+`/llms.txt` explains the site, the rules and a worked example of each addition. The same tools are plain REST
+(same validator, same per-field errors, same rate limit), described as OpenAPI 3.1 at **`/openapi.json`** — importable
+as a custom-GPT action or any function-calling tool set:
+
+- `GET /api/events?q=&from=&to=&kind=&source=&limit=&offset=` · `GET /api/events/{id}` · `POST /api/events`
+- `GET /api/poems?poet=&q=&from=&to=` · `GET /api/poems/{id}` · `POST /api/poems`
+- `GET /api/shuoshu?q=` · `GET /api/shuoshu/{id}` · `POST /api/shuoshu`
+- `GET /api/places?q=&near=lon,lat`
+
+```sh
+curl -X POST https://shanhejian.pages.dev/api/events -H 'Content-Type: application/json' -d @event.json
+# 201 {"ok":true,"id":"c0652-…","url":"https://shanhejian.pages.dev/?ev=c0652-…","item":{…}}
+# 400 {"ok":false,"errors":["date: YYYY, YYYY-MM or YYYY-MM-DD…","evidence[0].url: an https URL"]}   429 = rate limit
+```
+An assistant that can only *open* URLs (GET) can still read everything; to add, it hands its user the JSON and the
+issue link in `/llms.txt`.
+
 ### Tools
 
 | tool | what it does |
@@ -118,6 +151,9 @@ check (same title + date), 20 additions an hour and 60 a day per IP (hashed), 30
 
 ### How it is built
 
+- `lib/tools.js` — the tool definitions and implementations, shared by every route below.
+- `functions/api/[res].js`, `functions/api/[res]/[id].js` (`lib/rest.js`) — the REST twin; `functions/openapi.json.js`
+  and `functions/llms.txt.js` build the spec and the agent guide from the same definitions.
 - `functions/mcp.js` — the MCP endpoint (Cloudflare Pages Function): `initialize`, `ping`, `tools/list`, `tools/call`,
   batches; notifications get `202`; `GET` is `405` (no SSE stream needed, every answer is one JSON response).
 - `lib/contrib-store.js` — reads the curated data from the deployed files and the contributions from a D1 database
@@ -134,10 +170,12 @@ check (same title + date), 20 additions an hour and 60 a day per IP (hashed), 30
 
 Measured 2026-11-13 with Claude Code headless against the live server; details in `test/mcp-eval/RESULTS.md`.
 
-- Protocol conformance (`node test/mcp-conformance.mjs`): **38/38**
-- Task success: **11/11** (9 normal tasks + 2 that start from deliberately broken input)
+- Protocol conformance (`node test/mcp-conformance.mjs`): **53/53** (MCP, REST, `/openapi.json`, `/llms.txt`, admin)
+- Task success: **12/12** (9 normal tasks + 2 that start from deliberately broken input + 1 over plain HTTP)
+- Plain HTTP, no MCP (agent given only the `/llms.txt` URL and `curl`): **1/1** — read the guide, checked for a
+  duplicate, added 「废五铢钱，始铸开元通宝」 with the first POST, live on the map; 97 s
 - First-try valid `add_*` call: **5/5** on the normal tasks
 - Error-message recovery: **2/2** — each broken call fixed in one retry from the per-field errors
 - MCP tool calls per task: **3.7** (normal), 4 (recovery)
 - Wall time: median **52 s** a task; reads ~17 s, a 3-回 说书 ~3.5 min
-- Visible on the live site: **7/7** additions, within seconds, no deploy
+- Visible on the live site: **8/8** additions, within seconds, no deploy

@@ -6,11 +6,13 @@ WebFetch/WebSearch allowed). Runner: `node test/mcp-eval/run.mjs` (tasks in `tas
 
 ## Protocol conformance — `node test/mcp-conformance.mjs`
 
-38/38 checks pass against the live site: initialize + version negotiation, notifications → 202, GET → 405, batches,
+53/53 checks pass against the live site: initialize + version negotiation, notifications → 202, GET → 405, batches,
 unknown method / tool errors, `tools/list` schemas, every read tool, `add_*` with bad input (one error per field),
-add → visible in `/api/contrib` → duplicate rejected → admin hide → gone → admin delete.
+add → visible in `/api/contrib` → duplicate rejected → admin hide → gone → admin delete; the REST twin (list/get with
+query coercion, 404/405/400/413 answers, per-field errors, POST → 201 → visible → delete), `/openapi.json` covering every
+tool, `/llms.txt`.
 
-## Agent eval — 11 tasks
+## Agent eval — 12 tasks
 
 Main set (9 tasks: 4 read, 3 add event/poem, 1 add 说书, 1 browse-then-add):
 
@@ -30,6 +32,16 @@ source, 《》 in a poem title, swapped lon/lat):
 - Visible on the live site: **2/2**
 - Cost: $0.44
 
-Combined: 11/11 tasks, 7/7 additions live within seconds, no deploy. Live-map check in Chrome: the 赵州桥 event card,
+Plain-HTTP set (1 task, `transport: http`: no MCP server, only `curl` + WebFetch/WebSearch, prompt gives just the
+`/llms.txt` URL — standing in for Grok / a personal bot):
+
+- Task success: **1/1** — read `/llms.txt`, searched `/api/events` for duplicates, read 《旧唐书》《资治通鉴》 on
+  wikisource, added 「废五铢钱，始铸开元通宝」 (0621-08-04, changan, 3 sources)
+- First POST that reached the server: **valid (1/1)**. Four earlier attempts never reached it — the eval sandbox
+  refused file writes and Python had no SSL certificates; the scorer counts only POSTs the API answered.
+- 8 calls to the site, 16 tool calls in all; wall time 97 s; cost $0.47
+- Visible: on the map with the 社区补充 badge (checked in Chrome), then deleted
+
+Combined: 12/12 tasks, 8/8 additions live within seconds, no deploy. Live-map check in Chrome: the 赵州桥 event card,
 the 《望庐山瀑布》 poem card (both with the 社区补充 badge via `?ev=`), and the 白江口 说书 in the 书目 list and
 `shuoshu-text.html?c=`. All test rows were deleted afterwards.

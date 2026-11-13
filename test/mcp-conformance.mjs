@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Raw-HTTP conformance check for the /mcp endpoint (MCP Streamable HTTP, stateless JSON) plus /api/contrib and /api/admin.
+// Raw-HTTP conformance check for the /mcp endpoint (MCP Streamable HTTP, stateless JSON), its REST twin (/api/events…,
+// /openapi.json, /llms.txt), /api/contrib and /api/admin.
 //   node test/mcp-conformance.mjs [base]            base defaults to https://shanhejian.pages.dev
 //   ADMIN_KEY=… node test/mcp-conformance.mjs       also runs the write round trip (add → visible → hide → delete)
 // Prints one line per check and a JSON summary; exit 1 if any check fails.
@@ -75,6 +76,33 @@ check('POST /api/admin without key → 401', g.status === 401);
 g = await fetch(BASE + '/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer wrong' }, body: '{"action":"list"}' });
 check('POST /api/admin with a wrong key → 401', g.status === 401);
 
+// ---- the plain-HTTP twin (lib/rest.js), /openapi.json, /llms.txt ----
+const rest = async (path, opt = {}) => { const x = await fetch(BASE + path, opt); const t = await x.text(); let j = null; try { j = JSON.parse(t); } catch {} return { status: x.status, ct: x.headers.get('content-type') || '', t, j }; };
+const rpost = (path, body) => rest(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: typeof body === 'string' ? body : JSON.stringify(body) });
+r = await rest('/llms.txt');
+check('GET /llms.txt → text/plain guide naming the REST and MCP routes', r.status === 200 && r.ct.startsWith('text/plain') && ['/api/events', '/api/poems', '/api/shuoshu', '/mcp', '/openapi.json'].every(k => r.t.includes(k)));
+r = await rest('/openapi.json');
+const ops = Object.values(r.j?.paths || {}).flatMap(p => Object.values(p).map(o => o.operationId));
+check('GET /openapi.json → 3.1 spec with every tool as an operation', r.j?.openapi === '3.1.0' && tools.every(t => ops.some(o => o.startsWith(t.name))), ops.join(','));
+r = await rest('/api/events?from=640&to=650&kind=dip&limit=5');
+check('GET /api/events (query → integers) = list_events', r.status === 200 && r.j?.events?.length > 0 && r.j.events.every(e => e.kind === 'dip'), `${r.j?.total}`);
+r = await rest('/api/events/s641');
+check('GET /api/events/s641 = get_event', r.status === 200 && r.j?.evidence?.length > 0);
+r = await rest('/api/events/nope');
+check('GET /api/events/{unknown} → 404 with field message', r.status === 404 && /id: no event/.test(r.t));
+r = await rest('/api/places?near=108.9,34.3&limit=3');
+check('GET /api/places?near=lon,lat sorted by distance', r.status === 200 && r.j?.places?.[0]?.km <= r.j.places[2].km);
+r = await rest('/api/events?colour=red');
+check('GET with an unknown parameter → 400 naming it', r.status === 400 && /colour: unknown argument/.test(r.t));
+r = await rpost('/api/events', { title: 'x', date: '700', kind: 'zz', place: '长安', summary: 'x', evidence: [{ url: 'http://a' }] });
+check('POST /api/events invalid → 400, one message per wrong field', r.status === 400 && ['date:', 'kind:', 'place:', 'evidence[0].url'].every(k => (r.j?.errors || []).some(e => e.startsWith(k))), (r.j?.errors || []).length + ' errors');
+r = await rpost('/api/events', 'notjson');
+check('POST non-JSON → 400 body error', r.status === 400 && /body: not JSON/.test(r.t));
+r = await rpost('/api/places', {});
+check('POST to a read-only collection → 405', r.status === 405);
+r = await rest('/api/nope');
+check('unknown collection → 404 listing the right ones', r.status === 404 && /\/api\/events/.test(r.t));
+
 if (KEY) {
   const admin = body => fetch(BASE + '/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + KEY }, body: JSON.stringify(body) }).then(x => x.json());
   const ev = { title: '测试事件·协议检查' + Date.now().toString(36), date: '0700', kind: 'pol', summary: '协议一致性测试写入，随即删除。', place: 'changan',
@@ -93,6 +121,17 @@ if (KEY) {
   check('admin hide → gone from /api/contrib', a.ok && a.changed === 1 && !c.events.some(e => e.id === id));
   a = await admin({ action: 'delete', ids: [id] });
   check('admin delete → row removed', a.ok && a.changed === 1);
+  // the same round trip over plain HTTP
+  const rp = { ...ev, title: '测试事件·REST检查' + Date.now().toString(36) };
+  r = await rpost('/api/events', rp);
+  const rid = r.j?.id;
+  check('POST /api/events valid → 201, id, live url', r.status === 201 && rid && /\?ev=/.test(r.j.url), rid);
+  c = await fetch(BASE + '/api/contrib').then(x => x.json());
+  check('REST-added event is in /api/contrib at once', c.events.some(e => e.id === rid));
+  r = await rest('/api/events?source=community&q=' + encodeURIComponent('REST检查'));
+  check('GET /api/events?source=community finds it', (r.j?.events || []).some(e => e.id === rid));
+  a = await admin({ action: 'delete', ids: [rid] });
+  check('admin delete REST row', a.ok && a.changed === 1);
 }
 
 const passed = results.filter(x => x.ok).length;
