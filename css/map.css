@@ -417,3 +417,6 @@ body.pmode #who{max-width:min(420px,calc(100vw - 20px))}
 #ct.on{display:block}
 #ct a{color:#8a2a1e;text-decoration:none}
 body.pmode #ctb{display:none}
+/* community contributions (/mcp → D1): a small tag on the map card and a note on the evidence sheet */
+.cmb{display:inline-block;margin-left:6px;padding:0 5px;font-size:10px;line-height:15px;border-radius:3px;background:#3f7a5c;color:#fff;vertical-align:1px;letter-spacing:1px}
+#wikiOv .wcom{font-size:12px;line-height:1.5;color:#2f5a44;background:rgba(63,122,92,.1);border-left:3px solid #3f7a5c;padding:6px 10px;margin:0 0 10px;border-radius:0 3px 3px 0}

@@ -1,0 +1,29 @@
+# Nightly snapshot of the community contributions (the D1 store behind /mcp) into the repo: GET /api/contrib →
+# data/contrib-d1.json, committed only when it changed. The live site reads /api/contrib directly; this copy keeps the
+# contributions in git history and serves as the fallback when the API is unreachable. Only GITHUB_TOKEN.
+name: contrib-export
+on:
+  schedule:
+    - cron: '17 16 * * *'   # 03:17 Sydney (AEDT)
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: contrib-export
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch /api/contrib
+        run: |
+          curl -fsS --retry 3 --max-time 60 https://shanhejian.pages.dev/api/contrib -o /tmp/contrib.json
+          node .github/scripts/contrib-export.mjs /tmp/contrib.json data/contrib-d1.json
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data/contrib-d1.json; then echo "no change"; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898099+github-actions[bot]@users.noreply.github.com'
+          git add data/contrib-d1.json
+          git commit -m "contrib: nightly snapshot of community contributions"
+          git push

@@ -27,6 +27,10 @@ header p{font-size:14px;color:#f3ead699;margin-top:6px;line-height:1.6}
 .st .dis b{color:#b3261b;font-weight:normal;margin-right:4px}
 .st .meta{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:#f0c27acc;margin-top:8px}
 .st .go{float:right;color:#ff8f6b;font-size:15px}
+h3.cmh{font-weight:normal;font-size:20px;letter-spacing:4px;text-align:center;margin:22px 0 2px}
+p.cmn{font-size:12px;color:#f3ead680;text-align:center;margin-bottom:12px}
+.st.cm .pic{height:60px;background:linear-gradient(135deg,#2f4a3c,#1d2a22)}
+.st.cm .pic .tag{position:absolute;right:10px;top:8px;z-index:1;background:#3f7a5c;color:#fff;font-size:12px;padding:2px 8px;border-radius:3px}
 footer{font-size:12px;color:#f3ead666;text-align:center;line-height:1.7;margin-top:10px}
 </style></head><body>
 <header><h1>说书</h1><p>几段历史，评书讲法。讲到要紧处停下来问你；<br>每段都有一处「史书打架」，看你信边个。</p></header>
@@ -34,12 +38,22 @@ footer{font-size:12px;color:#f3ead666;text-align:center;line-height:1.7;margin-t
 <footer>普通话配音为 Edge 神经语音（非真人）· 图片均为 Wikimedia Commons 公有领域 / CC</footer>
 <script>
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-fetch('data/shuoshu/stories.json').then(r=>r.json()).then(L=>{
-  document.getElementById('list').innerHTML=L.map(s=>`<a class="st" href="shuoshu.html?s=${esc(s.id)}">
+const card=s=>`<a class="st" href="shuoshu.html?s=${esc(s.id)}">
     <div class="pic" style="background-image:url('data/shuoshu/${esc(s.id)}/img/${esc(s.cover)}')"><span class="yr">${esc(s.year)}</span></div>
     <div class="body"><h2>${esc(s.title)}</h2><div class="era">${esc(s.era)}</div><div class="bl">${esc(s.blurb)}</div>
     <div class="dis"><b>你信哪个？</b>${esc(s.dispute)}</div>
-    <div class="meta"><span>${s.hui} 段</span><span>${s.questions} 道题</span><span>${s.asks} 个问题可问</span><span>约 ${s.mins} 分钟</span><span class="go">开书 ▸</span></div></div></a>`).join('');
+    <div class="meta"><span>${s.hui} 段</span><span>${s.questions} 道题</span><span>${s.asks} 个问题可问</span><span>约 ${s.mins} 分钟</span><span class="go">开书 ▸</span></div></div></a>`;
+// community tellings (text only), added by readers' AI agents through /mcp add_shuoshu: live from /api/contrib, else the nightly
+// snapshot data/contrib-d1.json; each opens shuoshu-text.html?c=<id>
+const cCard=s=>`<a class="st cm" href="shuoshu-text.html?c=${esc(s.id)}">
+    <div class="pic"><span class="yr">${esc(s.year)}</span><span class="tag">社区 · 文字版</span></div>
+    <div class="body"><h2>${esc(s.title)}</h2><div class="era">${esc(s.era)}</div><div class="bl">${esc(s.blurb)}</div>
+    <div class="dis"><b>你信哪个？</b>${esc(s.dispute)}</div>
+    <div class="meta"><span>${(s.hui||[]).length} 回</span><span>约 ${Math.max(1,Math.round((s.hui||[]).reduce((n,h)=>n+h.text.length,0)/300))} 分钟读完</span><span class="go">读书 ▸</span></div></div></a>`;
+const jget=u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
+Promise.all([jget('data/shuoshu/stories.json'),jget('/api/contrib'),jget('data/contrib-d1.json')]).then(([L,live,snap])=>{
+  const C=((live||snap||{}).shuoshu||[]).slice().sort((a,b)=>a.year-b.year);
+  document.getElementById('list').innerHTML=(L||[]).map(card).join('')+(C.length?`<h3 class="cmh">读者补充 · 社区说书</h3><p class="cmn">由读者或 AI 助手经 MCP 添加，未经编者审核。</p>`+C.map(cCard).join(''):'');
 });
 </script>
 </body></html>

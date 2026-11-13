@@ -523,7 +523,11 @@ async function reciteStill(r){$('chips').style.opacity=0;layPaper();tone();$('pa
   line=null}
 // ---- v131 embed: build a show for any poem on the map, and the short show the map's 吟 plays ----
 async function genS(id){const [a,b]=await Promise.all(['data/poems.json','data/person-poems.json'].map(u=>fetch(u).then(x=>x.ok?x.json():null).catch(()=>null)));
-  const ev=((a&&a.events)||[]).find(x=>x.id===id)||((b&&b.poems)||[]).find(x=>x.id===id);if(!ev)return null;
+  let ev=((a&&a.events)||[]).find(x=>x.id===id)||((b&&b.poems)||[]).find(x=>x.id===id);
+  // a community poem (id cp…, added through /mcp): from the live /api/contrib, else its nightly snapshot data/contrib-d1.json
+  if(!ev&&/^cp/.test(id))for(const u of ['/api/contrib','data/contrib-d1.json']){const c=await fetch(u).then(x=>x.ok?x.json():null).catch(()=>null);
+    const e=c&&(c.poems||[]).find(x=>x.id===id);if(e){ev={...e,placeName:e.placeName||((c.places||{})[e.place]||{}).name};break}}
+  if(!ev)return null;
   const p=ev.poem,und=b&&b._meta&&b._meta.undated&&b._meta.undated[id],y=+ev.date.slice(0,4);
   // one column per 句; a long 歌行 (more than 10 句 of ≤7 characters) takes a couplet a column so the brush stays legible on a phone
   let cl=p.text.join('').replace(/([，。！？；])/g,'$1\n').split('\n').map(t=>t.trim()).filter(t=>t.replace(/[，。！？；、：“”‘’「」《》—…\s]/g,''));

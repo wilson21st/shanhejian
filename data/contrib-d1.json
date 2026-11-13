@@ -1,0 +1,7 @@
+{
+ "note": "Snapshot of https://shanhejian.pages.dev/api/contrib (community contributions added through /mcp). Written nightly by .github/workflows/contrib-export.yml; the site reads the live API first.",
+ "places": {},
+ "events": [],
+ "poems": [],
+ "shuoshu": []
+}

@@ -16,7 +16,15 @@ import { dist, fly, setDist, setFOCUS, setTx, setTz, setYaw, setYawT, tx, tz, ya
    EVS/SCROLL_IDS entries from world.json; era.json's own 玄武门之变 headline (s626xwm) is dropped so the two don't clash. */
 export const [WD,ERA,POEMS,ERAIMG]=await Promise.all([fetch('data/world.json'),fetch('data/era.json'),fetch('data/poems.json'),fetch('data/era-images/manifest.json')].map(r=>r.then(x=>x.json())));
 // contributed events (data/contrib-events.json, era.json shape; merged from event-proposal issues by .github/workflows/event-proposal.yml)
-export const CONTRIB=await fetch('data/contrib-events.json').then(r=>r.ok?r.json():null).catch(()=>null)||{places:{},events:[]};
+// plus the community layer: /api/contrib (live from the D1 store behind /mcp, so an agent's addition shows with no deploy) and
+// data/contrib-d1.json (its nightly snapshot, used when the API is down or on the local server). Poems join as events with .poem.
+const jget=u=>fetch(u).then(r=>r.ok?r.json():null).catch(()=>null);
+export const CONTRIB=await Promise.all(['data/contrib-events.json','data/contrib-d1.json','/api/contrib'].map(jget)).then(([gh,snap,live])=>{
+  const c={places:{},events:[]},seen=new Map(),com=live||snap;
+  for(const x of [gh,com])if(x)Object.assign(c.places,x.places||{});
+  for(const e of (gh&&gh.events)||[])seen.set(e.id,e);
+  if(com)for(const e of [...(com.events||[]),...(com.poems||[])])seen.set(e.id,{...e,contrib:true,community:true});
+  c.events=[...seen.values()];return c});
 export const PL={...CONTRIB.places,...POEMS.places,...ERA.places,...WD.places}; // place lookup: world.json wins on id clash (e.g. changan), then era.json, then poems.json
 const ERAIMG_BY_KEY=new Map(ERAIMG.map(m=>[m.eventId+'|'+m.evidenceIndex,m]));
 const ordD=d=>{const [y,m,dd]=d.split('-').map(Number);return y*400+(m||6)*32+(dd||15)};
@@ -159,7 +167,7 @@ const POEM_V='139',VOICED=new Set(Object.keys(POEM_AUDIO));
 fetch('data/design-poem/yin-map.json').then(r=>r.ok?r.json():null).then(j=>{if(j)for(const k of Object.keys(j))VOICED.add(k)}).catch(()=>{});
 const poemUrl=id=>`design-poem.html?id=${id}&embed=1&v=${POEM_V}`;
 export let PPO=null;fetch('data/person-poems.json').then(r=>r.ok?r.json():null).then(j=>{if(j&&j.poems)PPO=j}).catch(()=>{});
-export const poemById=id=>POEMS.events.find(x=>x.id===id)||(PPO&&PPO.poems.find(x=>x.id===id))||null;
+export const poemById=id=>POEMS.events.find(x=>x.id===id)||CONTRIB.events.find(x=>x.id===id&&x.poem)||(PPO&&PPO.poems.find(x=>x.id===id))||null;
 const poemPlace=ev=>String(ev.placeName||(PL[ev.place]||{}).name||'').replace(/（[^）]*）/g,'');
 const poemLL=ev=>ev.ll||(PL[ev.place]||{}).ll;
 // the year on a person's poem card: 「约」 for a usual-but-unsure 系年, 「年代不详」 where nobody knows
@@ -207,9 +215,9 @@ export function showEvent(s){const prevI=TL.i;queueMicrotask(()=>{try{storyStep(
       const k=WD.kinds[e.kind]||WD.kinds.pol,ev=e._era,place=placeAt(e.place,e.date),sp=SCROLL_PAGES[ev.id];
       const bs=BAT[ev.id]?'<br>'+batSides(BAT[ev.id],ev.date):'';
       if(sp)scrollCard(ll,e.kind,spTitle(sp,ev),`${+ev.date.slice(0,4)}年 · ${nianhao(ev.date).label} · ${place}`,()=>openStory(sp.story,PL[sp.place].ll),ev,s);
-      else if(ev.poem){const L=placePop('pop wiki poem',ll,poemCard(ev,place)+yinBtn(ev),()=>openPoem(ev.id,ll),1e9);L.e.style.setProperty('--kc','#a87b14');L.step=s} // (2026-11-07, Wilson: "唔中意嗰个红色…同战争冲突") — a poem's lead, pin and 诗 seal wear the 文化 ochre
-      else if(ev.importance===3){const L=placePop('pop big wiki',ll,`<span class="kh">${kAnim(e.kind,'#ffe9b0')}<span class="kd" style="background:${k.color}">${k.glyph}</span></span><b>${ev.title}</b><br><small>${+ev.date.slice(0,4)}年 · ${nianhao(ev.date).label} · ${place}</small>${bs}${bs?'':'<br>'}<small>点击查看证据</small>`,()=>openWiki(ev),1e9);L.e.style.setProperty('--kc',k.color);L.step=s}
-      else{const L=placePop('pop wiki',ll,`<span class="kh">${kAnim(e.kind,k.color)}<span class="kd" style="background:${k.color}">${k.glyph}</span></span><b style="color:${k.color}">${place}</b> ${ev.title}${bs}`,()=>openWiki(ev),1e9);L.e.style.borderColor=k.color;L.e.style.setProperty('--kc',k.color);L.step=s}
+      else if(ev.poem){const L=placePop('pop wiki poem',ll,poemCard(ev,place)+yinBtn(ev)+cmB(ev),()=>openPoem(ev.id,ll),1e9);L.e.style.setProperty('--kc','#a87b14');L.step=s} // (2026-11-07, Wilson: "唔中意嗰个红色…同战争冲突") — a poem's lead, pin and 诗 seal wear the 文化 ochre
+      else if(ev.importance===3){const L=placePop('pop big wiki',ll,`<span class="kh">${kAnim(e.kind,'#ffe9b0')}<span class="kd" style="background:${k.color}">${k.glyph}</span></span><b>${ev.title}</b><br><small>${+ev.date.slice(0,4)}年 · ${nianhao(ev.date).label} · ${place}</small>${bs}${bs?'':'<br>'}<small>点击查看证据</small>${cmB(ev)}`,()=>openWiki(ev),1e9);L.e.style.setProperty('--kc',k.color);L.step=s}
+      else{const L=placePop('pop wiki',ll,`<span class="kh">${kAnim(e.kind,k.color)}<span class="kd" style="background:${k.color}">${k.glyph}</span></span><b style="color:${k.color}">${place}</b> ${ev.title}${bs}${cmB(ev)}`,()=>openWiki(ev),1e9);L.e.style.borderColor=k.color;L.e.style.setProperty('--kc',k.color);L.step=s}
     }else{const k=WD.kinds[e.kind]||WD.kinds.pol;const L=placePop('pop',ll,`<span class="kh">${kAnim(e.kind,k.color)}<span class="kd" style="background:${k.color}">${k.glyph}</span></span><b style="color:${k.color}">${(PL[e.place]||{}).name||''}</b> ${e.title}`,null,e.kind==='mil'?4200:3400);L.e.style.borderColor=k.color;L.e.style.setProperty('--kc',k.color);if(e.kind==='mil')L.e.classList.add('war')}}
 }
 const KA={mil:'<g class="s1"><path d="M5 19L17 7M15 5l4 4M7 15l2 2"/></g><g class="s2"><path d="M19 19L7 7M5 9l4-4M17 15l-2 2"/></g><circle class="sp" cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/>',
@@ -226,6 +234,8 @@ export const kAnim=(kind,col)=>KA[kind]?`<span class="ka ka-${kind}" style="colo
 const EV_TYPE={text:'正史',archaeology:'考古',inscription:'碑刻',artifact:'文物',art:'画作',foreign:'异域',modern:'今人研究'};
 const EV_STANCE={supports:['印证','#4f7a3a'],complicates:['复杂化','#a87b14'],contradicts:['相抵触','#8e2a20']};
 const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+// community contributions (/mcp → D1) wear a small 社区 tag on their map card
+const cmB=ev=>ev.community?'<span class="cmb">社区补充</span>':'';
 export function openWiki(ev){stopTL();const pp=PERSON.active,was=PERSON.playing;pPause();document.getElementById('wikiOv')?.remove();const k=WD.kinds[ev.kind]||WD.kinds.pol,ov=document.createElement('div');ov.id='wikiOv';
   const place=ev.placeName||(PL[ev.place]||{}).name||'',late=+ev.date.slice(0,4)>763;
   ov.innerHTML=`<div class="wsheet"><div class="whead"><span class="kd" style="background:${k.color}">${k.glyph}</span>
@@ -236,6 +246,7 @@ export function openWiki(ev){stopTL();const pp=PERSON.active,was=PERSON.playing;
     ${ev.poem?`<div class="wpoem"><div class="wpT">${esc(ev.poem.poet)} · 《${esc(ev.poem.title)}》<small>${esc(ev.poem.form||'')}${ev.poem.excerpt?' · 节选':''}</small></div>
       ${ev.poem.text.map(l=>`<p>${esc(l)}</p>`).join('')}<button class="wyin">吟 · ${VOICED.has(ev.id)?'有声朗读':'毛笔书写（无录音）'}</button></div>`:''}
     ${ev.dateNote?`<p class="wdeb"><b>系年${{high:'',medium:'（通行说法，未必确定）',low:'（年代不详）'}[ev.dateConf]||''}：</b>${esc(ev.dateNote)}</p>`:''}
+    ${ev.community?`<p class="wcom">社区补充 · 由读者或 AI 助手经 MCP 添加${ev.addedAt?'（'+esc(ev.addedAt.slice(0,10))+'）':''}，未经编者审核，请看证据自行判断</p>`:''}
     <p class="wsum">${esc(ev.summary)}</p>
     ${ev.why?`<p class="wwhy"><b>为何重要：</b>${esc(ev.why)}</p>`:''}
     ${ev.debate?`<p class="wdeb"><b>尚有争议：</b>${esc(ev.debate)}</p>`:''}
@@ -275,6 +286,9 @@ setTld(EVS[0].date);updateTowns(EVS[0].date);
  document.getElementById('ctb').onclick=()=>{lg.classList.remove('on');ct.classList.toggle('on')};}
 {let b=null;try{b=JSON.parse(sessionStorage.getItem('hs.back'));sessionStorage.removeItem('hs.back')}catch(e){}
  if(b&&STEPS[b.s]!==undefined){setTx(b.tx);setTz(b.tz);setDist(b.dist);setYawT(setYaw(b.yaw||0));showEvent(b.s);U.uSeason.value.set(...seaT)}}
+// ?ev=<id>: open on one event (the url /mcp add_event hands back), flown to its place
+{const id=new URLSearchParams(location.search).get('ev'),i=id?EVS.findIndex(x=>x.id===id):-1,s=i<0?-1:STEPS.indexOf(i);
+ if(s>=0){showEvent(s);const ll=llOf(EVS[i].place);if(ll)fly(MX(ll[0]),MZ(ll[1]),Math.min(dist,800),null)}}
 // Safari's back button can restore this page from bfcache with the fade still opaque
 addEventListener('pageshow',e=>{if(e.persisted)document.getElementById('fade').style.opacity=0});
 
