@@ -1,0 +1,4 @@
+/* LXGW WenKai 1.7.0 (lxgw-wenkai-webfont, SIL OFL 1.1, see LICENSE), vendored from jsdelivr so the pages work offline.
+   Only the two faces the pages use: regular (400) and bold (700); the Mono and Light faces of the CDN style.css are left out. */
+@import url('./lxgwwenkai-regular.css');
+@import url('./lxgwwenkai-bold.css');

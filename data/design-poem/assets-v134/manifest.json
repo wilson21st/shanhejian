@@ -1,0 +1,4052 @@
+{
+ "version": "v134-assets",
+ "generated": "2026-11-11",
+ "notes": {
+  "boxes": "normalised [x,y,w,h], top-left origin, relative to img/<id>.jpg",
+  "kb": "kb_start = widest 390:844 portrait window containing focus; kb_end = 1.35x tighter around focus",
+  "bgm": "<id>.m4a = 3s fade-in / 5s fade-out bed; <id>.loop.m4a = seamless loop (tail crossfaded into head), both ~-23 LUFS, AAC 96k",
+  "licences": "PD / CC0 / CC BY only. CC BY beds need on-screen or credits attribution (see CREDITS.md). No CC BY-SA used."
+ },
+ "bgm": {
+  "liushui": {
+   "file": "bgm/liushui.m4a",
+   "loop": "bgm/liushui.loop.m4a",
+   "dur": 150.0,
+   "loop_dur": 144.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "流动、开阔、行舟 (guqin《流水》)",
+   "inst": "guqin",
+   "title": "File:Liu Shui.ogg",
+   "author": "Charlie Huang (User:CharlieHuang, Wikimedia Commons)",
+   "licence": "CC BY 2.5",
+   "page": "https://commons.wikimedia.org/wiki/File:Liu_Shui.ogg",
+   "source": "Wikimedia Commons"
+  },
+  "pingsha": {
+   "file": "bgm/pingsha.m4a",
+   "loop": "bgm/pingsha.loop.m4a",
+   "dur": 150.0,
+   "loop_dur": 144.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "舒缓、辽远、秋雁 (guqin《平沙落雁》, ~1 note/s)",
+   "inst": "guqin",
+   "title": "File:Pingsha Luoyan.ogg",
+   "author": "Charlie Huang (User:CharlieHuang, Wikimedia Commons)",
+   "licence": "CC BY 2.5",
+   "page": "https://commons.wikimedia.org/wiki/File:Pingsha_Luoyan.ogg",
+   "source": "Wikimedia Commons"
+  },
+  "kongziduyi": {
+   "file": "bgm/kongziduyi.m4a",
+   "loop": "bgm/kongziduyi.loop.m4a",
+   "dur": 150.0,
+   "loop_dur": 144.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "肃穆、思古、庄重 (guqin《孔子读易》)",
+   "inst": "guqin",
+   "title": "File:Kongzi Duyi.ogg",
+   "author": "Charlie Huang (User:CharlieHuang, Wikimedia Commons)",
+   "licence": "CC BY 2.5",
+   "page": "https://commons.wikimedia.org/wiki/File:Kongzi_Duyi.ogg",
+   "source": "Wikimedia Commons"
+  },
+  "jiukuang": {
+   "file": "bgm/jiukuang.m4a",
+   "loop": "bgm/jiukuang.loop.m4a",
+   "dur": 150.0,
+   "loop_dur": 144.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "醉、狂放、有节拍 (guqin《酒狂》)",
+   "inst": "guqin",
+   "title": "File:Jiu Kuang.ogg",
+   "author": "Charlie Huang (User:CharlieHuang, Wikimedia Commons)",
+   "licence": "CC BY 2.5",
+   "page": "https://commons.wikimedia.org/wiki/File:Jiu_Kuang.ogg",
+   "source": "Wikimedia Commons"
+  },
+  "peilan": {
+   "file": "bgm/peilan.m4a",
+   "loop": "bgm/peilan.loop.m4a",
+   "dur": 150.0,
+   "loop_dur": 144.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "清雅、安静、低沉 (guqin《佩兰》, silk strings)",
+   "inst": "guqin",
+   "title": "File:Pei Lan.ogg",
+   "author": "Charlie Huang (User:CharlieHuang, Wikimedia Commons)",
+   "licence": "CC BY 2.5",
+   "page": "https://commons.wikimedia.org/wiki/File:Pei_Lan.ogg",
+   "source": "Wikimedia Commons"
+  },
+  "qiufengci": {
+   "file": "bgm/qiufengci.m4a",
+   "loop": "bgm/qiufengci.loop.m4a",
+   "dur": 104.7,
+   "loop_dur": 98.7,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "秋思、相思 (guqin + 人声唱词)",
+   "inst": "guqin+voice",
+   "title": "File:Qiu Feng Ci.ogg",
+   "author": "Charlie Huang (User:CharlieHuang, Wikimedia Commons)",
+   "licence": "CC BY 2.5",
+   "page": "https://commons.wikimedia.org/wiki/File:Qiu_Feng_Ci.ogg",
+   "source": "Wikimedia Commons",
+   "warn": "has sung vocals - may clash with narration; reserve, not mapped"
+  },
+  "shenyang": {
+   "file": "bgm/shenyang.m4a",
+   "loop": "bgm/shenyang.loop.m4a",
+   "dur": 150.0,
+   "loop_dur": 144.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "明快、民乐风、热闹 (Kevin MacLeod)",
+   "inst": "ensemble (synth)",
+   "title": "File:Shenyang (ISRC USUAN1600066).mp3",
+   "author": "Kevin MacLeod",
+   "licence": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Shenyang_(ISRC_USUAN1600066).mp3",
+   "source": "Wikimedia Commons"
+  },
+  "cattails": {
+   "file": "bgm/cattails.m4a",
+   "loop": "bgm/cattails.loop.m4a",
+   "dur": 148.9,
+   "loop_dur": 142.9,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "平静、夜、氛围 (Kevin MacLeod)",
+   "inst": "ambient (synth)",
+   "title": "File:Cattails (ISRC USUAN1100743).mp3",
+   "author": "Kevin MacLeod",
+   "licence": "CC BY 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Cattails_(ISRC_USUAN1100743).mp3",
+   "source": "Wikimedia Commons"
+  },
+  "karst": {
+   "file": "bgm/karst.m4a",
+   "loop": "bgm/karst.loop.m4a",
+   "dur": 108.3,
+   "loop_dur": 102.3,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "山水、空阔、稀疏 (guzheng + pads)",
+   "inst": "guzheng+synth",
+   "title": "Karst mountains",
+   "author": "neolein",
+   "licence": "CC0 1.0",
+   "page": "https://freesound.org/people/neolein/sounds/664200/",
+   "source": "Freesound"
+  },
+  "rain": {
+   "file": "bgm/rain.m4a",
+   "loop": "bgm/rain.loop.m4a",
+   "dur": 116.0,
+   "loop_dur": 110.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "雨、湿润、氛围 (笛子 loop + 雨林环境声)",
+   "inst": "dizi+ambience",
+   "title": "Chinese flute in rainforest2.wav",
+   "author": "Jim-Bretherick",
+   "licence": "CC0 1.0",
+   "page": "https://freesound.org/people/Jim-Bretherick/sounds/614022/",
+   "source": "Freesound"
+  },
+  "solemn": {
+   "file": "bgm/solemn.m4a",
+   "loop": "bgm/solemn.loop.m4a",
+   "dur": 154.1,
+   "loop_dur": 77.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "哀伤、低回 (Asian string loop with wind/water)",
+   "inst": "strings (synth)",
+   "title": "Solemn Asian String Melody Loop (Wind, Water, Wood)",
+   "author": "CVLTIV8R",
+   "licence": "CC0 1.0",
+   "page": "https://freesound.org/people/CVLTIV8R/sounds/840945/",
+   "source": "Freesound"
+  },
+  "guzheng": {
+   "file": "bgm/guzheng.m4a",
+   "loop": "bgm/guzheng.loop.m4a",
+   "dur": 156.1,
+   "loop_dur": 78.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "跳跃、急促、喜 (guzheng minor pentatonic, ~4 notes/s)",
+   "inst": "guzheng (synth)",
+   "title": "guzheng solo",
+   "author": "neolein",
+   "licence": "CC0 1.0",
+   "page": "https://freesound.org/people/neolein/sounds/472707/",
+   "source": "Freesound"
+  },
+  "blossom": {
+   "file": "bgm/blossom.m4a",
+   "loop": "bgm/blossom.loop.m4a",
+   "dur": 106.0,
+   "loop_dur": 53.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "春、梦、轻柔 (yangqin + guzheng)",
+   "inst": "yangqin+guzheng (synth)",
+   "title": "blossom valley in paradise",
+   "author": "neolein",
+   "licence": "CC0 1.0",
+   "page": "https://freesound.org/people/neolein/sounds/521367/",
+   "source": "Freesound"
+  },
+  "erhu_street": {
+   "file": "bgm/erhu_street.m4a",
+   "loop": "bgm/erhu_street.loop.m4a",
+   "dur": 148.0,
+   "loop_dur": 74.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "悲、苍凉 (北京街头二胡实录, 带街声)",
+   "inst": "erhu (field recording)",
+   "title": "Chinese Violin - The Enchanted Sound of the Erhu",
+   "author": "Lenguaverde",
+   "licence": "CC0 1.0",
+   "page": "https://freesound.org/people/Lenguaverde/sounds/423496/",
+   "source": "Freesound",
+   "warn": "street noise audible in background"
+  },
+  "xiao": {
+   "file": "bgm/xiao.m4a",
+   "loop": "bgm/xiao.loop.m4a",
+   "dur": 142.0,
+   "loop_dur": 71.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "孤寂、夜、思乡 (箫独奏)",
+   "inst": "xiao",
+   "title": "xiao-2.wav",
+   "author": "xserra",
+   "licence": "CC BY 4.0",
+   "page": "https://freesound.org/people/xserra/sounds/161911/",
+   "source": "Freesound"
+  },
+  "guzheng_recital": {
+   "file": "bgm/guzheng_recital.m4a",
+   "loop": "bgm/guzheng_recital.loop.m4a",
+   "dur": 150.0,
+   "loop_dur": 144.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "明亮、开阔、昂扬 (中央音乐学院古筝独奏实录)",
+   "inst": "guzheng (live)",
+   "title": "GuZheng.wav",
+   "author": "xserra",
+   "licence": "CC BY 4.0",
+   "page": "https://freesound.org/people/xserra/sounds/162088/",
+   "source": "Freesound"
+  },
+  "drums": {
+   "file": "bgm/drums.m4a",
+   "loop": "bgm/drums.loop.m4a",
+   "dur": 150.0,
+   "loop_dur": 144.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "边塞、行军、鼓声 (西安南门城墙鼓乐实录)",
+   "inst": "drums (field recording)",
+   "title": "Drums of Xian, China",
+   "author": "RTB45",
+   "licence": "CC BY 4.0",
+   "page": "https://freesound.org/people/RTB45/sounds/234922/",
+   "source": "Freesound",
+   "warn": "outdoor live recording, crowd ambience"
+  },
+  "meihua": {
+   "file": "bgm/meihua.m4a",
+   "loop": "bgm/meihua.loop.m4a",
+   "dur": 150.0,
+   "loop_dur": 144.0,
+   "lufs": -23,
+   "codec": "AAC 96k m4a",
+   "mood": "清冷、冬梅、孤高 (guqin《梅花三弄》)",
+   "inst": "guqin",
+   "title": "Guqin-song.wav",
+   "author": "RafaelCaro",
+   "licence": "CC BY 4.0",
+   "page": "https://freesound.org/people/RafaelCaro/sounds/176265/",
+   "source": "Freesound"
+  }
+ },
+ "images": {
+  "hhl_xy": {
+   "file": "img/hhl_xy.jpg",
+   "w": 1692,
+   "h": 1287,
+   "zh": "夏永《黄鹤楼图》（元）",
+   "title": "Xia Yong - Huang He Lou.jpg",
+   "author": "Xia Yong",
+   "date": "Yuan Dynasty",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Xia_Yong_-_Huang_He_Lou.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.6221,
+    0.3857,
+    0.3203,
+    0.4937
+   ],
+   "kb_start": [
+    0.6065,
+    0.0,
+    0.3515,
+    1.0
+   ],
+   "kb_end": [
+    0.6521,
+    0.2593,
+    0.2604,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "midautumn": {
+   "file": "img/midautumn.jpg",
+   "w": 1799,
+   "h": 2400,
+   "zh": "佚名《中秋夜景》（清，1686，大都会）",
+   "title": "Landscape: Eve of Mid-autumn",
+   "author": "Unidentified artist",
+   "date": "dated 1686",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/49153",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.5405,
+    0.2324,
+    0.3813,
+    0.5342
+   ],
+   "kb_start": [
+    0.3835,
+    0.0,
+    0.6165,
+    1.0
+   ],
+   "kb_end": [
+    0.5028,
+    0.1291,
+    0.4566,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "yyl_xy": {
+   "file": "img/yyl_xy.jpg",
+   "w": 1019,
+   "h": 1024,
+   "zh": "夏永《岳阳楼图》（元）",
+   "title": "XiaYong-YueYangLou.jpg",
+   "author": "Xia Yong (夏永)",
+   "date": "Yuan Dynasty (1271 to 1368)",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:XiaYong-YueYangLou.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.2678,
+    0.0,
+    0.4644,
+    1.0
+   ],
+   "kb_end": [
+    0.328,
+    0.1296,
+    0.344,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "yyl_lv": {
+   "file": "img/yyl_lv.jpg",
+   "w": 2400,
+   "h": 2343,
+   "zh": "佚名《吕洞宾过岳阳楼图》团扇（南宋，大都会）",
+   "title": "南宋 佚名-呂洞賓過岳陽樓圖 團扇-The Immortal Lü Dongbin Appearing over the Yueyang Pavilion MET DP153513.jpg",
+   "author": "Unidentified artist佚名",
+   "date": "late 13th–early 14th century",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E5%AE%8B_%E4%BD%9A%E5%90%8D-%E5%91%82%E6%B4%9E%E8%B3%93%E9%81%8E%E5%B2%B3%E9%99%BD%E6%A8%93%E5%9C%96_%E5%9C%98%E6%89%87-The_Immortal_L%C3%BC_Dongbin_Appearing_over_the_Yueyang_Pavilion_MET_DP153513.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0324,
+    0.1906,
+    0.7332,
+    0.7025
+   ],
+   "kb_start": [
+    0.1734,
+    0.0,
+    0.4511,
+    1.0
+   ],
+   "kb_end": [
+    0.2319,
+    0.1715,
+    0.3342,
+    0.7407
+   ],
+   "focal_method": "vision-saliency",
+   "needs_review": true
+  },
+  "dongting_xg": {
+   "file": "img/dongting_xg.jpg",
+   "w": 600,
+   "h": 1043,
+   "zh": "夏圭（传）《洞庭秋月》（南宋）",
+   "title": "Xia Gui - Autumn Moonlight on Dongting Lake.jpg",
+   "author": "Attributed to Xia Gui",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Xia_Gui_-_Autumn_Moonlight_on_Dongting_Lake.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.0984,
+    0.0,
+    0.8033,
+    1.0
+   ],
+   "kb_end": [
+    0.2025,
+    0.1296,
+    0.595,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "tengwang": {
+   "file": "img/tengwang.jpg",
+   "w": 692,
+   "h": 2400,
+   "zh": "黄应谌《滕王阁图》（清，1670）",
+   "title": "'Tengwang Pavilion' by Huang Yingchen, dated 1670, ink and color on silk.JPG",
+   "author": "Huang Yingchen",
+   "date": "dated 1670",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%27Tengwang_Pavilion%27_by_Huang_Yingchen,_dated_1670,_ink_and_color_on_silk.JPG",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.4609,
+    1.0,
+    0.5391
+   ],
+   "kb_start": [
+    0.0,
+    0.376,
+    1.0,
+    0.624
+   ],
+   "kb_end": [
+    0.1296,
+    0.4994,
+    0.7407,
+    0.4622
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "moon_pine": {
+   "file": "img/moon_pine.jpg",
+   "w": 2400,
+   "h": 2160,
+   "zh": "佚名仿马远《松阴玩月图》（南宋，大都会）",
+   "title": "南宋 佚名 倣馬遠 松陰玩月圖 冊頁-Viewing the Moon under a Pine Tree MET DP153498.jpg",
+   "author": "Ma Yuan",
+   "date": "early 13th centurydate QS:P571,+1250-00-00T00:00:00Z/7,P4241",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E5%AE%8B_%E4%BD%9A%E5%90%8D_%E5%80%A3%E9%A6%AC%E9%81%A0_%E6%9D%BE%E9%99%B0%E7%8E%A9%E6%9C%88%E5%9C%96_%E5%86%8A%E9%A0%81-Viewing_the_Moon_under_a_Pine_Tree_MET_DP153498.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.2921,
+    0.0,
+    0.4159,
+    1.0
+   ],
+   "kb_end": [
+    0.346,
+    0.1296,
+    0.3081,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "moon_drink": {
+   "file": "img/moon_drink.jpg",
+   "w": 2400,
+   "h": 2399,
+   "zh": "马远（传）《月下把杯》（南宋，克利夫兰）",
+   "title": "Clevelandart 1997.89.jpg",
+   "author": "Ma Yuan",
+   "date": "1189date QS:P571,+1189-00-00T00:00:00Z/9",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Clevelandart_1997.89.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.2691,
+    0.0,
+    0.4619,
+    1.0
+   ],
+   "kb_end": [
+    0.3289,
+    0.1296,
+    0.3421,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "moon_duiyue": {
+   "file": "img/moon_duiyue.jpg",
+   "w": 1263,
+   "h": 2400,
+   "zh": "马远（传）《对月图》（南宋，台北故宫）",
+   "title": "对月图轴.传.南宋.马远绘.台北故宫博物院藏.jpg",
+   "author": "Ma Yuan",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E5%AF%B9%E6%9C%88%E5%9B%BE%E8%BD%B4.%E4%BC%A0.%E5%8D%97%E5%AE%8B.%E9%A9%AC%E8%BF%9C%E7%BB%98.%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E8%97%8F.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.061,
+    0.0,
+    0.8781,
+    1.0
+   ],
+   "kb_end": [
+    0.1748,
+    0.1296,
+    0.6504,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "moon_linbu": {
+   "file": "img/moon_linbu.jpg",
+   "w": 1133,
+   "h": 2400,
+   "zh": "杜堇《林逋月下行吟》（明，克利夫兰）",
+   "title": "Du Jin - The Poet Lin Bu Wandering in the Moonlight - 1954.582 - Cleveland Museum of Art.tif",
+   "author": "Du Jin",
+   "date": "1460date QS:P571,+1460-00-00T00:00:00Z/9",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:Du_Jin_-_The_Poet_Lin_Bu_Wandering_in_the_Moonlight_-_1954.582_-_Cleveland_Museum_of_Art.tif",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.4626,
+    0.5574,
+    0.0802,
+    0.0802
+   ],
+   "kb_start": [
+    0.0133,
+    0.0,
+    0.9788,
+    1.0
+   ],
+   "kb_end": [
+    0.1402,
+    0.2271,
+    0.7251,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "wenji_chen": {
+   "file": "img/wenji_chen.jpg",
+   "w": 1754,
+   "h": 2400,
+   "zh": "陈居中《文姬归汉图》（南宋，台北故宫）",
+   "title": "Lady Wenji's Return to China, by Chen Juzhong.jpg",
+   "author": "Chen Juzhong 陳居中 (fl. 1195-1224)",
+   "date": "Song dynasty (960-1279)",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Lady_Wenji%27s_Return_to_China,_by_Chen_Juzhong.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.1839,
+    0.0,
+    0.6323,
+    1.0
+   ],
+   "kb_end": [
+    0.2658,
+    0.1296,
+    0.4683,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "wenji_liyao": {
+   "file": "img/wenji_liyao.jpg",
+   "w": 713,
+   "h": 2400,
+   "zh": "李耀《文姬归汉》（清，1766）",
+   "title": "Wenji Returning to China, by Li Yao, 1766.jpg",
+   "author": "Li Yao (active 1736–95)",
+   "date": "1766date QS:P571,+1766-00-00T00:00:00Z/9",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Wenji_Returning_to_China,_by_Li_Yao,_1766.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0216,
+    0,
+    0.2921,
+    0.5845
+   ],
+   "kb_start": [
+    0.0,
+    0.0,
+    1.0,
+    0.6429
+   ],
+   "kb_end": [
+    0.0,
+    0.0541,
+    0.7407,
+    0.4762
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "zhaojun": {
+   "file": "img/zhaojun.jpg",
+   "w": 2158,
+   "h": 1542,
+   "zh": "宫素然《明妃出塞图》（金，大阪市立美术馆）",
+   "title": "Wang Zhaojun Departs for the Frontier by Gong Suran.jpg",
+   "author": "Gong Suran",
+   "date": "12th–13th century, Jin dynasty",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Wang_Zhaojun_Departs_for_the_Frontier_by_Gong_Suran.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": [
+    675,
+    0,
+    2833,
+    1542
+   ],
+   "focus": [
+    0.0301,
+    0.1427,
+    0.1928,
+    0.5176
+   ],
+   "kb_start": [
+    0.0,
+    0.0,
+    0.3302,
+    1.0
+   ],
+   "kb_end": [
+    0.0042,
+    0.0311,
+    0.2446,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "khitans": {
+   "file": "img/khitans.jpg",
+   "w": 2400,
+   "h": 1351,
+   "zh": "胡瓌（传）《回猎图》局部（五代）",
+   "title": "Khitans.jpg",
+   "author": "Hu Gui (胡瓌)",
+   "date": "10th centurydate QS:P,+950-00-00T00:00:00Z/7",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Khitans.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.807,
+    0.2582,
+    0.0891,
+    0.0891
+   ],
+   "kb_start": [
+    0.7215,
+    0.0,
+    0.2601,
+    1.0
+   ],
+   "kb_end": [
+    0.7552,
+    0.0,
+    0.1927,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "horse_lasso": {
+   "file": "img/horse_lasso.jpg",
+   "w": 1920,
+   "h": 2170,
+   "zh": "赵孟頫（传）《套马图》（元，普林斯顿）",
+   "title": "Zhao Mengfu 趙孟頫 - Mongol Horseman Lassoing Horse - y1946-116 - Princeton University Art Museum.jpg",
+   "author": "Zhao Mengfu",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Zhao_Mengfu_%E8%B6%99%E5%AD%9F%E9%A0%AB_-_Mongol_Horseman_Lassoing_Horse_-_y1946-116_-_Princeton_University_Art_Museum.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.063,
+    0.1451,
+    0.8809,
+    0.5638
+   ],
+   "kb_start": [
+    0.2423,
+    0.0,
+    0.5223,
+    1.0
+   ],
+   "kb_end": [
+    0.31,
+    0.0566,
+    0.3869,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "nightwhite": {
+   "file": "img/nightwhite.jpg",
+   "w": 2400,
+   "h": 1381,
+   "zh": "韩幹《照夜白图》（唐，大都会）",
+   "title": "唐 韓幹 照夜白圖 卷-Night-Shining White MET DP153669.jpg",
+   "author": "Han Gan",
+   "date": "circa 750",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E5%94%90_%E9%9F%93%E5%B9%B9_%E7%85%A7%E5%A4%9C%E7%99%BD%E5%9C%96_%E5%8D%B7-Night-Shining_White_MET_DP153669.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.1293,
+    1.0,
+    0.7415
+   ],
+   "kb_start": [
+    0.3671,
+    0.0,
+    0.2659,
+    1.0
+   ],
+   "kb_end": [
+    0.4015,
+    0.1296,
+    0.197,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "snow_inn": {
+   "file": "img/snow_inn.jpg",
+   "w": 1280,
+   "h": 1749,
+   "zh": "袁耀《雪栈行旅图》（清，大都会）",
+   "title": "清 袁耀 雪棧行旅圖 軸-Hostelry and Travelers in Snowy Mountains MET 2003 246 O.jpg",
+   "author": "Yuan Yao",
+   "date": "dated 1745",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E6%B8%85_%E8%A2%81%E8%80%80_%E9%9B%AA%E6%A3%A7%E8%A1%8C%E6%97%85%E5%9C%96_%E8%BB%B8-Hostelry_and_Travelers_in_Snowy_Mountains_MET_2003_246_O.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.5063,
+    0.2827,
+    0.1387,
+    0.1995
+   ],
+   "kb_start": [
+    0.26,
+    0.0,
+    0.6314,
+    1.0
+   ],
+   "kb_end": [
+    0.3418,
+    0.0121,
+    0.4677,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "snow_wh": {
+   "file": "img/snow_wh.jpg",
+   "w": 1801,
+   "h": 2400,
+   "zh": "王翚《仿李成雪霁图》（清，大都会）",
+   "title": "清 王翬 倣李成雪霽圖 軸 紙本-Snow Clearing- Landscape after Li Cheng MET DP154140.jpg",
+   "author": "Wang Hui",
+   "date": "dated 1669",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E6%B8%85_%E7%8E%8B%E7%BF%AC_%E5%80%A3%E6%9D%8E%E6%88%90%E9%9B%AA%E9%9C%BD%E5%9C%96_%E8%BB%B8_%E7%B4%99%E6%9C%AC-Snow_Clearing-_Landscape_after_Li_Cheng_MET_DP154140.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.1328,
+    0.5781,
+    0.4272,
+    0.4126
+   ],
+   "kb_start": [
+    0.0385,
+    0.0,
+    0.6158,
+    1.0
+   ],
+   "kb_end": [
+    0.1183,
+    0.2593,
+    0.4561,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "wintry_forest": {
+   "file": "img/wintry_forest.jpg",
+   "w": 2400,
+   "h": 1801,
+   "zh": "佚名《寒林行旅》（北宋末，大都会）",
+   "title": "Travelers in a Wintry Forest",
+   "author": "Unidentified artist",
+   "date": "early 12th century",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/40003",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3266,
+    0.0,
+    0.3468,
+    1.0
+   ],
+   "kb_end": [
+    0.3716,
+    0.1296,
+    0.2569,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "farewell_stream": {
+   "file": "img/farewell_stream.jpg",
+   "w": 1005,
+   "h": 1941,
+   "zh": "赵原《晴川送客图》（元，大都会）",
+   "title": "Farewell by a Stream on a Clear Day",
+   "author": "Zhao Yuan",
+   "date": "second half 14th century",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/45647",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2812,
+    0.1292,
+    0.114,
+    0.114
+   ],
+   "kb_start": [
+    0.0,
+    0.0,
+    0.8924,
+    1.0
+   ],
+   "kb_end": [
+    0.0076,
+    0.0,
+    0.6611,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "ferry": {
+   "file": "img/ferry.jpg",
+   "w": 2400,
+   "h": 2329,
+   "zh": "佚名《待渡图》（南宋，大都会）",
+   "title": "Waiting for the Ferry",
+   "author": "Unidentified artist",
+   "date": "early 13th century",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/36007",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.009,
+    0.167,
+    0.3006,
+    0.4458
+   ],
+   "kb_start": [
+    0.0,
+    0.0,
+    0.4484,
+    1.0
+   ],
+   "kb_end": [
+    0.0,
+    0.0195,
+    0.3322,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "beggars": {
+   "file": "img/beggars.jpg",
+   "w": 2400,
+   "h": 1714,
+   "zh": "周臣《流民图》局部（明，克利夫兰）",
+   "title": "Zhou Chen - Beggars and Street Characters - 1964.94 - Cleveland Museum of Art.tif",
+   "author": "Zhou Chen",
+   "date": "1516date QS:P571,+1516-00-00T00:00:00Z/9",
+   "licence": "CC0 (Cleveland Museum of Art Open Access)",
+   "page": "https://www.clevelandart.org/art/1964.94",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": [
+    7280,
+    0,
+    14086,
+    4862
+   ],
+   "focus": [
+    0.9727,
+    0.0765,
+    0.0273,
+    0.847
+   ],
+   "kb_start": [
+    0.67,
+    0.0,
+    0.33,
+    1.0
+   ],
+   "kb_end": [
+    0.7556,
+    0.1296,
+    0.2444,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "hanxizai": {
+   "file": "img/hanxizai.jpg",
+   "w": 1280,
+   "h": 1767,
+   "zh": "顾闳中（传）《韩熙载夜宴图》局部（五代，故宫）",
+   "title": "Gu Hongzhong 15.jpg",
+   "author": "Gu Hongzhong",
+   "date": "12th centurydate QS:P,+1150-00-00T00:00:00Z/7",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Gu_Hongzhong_15.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.1645,
+    0,
+    0.9555,
+    0.7834
+   ],
+   "kb_start": [
+    0.3233,
+    0.0,
+    0.6379,
+    1.0
+   ],
+   "kb_end": [
+    0.406,
+    0.0214,
+    0.4725,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "gongle": {
+   "file": "img/gongle.jpg",
+   "w": 2400,
+   "h": 1674,
+   "zh": "佚名《宫乐图》（晚唐，台北故宫）",
+   "title": "唐人宫乐图轴.晚唐绘.台北故宫博物院藏.jpg",
+   "author": "Unknown authorUnknown author",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E5%94%90%E4%BA%BA%E5%AE%AB%E4%B9%90%E5%9B%BE%E8%BD%B4.%E6%99%9A%E5%94%90%E7%BB%98.%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E8%97%8F.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0121,
+    0,
+    1.0887,
+    0.6844
+   ],
+   "kb_start": [
+    0.3953,
+    0.0,
+    0.3223,
+    1.0
+   ],
+   "kb_end": [
+    0.4371,
+    0.0,
+    0.2387,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "wenhui": {
+   "file": "img/wenhui.jpg",
+   "w": 1280,
+   "h": 1910,
+   "zh": "赵佶（传）《文会图》（北宋，台北故宫）",
+   "title": "文會圖.jpg",
+   "author": "Emperor Huizong of Song",
+   "date": "circa 1100 A.D.-1125 A.D.",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%9C%83%E5%9C%96.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.1552,
+    0.0,
+    0.6895,
+    1.0
+   ],
+   "kb_end": [
+    0.2446,
+    0.1296,
+    0.5108,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "yaoshou_drink": {
+   "file": "img/yaoshou_drink.jpg",
+   "w": 2161,
+   "h": 1544,
+   "zh": "姚绶《饮酒赋诗图》（明，1485，大都会）",
+   "title": "Drinking and Composing Poetry",
+   "author": "Yao Shou",
+   "date": "dated 1485",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/45675",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": [
+    1663,
+    0,
+    3824,
+    1544
+   ],
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3349,
+    0.0,
+    0.3302,
+    1.0
+   ],
+   "kb_end": [
+    0.3777,
+    0.1296,
+    0.2446,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "guoguo": {
+   "file": "img/guoguo.jpg",
+   "w": 1370,
+   "h": 979,
+   "zh": "张萱（宋摹）《虢国夫人游春图》（辽宁省博）",
+   "title": "虢国夫人游春图.jpg",
+   "author": "Zhang Xuan",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E8%99%A2%E5%9B%BD%E5%A4%AB%E4%BA%BA%E6%B8%B8%E6%98%A5%E5%9B%BE.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": [
+    1160,
+    0,
+    2530,
+    979
+   ],
+   "focus": [
+    0.5552,
+    0.4189,
+    0.1533,
+    0.481
+   ],
+   "kb_start": [
+    0.4667,
+    0.0,
+    0.3302,
+    1.0
+   ],
+   "kb_end": [
+    0.5096,
+    0.2593,
+    0.2446,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "daolian": {
+   "file": "img/daolian.jpg",
+   "w": 1920,
+   "h": 2244,
+   "zh": "张萱（宋摹）《捣练图》局部（波士顿）",
+   "title": "Court ladies pounding silk from a painting (捣练图) by Emperor Huizong.jpg",
+   "author": "Emperor Huizong of Song / After Zhang Xuan",
+   "date": "between 1100 and 1133date QS:P571,+1150-00-00T00:00:00Z/7,P1",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Court_ladies_pounding_silk_from_a_painting_(%E6%8D%A3%E7%BB%83%E5%9B%BE)_by_Emperor_Huizong.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0555,
+    0.203,
+    0.9035,
+    0.7162
+   ],
+   "kb_start": [
+    0.2372,
+    0.0,
+    0.5401,
+    1.0
+   ],
+   "kb_end": [
+    0.3072,
+    0.1907,
+    0.4,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "peddler": {
+   "file": "img/peddler.jpg",
+   "w": 2400,
+   "h": 2267,
+   "zh": "李嵩《货郎图》（南宋，克利夫兰）",
+   "title": "Li Song - The Knickknack Peddler - 1963.582 - Cleveland Museum of Art.tiff",
+   "author": "Li Song",
+   "date": "1212",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Li_Song_-_The_Knickknack_Peddler_-_1963.582_-_Cleveland_Museum_of_Art.tiff",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2636,
+    0.4245,
+    0.0958,
+    0.0958
+   ],
+   "kb_start": [
+    0.0933,
+    0.0,
+    0.4365,
+    1.0
+   ],
+   "kb_end": [
+    0.1498,
+    0.102,
+    0.3233,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "herdboy": {
+   "file": "img/herdboy.jpg",
+   "w": 2400,
+   "h": 2083,
+   "zh": "佚名《牧童群羊》团扇（元，大都会）",
+   "title": "Sheep and herd boy",
+   "author": "Unidentified artist",
+   "date": "14th century",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/36004",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.045,
+    0.2695,
+    0.7807,
+    0.7036
+   ],
+   "kb_start": [
+    0.2348,
+    0.0,
+    0.4011,
+    1.0
+   ],
+   "kb_end": [
+    0.2868,
+    0.2509,
+    0.2971,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "earlyspring": {
+   "file": "img/earlyspring.jpg",
+   "w": 1611,
+   "h": 2400,
+   "zh": "郭熙《早春图》（北宋，台北故宫）",
+   "title": "Kuo Hsi - Early Spring - Google Art Project.jpg",
+   "author": "Guo Xi",
+   "date": "1072",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Kuo_Hsi_-_Early_Spring_-_Google_Art_Project.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.4866,
+    0.6235,
+    0.3093,
+    0.2969
+   ],
+   "kb_start": [
+    0.2971,
+    0.0,
+    0.6884,
+    1.0
+   ],
+   "kb_end": [
+    0.3863,
+    0.2593,
+    0.5099,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "fankuan": {
+   "file": "img/fankuan.jpg",
+   "w": 1197,
+   "h": 2400,
+   "zh": "范宽《溪山行旅图》（北宋，台北故宫）",
+   "title": "Fan Kuan - Travelers Among Mountains and Streams - Google Art Project.jpg",
+   "author": "Fan Kuan",
+   "date": "circa 1000date QS:P571,+1000-00-00T00:00:00Z/9,P1480,Q572790",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Fan_Kuan_-_Travelers_Among_Mountains_and_Streams_-_Google_Art_Project.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.0368,
+    0.0,
+    0.9265,
+    1.0
+   ],
+   "kb_end": [
+    0.1569,
+    0.1296,
+    0.6863,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "litang": {
+   "file": "img/litang.jpg",
+   "w": 1800,
+   "h": 2400,
+   "zh": "李唐《万壑松风图》（北宋，台北故宫）",
+   "title": "Li Tang - Wind in Pines Among a Myriad Valleys.jpg",
+   "author": "Li Tang",
+   "date": "1124date QS:P571,+1124-00-00T00:00:00Z/9",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Li_Tang_-_Wind_in_Pines_Among_a_Myriad_Valleys.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    0.4883
+   ],
+   "kb_start": [
+    0.1919,
+    0.0,
+    0.6161,
+    1.0
+   ],
+   "kb_end": [
+    0.2718,
+    0.0,
+    0.4564,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "kuanglu": {
+   "file": "img/kuanglu.jpg",
+   "w": 1280,
+   "h": 2213,
+   "zh": "荆浩（传）《匡庐图》（五代，台北故宫）",
+   "title": "Jing Hao.Mount Kuanglu. National Palace Museum, Taipei, Taiwan.jpg",
+   "author": "Jing Hao",
+   "date": "circa 900date QS:P571,+0900-00-00T00:00:00Z/9,P1480,Q5727902",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Jing_Hao.Mount_Kuanglu._National_Palace_Museum,_Taipei,_Taiwan.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.1005,
+    0.0,
+    0.7989,
+    1.0
+   ],
+   "kb_end": [
+    0.2041,
+    0.1296,
+    0.5918,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "tai_pines": {
+   "file": "img/tai_pines.jpg",
+   "w": 500,
+   "h": 1584,
+   "zh": "张宏《泰山高松》（明，耶鲁）",
+   "title": "Zhang Hong - Lofty Pines on Mount Tai - 2000.45.1 - Yale University Art Gallery.jpg",
+   "author": "Zhang Hong",
+   "date": "1629",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Zhang_Hong_-_Lofty_Pines_on_Mount_Tai_-_2000.45.1_-_Yale_University_Art_Gallery.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.0,
+    0.1584,
+    1.0,
+    0.6831
+   ],
+   "kb_end": [
+    0.1296,
+    0.247,
+    0.7407,
+    0.506
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "shitao_taibai": {
+   "file": "img/shitao_taibai.jpg",
+   "w": 837,
+   "h": 2400,
+   "zh": "石涛《太白诗意山水图》（清）",
+   "title": "石涛太白诗意山水图轴.png",
+   "author": "Shitao",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E7%9F%B3%E6%B6%9B%E5%A4%AA%E7%99%BD%E8%AF%97%E6%84%8F%E5%B1%B1%E6%B0%B4%E5%9B%BE%E8%BD%B4.png",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0594,
+    0,
+    0.8943,
+    0.5396
+   ],
+   "kb_start": [
+    0.0,
+    0.0,
+    1.0,
+    0.7547
+   ],
+   "kb_end": [
+    0.1362,
+    0.0,
+    0.7407,
+    0.5591
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "libai_lk": {
+   "file": "img/libai_lk.jpg",
+   "w": 910,
+   "h": 2400,
+   "zh": "梁楷《李白行吟图》（南宋，东京国立博物馆）",
+   "title": "Liang Kai - Li Bai Strolling.jpg",
+   "author": "Liang Kai",
+   "date": "13th centurydate QS:P,+1250-00-00T00:00:00Z/7",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Liang_Kai_-_Li_Bai_Strolling.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2312,
+    0.3372,
+    0.4412,
+    0.5696
+   ],
+   "kb_start": [
+    0.0,
+    0.1794,
+    1.0,
+    0.8206
+   ],
+   "kb_end": [
+    0.0814,
+    0.3181,
+    0.7407,
+    0.6078
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "libai_ql": {
+   "file": "img/libai_ql.jpg",
+   "w": 917,
+   "h": 2400,
+   "zh": "阙岚《李白吟诗图》（清）",
+   "title": "Li Bai Chanting Poetry, by Que Lan.jpg",
+   "author": "Que Lan",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Li_Bai_Chanting_Poetry,_by_Que_Lan.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.4087,
+    0.4695,
+    0.188,
+    0.1316
+   ],
+   "kb_start": [
+    0.0,
+    0.1219,
+    1.0,
+    0.8269
+   ],
+   "kb_end": [
+    0.1323,
+    0.2291,
+    0.7407,
+    0.6125
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "dufu_qing": {
+   "file": "img/dufu_qing.jpg",
+   "w": 1280,
+   "h": 1771,
+   "zh": "《杜甫像》（清宫旧藏）",
+   "title": "Dufu.jpg",
+   "author": "Unknown authorUnknown author",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Dufu.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.1806,
+    0.4978,
+    0.4497,
+    0.325
+   ],
+   "kb_start": [
+    0.0858,
+    0.0,
+    0.6393,
+    1.0
+   ],
+   "kb_end": [
+    0.1687,
+    0.2593,
+    0.4736,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "dufu_zmf": {
+   "file": "img/dufu_zmf.jpg",
+   "w": 965,
+   "h": 2400,
+   "zh": "赵孟頫（传）《杜甫像》（元）",
+   "title": "赵孟頫画杜甫像轴.png",
+   "author": "Zhao Mengfu",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E8%B5%B5%E5%AD%9F%E9%A0%AB%E7%94%BB%E6%9D%9C%E7%94%AB%E5%83%8F%E8%BD%B4.png",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.0,
+    0.0649,
+    1.0,
+    0.8701
+   ],
+   "kb_end": [
+    0.1296,
+    0.1777,
+    0.7407,
+    0.6446
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "sage_dufu": {
+   "file": "img/sage_dufu.jpg",
+   "w": 1280,
+   "h": 1798,
+   "zh": "《古圣贤像传略》杜甫（清刻本）",
+   "title": "NAJDA-290-0047 古聖賢像伝略7 (杜甫).jpg",
+   "author": "著者:顧沅（清）",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:NAJDA-290-0047_%E5%8F%A4%E8%81%96%E8%B3%A2%E5%83%8F%E4%BC%9D%E7%95%A57_(%E6%9D%9C%E7%94%AB).jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.4265,
+    0.3705,
+    0.2508,
+    0.2508
+   ],
+   "kb_start": [
+    0.2273,
+    0.0,
+    0.6491,
+    1.0
+   ],
+   "kb_end": [
+    0.3115,
+    0.1255,
+    0.4808,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "sage_mhr": {
+   "file": "img/sage_mhr.jpg",
+   "w": 1280,
+   "h": 1799,
+   "zh": "《古圣贤像传略》孟浩然（清刻本）",
+   "title": "NAJDA-290-0047 古聖賢像伝略7 (孟浩然).jpg",
+   "author": "著者:顧沅（清）",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:NAJDA-290-0047_%E5%8F%A4%E8%81%96%E8%B3%A2%E5%83%8F%E4%BC%9D%E7%95%A57_(%E5%AD%9F%E6%B5%A9%E7%84%B6).jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2245,
+    0.3774,
+    0.5275,
+    0.4614
+   ],
+   "kb_start": [
+    0.1635,
+    0.0,
+    0.6494,
+    1.0
+   ],
+   "kb_end": [
+    0.2477,
+    0.2377,
+    0.4811,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "sage_ww": {
+   "file": "img/sage_ww.jpg",
+   "w": 1280,
+   "h": 1784,
+   "zh": "《古圣贤像传略》王维（清刻本）",
+   "title": "NAJDA-290-0047 古聖賢像伝略7 (王維).jpg",
+   "author": "著者:顧沅（清）",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:NAJDA-290-0047_%E5%8F%A4%E8%81%96%E8%B3%A2%E5%83%8F%E4%BC%9D%E7%95%A57_(%E7%8E%8B%E7%B6%AD).jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2413,
+    0.3247,
+    0.5961,
+    0.6753
+   ],
+   "kb_start": [
+    0.2173,
+    0.0,
+    0.644,
+    1.0
+   ],
+   "kb_end": [
+    0.3008,
+    0.2593,
+    0.4771,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "sage_hzz": {
+   "file": "img/sage_hzz.jpg",
+   "w": 1280,
+   "h": 1859,
+   "zh": "《古圣贤像传略》贺知章（清刻本）",
+   "title": "NAJDA-290-0047 古聖賢像伝略7 (賀知章).jpg",
+   "author": "著者:顧沅（清）",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:NAJDA-290-0047_%E5%8F%A4%E8%81%96%E8%B3%A2%E5%83%8F%E4%BC%9D%E7%95%A57_(%E8%B3%80%E7%9F%A5%E7%AB%A0).jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.3684,
+    0.4468,
+    0.2049,
+    0.2049
+   ],
+   "kb_start": [
+    0.1353,
+    0.0,
+    0.6711,
+    1.0
+   ],
+   "kb_end": [
+    0.2223,
+    0.1789,
+    0.4971,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "yinzhong": {
+   "file": "img/yinzhong.jpg",
+   "w": 1920,
+   "h": 1108,
+   "zh": "杜堇《古贤诗意图》局部·饮中八仙（明）",
+   "title": "杜堇画古贤诗意卷局部 饮中八仙.jpg",
+   "author": "Du Jin",
+   "date": "Ming dynasty",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E6%9D%9C%E5%A0%87%E7%94%BB%E5%8F%A4%E8%B4%A4%E8%AF%97%E6%84%8F%E5%8D%B7%E5%B1%80%E9%83%A8_%E9%A5%AE%E4%B8%AD%E5%85%AB%E4%BB%99.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3667,
+    0.0,
+    0.2667,
+    1.0
+   ],
+   "kb_end": [
+    0.4012,
+    0.1296,
+    0.1975,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "dongyuan_xx": {
+   "file": "img/dongyuan_xx.jpg",
+   "w": 960,
+   "h": 1326,
+   "zh": "董源《潇湘图》局部（五代，故宫）",
+   "title": "Dong Yuan rivers detail.jpg",
+   "author": "Dong Yuan",
+   "date": "10th centurydate QS:P571,+950-00-00T00:00:00Z/7",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Dong_Yuan_rivers_detail.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.1809,
+    0.0,
+    0.6383,
+    1.0
+   ],
+   "kb_end": [
+    0.2636,
+    0.1296,
+    0.4728,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "xx_full": {
+   "file": "img/xx_full.jpg",
+   "w": 1902,
+   "h": 1359,
+   "zh": "董源《潇湘图》（五代，故宫）",
+   "title": "Xiao and Xiang rivers.jpg",
+   "author": "Dong Yuan",
+   "date": "10th centurydate QS:P571,+950-00-00T00:00:00Z/7",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Xiao_and_Xiang_rivers.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": [
+    0,
+    0,
+    1902,
+    1359
+   ],
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3349,
+    0.0,
+    0.3302,
+    1.0
+   ],
+   "kb_end": [
+    0.3777,
+    0.1296,
+    0.2446,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "fuchun": {
+   "file": "img/fuchun.jpg",
+   "w": 1920,
+   "h": 702,
+   "zh": "黄公望《富春山居图》局部（元，台北故宫）",
+   "title": "Huang Gongwang. Dwelling in the Fuchun Mountains. detail. National Palace Museum, Taipei.jpg",
+   "author": "Huang Gongwang",
+   "date": "between 1348 and 1351date QS:P571,+1350-00-00T00:00:00Z/7,P1",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Huang_Gongwang._Dwelling_in_the_Fuchun_Mountains._detail._National_Palace_Museum,_Taipei.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.4155,
+    0.0,
+    0.1689,
+    1.0
+   ],
+   "kb_end": [
+    0.4374,
+    0.1296,
+    0.1251,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "qianli_start": {
+   "file": "img/qianli_start.jpg",
+   "w": 1920,
+   "h": 1308,
+   "zh": "王希孟《千里江山图》卷首（北宋，故宫）",
+   "title": "Wang Ximeng - A Thousand Li of River (Start).jpg",
+   "author": "Wang Ximeng (王希孟)",
+   "date": "between 1096 and 1119date QS:P,+1500-00-00T00:00:00Z/6,P1319",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Wang_Ximeng_-_A_Thousand_Li_of_River_(Start).jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.9492,
+    0.0,
+    0.0508,
+    1.0
+   ],
+   "kb_start": [
+    0.6852,
+    0.0,
+    0.3148,
+    1.0
+   ],
+   "kb_end": [
+    0.7668,
+    0.1296,
+    0.2332,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "qianli_sec": {
+   "file": "img/qianli_sec.jpg",
+   "w": 1607,
+   "h": 1148,
+   "zh": "王希孟《千里江山图》局部（北宋，故宫）",
+   "title": "A Thousand Li of Rivers and Mountains Section 1.jpg",
+   "author": "Wang Ximeng",
+   "date": "1113",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:A_Thousand_Li_of_Rivers_and_Mountains_Section_1.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": [
+    2233,
+    0,
+    3840,
+    1148
+   ],
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3349,
+    0.0,
+    0.3301,
+    1.0
+   ],
+   "kb_end": [
+    0.3777,
+    0.1296,
+    0.2445,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "cjwl": {
+   "file": "img/cjwl.jpg",
+   "w": 1880,
+   "h": 1343,
+   "zh": "夏圭（传）《长江万里图》局部（南宋）",
+   "title": "长江万里图.jpg",
+   "author": "Xia Gui",
+   "date": "南宋",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E9%95%BF%E6%B1%9F%E4%B8%87%E9%87%8C%E5%9B%BE.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": [
+    3820,
+    0,
+    5700,
+    1343
+   ],
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.335,
+    0.0,
+    0.3301,
+    1.0
+   ],
+   "kb_end": [
+    0.3777,
+    0.1296,
+    0.2445,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "qiaohua": {
+   "file": "img/qiaohua.jpg",
+   "w": 1920,
+   "h": 1469,
+   "zh": "赵孟頫《鹊华秋色图》（元，1295，台北故宫）",
+   "title": "Zhao Mengfu 1295.jpg",
+   "author": "",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Zhao_Mengfu_1295.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3232,
+    0.0,
+    0.3535,
+    1.0
+   ],
+   "kb_end": [
+    0.3691,
+    0.1296,
+    0.2619,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "zhaoboju": {
+   "file": "img/zhaoboju.jpg",
+   "w": 1280,
+   "h": 1811,
+   "zh": "赵伯驹（传）《江山秋色图》局部（宋，故宫）",
+   "title": "Autumn Colors on Rivers and Mountains, Northern Song Dynasty.jpg",
+   "author": "Anonymous Chinese artist",
+   "date": "Northern Song Dynasty",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Autumn_Colors_on_Rivers_and_Mountains,_Northern_Song_Dynasty.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0387,
+    0.0,
+    0.9613,
+    1.0
+   ],
+   "kb_start": [
+    0.1924,
+    0.0,
+    0.6538,
+    1.0
+   ],
+   "kb_end": [
+    0.2772,
+    0.1296,
+    0.4843,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "stele": {
+   "file": "img/stele.jpg",
+   "w": 1920,
+   "h": 2311,
+   "zh": "李成、王晓《读碑窠石图》（北宋，大阪市立美术馆）",
+   "title": "Li Cheng and Wang Xiao - Reading The Memorial Stele - Google Art Project.jpg",
+   "author": "Li Cheng and Wang Xiao",
+   "date": "0900/1000",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Li_Cheng_and_Wang_Xiao_-_Reading_The_Memorial_Stele_-_Google_Art_Project.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2075,
+    0.3279,
+    0.1819,
+    0.1755
+   ],
+   "kb_start": [
+    0.0204,
+    0.0,
+    0.5562,
+    1.0
+   ],
+   "kb_end": [
+    0.0925,
+    0.0453,
+    0.412,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "autumn_woods": {
+   "file": "img/autumn_woods.jpg",
+   "w": 736,
+   "h": 2400,
+   "zh": "王建章《秋林孤色》（明，克利夫兰）",
+   "title": "Wang Jianzhang - Solitary Colors of the Autumn Woods - 1972.68 - Cleveland Museum of Art.tif",
+   "author": "Wang Jianzhang",
+   "date": "first half 1600s",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:Wang_Jianzhang_-_Solitary_Colors_of_the_Autumn_Woods_-_1972.68_-_Cleveland_Museum_of_Art.tif",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0446,
+    0.731,
+    0.3951,
+    0.269
+   ],
+   "kb_start": [
+    0.0,
+    0.3363,
+    1.0,
+    0.6637
+   ],
+   "kb_end": [
+    0.0,
+    0.5084,
+    0.7407,
+    0.4916
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "drunk_autumn": {
+   "file": "img/drunk_autumn.jpg",
+   "w": 1228,
+   "h": 2400,
+   "zh": "石涛《醉吟秋林》（清，约1702，大都会）",
+   "title": "Drunk in Autumn Woods",
+   "author": "Shitao (Zhu Ruoji)",
+   "date": "ca. 1702",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/49178",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.6436,
+    0.0331,
+    0.2778,
+    0.2882
+   ],
+   "kb_start": [
+    0.0969,
+    0.0,
+    0.9031,
+    1.0
+   ],
+   "kb_end": [
+    0.331,
+    0.0,
+    0.669,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "autumn_angling": {
+   "file": "img/autumn_angling.jpg",
+   "w": 2354,
+   "h": 2400,
+   "zh": "盛著《秋江垂钓》扇面（元，大都会）",
+   "title": "Angling in the Autumn River",
+   "author": "Sheng Zhu",
+   "date": "ca. 1370",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/42261",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.2644,
+    0.0,
+    0.4711,
+    1.0
+   ],
+   "kb_end": [
+    0.3255,
+    0.1296,
+    0.349,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "autumn_sun": {
+   "file": "img/autumn_sun.jpg",
+   "w": 2400,
+   "h": 1144,
+   "zh": "潘允毓《秋江落日》扇面（明清之际，大都会）",
+   "title": "Setting Sun on the Autumn River",
+   "author": "Pan Yunyu",
+   "date": "1604 or 1664",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/35992",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.5674,
+    0.1121,
+    0.4063,
+    0.8259
+   ],
+   "kb_start": [
+    0.6604,
+    0.0,
+    0.2203,
+    1.0
+   ],
+   "kb_end": [
+    0.689,
+    0.1547,
+    0.1632,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "oldboat": {
+   "file": "img/oldboat.jpg",
+   "w": 530,
+   "h": 1299,
+   "zh": "查士标《老人泛舟》（清，大都会）",
+   "title": "Old Man Boating on a River",
+   "author": "Zha Shibiao",
+   "date": "",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/49130",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.5718,
+    0,
+    0.2344,
+    0.2054
+   ],
+   "kb_start": [
+    0.0,
+    0.0,
+    1.0,
+    0.883
+   ],
+   "kb_end": [
+    0.2593,
+    0.0,
+    0.7407,
+    0.654
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "lute": {
+   "file": "img/lute.jpg",
+   "w": 2400,
+   "h": 1900,
+   "zh": "丁云鹏《琵琶行图》（明，1585，大都会）",
+   "title": "Song of the Lute",
+   "author": "Ding Yunpeng",
+   "date": "1585",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/35970",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3171,
+    0.0,
+    0.3658,
+    1.0
+   ],
+   "kb_end": [
+    0.3645,
+    0.1296,
+    0.271,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "huangniao": {
+   "file": "img/huangniao.jpg",
+   "w": 1920,
+   "h": 1610,
+   "zh": "宋人《桑枝黄鸟》（南宋）",
+   "title": "桑枝黃鳥.jpg",
+   "author": "Unknown authorUnknown author",
+   "date": "宋朝",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E6%A1%91%E6%9E%9D%E9%BB%83%E9%B3%A5.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.6919,
+    0.1748,
+    0.2324,
+    0.3147
+   ],
+   "kb_start": [
+    0.6125,
+    0.0,
+    0.3875,
+    1.0
+   ],
+   "kb_end": [
+    0.6646,
+    0.0,
+    0.287,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "willow_orioles": {
+   "file": "img/willow_orioles.jpg",
+   "w": 1280,
+   "h": 2283,
+   "zh": "陈树人《柳莺》（近代）",
+   "title": "Chen Shuren - Willow and Orioles (undated).jpg",
+   "author": "Chen Shuren",
+   "date": "Unknown date",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Chen_Shuren_-_Willow_and_Orioles_(undated).jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.7749,
+    0.4688,
+    0.2246,
+    0.292
+   ],
+   "kb_start": [
+    0.1758,
+    0.0,
+    0.8242,
+    1.0
+   ],
+   "kb_end": [
+    0.3895,
+    0.2444,
+    0.6105,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "egret_luji": {
+   "file": "img/egret_luji.jpg",
+   "w": 1280,
+   "h": 2256,
+   "zh": "吕纪《秋鹭芙蓉图》（明，台北故宫）",
+   "title": "Lü Ji Autumn Egrets and Hibiscus. National Palace Museum Taipei.jpg",
+   "author": "Lü Ji",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:L%C3%BC_Ji_Autumn_Egrets_and_Hibiscus._National_Palace_Museum_Taipei.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.0928,
+    0.0,
+    0.8144,
+    1.0
+   ],
+   "kb_end": [
+    0.1984,
+    0.1296,
+    0.6033,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "egret_reeds": {
+   "file": "img/egret_reeds.jpg",
+   "w": 2400,
+   "h": 2173,
+   "zh": "佚名《芦鹭图》团扇（南宋，大都会）",
+   "title": "南宋 佚名 蘆鷺圖 團扇-Egrets in Water Reeds MET DP153504.jpg",
+   "author": "Unknown authorUnknown author",
+   "date": "late 12th century",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E5%8D%97%E5%AE%8B_%E4%BD%9A%E5%90%8D_%E8%98%86%E9%B7%BA%E5%9C%96_%E5%9C%98%E6%89%87-Egrets_in_Water_Reeds_MET_DP153504.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0327,
+    0.2489,
+    0.3784,
+    0.7072
+   ],
+   "kb_start": [
+    0.0127,
+    0.0,
+    0.4184,
+    1.0
+   ],
+   "kb_end": [
+    0.0669,
+    0.2321,
+    0.3099,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "geese_winter": {
+   "file": "img/geese_winter.jpg",
+   "w": 1718,
+   "h": 1893,
+   "zh": "佚名《寒汀落雁》册页（宋，大都会）",
+   "title": "Wild Geese in Winter",
+   "author": "Unidentified artist",
+   "date": "13th century",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/36063",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0475,
+    0.5679,
+    0.2719,
+    0.3096
+   ],
+   "kb_start": [
+    0.0,
+    0.0,
+    0.5092,
+    1.0
+   ],
+   "kb_end": [
+    0.0,
+    0.2593,
+    0.3772,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "cicada": {
+   "file": "img/cicada.jpg",
+   "w": 2400,
+   "h": 1411,
+   "zh": "吴熙载《蝉柳》扇面（清，1852，大都会）",
+   "title": "清 吳熙載 蟬柳 扇面-Cicada MET DP161400.jpg",
+   "author": "Wu Rangzhi",
+   "date": "dated 1852",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E6%B8%85_%E5%90%B3%E7%86%99%E8%BC%89_%E8%9F%AC%E6%9F%B3_%E6%89%87%E9%9D%A2-Cicada_MET_DP161400.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3642,
+    0.0,
+    0.2717,
+    1.0
+   ],
+   "kb_end": [
+    0.3994,
+    0.1296,
+    0.2012,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "redstart": {
+   "file": "img/redstart.jpg",
+   "w": 2400,
+   "h": 2326,
+   "zh": "佚名《花枝鸣禽》（南宋，克利夫兰）",
+   "title": "China, Southern Song dynasty - Bird on a Flowering Branch - 1985.371 - Cleveland Museum of Art.tif",
+   "author": "anonymous",
+   "date": "1100sdate QS:P571,+1100-00-00T00:00:00Z/8",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:China,_Southern_Song_dynasty_-_Bird_on_a_Flowering_Branch_-_1985.371_-_Cleveland_Museum_of_Art.tif",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.182,
+    0.2739,
+    0.2328,
+    0.3867
+   ],
+   "kb_start": [
+    0.0745,
+    0.0,
+    0.4478,
+    1.0
+   ],
+   "kb_end": [
+    0.1325,
+    0.0969,
+    0.3317,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "peachbirds": {
+   "file": "img/peachbirds.jpg",
+   "w": 2400,
+   "h": 2303,
+   "zh": "佚名《桃枝双禽》（南宋，克利夫兰）",
+   "title": "China, Southern Song dynasty - Birds on a Peach Branch - 1985.367 - Cleveland Museum of Art.tif",
+   "author": "anonymous",
+   "date": "12th centurydate QS:P571,+1150-00-00T00:00:00Z/7",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:China,_Southern_Song_dynasty_-_Birds_on_a_Peach_Branch_-_1985.367_-_Cleveland_Museum_of_Art.tif",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.1231,
+    0.0841,
+    0.747,
+    0.6639
+   ],
+   "kb_start": [
+    0.2749,
+    0.0,
+    0.4434,
+    1.0
+   ],
+   "kb_end": [
+    0.3324,
+    0.0457,
+    0.3285,
+    0.7407
+   ],
+   "focal_method": "vision-saliency",
+   "needs_review": true
+  },
+  "storm_boat": {
+   "file": "img/storm_boat.jpg",
+   "w": 1361,
+   "h": 2400,
+   "zh": "戴进《风雨归舟图》（明，台北故宫）",
+   "title": "风雨归舟图轴.明.戴进绘.绢本浅设色.台北故宫博物院藏.tif",
+   "author": "Dai Jin",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E9%A3%8E%E9%9B%A8%E5%BD%92%E8%88%9F%E5%9B%BE%E8%BD%B4.%E6%98%8E.%E6%88%B4%E8%BF%9B%E7%BB%98.%E7%BB%A2%E6%9C%AC%E6%B5%85%E8%AE%BE%E8%89%B2.%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E8%97%8F.tif",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.0926,
+    0.0,
+    0.8148,
+    1.0
+   ],
+   "kb_end": [
+    0.1982,
+    0.1296,
+    0.6036,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "rain_malin": {
+   "file": "img/rain_malin.jpg",
+   "w": 1920,
+   "h": 1243,
+   "zh": "马麟《芳春雨霁》（南宋，台北故宫）",
+   "title": "名绘集珍册 14 南宋 马麟 芳春雨霁.jpg",
+   "author": "Ma Lin",
+   "date": "between 1195 and 1224date QS:P,+1500-00-00T00:00:00Z/6,P1319",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E5%90%8D%E7%BB%98%E9%9B%86%E7%8F%8D%E5%86%8C_14_%E5%8D%97%E5%AE%8B_%E9%A9%AC%E9%BA%9F_%E8%8A%B3%E6%98%A5%E9%9B%A8%E9%9C%81.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3504,
+    0.0,
+    0.2992,
+    1.0
+   ],
+   "kb_end": [
+    0.3892,
+    0.1296,
+    0.2216,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "rain_river": {
+   "file": "img/rain_river.jpg",
+   "w": 1920,
+   "h": 1027,
+   "zh": "吴石僊《春江烟雨》扇面（近代，大都会）",
+   "title": "近代 吳石僊 春江煙雨 扇面-Misty Rain on the River in Spring MET DP162538.jpg",
+   "author": "Wu Shixian",
+   "date": "between 1816 and 1916date QS:P,+1500-00-00T00:00:00Z/6,P1319",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E8%BF%91%E4%BB%A3_%E5%90%B3%E7%9F%B3%E5%83%8A_%E6%98%A5%E6%B1%9F%E7%85%99%E9%9B%A8_%E6%89%87%E9%9D%A2-Misty_Rain_on_the_River_in_Spring_MET_DP162538.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.5996,
+    0.3401,
+    0.3877,
+    0.6121
+   ],
+   "kb_start": [
+    0.6699,
+    0.0,
+    0.2472,
+    1.0
+   ],
+   "kb_end": [
+    0.7019,
+    0.2593,
+    0.1831,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "bamboo_rain": {
+   "file": "img/bamboo_rain.jpg",
+   "w": 1994,
+   "h": 1425,
+   "zh": "夏昶《春雨竹》（明）",
+   "title": "Xia Chang, Chinese - Bamboo under Spring Rain - Google Art Project.jpg",
+   "author": "Xia Chang",
+   "date": "1460",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Xia_Chang,_Chinese_-_Bamboo_under_Spring_Rain_-_Google_Art_Project.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": [
+    518,
+    0,
+    2512,
+    1425
+   ],
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3349,
+    0.0,
+    0.3302,
+    1.0
+   ],
+   "kb_end": [
+    0.3777,
+    0.1296,
+    0.2446,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "beneficent_rain": {
+   "file": "img/beneficent_rain.jpg",
+   "w": 1239,
+   "h": 885,
+   "zh": "张羽材《霖雨图》（元，大都会）",
+   "title": "Beneficent Rain",
+   "author": "Zhang Yucai",
+   "date": "late 13th–early 14th century",
+   "licence": "Public Domain (Met Open Access, CC0)",
+   "page": "https://www.metmuseum.org/art/collection/search/40454",
+   "source": "The Metropolitan Museum of Art",
+   "book_illustration": false,
+   "crop_src_px": [
+    697,
+    0,
+    1936,
+    885
+   ],
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.335,
+    0.0,
+    0.3301,
+    1.0
+   ],
+   "kb_end": [
+    0.3778,
+    0.1296,
+    0.2445,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "guanmei": {
+   "file": "img/guanmei.jpg",
+   "w": 1184,
+   "h": 2400,
+   "zh": "宋人《观梅图》（台北故宫）",
+   "title": "观梅图轴.宋人绘.绢本设色.台北故宫博物院藏.tif",
+   "author": "Unknown authorUnknown author",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E8%A7%82%E6%A2%85%E5%9B%BE%E8%BD%B4.%E5%AE%8B%E4%BA%BA%E7%BB%98.%E7%BB%A2%E6%9C%AC%E8%AE%BE%E8%89%B2.%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E8%97%8F.tif",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.0317,
+    0.0,
+    0.9367,
+    1.0
+   ],
+   "kb_end": [
+    0.1531,
+    0.1296,
+    0.6938,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "xuemei": {
+   "file": "img/xuemei.jpg",
+   "w": 1696,
+   "h": 2400,
+   "zh": "《踏雪寻梅图》",
+   "title": "Searching for Plum Blossoms in the Snow - Google Art Project.jpg",
+   "author": "Unknown artistUnknown artist",
+   "date": "1525",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Searching_for_Plum_Blossoms_in_the_Snow_-_Google_Art_Project.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.1731,
+    0.0,
+    0.6539,
+    1.0
+   ],
+   "kb_end": [
+    0.2578,
+    0.1296,
+    0.4844,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "sangu_dj": {
+   "file": "img/sangu_dj.jpg",
+   "w": 1280,
+   "h": 2086,
+   "zh": "戴进《三顾茅庐图》（明）",
+   "title": "Dai Jin-Looking Three Times at the Thatched Hut.jpg",
+   "author": "Dai Jin",
+   "date": "Early Ming Dynasty (1368–1644)",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Dai_Jin-Looking_Three_Times_at_the_Thatched_Hut.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.1235,
+    0.0,
+    0.7531,
+    1.0
+   ],
+   "kb_end": [
+    0.2211,
+    0.1296,
+    0.5578,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "sangu_tw": {
+   "file": "img/sangu_tw.jpg",
+   "w": 1634,
+   "h": 2400,
+   "zh": "旧传董展《三顾草庐图》（台北故宫）",
+   "title": "三顾草庐图轴.旧传隋.董展绘.纸本设色.台北故宫博物院藏.jpg",
+   "author": "Dong Zhan",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E4%B8%89%E9%A1%BE%E8%8D%89%E5%BA%90%E5%9B%BE%E8%BD%B4.%E6%97%A7%E4%BC%A0%E9%9A%8B.%E8%91%A3%E5%B1%95%E7%BB%98.%E7%BA%B8%E6%9C%AC%E8%AE%BE%E8%89%B2.%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E8%97%8F.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.1606,
+    0.0,
+    0.6787,
+    1.0
+   ],
+   "kb_end": [
+    0.2486,
+    0.1296,
+    0.5027,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "zhuge_zf": {
+   "file": "img/zhuge_zf.jpg",
+   "w": 1149,
+   "h": 2400,
+   "zh": "张风《诸葛亮像》（清）",
+   "title": "Zhuge Liang by Zhang Feng.jpg",
+   "author": "Zhang Feng",
+   "date": "1654date QS:P571,+1654-00-00T00:00:00Z/9",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Zhuge_Liang_by_Zhang_Feng.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2895,
+    0.4939,
+    0.1452,
+    0.1452
+   ],
+   "kb_start": [
+    0.0,
+    0.0,
+    0.9652,
+    1.0
+   ],
+   "kb_end": [
+    0.0047,
+    0.1961,
+    0.715,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "tingqin": {
+   "file": "img/tingqin.jpg",
+   "w": 922,
+   "h": 2400,
+   "zh": "赵佶（传）《听琴图》（北宋，故宫）",
+   "title": "Songhuizong8.jpg",
+   "author": "Emperor Huizong of Song",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Songhuizong8.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.5705,
+    0.5913,
+    0.049,
+    0.049
+   ],
+   "kb_start": [
+    0.0,
+    0.1686,
+    1.0,
+    0.8314
+   ],
+   "kb_end": [
+    0.2246,
+    0.3079,
+    0.7407,
+    0.6158
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "kongzi_apricot": {
+   "file": "img/kongzi_apricot.jpg",
+   "w": 960,
+   "h": 1396,
+   "zh": "《孔子杏坛讲学》（局部）",
+   "title": "Confucius and His Disciples Yanzi and Huizi at the Apricot Altar (Confucius).jpg",
+   "author": "Kano Tan'yû (1602–1674)",
+   "date": "Mid-17th century",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Confucius_and_His_Disciples_Yanzi_and_Huizi_at_the_Apricot_Altar_(Confucius).jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2584,
+    0.2026,
+    0.317,
+    0.3505
+   ],
+   "kb_start": [
+    0.0809,
+    0.0,
+    0.6719,
+    1.0
+   ],
+   "kb_end": [
+    0.168,
+    0.0075,
+    0.4977,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "kongzi_qiqi": {
+   "file": "img/kongzi_qiqi.jpg",
+   "w": 500,
+   "h": 847,
+   "zh": "《孔子观欹器图》",
+   "title": "Confucius qiqi.jpg",
+   "author": "Unknown authorUnknown author",
+   "date": "Ming dynasty",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Confucius_qiqi.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.6131,
+    0.7179,
+    0.1544,
+    0.1998
+   ],
+   "kb_start": [
+    0.2172,
+    0.0,
+    0.7828,
+    1.0
+   ],
+   "kb_end": [
+    0.4004,
+    0.2593,
+    0.5798,
+    0.7407
+   ],
+   "focal_method": "vision-people",
+   "needs_review": false
+  },
+  "wangchuan_pan": {
+   "file": "img/wangchuan_pan.jpg",
+   "w": 560,
+   "h": 2400,
+   "zh": "潘恭寿《辋川别业图》（清）",
+   "title": "Gongshou Pan - Wangchuan Villa after Wen Zhengming and Dong Qichang Hanging scroll, ink and colour on paper 127 x 30 cm.jpg",
+   "author": "Gongshou Pan",
+   "date": "",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Gongshou_Pan_-_Wangchuan_Villa_after_Wen_Zhengming_and_Dong_Qichang_Hanging_scroll,_ink_and_colour_on_paper_127_x_30_cm.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2954,
+    0.4133,
+    0.25,
+    0.1741
+   ],
+   "kb_start": [
+    0.0,
+    0.2479,
+    1.0,
+    0.505
+   ],
+   "kb_end": [
+    0.05,
+    0.3133,
+    0.7407,
+    0.374
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "eagle": {
+   "file": "img/eagle.jpg",
+   "w": 1117,
+   "h": 2400,
+   "zh": "高其佩《松鹰图》（清）",
+   "title": "高其佩 松鹰图轴.jpg",
+   "author": "Gao Qipei",
+   "date": "Qing dynasty (1636–1912)",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:%E9%AB%98%E5%85%B6%E4%BD%A9_%E6%9D%BE%E9%B9%B0%E5%9B%BE%E8%BD%B4.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.4199,
+    0.0646,
+    0.3242,
+    0.3319
+   ],
+   "kb_start": [
+    0.0072,
+    0.0,
+    0.9928,
+    1.0
+   ],
+   "kb_end": [
+    0.2143,
+    0.0,
+    0.7354,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "minghuang": {
+   "file": "img/minghuang.jpg",
+   "w": 1763,
+   "h": 2400,
+   "zh": "佚名（旧传李昭道）《明皇幸蜀图》（台北故宫）",
+   "title": "Li Zhaodao Minhuan travel.jpg",
+   "author": "Li Zhaodao",
+   "date": "11-12 cent",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Li_Zhaodao_Minhuan_travel.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    0.3555
+   ],
+   "kb_start": [
+    0.1855,
+    0.0,
+    0.629,
+    1.0
+   ],
+   "kb_end": [
+    0.267,
+    0.0,
+    0.466,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "minghuang_freer": {
+   "file": "img/minghuang_freer.jpg",
+   "w": 2400,
+   "h": 1714,
+   "zh": "佚名《明皇幸蜀图》（弗利尔美术馆）",
+   "title": "Emperor Minghuang's Journey to Sichuan, Freer Gallery of Art.jpg",
+   "author": "Qiu Ying",
+   "date": "4 August 2007 (original upload date)",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Emperor_Minghuang%27s_Journey_to_Sichuan,_Freer_Gallery_of_Art.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": [
+    400,
+    0,
+    3148,
+    1963
+   ],
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.335,
+    0.0,
+    0.33,
+    1.0
+   ],
+   "kb_end": [
+    0.3778,
+    0.1296,
+    0.2444,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "qingming": {
+   "file": "img/qingming.jpg",
+   "w": 1920,
+   "h": 960,
+   "zh": "张择端《清明上河图》局部（北宋，故宫）",
+   "title": "Along the River During the Qingming Festival (detail of original).jpg",
+   "author": "Zhang Zeduan",
+   "date": "1085",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Along_the_River_During_the_Qingming_Festival_(detail_of_original).jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0,
+    0.0,
+    1.0,
+    1.0
+   ],
+   "kb_start": [
+    0.3845,
+    0.0,
+    0.231,
+    1.0
+   ],
+   "kb_end": [
+    0.4144,
+    0.1296,
+    0.1711,
+    0.7407
+   ],
+   "focal_method": "detail-density",
+   "needs_review": true
+  },
+  "hanpalace": {
+   "file": "img/hanpalace.jpg",
+   "w": 1280,
+   "h": 737,
+   "zh": "仿仇英《汉宫春晓图》局部（沃尔特斯）",
+   "title": "Qiu Ying - Spring Morning in the Han Palace - Walters 3548 - View B.jpg",
+   "author": "Qiu Ying",
+   "date": "second half of 17th centurydate QS:P571,+1650-00-00T00:00:00",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Qiu_Ying_-_Spring_Morning_in_the_Han_Palace_-_Walters_3548_-_View_B.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.0332,
+    0.0748,
+    0.7324,
+    0.7426
+   ],
+   "kb_start": [
+    0.2664,
+    0.0,
+    0.2661,
+    1.0
+   ],
+   "kb_end": [
+    0.3009,
+    0.0757,
+    0.1971,
+    0.7407
+   ],
+   "focal_method": "vision-saliency",
+   "needs_review": true
+  },
+  "hut_wuli": {
+   "file": "img/hut_wuli.jpg",
+   "w": 1280,
+   "h": 1706,
+   "zh": "吴历《墨井草堂消夏图》局部（清，大都会）",
+   "title": "清 吳歷 墨井草堂消夏圖 卷-Whiling Away the Summer MET DP153655.jpg",
+   "author": "Wu Li",
+   "date": "dated 1679",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E6%B8%85_%E5%90%B3%E6%AD%B7_%E5%A2%A8%E4%BA%95%E8%8D%89%E5%A0%82%E6%B6%88%E5%A4%8F%E5%9C%96_%E5%8D%B7-Whiling_Away_the_Summer_MET_DP153655.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2069,
+    0.0324,
+    0.5065,
+    0.7239
+   ],
+   "kb_start": [
+    0.1522,
+    0.0,
+    0.6159,
+    1.0
+   ],
+   "kb_end": [
+    0.232,
+    0.024,
+    0.4562,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "tao_chrys": {
+   "file": "img/tao_chrys.jpg",
+   "w": 1800,
+   "h": 2400,
+   "zh": "《陶渊明赏菊图》（大都会）",
+   "title": "Tao Yuanming Enjoying Chrysanthemums MET DP-17818-002.jpg",
+   "author": "Template:Du Jin",
+   "date": "between 1465 and 1509date QS:P,+1500-00-00T00:00:00Z/6,P1319",
+   "licence": "CC0",
+   "page": "https://commons.wikimedia.org/wiki/File:Tao_Yuanming_Enjoying_Chrysanthemums_MET_DP-17818-002.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": false,
+   "crop_src_px": null,
+   "focus": [
+    0.2852,
+    0,
+    0.4189,
+    0.9985
+   ],
+   "kb_start": [
+    0.1866,
+    0.0,
+    0.6161,
+    1.0
+   ],
+   "kb_end": [
+    0.2665,
+    0.1289,
+    0.4564,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "tsh_baidi": {
+   "file": "img/tsh_baidi.jpg",
+   "w": 1920,
+   "h": 1491,
+   "zh": "《唐诗选画本》早发白帝城（日本江户刻本）",
+   "title": "Toshisen-ehon shichigon-zekku vol2 p12-13.jpg",
+   "author": "Unknown authorUnknown author",
+   "date": "1836",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Toshisen-ehon_shichigon-zekku_vol2_p12-13.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": true,
+   "crop_src_px": null,
+   "focus": [
+    0.0862,
+    0.6494,
+    0.8806,
+    0.332
+   ],
+   "kb_start": [
+    0.3471,
+    0.0,
+    0.3588,
+    1.0
+   ],
+   "kb_end": [
+    0.3936,
+    0.2593,
+    0.2658,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "tsh_hhl": {
+   "file": "img/tsh_hhl.jpg",
+   "w": 1920,
+   "h": 1502,
+   "zh": "《唐诗选画本》黄鹤楼送孟浩然之广陵（日本江户刻本）",
+   "title": "Toshisen-ehon shichigon-zekku vol2 p2-3.jpg",
+   "author": "Unknown authorUnknown author",
+   "date": "1836",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Toshisen-ehon_shichigon-zekku_vol2_p2-3.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": true,
+   "crop_src_px": null,
+   "focus": [
+    0,
+    0.6689,
+    0.9009,
+    0.3262
+   ],
+   "kb_start": [
+    0.2697,
+    0.0,
+    0.3615,
+    1.0
+   ],
+   "kb_end": [
+    0.3166,
+    0.2593,
+    0.2678,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "tsh_maple": {
+   "file": "img/tsh_maple.jpg",
+   "w": 1920,
+   "h": 1498,
+   "zh": "《唐诗选画本》枫桥夜泊（日本江户刻本）",
+   "title": "Toshisen-ehon shichigon-zekku zokuhen vol2 p16-17.jpg",
+   "author": "",
+   "date": "1836",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Toshisen-ehon_shichigon-zekku_zokuhen_vol2_p16-17.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": true,
+   "crop_src_px": null,
+   "focus": [
+    0.0029,
+    0.7573,
+    0.249,
+    0.189
+   ],
+   "kb_start": [
+    0.0,
+    0.0,
+    0.3605,
+    1.0
+   ],
+   "kb_end": [
+    0.0,
+    0.2593,
+    0.2671,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "tsh_liangzhou": {
+   "file": "img/tsh_liangzhou.jpg",
+   "w": 1920,
+   "h": 1510,
+   "zh": "《唐诗选画本》凉州词·王之涣（日本江户刻本）",
+   "title": "Toshisen-ehon shichigon-zekku zokuhen p18-19.jpg",
+   "author": "北尾重政 (Kitao Shigemasa)",
+   "date": "1832",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Toshisen-ehon_shichigon-zekku_zokuhen_p18-19.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": true,
+   "crop_src_px": null,
+   "focus": [
+    0.0155,
+    0.6919,
+    0.7438,
+    0.3027
+   ],
+   "kb_start": [
+    0.2057,
+    0.0,
+    0.3634,
+    1.0
+   ],
+   "kb_end": [
+    0.2528,
+    0.2593,
+    0.2692,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  },
+  "tsh_luzhai": {
+   "file": "img/tsh_luzhai.jpg",
+   "w": 960,
+   "h": 754,
+   "zh": "《唐诗选画本》鹿柴（日本江户刻本）",
+   "title": "Toshisen-ehon gogon-zekku vol1 p50-51.jpg",
+   "author": "橘 石峰",
+   "date": "1836",
+   "licence": "Public domain",
+   "page": "https://commons.wikimedia.org/wiki/File:Toshisen-ehon_gogon-zekku_vol1_p50-51.jpg",
+   "source": "Wikimedia Commons",
+   "book_illustration": true,
+   "crop_src_px": null,
+   "focus": [
+    0.2169,
+    0.0156,
+    0.7133,
+    0.2956
+   ],
+   "kb_start": [
+    0.3921,
+    0.0,
+    0.3629,
+    1.0
+   ],
+   "kb_end": [
+    0.4391,
+    0.0,
+    0.2688,
+    0.7407
+   ],
+   "focal_method": "vision-object",
+   "needs_review": false
+  }
+ },
+ "poems": {
+  "baidi": {
+   "poet": "李白",
+   "title": "早发白帝城",
+   "bgm": "guzheng_recital",
+   "images": [
+    "tsh_baidi",
+    "cjwl",
+    "qianli_start"
+   ]
+  },
+  "chunwang": {
+   "poet": "杜甫",
+   "title": "春望",
+   "bgm": "erhu_street",
+   "images": [
+    "minghuang",
+    "peachbirds",
+    "beggars",
+    "sage_dufu"
+   ]
+  },
+  "huanghelou": {
+   "poet": "崔颢",
+   "title": "黄鹤楼",
+   "bgm": "pingsha",
+   "images": [
+    "hhl_xy",
+    "tengwang",
+    "fuchun"
+   ]
+  },
+  "p01": {
+   "poet": "薛道衡",
+   "title": "人日思归",
+   "bgm": "meihua",
+   "images": [
+    "geese_winter",
+    "peachbirds",
+    "earlyspring"
+   ]
+  },
+  "p02": {
+   "poet": "王勃",
+   "title": "送杜少府之任蜀州",
+   "bgm": "shenyang",
+   "images": [
+    "qingming",
+    "farewell_stream",
+    "ferry"
+   ]
+  },
+  "p03": {
+   "poet": "骆宾王",
+   "title": "在狱咏蝉",
+   "bgm": "solemn",
+   "images": [
+    "cicada",
+    "autumn_woods",
+    "stele"
+   ]
+  },
+  "p04": {
+   "poet": "陈子昂",
+   "title": "登幽州台歌",
+   "bgm": "kongziduyi",
+   "images": [
+    "stele",
+    "fankuan",
+    "kuanglu"
+   ]
+  },
+  "p05": {
+   "poet": "王维",
+   "title": "九月九日忆山东兄弟",
+   "bgm": "peilan",
+   "images": [
+    "tao_chrys",
+    "qiaohua",
+    "sage_ww"
+   ]
+  },
+  "p06": {
+   "poet": "王昌龄",
+   "title": "出塞",
+   "bgm": "drums",
+   "images": [
+    "wenji_chen",
+    "khitans",
+    "horse_lasso",
+    "moon_pine"
+   ]
+  },
+  "p07": {
+   "poet": "孟浩然",
+   "title": "春晓",
+   "bgm": "blossom",
+   "images": [
+    "huangniao",
+    "rain_malin",
+    "sage_mhr"
+   ]
+  },
+  "p08": {
+   "poet": "李白",
+   "title": "静夜思",
+   "bgm": "xiao",
+   "images": [
+    "moon_linbu",
+    "moon_duiyue",
+    "libai_lk"
+   ]
+  },
+  "p09": {
+   "poet": "王之涣",
+   "title": "登鹳雀楼",
+   "bgm": "guzheng_recital",
+   "images": [
+    "tengwang",
+    "autumn_sun",
+    "qianli_sec"
+   ]
+  },
+  "p10": {
+   "poet": "王之涣",
+   "title": "凉州词",
+   "bgm": "xiao",
+   "images": [
+    "tsh_liangzhou",
+    "zhaojun",
+    "wenji_liyao"
+   ]
+  },
+  "p12": {
+   "poet": "李白",
+   "title": "黄鹤楼送孟浩然之广陵",
+   "bgm": "liushui",
+   "images": [
+    "tsh_hhl",
+    "hhl_xy",
+    "cjwl"
+   ]
+  },
+  "p13": {
+   "poet": "杜甫",
+   "title": "望岳",
+   "bgm": "guzheng_recital",
+   "images": [
+    "earlyspring",
+    "tai_pines",
+    "litang"
+   ]
+  },
+  "p14": {
+   "poet": "张九龄",
+   "title": "望月怀远",
+   "bgm": "cattails",
+   "images": [
+    "moon_drink",
+    "midautumn",
+    "moon_pine"
+   ]
+  },
+  "p15": {
+   "poet": "王维",
+   "title": "送元二使安西",
+   "bgm": "rain",
+   "images": [
+    "rain_river",
+    "farewell_stream",
+    "wenji_liyao"
+   ],
+   "bgm_bysa_alt": "阳关三叠 (guqin, Charlie Huang)"
+  },
+  "p16": {
+   "poet": "贺知章",
+   "title": "回乡偶书（其一）",
+   "bgm": "peilan",
+   "images": [
+    "peddler",
+    "herdboy",
+    "sage_hzz"
+   ]
+  },
+  "p17": {
+   "poet": "高适",
+   "title": "别董大（二首其一）",
+   "bgm": "pingsha",
+   "images": [
+    "tingqin",
+    "snow_inn",
+    "geese_winter"
+   ]
+  },
+  "p18": {
+   "poet": "岑参",
+   "title": "白雪歌送武判官归京",
+   "bgm": "karst",
+   "images": [
+    "snow_wh",
+    "wintry_forest",
+    "khitans"
+   ]
+  },
+  "p19": {
+   "poet": "张继",
+   "title": "枫桥夜泊",
+   "bgm": "solemn",
+   "images": [
+    "tsh_maple",
+    "lute",
+    "autumn_angling"
+   ]
+  },
+  "p20": {
+   "poet": "杜甫",
+   "title": "月夜",
+   "bgm": "xiao",
+   "images": [
+    "daolian",
+    "moon_duiyue",
+    "minghuang"
+   ]
+  },
+  "p22": {
+   "poet": "杜甫",
+   "title": "石壕吏",
+   "bgm": "erhu_street",
+   "images": [
+    "beggars",
+    "minghuang_freer",
+    "sage_dufu"
+   ]
+  },
+  "p24": {
+   "poet": "杜甫",
+   "title": "春夜喜雨",
+   "bgm": "rain",
+   "images": [
+    "rain_malin",
+    "bamboo_rain",
+    "beneficent_rain"
+   ],
+   "bgm_bysa_alt": "雨打芭蕉 (广东音乐)"
+  },
+  "p25": {
+   "poet": "杜甫",
+   "title": "闻官军收河南河北",
+   "bgm": "guzheng",
+   "images": [
+    "dufu_qing",
+    "cjwl",
+    "qianli_sec"
+   ]
+  },
+  "q01": {
+   "poet": "李白",
+   "title": "渡荆门送别",
+   "bgm": "liushui",
+   "images": [
+    "dongyuan_xx",
+    "xx_full",
+    "cjwl"
+   ]
+  },
+  "q02": {
+   "poet": "李白",
+   "title": "行路难",
+   "bgm": "jiukuang",
+   "images": [
+    "wenhui",
+    "snow_wh",
+    "libai_lk",
+    "yinzhong"
+   ],
+   "bgm_bysa_alt": "醉渔唱晚 (guqin, Charlie Huang)"
+  },
+  "q03": {
+   "poet": "李白",
+   "title": "鲁郡东石门送杜二甫",
+   "bgm": "karst",
+   "images": [
+    "yaoshou_drink",
+    "qiaohua",
+    "autumn_angling"
+   ]
+  },
+  "q04": {
+   "poet": "杜甫",
+   "title": "赠李白",
+   "bgm": "jiukuang",
+   "images": [
+    "yinzhong",
+    "drunk_autumn",
+    "libai_ql"
+   ]
+  },
+  "q05": {
+   "poet": "李白",
+   "title": "独坐敬亭山",
+   "bgm": "peilan",
+   "images": [
+    "shitao_taibai",
+    "kuanglu",
+    "libai_lk"
+   ]
+  },
+  "q06": {
+   "poet": "李白",
+   "title": "临路歌",
+   "bgm": "kongziduyi",
+   "images": [
+    "eagle",
+    "shitao_taibai",
+    "libai_ql"
+   ]
+  },
+  "q07": {
+   "poet": "杜甫",
+   "title": "兵车行",
+   "bgm": "drums",
+   "images": [
+    "minghuang_freer",
+    "beggars",
+    "nightwhite"
+   ],
+   "bgm_bysa_alt": "江河水 (erhu)"
+  },
+  "q08": {
+   "poet": "杜甫",
+   "title": "丽人行",
+   "bgm": "shenyang",
+   "images": [
+    "guoguo",
+    "hanpalace",
+    "daolian"
+   ],
+   "bgm_bysa_alt": "连环扣 (广东音乐)"
+  },
+  "q09": {
+   "poet": "杜甫",
+   "title": "自京赴奉先县咏怀五百字",
+   "bgm": "solemn",
+   "images": [
+    "minghuang",
+    "beggars",
+    "hanpalace"
+   ]
+  },
+  "q10": {
+   "poet": "杜甫",
+   "title": "月夜忆舍弟",
+   "bgm": "xiao",
+   "images": [
+    "geese_winter",
+    "moon_pine",
+    "sage_dufu"
+   ]
+  },
+  "q11": {
+   "poet": "杜甫",
+   "title": "蜀相",
+   "bgm": "kongziduyi",
+   "images": [
+    "zhuge_zf",
+    "sangu_dj",
+    "huangniao",
+    "sangu_tw"
+   ]
+  },
+  "q12": {
+   "poet": "杜甫",
+   "title": "茅屋为秋风所破歌",
+   "bgm": "solemn",
+   "images": [
+    "storm_boat",
+    "dufu_zmf",
+    "hut_wuli"
+   ]
+  },
+  "q13": {
+   "poet": "杜甫",
+   "title": "绝句",
+   "bgm": "blossom",
+   "images": [
+    "huangniao",
+    "egret_luji",
+    "willow_orioles",
+    "egret_reeds"
+   ]
+  },
+  "q14": {
+   "poet": "杜甫",
+   "title": "登高",
+   "bgm": "pingsha",
+   "images": [
+    "autumn_woods",
+    "cjwl",
+    "dufu_qing"
+   ],
+   "bgm_bysa_alt": "二泉映月 (erhu)"
+  },
+  "q15": {
+   "poet": "杜甫",
+   "title": "登岳阳楼",
+   "bgm": "karst",
+   "images": [
+    "yyl_xy",
+    "yyl_lv",
+    "dongting_xg",
+    "oldboat"
+   ]
+  },
+  "q16": {
+   "poet": "杜甫",
+   "title": "江南逢李龟年",
+   "bgm": "peilan",
+   "images": [
+    "gongle",
+    "hanxizai",
+    "peachbirds"
+   ]
+  },
+  "q17": {
+   "poet": "王维",
+   "title": "使至塞上",
+   "bgm": "karst",
+   "images": [
+    "zhaojun",
+    "wenji_liyao",
+    "autumn_sun"
+   ]
+  },
+  "q18": {
+   "poet": "王维",
+   "title": "鹿柴",
+   "bgm": "cattails",
+   "images": [
+    "tsh_luzhai",
+    "wangchuan_pan",
+    "litang"
+   ]
+  },
+  "q19": {
+   "poet": "王维",
+   "title": "菩提寺禁裴迪来相看说逆贼等凝碧池上作音乐供奉人等举声便一时泪下私成口号诵示裴迪",
+   "bgm": "solemn",
+   "images": [
+    "hanpalace",
+    "gongle",
+    "minghuang"
+   ]
+  },
+  "q20": {
+   "poet": "孟浩然",
+   "title": "岁暮归南山",
+   "bgm": "meihua",
+   "images": [
+    "xuemei",
+    "sage_mhr",
+    "guanmei"
+   ]
+  },
+  "q21": {
+   "poet": "唐玄宗",
+   "title": "经邹鲁祭孔子而叹之",
+   "bgm": "kongziduyi",
+   "images": [
+    "kongzi_apricot",
+    "kongzi_qiqi",
+    "tai_pines"
+   ],
+   "bgm_bysa_alt": "神人畅 (guqin, Charlie Huang)"
+  }
+ },
+ "bysa_alternatives_need_ok": {
+  "p15": {
+   "name": "阳关三叠 (guqin, Charlie Huang)",
+   "licence": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Guqin-Yangguan_Sandie.ogg",
+   "why": "this poem set to music"
+  },
+  "q14": {
+   "name": "二泉映月 (erhu)",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E4%BA%8C%E6%B3%89%E6%98%A0%E6%9C%88.ogg",
+   "why": "grand sorrow"
+  },
+  "q07": {
+   "name": "江河水 (erhu)",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E6%B1%9F%E6%B2%B3%E6%B0%B4.ogg",
+   "why": "lament"
+  },
+  "p24": {
+   "name": "雨打芭蕉 (广东音乐)",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E9%9B%A8%E6%89%93%E8%8A%AD%E8%95%89.ogg",
+   "why": "rain"
+  },
+  "q02": {
+   "name": "醉渔唱晚 (guqin, Charlie Huang)",
+   "licence": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Guqin-Zuiyu_Changwan.ogg",
+   "why": "drunken, unrestrained"
+  },
+  "q21": {
+   "name": "神人畅 (guqin, Charlie Huang)",
+   "licence": "CC BY-SA 2.5",
+   "page": "https://commons.wikimedia.org/wiki/File:Shenren_Chang.ogg",
+   "why": "ancient ritual"
+  },
+  "q08": {
+   "name": "连环扣 (广东音乐)",
+   "licence": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:%E8%BF%9E%E7%8E%AF%E6%89%A3.ogg",
+   "why": "lively, festive"
+  }
+ }
+}

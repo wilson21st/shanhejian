@@ -1,0 +1,17 @@
+[
+ ["libai_walk", "File:Liang Kai - Li Bai Strolling.jpg", 0, "梁楷《李白行吟图》（南宋，东京国立博物馆）"],
+ ["baidi", "File:夔府白帝城.jpg", 0, "夔府白帝城（郑璧成《四川导游》插图，1930年代）"],
+ ["cj_a", "File:吴伟长江万里图卷.png", 9000, "吴伟《长江万里图》卷（明）局部", {"crop": [0.0, 0.16]}],
+ ["cj_b", "File:吴伟长江万里图卷.png", 9000, "吴伟《长江万里图》卷（明）局部", {"crop": [0.16, 0.32]}],
+ ["cj_c", "File:吴伟长江万里图卷.png", 9000, "吴伟《长江万里图》卷（明）局部", {"crop": [0.5, 0.66]}],
+ ["shitao", "File:石涛太白诗意山水图轴.png", 0, "石涛《太白诗意山水图》轴（清）"],
+ ["dufu", "File:Dufu.jpg", 0, "杜甫像（后世想象画像）"],
+ ["spring", "File:Guo Xi - Early Spring.jpg", 0, "郭熙《早春图》（北宋，台北故宫）"],
+ ["warmap", {"from": "data/shuoshu/mawei"}, 0, "安史之乱形势图"],
+ ["xingshu", {"from": "data/shuoshu/mawei"}, 0, "《明皇幸蜀图》（传李昭道，台北故宫）"],
+ ["march", {"from": "data/shuoshu/mawei"}, 0, "敦煌壁画《张议潮统军出行图》（唐）"],
+ ["hhl", "File:Xia Yong - Huang He Lou.jpg", 0, "夏永《黄鹤楼图》（元）"],
+ ["tp122", "File:Three Hundred Tang Poems (122).jpg", 0, "《唐诗三百首》书影（1931年印本）"],
+ ["hhl_now", "File:CN - Hubei - Wuhan - Kranichpagode.jpg", 1600, "今日黄鹤楼（1985年重建）"],
+ ["libai", "File:LiBai.jpg", 0, "梁楷 李白像（南宋，想象画像）"]
+]

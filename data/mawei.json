@@ -1,0 +1,115 @@
+{
+"meta":{"title":"马嵬驿之变","span":"天宝十四载十一月—至德二载十二月（755-12—758-01）","note":"mawei.html 的说法层。结构同 world.json：claim(src, quote, lens, conflicts) → source。quote 为原文（繁体），均可在 data/raw/ 对应文本中逐字找到（eval 时按 source.raw 检索）。日期换算：天宝十五载六月癸未朔，乙未=十三日=756-07-14，丙申=756-07-15；七月甲子=756-08-12；至德二载九月癸卯=757-11-14；十二月丙午≈758-01-16。"},
+"lenses":{
+ "zhengshi":{"name":"正史","desc":"两唐书、资治通鉴的讲法：禁军饥疲，陈玄礼为社稷诛国忠，玄宗不得已赐死贵妃"},
+ "critical":{"name":"史源批判","desc":"问一句：谁写的、何时写的、几本书怎么对不上、太子到底知不知道"},
+ "folk":{"name":"民间","desc":"诗人、戏曲和传说怎样记住她：长恨歌、长生殿、东渡日本"}
+},
+"sources":{
+ "zztj":{"name":"资治通鉴","year":1084,"author":"司马光","kind":"secondary","raw":["zztj217.txt","zztj218.txt","zztj219.txt","zztj220.txt"],"derivedFrom":["shilu","guoshi"],"note":"北宋编年，卷217–220 唐纪三十三至三十六"},
+ "jts":{"name":"旧唐书","year":945,"author":"刘昫等","kind":"secondary","raw":["jts9.txt","jts10.txt","jts51.txt","jts106.txt","jts184.txt"],"derivedFrom":["shilu","guoshi"],"note":"后晋官修，多抄唐国史、实录"},
+ "xts":{"name":"新唐书","year":1060,"author":"欧阳修、宋祁","kind":"secondary","raw":["xts5.txt","xts76.txt","xts206.txt"],"derivedFrom":["jts"],"note":"北宋重修，删改旧书文字"},
+ "shilu":{"name":"肃宗、玄宗实录","year":760,"kind":"primary-lost","extant":false,"note":"肃宗朝修撰，已佚；马嵬、灵武的叙述最早在此定型"},
+ "guoshi":{"name":"唐国史","year":760,"author":"韦述等","kind":"primary-lost","extant":false},
+ "tgsb":{"name":"唐国史补","year":825,"author":"李肇","kind":"anecdote","raw":["tgsb.txt"],"note":"中唐笔记，事后约七十年"},
+ "chg":{"name":"长恨歌","year":806,"author":"白居易","kind":"poem","raw":["changhenge.txt"],"note":"元和元年作，事后五十年"},
+ "chgz":{"name":"长恨歌传","year":806,"author":"陈鸿","kind":"tale","raw":["chhgz.txt"]},
+ "ytzwz":{"name":"杨太真外传","year":1000,"author":"乐史","kind":"tale","raw":["ytzwz.txt"],"note":"北宋传奇，约成于十世纪末十一世纪初，事后约二百五十年"},
+ "dufu":{"name":"杜甫《北征》","year":757,"author":"杜甫","kind":"poem","note":"至德二载秋作于凤翔回鄜州途中，亲历者诗"},
+ "csd":{"name":"长生殿","year":1688,"author":"洪昇","kind":"drama","note":"清代传奇，全五十出"},
+ "nagato":{"name":"二尊院古文书（长门市油谷）","year":1766,"author":"二尊院住持恵学","kind":"legend","url":"https://www.city.nagato.yamaguchi.jp/site/kanko/1637.html","note":"明和三年据古老口述写下的地方传说"},
+ "modern_cao":{"name":"曹慕樊《〈哀江头〉阐微》","year":2019,"kind":"modern","url":"https://www.aisixiang.com/data/138228.html"},
+ "tomb":{"name":"兴平马嵬杨贵妃墓","kind":"site","url":"https://zh.wikipedia.org/wiki/杨贵妃墓","note":"1956年列陕西省文保单位，无科学发掘报告"}
+},
+"events":[
+ {"id":"m1","x":800,"title":"范阳起兵","date":"755-12-16"},
+ {"id":"m2","x":1320,"title":"东京陷落 · 斩封常清、高仙芝","date":"756-01"},
+ {"id":"m3","x":1840,"title":"哥舒翰出关 · 潼关失守","date":"756-07-05/10"},
+ {"id":"m4","x":2360,"title":"出延秋门","date":"756-07-14"},
+ {"id":"m5","x":2880,"title":"咸阳望贤宫","date":"756-07-14"},
+ {"id":"m6","x":3400,"title":"马嵬驿 · 将士饥疲","date":"756-07-15"},
+ {"id":"m7","x":3920,"title":"吐蕃使者遮马 · 诛杨国忠","date":"756-07-15"},
+ {"id":"m8","x":4440,"title":"六军围驿","date":"756-07-15"},
+ {"id":"m9","x":4960,"title":"佛堂","date":"756-07-15"},
+ {"id":"m10","x":5480,"title":"免胄谢罪","date":"756-07-15"},
+ {"id":"m11","x":6000,"title":"父老遮道 · 分道","date":"756-07-16"},
+ {"id":"m12","x":6520,"title":"灵武即位","date":"756-08-12"},
+ {"id":"m13","x":7040,"title":"收复两京 · 改葬 · 香囊","date":"757-11—758-01"}
+],
+"claims":[
+ {"id":"z_qibing","ev":"m1","src":"zztj","lens":"zhengshi","stance":"asserts","text":"十一月甲子，安禄山发同罗、奚、契丹、室韦兵十五万，号二十万，反于范阳。","quote":"祿山發所部兵及同羅、奚、契丹、室韋凡十五萬眾，號二十萬，反於范陽","loc":"资治通鉴 卷217"},
+ {"id":"z_mizhi","ev":"m1","src":"zztj","lens":"zhengshi","stance":"asserts","text":"起兵前，安禄山伪造敕书，对诸将称奉密旨入朝讨杨国忠。","quote":"有密旨，令祿山將兵入朝討楊國忠","loc":"资治通鉴 卷217"},
+ {"id":"c_jizhi","ev":"m1","src":"zztj","lens":"critical","stance":"reinterprets","text":"通鉴把一半的火也算在杨国忠头上：他屡言禄山必反，又「以事激之」，想逼其速反以取信于上。叛乱的起因，在史书里从一开始就写成了杨国忠的罪。","quote":"國忠數以事激之，欲其速反以取信於上","loc":"资治通鉴 卷217","conf":"high"},
+ {"id":"f_yuyang","ev":"m1","src":"chg","lens":"folk","stance":"reinterprets","text":"「渔阳鼙鼓」出自白居易《长恨歌》（806，事后五十年），不是史文。诗把一场边镇叛乱写成惊破宫中歌舞的鼓声，后来人记住的多是这一句。","quote":"漁陽鞞鼓動地來，驚破霓裳羽衣曲","loc":"白氏长庆集 卷12"},
+
+ {"id":"z_dongjing","ev":"m2","src":"zztj","lens":"zhengshi","stance":"asserts","text":"十二月丁酉，安禄山攻陷东京洛阳，封常清屡战屡败，自苑西坏墙西走。","quote":"丁酉，祿山陷東京","loc":"资治通鉴 卷217","conflicts":["c_dingwei"]},
+ {"id":"c_dingwei","ev":"m2","src":"jts","lens":"critical","stance":"disputes","text":"日期对不上：旧唐书肃宗纪作「丁未」，比通鉴的丁酉晚十天。两说都出自后人整理的史书，原始记录已佚。","quote":"十二月丁未，陷東京","loc":"旧唐书 卷10 肃宗纪","conflicts":["z_dongjing"]},
+ {"id":"z_zhanfenggao","ev":"m2","src":"zztj","lens":"zhengshi","stance":"asserts","text":"癸卯，玄宗听信监军边令诚的奏报，遣其持敕到潼关军中，斩高仙芝与封常清。","quote":"遣令誠繼敕即軍中斬仙芝及常清","loc":"资治通鉴 卷217"},
+ {"id":"c_wu","ev":"m2","src":"zztj","lens":"critical","stance":"reinterprets","text":"罪名「盗减粮赐」只出自边令诚一人之口；通鉴同时记下高仙芝当场喊冤、士卒「皆大呼称枉」。官方的罪状与现场的声音，史家都保留了。","quote":"謂我盜減糧賜則誣也","loc":"资治通鉴 卷217","conf":"high"},
+
+ {"id":"z_tongku","ev":"m3","src":"zztj","lens":"zhengshi","stance":"asserts","text":"郭子儀、李光弼都主张固守潼关；杨国忠疑哥舒翰图己，玄宗连遣中使催战。翰不得已，抚膺恸哭，六月丙戌引兵出关。","quote":"翰不得已，撫膺慟哭；丙戌，引兵出關","loc":"资治通鉴 卷218"},
+ {"id":"z_tongguan","ev":"m3","src":"zztj","lens":"zhengshi","stance":"asserts","text":"庚寅战于灵宝西原，崔乾祐以草车纵火，官军大溃；辛卯，潼关失守。当晚长安不见平安火。","quote":"及暮，平安火不至，上始懼","loc":"资治通鉴 卷218"},
+ {"id":"c_wuhuo","ev":"m3","src":"jts","lens":"critical","stance":"reinterprets","text":"旧唐书杨国忠传把潼关之败整个记在国忠账上。这篇传写于他死后，取的是肃宗朝的口径：马嵬诛国忠，必须先证明国忠该死。","quote":"敗國喪師，皆國忠之誤惑也","loc":"旧唐书 卷106 杨国忠传","conf":"medium"},
+
+ {"id":"z_yanqiu","ev":"m4","src":"zztj","lens":"zhengshi","stance":"asserts","text":"乙未黎明，玄宗只带贵妃姊妹、皇子、妃主、皇孙、杨国忠、韦见素、魏方进、陈玄礼及亲近宦官、宫人出延秋门；在外的妃主皇孙都弃之而去。","quote":"上獨與貴妃姊妹、皇子、妃、主、皇孫、楊國忠、韋見素、魏方進、陳玄禮及親近宦官、宮人出延秋門","loc":"资治通鉴 卷218"},
+ {"id":"z_weiyu","ev":"m4","src":"jts","lens":"zhengshi","stance":"asserts","text":"旧唐书玄宗纪：凌晨出延秋门，微雨沾湿；扈从只有杨国忠、韦见素、高力士及太子。","quote":"乙未，凌晨自延秋門出，微雨沾濕","loc":"旧唐书 卷9 玄宗纪下","conflicts":["c_shierri"]},
+ {"id":"c_shierri","ev":"m4","src":"jts","lens":"critical","stance":"disputes","text":"同一部旧唐书，杨国忠传却说「十二日凌晨」出城；而乙未是六月十三日。本纪与列传各抄来源，相差一天。","quote":"十二日淩晨","loc":"旧唐书 卷106 杨国忠传","conflicts":["z_weiyu"]},
+ {"id":"z_zuocang","ev":"m4","src":"zztj","lens":"zhengshi","stance":"asserts","text":"过左藏，杨国忠请焚之「无为贼守」；玄宗说宁可留给贼，免得再向百姓搜刮。过便桥，国忠又要烧桥，玄宗留高力士扑灭。","quote":"不如與之，無重困吾赤子","loc":"资治通鉴 卷218"},
+
+ {"id":"z_lifan","ev":"m5","src":"zztj","lens":"zhengshi","stance":"asserts","text":"至咸阳望贤宫，县令已逃。日中玄宗犹未食，杨国忠亲自买胡饼来献；百姓争献粝饭，杂以麦豆，皇孙们争着用手捧来吃。","quote":"於是民爭獻糲飯，雜以麥豆；皇孫輩爭以手掬食之","loc":"资治通鉴 卷218"},
+ {"id":"z_guocongjin","ev":"m5","src":"zztj","lens":"zhengshi","stance":"asserts","text":"老父郭从谨进言：禄山包藏祸心非一日，告发者反被诛；玄宗答：「此朕之不明，悔无所及！」","quote":"此朕之不明，悔無所及","loc":"资治通鉴 卷218"},
+ {"id":"c_guocongjin","ev":"m5","src":"zztj","lens":"critical","stance":"reinterprets","text":"郭从谨这番话不见于我们所查的两唐书本纪与杨氏诸传，只在通鉴里。司马光借一位野老之口说「宋璟为相，数进直言」——这是通鉴惯用的借事说理。","quote":"臣猶記宋璟為相，數進直言","loc":"资治通鉴 卷218","conf":"medium"},
+ {"id":"c_xianmai","ev":"m5","src":"jts","lens":"critical","stance":"disputes","text":"献的是什么，三处说法不同：杨国忠传说「老父献麦」，玄宗纪说父老献食相继，通鉴说「粝饭杂以麦豆」。细节越到后来越完整。","quote":"有老父獻麥","loc":"旧唐书 卷106 杨国忠传"},
+
+ {"id":"z_jipi","ev":"m6","src":"zztj","lens":"zhengshi","stance":"asserts","text":"丙申，至马嵬驿，将士饥疲，皆愤怒。陈玄礼认为祸由杨国忠，想诛杀他。","quote":"丙申，至馬嵬驛，將士饑疲，皆憤怒","loc":"资治通鉴 卷218","conflicts":["c_dingyou"]},
+ {"id":"z_weijue","ev":"m6","src":"zztj","lens":"zhengshi","stance":"asserts","text":"通鉴说：陈玄礼通过东宫宦官李辅国告知太子，「太子未决」——太子知情，但没有点头。","quote":"因東宮宦者李輔國以告太子，太子未決","loc":"资治通鉴 卷218","conflicts":["c_fuguo","c_caomufan"]},
+ {"id":"c_fuguo","ev":"m6","src":"jts","lens":"critical","stance":"disputes","text":"旧唐书李辅国传径直写他「侍太子扈从，至马嵬，诛杨国忠」，又献计北趋朔方。东宫的人不只是传话的。","quote":"輔國侍太子扈從，至馬嵬，誅楊國忠","loc":"旧唐书 卷184 李辅国传","conflicts":["z_weijue"]},
+ {"id":"c_caomufan","ev":"m6","src":"modern_cao","lens":"critical","stance":"disputes","text":"今人曹慕樊等认为马嵬是太子李亨、张良娣、李辅国一派与杨国忠集团的斗争，「太子未决」是肃宗朝史官替他洗脱的写法。","quote":null,"loc":"《杜诗杂说全编》，三联书店2019","conf":"medium","conflicts":["z_weijue"]},
+ {"id":"c_yumou","ev":"m6","src":"jts","lens":"critical","stance":"reinterprets","text":"兵变未必是饿出来的：陈玄礼在长安城里就想杀杨国忠，没有得手，到马嵬才动手。","quote":"玄禮欲於城中誅楊國忠，事不果，竟於馬嵬斬之","loc":"旧唐书 卷106 陈玄礼附传"},
+ {"id":"c_dingyou","ev":"m6","src":"xts","lens":"critical","stance":"disputes","text":"哪一天到马嵬？新唐书玄宗纪作丁酉（十五日），通鉴作丙申（十四日），旧唐书玄宗纪作「丙辰」——六月并无丙辰日，是讹字。","quote":"丁酉，次馬嵬","loc":"新唐书 卷5 玄宗纪","conflicts":["z_jipi"]},
+
+ {"id":"z_tufan","ev":"m7","src":"zztj","lens":"zhengshi","stance":"asserts","text":"吐蕃使者二十余人拦住杨国忠的马，诉说没有饭吃；国忠还没答话，军士就喊：「国忠与胡虏谋反！」","quote":"會吐蕃使者二十餘人遮國忠馬，訴以無食","loc":"资治通鉴 卷218"},
+ {"id":"z_zhuisha","ev":"m7","src":"zztj","lens":"zhengshi","stance":"asserts","text":"有人放箭射中马鞍，国忠逃到西门内，被军士追杀；其子杨暄、韩国夫人、秦国夫人同死，御史大夫魏方进也被杀。","quote":"國忠走至西門內，軍士追殺之","loc":"资治通鉴 卷218"},
+ {"id":"z_weixiang","ev":"m7","src":"zztj","lens":"zhengshi","stance":"asserts","text":"韦见素闻乱而出，被乱兵打得头破血流，众人喊「勿伤韦相公」，才救下他。","quote":"勿傷韋相公","loc":"资治通鉴 卷218"},
+ {"id":"c_tufan","ev":"m7","src":"xts","lens":"critical","stance":"reinterprets","text":"吐蕃使者是引子：人数通鉴作「二十余人」，旧唐书玄宗纪作「二十一人」，杨国忠传说是来「和好」的使臣在诉事。新唐书多出一句：吐蕃使者当场也被杀光了。一句「与胡虏谋反」，把一次诉苦变成了谋反罪名。","quote":"時吐蕃使亦殲矣","loc":"新唐书 卷206 杨国忠传","conf":"high"},
+
+ {"id":"z_gesu","ev":"m8","src":"zztj","lens":"zhengshi","stance":"asserts","text":"军士围驿不散。玄宗拄杖出驿门慰劳，令收队，军士不应。陈玄礼答：国忠谋反，贵妃不宜再侍奉，请陛下割恩正法。","quote":"國忠謀反，貴妃不宜供奉，願陛下割恩正法","loc":"资治通鉴 卷218"},
+ {"id":"z_weie","ev":"m8","src":"zztj","lens":"zhengshi","stance":"asserts","text":"玄宗入门，倚杖低头久立。京兆司录韦谔叩头流血，请陛下速决。","quote":"今眾怒難犯，安危在晷刻，願陛下速決","loc":"资治通鉴 卷218"},
+ {"id":"c_zeiben","ev":"m8","src":"jts","lens":"critical","stance":"disputes","text":"同一句话三个版本：旧唐书作「贼本尚在」，新唐书改「祸本尚在」，杨太真外传作「贼根犹在」。字一改，贵妃从「贼」变成「祸」。","quote":"賊本尚在","loc":"旧唐书 卷51 杨贵妃传","conflicts":["c_huoben"]},
+ {"id":"c_huoben","ev":"m8","src":"xts","lens":"critical","stance":"disputes","text":"新唐书：「祸本尚在！」","quote":"禍本尚在","loc":"新唐书 卷76 杨贵妃传","conflicts":["c_zeiben"]},
+
+ {"id":"z_jiangshian","ev":"m9","src":"zztj","lens":"zhengshi","stance":"asserts","text":"玄宗说贵妃久居深宫，哪知国忠反谋。高力士说：贵妃诚然无罪，但将士已杀国忠，贵妃在陛下左右，他们怎敢自安？「将士安，则陛下安矣。」","quote":"將士安，則陛下安矣","loc":"资治通鉴 卷218"},
+ {"id":"z_fotang","ev":"m9","src":"zztj","lens":"zhengshi","stance":"asserts","text":"玄宗命高力士引贵妃到佛堂，缢杀之。","quote":"上乃命力士引貴妃於佛堂，縊殺之","loc":"资治通鉴 卷218","conflicts":["c_lusi","c_lishu"]},
+ {"id":"z_fushi","ev":"m9","src":"jts","lens":"zhengshi","stance":"asserts","text":"旧唐书杨贵妃传：缢死于佛室，时年三十八，葬在驿西道旁。","quote":"遂縊死於佛室。時年三十八，瘞於驛西道側","loc":"旧唐书 卷51 杨贵妃传"},
+ {"id":"c_lusi","ev":"m9","src":"xts","lens":"critical","stance":"disputes","text":"死在哪里，各书不同：通鉴「佛堂」，旧唐书「佛室」，新唐书「缢路祠下」（路旁的祠），玄宗纪只说「赐贵妃自尽」。是被缢杀还是奉命自尽，也是两种写法。","quote":"縊路祠下","loc":"新唐书 卷76 杨贵妃传","conflicts":["z_fotang"]},
+ {"id":"c_lishu","ev":"m9","src":"tgsb","lens":"critical","stance":"reinterprets","text":"「佛堂前梨树下」最早见于中唐李肇《唐国史补》（约825）。梨树这一笔后来被杨太真外传、长生殿一路继承。","quote":"命高力士縊貴妃于佛堂前梨樹下","loc":"唐国史补 卷上","conflicts":["z_fotang"]},
+ {"id":"f_haozhu","ev":"m9","src":"ytzwz","lens":"folk","stance":"reinterprets","text":"贵妃的遗言，两唐书和通鉴都没有记。到北宋乐史《杨太真外传》才有：「愿大家好住。妾诚负国恩，死无恨矣。乞容礼佛。」本卷说书人用的就是这一句。","quote":"願大家好住。妾誠負國恩，死無恨矣。乞容禮佛","loc":"杨太真外传 卷下","conf":"low"},
+ {"id":"f_maqiansi","ev":"m9","src":"chg","lens":"folk","stance":"reinterprets","text":"长恨歌说「宛转蛾眉马前死」，「君王掩面救不得」——诗里没有佛堂、没有高力士，只有六军和马前一死，一场兵变成了帝妃的爱情悲剧。","quote":"六軍不發無奈何，宛轉娥眉馬前死","loc":"白氏长庆集 卷12"},
+
+ {"id":"z_mianzhou","ev":"m10","src":"zztj","lens":"zhengshi","stance":"asserts","text":"尸体抬到驿庭，召陈玄礼等进来验看。玄礼等免胄释甲，顿首请罪；玄宗慰劳他们，令晓谕军士，众呼万岁。","quote":"玄禮等乃免冑釋甲，頓首請罪","loc":"资治通鉴 卷218"},
+ {"id":"c_jiaozhi","ev":"m10","src":"jts","lens":"critical","stance":"reinterprets","text":"陈玄礼自己承认是「矫制」——假托君命行事；玄宗事后答「今神明启卿，谐朕夙志」，把兵变追认成了自己的意思。","quote":"臣等為社稷大計，請矯制之罪","loc":"旧唐书 卷106 杨国忠传"},
+ {"id":"c_beizheng","ev":"m10","src":"dufu","lens":"critical","stance":"reinterprets","text":"亲历者杜甫在《北征》（757）里把马嵬比作周室自诛褒姒、妲己，称颂陈玄礼。同一个杜甫在《哀江头》里却哀悼「血污游魂归不得」——当时人的态度就已两歧。","quote":"不聞夏殷衰，中自誅褒妲","loc":"杜工部集《北征》","conf":"medium"},
+ {"id":"f_jinyao","ev":"m10","src":"tgsb","lens":"folk","stance":"reinterprets","text":"最早的「遗物」故事：马嵬客店的老妇拾得贵妃锦袜一只，过客借看一次收百钱，老妇因此致富。","quote":"馬嵬店媼，收得錦靿一隻","loc":"唐国史补 卷上"},
+
+ {"id":"z_zhedao","ev":"m11","src":"zztj","lens":"zhengshi","stance":"asserts","text":"丁酉将发，父老遮道请留：宫阙是陛下的家，陵寝是陛下的祖坟，舍此要去哪里？玄宗命太子在后面宣慰父老。","quote":"宮闕，陛下家居，陵寢，陛下墳墓，今捨此，欲何之","loc":"资治通鉴 卷218"},
+ {"id":"z_zhikong","ev":"m11","src":"zztj","lens":"zhengshi","stance":"asserts","text":"太子哭着要西行追父，建宁王倓与李辅国拉住马缰谏阻：若随至尊入蜀，贼烧栈道，中原就拱手送人了。","quote":"建寧王倓與李輔國執鞚諫曰","loc":"资治通鉴 卷218"},
+ {"id":"z_tianye","ev":"m11","src":"zztj","lens":"zhengshi","stance":"asserts","text":"玄宗勒马久等太子不至，听了回报说：「天也！」分后军二千人与飞龙厩马给太子。","quote":"上曰：「天也！」","loc":"资治通鉴 卷218","conflicts":["c_tianqi"]},
+ {"id":"c_tianqi","ev":"m11","src":"jts","lens":"critical","stance":"reinterprets","text":"旧唐书肃宗纪写玄宗听说后说「此天启也」，主动送人送马——分道被写成了父亲的授意。这正是肃宗即位需要的说法。","quote":"此天啟也","loc":"旧唐书 卷10 肃宗纪","conflicts":["z_tianye"]},
+ {"id":"z_chengdu","ev":"m11","src":"zztj","lens":"zhengshi","stance":"asserts","text":"玄宗经扶风、散关入蜀，七月庚辰到成都，从官和六军到的只剩一千三百人。","quote":"庚辰，上皇至成都，從官及六軍至者千三百人而已","loc":"资治通鉴 卷218"},
+
+ {"id":"z_lingwu","ev":"m12","src":"zztj","lens":"zhengshi","stance":"asserts","text":"七月甲子，太子即位于灵武城南楼，是为肃宗，尊玄宗为上皇天帝，改元至德。","quote":"是日，肅宗即位於靈武城南樓，群臣舞蹈，上流涕歔欷","loc":"资治通鉴 卷218"},
+ {"id":"c_maweizhiming","ev":"m12","src":"zztj","lens":"critical","stance":"reinterprets","text":"裴冕等劝进时说「请遵马嵬之命」——所谓马嵬之命，是玄宗口头说过要传位。即位的合法性，被追溯到马嵬那一天。","quote":"請遵馬嵬之命，即皇帝位","loc":"资治通鉴 卷218"},
+ {"id":"c_houzou","ev":"m12","src":"jts","lens":"critical","stance":"reinterprets","text":"先即位，后奏报：肃宗纪说「即日奏其事于上皇」。远在蜀道上的父亲，是事后才知道自己成了太上皇。","quote":"即日奏其事於上皇","loc":"旧唐书 卷10 肃宗纪"},
+ {"id":"z_sanshiren","ev":"m12","src":"zztj","lens":"zhengshi","stance":"asserts","text":"灵武朝廷草创，文武官不满三十人，「披草莱，立朝廷」。","quote":"文武官不滿三十人","loc":"资治通鉴 卷218"},
+
+ {"id":"z_xijing","ev":"m13","src":"zztj","lens":"zhengshi","stance":"asserts","text":"至德二载九月癸卯，广平王李俶率唐军与回纥兵收复西京长安；十月收东京。","quote":"癸卯，大軍入西京","loc":"资治通鉴 卷220"},
+ {"id":"z_wangxian2","ev":"m13","src":"zztj","lens":"zhengshi","stance":"asserts","text":"十二月丙午，上皇回到咸阳，肃宗备法驾迎于望贤宫——就是一年半前百姓献粝饭的地方。","quote":"上皇至咸陽，上備法駕迎於望賢宮","loc":"资治通鉴 卷220"},
+ {"id":"z_xiangnang","ev":"m13","src":"jts","lens":"zhengshi","stance":"asserts","text":"上皇下诏改葬，李揆以恐将士疑惧谏止；上皇密令中使改葬他所。当初以紫褥裹尸，肌肤已坏，香囊仍在。上皇见之凄惋，令画其像于别殿，朝夕视之。","quote":"初瘞時以紫褥裹之，肌膚已壞，而香囊仍在","loc":"旧唐书 卷51 杨贵妃传","conflicts":["f_dongdu"]},
+ {"id":"c_xiangnang","ev":"m13","src":"xts","lens":"critical","stance":"reinterprets","text":"「只剩香囊」不是正史的意思：旧唐书说的是肌肤已坏而香囊尚在，尸骨仍在墓中；新唐书删成「启瘗，故香囊犹在」，不提尸身——空墓的想象，就从这一删里长出来。通鉴卷220只记上皇还京，不载改葬与香囊。","quote":"啟瘞，故香囊猶在","loc":"新唐书 卷76 杨贵妃传","conf":"medium","conflicts":["f_dongdu"]},
+ {"id":"c_lijiu","ev":"m13","src":"jts","lens":"critical","stance":"reinterprets","text":"连改葬都要避讳：礼部侍郎李揆说，龙武将士是因国忠负国才诛杀的，若隆重改葬贵妃，将士会疑惧。杨太真外传则说拦着的是「李辅国等」。","quote":"龍武將士誅國忠，以其負國兆亂。今改葬故妃，恐將士疑懼","loc":"旧唐书 卷51 杨贵妃传"},
+ {"id":"f_buxianyuyan","ev":"m13","src":"chg","lens":"folk","stance":"reinterprets","text":"长恨歌：「马嵬坡下泥土中，不见玉颜空死处。」诗人写的是物是人非，后人读成了坟里根本没有人。","quote":"馬嵬坡下泥土中，不見玉顔空死處","loc":"白氏长庆集 卷12"},
+ {"id":"f_dongdu","ev":"m13","src":"nagato","lens":"folk","stance":"reinterprets","text":"贵妃东渡日本：山口县长门市油谷久津二尊院的传说说，近卫将军私放贵妃乘空艫舟出海，漂到唐渡口，不久病逝，葬在久津，寺内五轮塔相传为其墓。传说由住持恵学据古老口述写于1766年，是事后一千年的地方传说，史书中没有任何依据。","quote":null,"loc":"长门市「楊貴妃伝説」页；二尊院古文书（1766）","conf":"low","conflicts":["z_xiangnang","c_xiangnang"]},
+ {"id":"f_changsheng","ev":"m13","src":"csd","lens":"folk","stance":"reinterprets","text":"清初洪昇《长生殿》（约1688）集长恨歌、长恨歌传、唐国史补、杨太真外传之大成，把马嵬写成情殇，末出让二人月宫重圆。","quote":null,"loc":"洪昇《长生殿》","conf":"medium"},
+ {"id":"f_mu","ev":"m13","src":"tomb","lens":"folk","stance":"reinterprets","text":"今天陕西兴平马嵬的杨贵妃墓，1956年列为省级文物保护单位，游人凭吊不绝。但旧唐书自己就说遗骸被密令「改葬于他所」，此墓也没有考古发掘报告，是后世的纪念地。","quote":null,"loc":"兴平市马嵬街道；中文维基百科「杨贵妃墓」","conf":"medium"}
+]
+}

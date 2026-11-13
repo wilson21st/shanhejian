@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>说书</title>
+<link rel="icon" href="data/icon.svg?v=seal" type="image/svg+xml">
+<link rel="icon" href="data/icon-32.png?v=seal" sizes="32x32">
+<link rel="apple-touch-icon" href="data/icon-180.png?v=seal">
+<!-- 说书 engine (v119): any story as interactive 评书. shuoshu.html?s=<id> loads data/shuoshu/<id>/{story.json, audio/, img/,
+     CREDITS.md}; the 书目 is shuoshu-list.html (data/shuoshu/stories.json). design-shuoshu.html redirects here (s=xuanwumen).
+     Script source: tools/shuoshu/<id>.mjs → `node tools/shuoshu-script.mjs <id>`. Every paragraph is cut into short clips, each
+     with a pace (急 紧 平 缓 慢 → its own TTS rate/pitch, and the silence after it), optional `pre` silence (卖关子), `mu` 醒木
+     hit (WebAudio synth), `s` slide. Speaker `peng` = the 捧哏 listener (own voice, own bubble). Audio: `node gen-shuoshu-audio.mjs <id>`,
+     keyed who|pace|text. Slide stage on top: PD/CC paintings with Ken Burns, title / big-character / name-seal / 贯口 name
+     cards and inline SVG maps; crossfade and Ken Burns speed follow the pace. Choices pause the show. Questions (kind
+     dispute = books disagree, 2-3 books); 「问说书人」 prewritten answers citing story.claims (no LLM).
+     Test hooks: window.__ss; ?mute=1 (no audio, timed text), ?speed=N (faster), ?hui=N (start at 回 N), ?auto=1. -->
+<link rel="stylesheet" href="data/vendor/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css">
+<link rel="preload" href="data/fonts/poem-brush.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/poem-font.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#16140f;color:#f3ead6;font-family:"LXGW WenKai","Kaiti SC","STKaiti",serif;-webkit-tap-highlight-color:transparent;overflow:hidden}
+#bg{position:fixed;inset:0;background:center/cover;filter:grayscale(.55) sepia(.35) brightness(.4)}
+#bg::after{content:"";position:absolute;inset:0;background:linear-gradient(#16140fcc,#16140ff2 40%)}
+#app{position:fixed;inset:0;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+/* top: 回 progress */
+#top{flex:0 0 auto;padding:8px 12px 6px;display:flex;align-items:center;gap:6px}
+#dots{display:flex;gap:5px;flex:1}
+#dots b{flex:1;height:28px;border:1.5px solid #f3ead640;border-radius:4px;color:#f3ead680;font:14px/25px "LXGW WenKai",serif;text-align:center}
+#dots b.done{border-color:#b3261b99;color:#e8b9a8}
+#dots b.on{background:#a3271c;border-color:#a3271c;color:#fff}
+#snd,#home{width:38px;height:28px;border-radius:4px;border:1.5px solid #f3ead640;background:none;color:#f3ead6;font-size:15px}
+/* slide stage */
+#stage{flex:0 0 auto;height:clamp(170px,36vh,340px);position:relative;overflow:hidden;background:#0d0c09;transition:height .5s ease}
+#app.asking #stage{height:clamp(110px,17vh,170px)}
+.sl{position:absolute;inset:0;overflow:hidden;opacity:0;will-change:opacity}
+.sl .back{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(18px) brightness(.45) saturate(.8)}
+.sl img.fg{position:absolute;left:0;top:0;transform-origin:50% 50%;will-change:transform}
+.sl .vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,#0000 55%,#000a),linear-gradient(#0000 70%,#000c)}
+.sl .cap{position:absolute;left:10px;right:10px;bottom:6px;font-size:11px;color:#f3ead6b0;text-shadow:0 1px 2px #000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#e9dfc8;color:#1f1a12;
+  background-image:radial-gradient(ellipse at 30% 20%,#f6eedb,#e3d6b8 70%,#cdbd98)}
+.card .big{font-size:clamp(34px,11vw,54px);letter-spacing:.3em;margin-right:-.3em;line-height:1.2}
+.card .sub{font-size:14px;color:#6b5a40;letter-spacing:.4em;margin-top:10px}
+.card .tag{color:#b3261b;font-size:16px;letter-spacing:.5em;border-bottom:1.5px solid #b3261b88;padding-bottom:3px;margin-bottom:10px}
+.card .ttl{font-size:clamp(22px,6.4vw,30px);line-height:1.5;text-align:center;padding:0 14px}
+.card .ttl span{display:block}
+.card .stamp{position:absolute;right:14px;bottom:14px;width:34px;height:34px;border:2px solid #b3261b;color:#b3261b;border-radius:4px;font-size:15px;line-height:13px;
+  display:flex;align-items:center;justify-content:center;text-align:center;transform:rotate(-6deg);opacity:.85}
+.card.ch .one{font-size:min(30vh,150px,52vw);line-height:1}
+#app.asking .card.ch .one{font-size:min(14vh,80px)}
+.card.ch.red .one{color:#a3160c}
+.card.ch .sub{position:absolute;bottom:10px}
+.card .seal{transform:scale(2.4);margin:30px 0 26px}
+.card .row{display:flex;gap:30px;margin:26px 0 22px}
+.card .row .seal{transform:scale(1.9);margin:0}
+.card .nm{font-size:17px;letter-spacing:.2em}
+.card .names{display:grid;grid-template-columns:repeat(5,auto);gap:6px 12px;font-size:clamp(15px,4.4vw,20px);padding:0 10px}
+.card .names span{opacity:0;animation:pop .18s forwards}
+@keyframes pop{from{opacity:0;transform:scale(1.6)}to{opacity:1;transform:none}}
+.card svg{width:min(92%,420px);height:auto;max-height:84%}
+.mk{animation:ping 1.2s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes ping{0%{opacity:.9;transform:scale(.6)}100%{opacity:0;transform:scale(2.4)}}
+#stage.hit{animation:hit .22s}
+/* verse card (v121; v136 font: the 吟诗 brush 志莽行书, css/poem-font.css): 定场诗 / quoted 诗 in brush script, written top-down, first line on the right; one grid cell per
+   character so every line lines up character by character; a line inks in as it is spoken */
+.card.verse{justify-content:flex-start;padding-top:12px}
+.card.verse .vt{font-size:13px;color:#a3271c;letter-spacing:.3em;margin-right:-.3em;margin-bottom:8px;white-space:nowrap}
+.card.verse .vg{display:grid;column-gap:.55em;font-family:var(--poem);color:#1f1a12;line-height:1}
+.card.verse .vc{display:flex;align-items:center;justify-content:center;width:1em;height:1.08em;opacity:0;transform:scale(1.15);
+  filter:blur(1.5px);transition:opacity .45s,transform .45s,filter .45s}
+.card.verse .vc.on{opacity:1;transform:none;filter:none}
+@keyframes hit{30%{transform:translateY(3px)}60%{transform:translateY(-1px)}}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#flash.on{animation:fl .3s}
+@keyframes fl{0%{opacity:.35}100%{opacity:0}}
+/* transcript */
+#tx{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 16px 30px;scroll-behavior:smooth;border-top:1px solid #f3ead61a}
+.huihead{text-align:center;margin:2px 0 14px}
+.huihead .tag{display:inline-block;color:#e2584a;font-size:14px;letter-spacing:6px}
+.huihead h1{font-size:17px;line-height:1.5;font-weight:normal;margin-top:2px;letter-spacing:1px;color:#f3ead6cc}
+.seal{display:inline-flex;flex-direction:column;justify-content:center;align-items:center;width:30px;height:34px;border:2px solid var(--c);border-radius:4px;color:var(--c);
+  background:#efe6d2;font-size:13px;line-height:13px;letter-spacing:0;box-shadow:0 1px 0 #0006;flex:0 0 auto}
+.seal.one{font-size:17px}
+.mark{display:flex;align-items:center;gap:10px;color:#e2584acc;font-size:14px;margin:14px 0 8px}
+.mark::before,.mark::after{content:"";flex:1;height:1px;background:#e2584a40}
+.ln{display:flex;gap:10px;margin:0 0 12px;opacity:.5;transition:opacity .4s}
+.ln.cur,.ln.keep{opacity:1}
+.ln .seal{margin-top:3px}
+.ln .body{flex:1;min-width:0}
+.ln .nm{font-size:12px;color:#f3ead680;margin-bottom:2px}
+.ln .t{font-size:18px;line-height:1.65;word-break:break-all}
+.ln.cur .t{font-size:20px}
+.ln .t i{font-style:normal;opacity:.12}
+.ln .t .急,.ln .t .紧{color:#ffd9b0}
+.ln.hook .t{color:#f0c27a}
+.ln.hook2 .t{color:#ff8f6b}
+.ln.peng{margin-left:18px}
+.ln.peng .t{display:inline-block;background:#26382ecc;border:1px solid #3f7a5c88;border-radius:2px 12px 12px 12px;padding:4px 11px;font-size:16px;color:#cfe8d6}
+.ln.peng.cur .t{font-size:17px}
+.ln.peng .nm{color:#8fbf9f99}
+.ln.you{flex-direction:row-reverse}
+.ln.you .t{background:#a3271c;color:#fff;border-radius:12px 2px 12px 12px;padding:7px 12px;font-size:17px;display:inline-block}
+.ln.you .body{text-align:right}
+.qcard{margin:6px 0 16px;padding:12px 14px 10px;border:1.5px solid #e2584a;border-radius:8px;background:#2a1b16cc}
+.qcard .qh{color:#e2584a;font-size:13px;letter-spacing:3px;margin-bottom:6px}
+.qcard .qt{font-size:20px;line-height:1.6}
+.qcard .picked{margin-top:10px;font-size:15px;color:#f0c27a}
+.books{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.book{flex:1 1 140px;min-width:0;background:#efe6d2;color:#2a2318;border-radius:6px;padding:10px 9px 9px;position:relative}
+.book .lens{font-size:11px;color:#8a6a3a}
+.book .src{font-size:16px;margin:2px 44px 6px 0;color:#1f1a12}
+.book .q{font-size:15px;line-height:1.55}
+.book .gist{position:absolute;right:6px;top:6px;border:2px solid #b3261b;color:#b3261b;border-radius:4px;padding:1px 4px;font-size:15px;transform:rotate(-8deg)}
+.cite{margin:4px 0 14px 40px;background:#efe6d2;color:#2a2318;border-radius:6px;padding:10px 12px;border-left:4px solid #b3261b}
+.cite .lens{font-size:11px;color:#8a6a3a;letter-spacing:1px}
+.cite .q{font-size:17px;line-height:1.6;margin:3px 0}
+.cite .loc{font-size:13px;color:#6b5a40;text-align:right}
+.cite.crit{border-left-color:#2f6f6a}
+.endcard{text-align:center;margin:18px 0 8px;color:#f3ead699;font-size:14px;letter-spacing:4px}
+.endcard a{display:block;margin-top:8px;font-size:12px;letter-spacing:1px;color:#f0c27a99}
+/* dock: the only place you tap */
+#dock{flex:0 0 auto;padding:8px 12px 10px;border-top:1px solid #f3ead61a;background:#16140fee;display:flex;flex-direction:column;gap:8px}
+#choices{display:flex;flex-direction:column;gap:7px}
+#choices:empty{display:none}
+.ch{font:17px/1.35 "LXGW WenKai",serif;color:#2a2318;background:#efe6d2;border:none;border-radius:8px;padding:10px 14px;text-align:left;box-shadow:0 2px 0 #0008;animation:rise .35s both}
+.ch b{display:inline-block;width:24px;height:24px;border-radius:50%;background:#a3271c;color:#fff;font:14px/24px sans-serif;text-align:center;margin-right:8px;vertical-align:1px}
+.ch.go{background:#a3271c;color:#fff;text-align:center}
+.qprompt{font-size:13px;color:#e2584a;letter-spacing:2px;text-align:center}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+#bar{display:flex;gap:8px}
+#bar button{flex:1;font:16px "LXGW WenKai",serif;color:#f3ead6;background:#ffffff10;border:1px solid #f3ead633;border-radius:20px;padding:8px 0}
+#bar button:disabled{opacity:.35}
+#bar #askbtn{flex:1.4;border-color:#f0c27a88;color:#f0c27a}
+/* 问说书人 sheet */
+#sheet{position:fixed;left:0;right:0;bottom:0;background:#231f18;border-top:2px solid #f0c27a;border-radius:14px 14px 0 0;padding:14px 14px calc(16px + env(safe-area-inset-bottom));
+  transform:translateY(105%);transition:transform .3s;z-index:5}
+#sheet.on{transform:none}
+#sheet h3{font-weight:normal;font-size:16px;color:#f0c27a;margin-bottom:10px;display:flex;justify-content:space-between}
+#sheet h3 button{background:none;border:none;color:#f3ead6aa;font-size:20px;line-height:1}
+#sheet .aq{display:block;width:100%;font:17px/1.4 "LXGW WenKai",serif;text-align:left;color:#f3ead6;background:#ffffff0d;border:1px solid #f3ead626;border-radius:8px;padding:11px 12px;margin-bottom:8px}
+#sheet .aq.done{opacity:.45}
+#sheet .aq.done::after{content:" ✓";color:#f0c27a}
+#sheet .none{color:#f3ead688;font-size:15px;padding:8px 0 14px}
+#scrim{position:fixed;inset:0;background:#0008;opacity:0;pointer-events:none;transition:opacity .3s;z-index:4}
+#scrim.on{opacity:1;pointer-events:auto}
+/* start */
+#start{position:fixed;inset:0;z-index:9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:#16140fd9;padding:24px;text-align:center}
+#start h1{font-weight:normal;font-size:34px;letter-spacing:8px}
+#start p{font-size:16px;line-height:1.8;color:#f3ead6bb;max-width:330px}
+#start .big{width:96px;height:96px;border-radius:50%;border:3px solid #c8321f;background:#c8321f22;color:#ff8f6b;font:26px "LXGW WenKai",serif;animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 12px #c8321f22}}
+#start.off{display:none}
+</style>
+<link rel="stylesheet" href="css/player.css"></head><body>
+<div id="bg"></div>
+<div id="app">
+  <div id="top"><a id="home" href="shuoshu-list.html" aria-label="书目">书目</a><div id="dots"></div><button id="snd" aria-label="声音">🔊</button></div>
+  <div id="stage"><div id="flash"></div></div>
+  <div id="tx"></div>
+  <div id="dock">
+    <div id="choices"></div>
+    <div id="bar"><button id="pp">❚❚ 暂停</button><button id="askbtn">🙋 问说书人</button><button id="skip">跳过 ▸</button></div>
+  </div>
+</div>
+<div id="scrim"></div>
+<div id="sheet"><h3><span>问说书人 · <span id="sheethui"></span></span><button id="sheetx" aria-label="关">✕</button></h3><div id="aqs"></div></div>
+<div id="start"><h1 id="stitle"></h1><p id="sintro"></p><button class="big" id="go">开书</button><a href="shuoshu-list.html" style="color:#f0c27a99;font-size:14px;text-decoration:none">‹ 书目</a></div>
+<audio id="au" preload="auto"></audio>
+<script src="js/player.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const P=new URLSearchParams(location.search);
+const SID=(P.get('s')||'xuanwumen').replace(/[^a-z0-9_-]/gi,''),BASE='data/shuoshu/'+SID+'/';
+const SPEED=+P.get('speed')||1;
+let mute=P.get('mute')==='1';
+// opened from the 3D map (index.html openStory): inside its unroll overlay, so every way back to 书目 goes back to the map
+const EMBED=P.get('embed')==='1'&&window.parent!==window;
+PL.init({emb:EMBED});   // v132: the shared player frame (css/player.css, js/player.js)
+let S,AU={},claims={};
+let run=0,hi=0,paused=false,skipNow=null,speaking=false,answering=null,waiting=null,para=null;
+const doneHui=new Set(),asked=new Set();
+const STOP={};
+const au=$('au');
+const stat={clips:0,slides:0,mu:0,pace:{}};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms/SPEED));
+function chk(r){if(r!==run)throw STOP}
+function el(tag,cls,html,parent){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;if(parent)parent.appendChild(e);return e}
+function esc(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function sealHTML(w){const c=S.cast[w]||S.cast.narr;const t=c.seal;return `<span class="seal${t.length<2?' one':''}" style="--c:${c.c}">${t.split('').join('<br>')}</span>`}
+function rawSeal(t,c){return `<span class="seal${t.length<2?' one':''}" style="--c:${c}">${t.split('').join('<br>')}</span>`}
+function down(){const t=$('tx');t.scrollTop=t.scrollHeight}
+const PACE=p=>S.pace[p]||S.pace['平'];
+// silence after a clip: its pace gap, longer after a full sentence (pace.end, v121) so a tense run still breathes
+const GAP=l=>{const c=PACE(l.p||'平');return /[。！？][」』]?$/.test(l.t)?(c.end??c.gap):c.gap};
+const CPS={急:5.5,紧:5.1,平:4.85,缓:4.5,慢:3.9};        // muted reading pace ≈ the voice's measured pace (test/shuoshu-pace-gate.mjs, v121)
+const FADE={急:280,紧:450,平:850,缓:1300,慢:1500};        // crossfade ms
+const KB={急:6000,紧:8000,平:12000,缓:16000,慢:18000};    // Ken Burns ms
+
+// ---- 醒木: a synthesized wood-block crack (noise burst through a band-pass + a low knock + a short room echo) ----
+let AC=null;
+function unlockAudio(){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume()}catch(e){}}
+function mu(){
+  stat.mu++;const st=$('stage');st.classList.remove('hit');void st.offsetWidth;st.classList.add('hit');
+  const f=$('flash');f.classList.remove('on');void f.offsetWidth;f.classList.add('on');
+  if(mute||!AC)return;const t=AC.currentTime,out=AC.createGain();out.gain.value=.9;out.connect(AC.destination);
+  const dl=AC.createDelay();dl.delayTime.value=.07;const fb=AC.createGain();fb.gain.value=.22;out.connect(dl);dl.connect(fb);fb.connect(AC.destination);
+  const n=AC.createBuffer(1,AC.sampleRate*.12,AC.sampleRate),d=n.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.exp(-i/(AC.sampleRate*.012));
+  const src=AC.createBufferSource();src.buffer=n;const bp=AC.createBiquadFilter();bp.type='bandpass';bp.frequency.value=1900;bp.Q.value=1.3;
+  const g=AC.createGain();g.gain.setValueAtTime(1.6,t);g.gain.exponentialRampToValueAtTime(.001,t+.11);src.connect(bp);bp.connect(g);g.connect(out);src.start(t);
+  const o=AC.createOscillator();o.frequency.setValueAtTime(260,t);o.frequency.exponentialRampToValueAtTime(90,t+.09);
+  const og=AC.createGain();og.gain.setValueAtTime(.9,t);og.gain.exponentialRampToValueAtTime(.001,t+.14);o.connect(og);og.connect(out);o.start(t);o.stop(t+.16);
+}
+
+// ---- slide stage ----
+let curSlide=null,anims=[];
+const imgCache={};
+function preload(src){if(!imgCache[src]){const i=new Image();i.src=BASE+'img/'+src;imgCache[src]=i}return imgCache[src]}
+function svgCard(sd){const m=sd.mk;
+  return sd.svg.replace('</svg>',(m?`<circle cx="${m[0]}" cy="${m[1]}" r="7" fill="#b3261b"/><circle class="mk" cx="${m[0]}" cy="${m[1]}" r="9" fill="none" stroke="#b3261b" stroke-width="3"/>`:'')+'</svg>')}
+function slideHTML(sd){
+  switch(sd.type){
+    case 'title':return `<div class="card"><div class="big">${esc(sd.big)}</div>${sd.sub?`<div class="sub">${esc(sd.sub)}</div>`:''}<div class="stamp">说<br>书</div></div>`;
+    case 'hui':{const [a,b]=sd.title.split('　');return `<div class="card"><div class="tag">${esc(sd.tag)}</div><div class="ttl"><span>${esc(a)}</span>${b?`<span>${esc(b)}</span>`:''}</div><div class="stamp">说<br>书</div></div>`}
+    case 'char':return `<div class="card ch${sd.red?' red':''}"><div class="one">${esc(sd.ch)}</div>${sd.sub?`<div class="sub">${esc(sd.sub)}</div>`:''}</div>`;
+    case 'seal':{const c=sd.who?S.cast[sd.who]:{seal:sd.seal,name:sd.name,c:sd.c};return `<div class="card">${rawSeal(c.seal,c.c)}<div class="nm">${esc(c.name)}</div></div>`}
+    case 'seals':return `<div class="card"><div class="row">${sd.who.map(sealHTML).join('')}</div><div class="nm">${sd.who.map(w=>esc(S.cast[w].name)).join('　')}</div></div>`;
+    case 'names':return `<div class="card"><div class="names">${sd.list.map((n,i)=>`<span style="animation-delay:${i*150/SPEED}ms">${esc(n)}</span>`).join('')}</div><div class="sub">${esc(sd.sub||'')}</div></div>`;
+    case 'verse':{const st=$('stage'),cols=sd.lines.length,rows=Math.max(...sd.lines.map(l=>l.length));
+      const fs=Math.floor(Math.min((st.clientHeight-48)/(rows*1.08),st.clientWidth*.8/(cols*1.55)));
+      return `<div class="card verse"><div class="vt">${esc(sd.title||'')}</div><div class="vg" style="font-size:${fs}px;grid-template-columns:repeat(${cols},1em);grid-template-rows:repeat(${rows},1.08em)">${
+        sd.lines.map((l,k)=>[...l].map((c,i)=>`<span class="vc l${k}" style="grid-column:${cols-k};grid-row:${i+1};transition-delay:${i*90/SPEED}ms">${esc(c)}</span>`).join('')).join('')}</div><div class="stamp">说<br>书</div></div>`}
+    case 'svg':return `<div class="card">${svgCard(sd)}${sd.sub?`<div class="sub" style="margin-top:0;font-size:11px;letter-spacing:.1em">${esc(sd.sub)}</div>`:''}</div>`;
+  }
+  return '';
+}
+function slide(id,pace='平',hint){
+  const sd=hint||S.slides[id];if(!sd||id===curSlide)return;curSlide=id;stat.slides++;
+  const st=$('stage'),e=el('div','sl','',null);st.insertBefore(e,$('flash'));
+  const fade=FADE[pace]/SPEED,kb=KB[pace]/SPEED;
+  if(sd.type==='img'){
+    const img=preload(sd.src);
+    e.innerHTML=`<div class="back" style="background-image:url('${BASE}img/${sd.src}')"></div><img class="fg" alt="" src="${BASE}img/${sd.src}"><div class="vig"></div><div class="cap">${esc(sd.cap)} · ${esc(sd.lic)}</div>`;
+    const fg=e.querySelector('img.fg');
+    const go=()=>{const W=st.clientWidth,H=st.clientHeight,iw=img.naturalWidth||W,ih=img.naturalHeight||H,ar=iw/ih,sar=W/H;
+      let mode=sd.kb||'in',w,h,from,to;
+      if(mode==='pan'&&ar>sar*1.3){h=H;w=H*ar;from=`translate(0px,0)`;to=`translate(${W-w}px,0)`}
+      else if(mode==='up'&&ar<sar/1.3){w=W;h=W/ar;from=`translate(0,0)`;to=`translate(0,${H-h}px)`}
+      else{const fit=Math.abs(Math.log(ar/sar))>.45;   // far off the stage's shape: show whole, over a blurred copy
+        if(fit){if(ar>sar){w=W;h=W/ar}else{h=H;w=H*ar}}else{if(ar>sar){h=H;w=H*ar}else{w=W;h=W/ar}}
+        const x=(W-w)/2,y=(H-h)/2,b=`translate(${x}px,${y}px)`;
+        const [s0,s1,dx]=mode==='out'?[1.16,1.03,0]:mode==='l'?[1.12,1.12,.04]:mode==='r'?[1.12,1.12,-.04]:[1.03,1.16,0];
+        from=`${b} scale(${s0}) translateX(${dx*100}%)`;to=`${b} scale(${s1}) translateX(${-dx*100}%)`}
+      fg.style.width=w+'px';fg.style.height=h+'px';
+      const a=fg.animate([{transform:from},{transform:to}],{duration:kb,easing:'ease-in-out',fill:'forwards'});anims.push(a);if(paused||waiting)a.pause()};
+    if(img.complete&&img.naturalWidth)go();else{img.addEventListener('load',go,{once:true});img.addEventListener('error',go,{once:true})}
+  }else e.innerHTML=slideHTML(sd);
+  const a=e.animate([{opacity:0},{opacity:1}],{duration:fade,fill:'forwards'});
+  a.onfinish=()=>{const olds=[...st.querySelectorAll('.sl')];olds.slice(0,olds.indexOf(e)).forEach(o=>o.remove());anims=anims.filter(x=>x.effect&&x.effect.target&&x.effect.target.isConnected)};
+}
+function freeze(on){for(const a of anims){try{on?a.pause():a.play()}catch(e){}}}
+
+// ---- one clip: (silence) (醒木) (slide), then play its audio and type its text into the current paragraph ----
+function newPara(w,cls){
+  document.querySelectorAll('.ln.cur').forEach(e=>e.classList.remove('cur'));
+  const c=S.cast[w]||S.cast.narr;if(w==='peng')cls+=' peng';
+  const e=el('div','ln cur '+cls,`${sealHTML(w)}<div class="body">${w==='narr'?'':`<div class="nm">${c.name}</div>`}<div class="t"></div></div>`,$('tx'));
+  para={w,e,T:e.querySelector('.t')};return para}
+function endPara(){para=null}
+function speak(line,cls='',r=run){
+  return new Promise((res,rej)=>{
+    const p=line.p||'平';stat.clips++;if(line.w==='peng')stat.peng=(stat.peng||0)+1;stat.pace[p]=(stat.pace[p]||0)+1;
+    if(!line.c||!para||para.w!==line.w)newPara(line.w,cls);
+    para.e.classList.add('cur');if(line.hook===1)para.e.classList.add('hook');if(line.hook===2)para.e.classList.add('hook2');if(cls)cls.split(' ').forEach(c=>c&&para.e.classList.add(c));
+    const sp=el('span',p,'',para.T),txt=line.t,n=txt.length;
+    let shown=-1;const draw=f=>{const k=Math.min(n,Math.ceil(f*n*1.06));if(k===shown)return;shown=k;sp.innerHTML=esc(txt.slice(0,k))+'<i>'+esc(txt.slice(k))+'</i>'};
+    draw(0);down();
+    const file=AU[`${line.w}|${p}|${txt}`];
+    const est=Math.max(.5,txt.replace(/[，。！？、；：—…「」《》\s]/g,'').length/CPS[p])*1000;
+    let t0=performance.now(),acc=0,done=false,useAudio=!mute&&file;
+    speaking=true;
+    const fin=()=>{if(done)return;done=true;speaking=false;skipNow=null;draw(1);down();res()};
+    skipNow=()=>{au.pause();fin()};
+    if(useAudio){au.src=BASE+'audio/'+file;au.playbackRate=1;au.onended=fin;au.onerror=()=>{useAudio=false;t0=performance.now()};
+      if(!paused)au.play().catch(()=>{useAudio=false;t0=performance.now()})}
+    const tick=now=>{if(done)return;if(r!==run){done=true;speaking=false;au.pause();return rej(STOP)}
+      if(useAudio){const d=au.duration;if(d&&isFinite(d))draw(au.currentTime/d)}
+      else{if(!paused)acc+=(now-t0)*SPEED;t0=now;draw(acc/est);if(acc>=est)return fin()}
+      if(shown>0&&shown%16===0)down();
+      requestAnimationFrame(tick)};
+    requestAnimationFrame(tick);
+  });
+}
+async function clip(l,r,cls){
+  await gate(r);const p=l.p||'平';
+  if(l.pre){await sleep(mute?l.pre*.6:l.pre);chk(r);await gate(r)}
+  if(l.mu){mu();await sleep(330);chk(r)}
+  if(l.s)slide(l.s,p);
+  if(l.v&&S.verses&&S.verses[l.v])verse(l,p);
+  await speak(l,cls,r);chk(r);
+  await sleep(mute?GAP(l)*.6:GAP(l));chk(r);
+}
+// a verse line: open the verse card (once per verse) and ink in this line
+function verse(l,p){const id='verse:'+l.v;if(curSlide!==id)slide(id,p,{type:'verse',...S.verses[l.v]});
+  const e=[...$('stage').querySelectorAll('.sl')].pop();e.querySelectorAll('.vc.l'+l.vk).forEach(c=>c.classList.add('on'));stat.verse=(stat.verse||0)+1}
+async function say(lines,r,cls){for(const l of lines)await clip(l,r,cls)}
+// wait while paused or while an answer to 问说书人 is playing
+async function gate(r){while(paused||answering){await (answering||sleep(150));chk(r)}}
+
+// ---- the dock: choices / 继续, and taps. A question shrinks the stage and freezes the slide: the show waits for you ----
+function dock(prompt,opts,ask){return new Promise(res=>{const C=$('choices');C.innerHTML='';
+  if(prompt)el('div','qprompt',prompt,C);
+  if(ask)$('app').classList.add('asking');
+  const done=i=>{C.innerHTML='';waiting=null;$('app').classList.remove('asking');freeze(paused);setBar();res(i)};
+  opts.forEach((o,i)=>{const b=el('button','ch'+(o.go?' go':''),o.go?o.label:`<b>${'ABCD'[i]}</b>${esc(o.label)}`,C);
+    b.onclick=()=>{if(answering)return;done(i)}});
+  waiting={opts,res:done};freeze(true);setBar();setTimeout(down,520)})}
+
+function cite(c,crit){endPara();const e=el('div','cite'+(crit?' crit':''),`<div class="lens">${crit?'史源批判':'史书原文'}</div><div class="q">${esc(c.q)}</div><div class="loc">—— ${esc(c.loc)}</div>`,$('tx'));down();return e}
+
+async function question(q,r){
+  endPara();
+  const card=el('div','qcard',`<div class="qh">${q.kind==='dispute'?'两部书 · 你信哪个':'说书人问你'}</div><div class="qt"></div>`,$('tx'));
+  card.querySelector('.qt').textContent=q.t;if(q.kind==='dispute'&&q.books&&q.books.length>2)card.querySelector('.qh').textContent='几部书 · 你信哪个';
+  if(q.books){const B=el('div','books','',card);for(const b of q.books)el('div','book',`<div class="lens">${b.lens}</div><div class="src">《${b.src}》</div><div class="q">${esc(b.q)}</div><div class="gist">${b.gist}</div>`,B)}
+  down();
+  await gate(r);mu();await sleep(330);
+  await speak({w:'narr',p:'平',t:q.t},'keep',r);chk(r);endPara();
+  const i=await dock(q.prompt||(q.kind==='dispute'?'你信哪一部？':'换了你——'),q.choices,1);chk(r);
+  el('div','picked','你选：'+esc(q.choices[i].label),card);
+  el('div','ln you',`<span class="seal one" style="--c:#a3271c">你</span><div class="body"><div class="t">${esc(q.choices[i].label)}</div></div>`,$('tx'));down();endPara();
+  await say(q.choices[i].react,r);endPara();
+  await sleep(300);chk(r);
+  el('div','mark','史书怎么写',$('tx'));
+  await say(q.reveal,r);endPara();
+  for(const c of q.cite){const cl=claims[c.claim];cite(c,cl&&cl.lens==='critical');await sleep(mute?200:500);chk(r)}
+  await dock(null,[{label:'明白，继续听 ▸',go:1}]);chk(r);
+}
+
+// ---- 问说书人 ----
+function openSheet(){const h=S.hui[hi];$('sheethui').textContent=h.tag;const A=$('aqs');A.innerHTML='';
+  if(!h.ask.length)el('div','none','这一段是开场，还没有可问的。听完第一回再来问。',A);
+  h.ask.forEach((a,k)=>{const id=h.id+':'+k;const b=el('button','aq'+(asked.has(id)?' done':''),esc(a.q),A);b.onclick=()=>{closeSheet();answer(h,k)}});
+  $('sheet').classList.add('on');$('scrim').classList.add('on')}
+function closeSheet(){$('sheet').classList.remove('on');$('scrim').classList.remove('on')}
+async function answer(h,k){
+  if(answering)return;const a=h.ask[k],r=run;asked.add(h.id+':'+k);
+  let done;answering=new Promise(x=>done=x);
+  if(speaking&&skipNow)skipNow();      // finish the storyteller's clip at once, then he turns to you
+  await sleep(60);const back=para;
+  try{
+    endPara();
+    el('div','ln you',`<span class="seal one" style="--c:#a3271c">你</span><div class="body"><div class="t">${esc(a.q)}</div></div>`,$('tx'));down();
+    for(const l of a.a){await speak(l,'keep',r);await sleep(mute?120:PACE(l.p).gap*.6)}
+    endPara();
+    for(const id of a.cite||[]){const c=claims[id];if(!c)continue;el('div','cite'+(c.lens==='critical'?' crit':''),`<div class="lens">${c.lens==='critical'?'史源批判':c.lens==='folk'?'民间':c.lens==='poem'?'诗文':'史书'}</div><div class="q">${esc(c.text)}</div><div class="loc">—— ${esc(c.loc)}</div>`,$('tx'));down()}
+  }catch(e){}
+  answering=null;done();setBar();
+}
+
+// ---- 回 ----
+function head(h){const t=$('tx');t.innerHTML='';endPara();
+  el('div','huihead',`<div class="tag">${h.tag}</div><h1>${h.title.replace('　','　')}</h1>`,t);t.scrollTop=0}
+function dots(){const D=$('dots');D.innerHTML='';S.hui.forEach((h,i)=>{const b=el('b',(i===hi?'on':doneHui.has(i)?'done':''),h.tag.replace('第','').replace('回','').replace('引子','引').replace('尾声','尾'),D);b.onclick=()=>play(i)})}
+function setBar(){$('pp').innerHTML=paused?'▶ 继续':'❚❚ 暂停';$('pp').disabled=!!waiting&&!speaking;$('skip').disabled=!speaking}
+function preloadHui(i){const h=S.hui[i];if(!h)return;const ids=JSON.stringify(h.beats).match(/"s":"[^"]+"/g)||[];
+  for(const m of ids){const sd=S.slides[m.slice(5,-1)];if(sd&&sd.type==='img')preload(sd.src)}}
+async function play(i){
+  const r=++run;hi=i;paused=false;au.pause();$('choices').innerHTML='';waiting=null;$('app').classList.remove('asking');closeSheet();dots();head(S.hui[i]);setBar();
+  preloadHui(i);preloadHui(i+1);
+  const h=S.hui[i];curSlide=null;
+  slide('hui:'+h.id,'缓',i===0?{type:'title',big:S.meta.title,sub:'评书 · 一段'}:{type:'hui',tag:h.tag,title:h.title});
+  try{
+    if(i>0){mu();}
+    await sleep(i>0?1400:900);
+    for(const b of h.beats){
+      chk(r);await gate(r);
+      if(b.mark){endPara();el('div','mark',b.mark,$('tx'));down();await sleep(250);continue}
+      if(b.q){await question(b.q,r);continue}
+      await clip(b,r,b.hook?'keep':'');
+    }
+    doneHui.add(i);dots();endPara();
+    const last=i===S.hui.length-1;
+    el('div','endcard',(last?'—— 全书完 ——':`—— ${h.tag}完 ——`)+(last?`<a href="${BASE}CREDITS.md" target="_blank">图片来源 · Wikimedia Commons（公有领域 / CC）</a><a href="shuoshu-list.html">${EMBED?'← 回大地图':'‹ 回书目，换一段听'}</a>`:''),$('tx'));down();
+    const opts=h.ask.length?[{label:'🙋 先问说书人几句',go:0},{label:last?'从头再听 ↺':`下一回 ▸`,go:1}]:[{label:'下一回 ▸',go:1}];
+    for(;;){const k=await dock(null,opts);chk(r);if(opts[k].go){play(last?0:i+1);return}openSheet();await new Promise(x=>{const iv=setInterval(()=>{if(!$('sheet').classList.contains('on')&&!answering){clearInterval(iv);x()}},150)});chk(r)}
+  }catch(e){if(e!==STOP)throw e}
+}
+$('pp').onclick=()=>{paused=!paused;if(paused)au.pause();else if(speaking&&!mute&&au.src&&!au.ended)au.play().catch(()=>{});freeze(paused||!!waiting);setBar()};
+$('skip').onclick=()=>{if(skipNow)skipNow()};
+$('askbtn').onclick=openSheet;
+// v139: the 开书 layer no longer swallows taps (css/player.css). Before 开书, ❚❚ / 🙋 / 文 first open the book (the tap
+// unlocks the voice), so ❚❚ never leaves a story paused that has not begun, and the sheet / transcript open over a running story
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('#pp,#askbtn,#logb');if(!b||$('start').classList.contains('off')||!S)return;
+  $('go').click();if(b.id==='pp')e.stopImmediatePropagation()},true);$('sheetx').onclick=closeSheet;$('scrim').onclick=closeSheet;
+$('snd').onclick=()=>{mute=!mute;$('snd').textContent=mute?'🔇':'🔊';if(mute)au.pause()};
+$('go').onclick=()=>{if(!S)return;unlockAudio();au.src=BASE+'audio/'+(Object.values(AU)[0]||'');au.play().then(()=>au.pause()).catch(()=>{});$('start').classList.add('off');play(+P.get('hui')||0)};
+setInterval(setBar,300);
+if(EMBED){
+  // the map shuts the overlay on 'closeScroll'; the story stops first so its voice does not run on under the rolling-up
+  const toMap=()=>{run++;au.pause();parent.postMessage({type:'narr',on:false},'*');parent.postMessage({type:'closeScroll'},'*')};
+  const h=$('home');h.textContent='← 大地图';h.setAttribute('aria-label','回大地图');h.style.width='auto';h.style.padding='0 8px';
+  document.querySelector('#start a[href="shuoshu-list.html"]').textContent='← 大地图';
+  document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href="shuoshu-list.html"]');if(a){e.preventDefault();toMap()}},true);
+  // the map's scroll music ducks while the storyteller speaks (js/bgm.js 'narr')
+  let nOn=null;setInterval(()=>{const on=speaking&&!paused&&!mute;if(on!==nOn){nOn=on;parent.postMessage({type:'narr',on},'*')}},300);
+}
+window.__ss={state:()=>({hui:hi,speaking,waiting:waiting?waiting.opts.map(o=>o.label):null,answering:!!answering,paused,lines:document.querySelectorAll('.ln').length,slide:curSlide,stat}),
+  choose:i=>waiting&&waiting.res(i),skip:()=>skipNow&&skipNow(),ask:k=>answer(S.hui[hi],k),play};
+(async()=>{
+  [S,AU]=await Promise.all([BASE+'story.json',BASE+'audio/index.json'].map(u=>fetch(u).then(x=>x.ok?x.json():null).catch(()=>null)));
+  if(!S){$('stitle').textContent='找不到这段书';$('sintro').innerHTML='<a href="shuoshu-list.html" style="color:#f0c27a">回书目</a>';$('go').style.display='none';return}
+  AU=AU||{};claims=S.claims||{};
+  document.title='说书 · '+S.meta.title;$('stitle').textContent=S.meta.title;$('sintro').innerHTML=S.meta.intro||'';
+  if(S.meta.bg)$('bg').style.backgroundImage=`url('${BASE}img/${S.meta.bg}')`;
+  if(mute)$('snd').textContent='🔇';
+  dots();
+  if(P.get('auto')==='1')$('go').click();
+})();
+</script>
+</body></html>

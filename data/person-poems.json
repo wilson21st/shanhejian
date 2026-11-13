@@ -1,0 +1,1085 @@
+{
+ "_meta": {
+  "note": "人物传各站的诗（v131）：poems.json 之外、人物视角用的诗作。文本核对自维基文库，系年附可信度（dateConf high|medium|low）与说明。生成：tools/person-poems/build.mjs",
+  "audio": {
+   "p23": "baidi",
+   "p21": "chunwang",
+   "p11": "huanghelou"
+  },
+  "undated": {
+   "p07": "写作年代不详，地点取孟浩然隐居的襄阳",
+   "p08": "作年地点有726年扬州旅舍等数说"
+  }
+ },
+ "poems": [
+  {
+   "id": "q01",
+   "date": "0725",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "荆门（今湖北宜都一带，长江出三峡处）",
+   "ll": [
+    112.19,
+    30.35
+   ],
+   "who": [
+    "李白"
+   ],
+   "title": "李白《渡荆门送别》",
+   "summary": "二十五岁的李白「仗剑去国，辞亲远游」，乘船出三峡，过荆门山，眼前山尽江阔，写下这首出蜀的第一首名篇。",
+   "poem": {
+    "poet": "李白",
+    "title": "渡荆门送别",
+    "form": "五言律诗",
+    "text": [
+     "渡远荆门外，来从楚国游。",
+     "山随平野尽，江入大荒流。",
+     "月下飞天镜，云生结海楼。",
+     "仍怜故乡水，万里送行舟。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "medium",
+   "dateNote": "通行系年：开元十三年（725）李白出蜀、舟过荆门时作",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《渡荆门送别》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷一百七十四",
+     "url": "https://zh.wikisource.org/wiki/渡荊門送別",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "李白出蜀系年",
+     "detail": "通行的李白年谱把出蜀定在开元十三年（725），此诗即出峡途中所作。",
+     "stance": "supports",
+     "cite": "李白生平通行系年",
+     "url": "https://zh.wikipedia.org/wiki/渡荆门送别",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "id": "q02",
+   "date": "0744",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "长安",
+   "ll": [
+    108.94,
+    34.26
+   ],
+   "who": [
+    "李白"
+   ],
+   "title": "李白《行路难（其一）》",
+   "summary": "李白在长安供奉翰林不到两年，终被「赐金放还」。宴席上他停杯投箸、拔剑四顾，却以「长风破浪会有时」收尾——失意之中仍不肯认输。",
+   "debate": "作年有天宝三载（744）离京时与开元年间初入长安两说。",
+   "poem": {
+    "poet": "李白",
+    "title": "行路难",
+    "short": "行路难（其一）",
+    "form": "七言古诗",
+    "text": [
+     "金樽清酒斗十千，玉盘珍羞直万钱。",
+     "停杯投箸不能食，拔剑四顾心茫然。",
+     "欲渡黄河冰塞川，将登太行雪满山。",
+     "闲来垂钓碧溪上，忽复乘舟梦日边。",
+     "行路难，行路难，多歧路，今安在？",
+     "长风破浪会有时，直挂云帆济沧海。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "medium",
+   "dateNote": "多数注本系于天宝三载（744）被「赐金放还」、离开长安之时；一说作于更早的开元年间初入长安失意时",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《行路难（其一）》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷一百六十二",
+     "url": "https://zh.wikisource.org/wiki/行路難_(金樽清酒斗十千)",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "「赐金放还」时作的系年",
+     "detail": "通行注本多把《行路难三首》系于天宝三载（744）离开长安前后，但也有学者主张其一作于开元年间第一次入长安时，故此处标为「一说」。",
+     "stance": "supports",
+     "cite": "李白诗通行注本",
+     "url": "https://zh.wikipedia.org/wiki/行路难",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "id": "q03",
+   "date": "0745",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "鲁郡东石门（今山东曲阜一带）",
+   "ll": [
+    116.83,
+    35.55
+   ],
+   "who": [
+    "李白"
+   ],
+   "title": "李白《鲁郡东石门送杜二甫》",
+   "summary": "天宝四载秋，李白在鲁郡东石门送别杜甫。「飞蓬各自远，且尽手中杯」——这是两位诗人的最后一次相聚。",
+   "poem": {
+    "poet": "李白",
+    "title": "鲁郡东石门送杜二甫",
+    "short": "鲁郡东石门送杜二甫",
+    "form": "五言律诗",
+    "text": [
+     "醉别复几日，登临遍池台。",
+     "何时石门路，重有金樽开。",
+     "秋波落泗水，海色明徂徕。",
+     "飞蓬各自远，且尽手中杯。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "high",
+   "dateNote": "天宝四载（745）秋，李白与杜甫在鲁郡东石门分别，此后二人再未相见",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《鲁郡东石门送杜二甫》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷一百七十六",
+     "url": "https://zh.wikisource.org/wiki/魯郡東石門送杜二甫",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "李杜鲁郡之别",
+     "detail": "李白、杜甫天宝三、四载同游梁宋、齐鲁，天宝四载秋在鲁郡分手，此后未再相见，为通行系年。",
+     "stance": "supports",
+     "cite": "李白、杜甫年谱通行说法",
+     "url": "https://zh.wikipedia.org/wiki/杜甫",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "id": "q04",
+   "date": "0745",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "鲁郡（今山东兖州一带）",
+   "ll": [
+    116.83,
+    35.55
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《赠李白（秋来相顾）》",
+   "summary": "杜甫与李白同游齐鲁，求仙炼丹都没有结果。杜甫用四句话画出李白：痛饮狂歌、飞扬跋扈——又是佩服，又是替他担心。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "赠李白",
+    "short": "赠李白（秋来相顾）",
+    "form": "七言绝句",
+    "text": [
+     "秋来相顾尚飘蓬，未就丹砂愧葛洪。",
+     "痛饮狂歌空度日，飞扬跋扈为谁雄？"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "medium",
+   "dateNote": "一般系于天宝四载（745）秋，与李白同在鲁郡时",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《赠李白》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷二百二十四",
+     "url": "https://zh.wikisource.org/wiki/贈李白_(秋來相顧尚飄蓬)",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "杜甫赠李白诗的系年",
+     "detail": "此首七绝通行系于天宝四载（745）秋，二人在鲁郡同游、将别之际。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/杜甫",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "id": "q05",
+   "date": "0753",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "宣城敬亭山",
+   "ll": [
+    118.76,
+    30.95
+   ],
+   "who": [
+    "李白"
+   ],
+   "title": "李白《独坐敬亭山》",
+   "summary": "离开长安近十年，李白漂泊到宣城。鸟飞尽，云飘走，只剩他和敬亭山对坐，彼此看不厌。",
+   "debate": "作年有天宝十二载（753）与上元二年（761）两说。",
+   "poem": {
+    "poet": "李白",
+    "title": "独坐敬亭山",
+    "form": "五言绝句",
+    "text": [
+     "众鸟高飞尽，孤云独去闲。",
+     "相看两不厌，只有敬亭山。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "medium",
+   "dateNote": "通行系于天宝十二载（753）秋游宣城时；一说作于晚年",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《独坐敬亭山》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "维基文库收录本（亦见《千家诗》卷一）",
+     "url": "https://zh.wikisource.org/wiki/獨坐敬亭山",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "李白游宣城系年",
+     "detail": "李白天宝十二载（753）秋到宣城，此诗通常系于此时；亦有学者系于上元二年（761）重游宣城时。",
+     "stance": "supports",
+     "cite": "李白年谱通行说法",
+     "url": "https://zh.wikipedia.org/wiki/独坐敬亭山",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "id": "q06",
+   "date": "0762",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "当涂（今安徽马鞍山当涂）",
+   "ll": [
+    118.5,
+    31.55
+   ],
+   "who": [
+    "李白"
+   ],
+   "title": "李白《临路歌》",
+   "summary": "李白一生自比大鹏。临终在当涂，他写大鹏飞到半空折了翅膀，余风仍能激荡万世——这是他留下的最后一首诗。",
+   "poem": {
+    "poet": "李白",
+    "title": "临路歌",
+    "form": "杂言古诗",
+    "text": [
+     "大鹏飞兮振八裔，中天摧兮力不济。",
+     "余风激兮万世，游扶桑兮挂石袂。",
+     "后人得之传此，仲尼亡兮谁为出涕。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "medium",
+   "dateNote": "一般认为是李白临终之作（宝应元年，762，当涂）；「临路」一说为「临终」之误",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《临路歌》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷一百六十七",
+     "url": "https://zh.wikisource.org/wiki/臨路歌",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "李白绝笔",
+     "detail": "维基文库该页按语及通行研究都以此诗为李白临终前的最后作品；题中「路」字，不少学者认为是「终」字之讹。",
+     "stance": "supports",
+     "cite": "李白研究通行说法",
+     "url": "https://zh.wikipedia.org/wiki/李白",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "id": "q07",
+   "date": "0751",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "长安咸阳桥",
+   "ll": [
+    108.94,
+    34.26
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《兵车行》",
+   "summary": "咸阳桥上，出征的士兵被父母妻子拉着衣服哭着送行。杜甫借一个老兵之口，写玄宗连年开边、百姓苦于征役。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "兵车行",
+    "form": "七言歌行",
+    "text": [
+     "车辚辚，马萧萧，行人弓箭各在腰。",
+     "耶娘妻子走相送，尘埃不见咸阳桥。",
+     "牵衣顿足拦道哭，哭声直上干云霄。"
+    ],
+    "excerpt": true
+   },
+   "dateConf": "medium",
+   "dateNote": "多系于天宝十载（751）前后，玄宗连年用兵、征兵送行时；具体年份有750—752数说",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《兵车行（节选）》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《乐府诗集》卷九十一；《分门集注杜工部诗》卷十四",
+     "url": "https://zh.wikisource.org/wiki/兵車行",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "兵车行的系年",
+     "detail": "通行注本多系于天宝十载（751）前后，与当年征南诏、募兵的史事相关；具体年份说法不一。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/兵车行",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "id": "q08",
+   "date": "0753",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "长安曲江",
+   "ll": [
+    108.94,
+    34.26
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《丽人行》",
+   "summary": "三月三日上巳节，杨贵妃的姐妹们在曲江边游春，排场惊人。杜甫只写所见，末句「炙手可热势绝伦，慎莫近前丞相嗔」点破杨国忠的权势。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "丽人行",
+    "form": "七言歌行",
+    "text": [
+     "三月三日天气新，长安水边多丽人。",
+     "态浓意远淑且真，肌理细腻骨肉匀。",
+     "炙手可热势绝伦，慎莫近前丞相嗔。"
+    ],
+    "excerpt": true
+   },
+   "dateConf": "high",
+   "dateNote": "天宝十二载（753）上巳节，杨国忠已为右相，诗中「丞相」即指他",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《丽人行（节选）》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "维基文库收录本",
+     "url": "https://zh.wikisource.org/wiki/麗人行",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "丽人行的系年",
+     "detail": "杨国忠天宝十一载（752）冬拜右相，故此诗通行系于次年天宝十二载（753）春。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/丽人行",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "id": "q09",
+   "date": "0755",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "奉先（今陕西蒲城）",
+   "ll": [
+    109.58,
+    34.95
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《自京赴奉先县咏怀》",
+   "summary": "天宝十四载冬，杜甫从长安赶回奉先探望家人，路过骊山时玄宗正在华清宫欢宴。到家一进门，幼子已经饿死。「朱门酒肉臭，路有冻死骨」就出自这首长诗。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "自京赴奉先县咏怀五百字",
+    "short": "自京赴奉先县咏怀",
+    "form": "五言古诗",
+    "text": [
+     "朱门酒肉臭，路有冻死骨。",
+     "荣枯咫尺异，惆怅难再述。",
+     "入门闻号咷，幼子饥已卒。"
+    ],
+    "excerpt": true
+   },
+   "dateConf": "high",
+   "dateNote": "天宝十四载（755）十一月，安禄山起兵前后，杜甫从长安回奉先探家",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《自京赴奉先县咏怀五百字（节选）》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷二百一十六",
+     "url": "https://zh.wikisource.org/wiki/全唐詩/卷216",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "诗题与时间",
+     "detail": "诗中「岁暮百草零」「凌晨过骊山」写的是天宝十四载（755）冬的行程，学界系年一致。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/自京赴奉先县咏怀五百字",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "id": "q10",
+   "date": "0759",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "秦州（今甘肃天水）",
+   "ll": [
+    105.72,
+    34.58
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《月夜忆舍弟》",
+   "summary": "战乱未平，兄弟离散。杜甫在秦州的边城秋夜写下「露从今夜白，月是故乡明」。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "月夜忆舍弟",
+    "form": "五言律诗",
+    "text": [
+     "戍鼓断人行，边秋一雁声。",
+     "露从今夜白，月是故乡明。",
+     "有弟皆分散，无家问死生。",
+     "寄书长不达，况乃未休兵。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "high",
+   "dateNote": "乾元二年（759）秋，杜甫弃官客居秦州时作",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《月夜忆舍弟》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "维基文库收录本（亦见《唐诗三百首》）",
+     "url": "https://zh.wikisource.org/wiki/月夜憶舍弟",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "秦州诗系年",
+     "detail": "杜甫乾元二年（759）秋弃华州司功参军之职、西去秦州，此诗为秦州所作，系年一致。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/月夜忆舍弟",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "id": "q11",
+   "date": "0760",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "成都武侯祠",
+   "ll": [
+    104.04,
+    30.66
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《蜀相》",
+   "summary": "杜甫刚到成都，就去寻诸葛亮的祠堂。「出师未捷身先死，长使英雄泪满襟」，写的是诸葛亮，也是他自己报国无门。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "蜀相",
+    "form": "七言律诗",
+    "text": [
+     "丞相祠堂何处寻，锦官城外柏森森。",
+     "映阶碧草自春色，隔叶黄鹂空好音。",
+     "三顾频烦天下计，两朝开济老臣心。",
+     "出师未捷身先死，长使英雄泪满襟。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "high",
+   "dateNote": "上元元年（760）春，杜甫初到成都，往游武侯祠时作",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《蜀相》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "维基文库收录本（亦见《唐诗三百首》）",
+     "url": "https://zh.wikisource.org/wiki/蜀相",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "蜀相系年",
+     "detail": "通行系于上元元年（760）春，杜甫初到成都之时。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/蜀相_(杜甫)",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "id": "q12",
+   "date": "0761",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "成都浣花溪草堂",
+   "ll": [
+    104.04,
+    30.66
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《茅屋为秋风所破歌》",
+   "summary": "秋风掀走了草堂屋顶，夜里漏雨，一家人无处可睡。杜甫想的却是「安得广厦千万间，大庇天下寒士俱欢颜」。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "茅屋为秋风所破歌",
+    "short": "茅屋为秋风所破歌",
+    "form": "七言歌行",
+    "text": [
+     "八月秋高风怒号，卷我屋上三重茅。",
+     "安得广厦千万间，大庇天下寒士俱欢颜，风雨不动安如山！",
+     "呜呼！何时眼前突兀见此屋，吾庐独破受冻死亦足！"
+    ],
+    "excerpt": true
+   },
+   "dateConf": "high",
+   "dateNote": "上元二年（761）八月，成都浣花溪草堂",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《茅屋为秋风所破歌（节选）》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷二百一十九",
+     "url": "https://zh.wikisource.org/wiki/茅屋為秋風所破歌",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "茅屋诗系年",
+     "detail": "诗中「八月秋高」与草堂建成的时间相合，通行系于上元二年（761）秋。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/茅屋为秋风所破歌",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "id": "q13",
+   "date": "0764",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "成都浣花溪草堂",
+   "ll": [
+    104.04,
+    30.66
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《绝句（两个黄鹂）》",
+   "summary": "避乱梓州、阆州两年后，杜甫重回成都草堂。窗外黄鹂翠柳、白鹭青天，难得一首明快的诗。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "绝句",
+    "short": "绝句（两个黄鹂）",
+    "form": "七言绝句",
+    "text": [
+     "两个黄鹂鸣翠柳，一行白鹭上青天。",
+     "窗含西岭千秋雪，门泊东吴万里船。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "medium",
+   "dateNote": "一般系于广德二年（764）春，杜甫重回成都草堂后（《绝句四首》其三）",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《绝句》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "维基文库收录本（亦见《千家诗》卷三）",
+     "url": "https://zh.wikisource.org/wiki/絕句_(兩個黃鸝鳴翠柳)",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "绝句四首系年",
+     "detail": "通行系于广德二年（764）春杜甫重返成都草堂时。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/绝句四首_(杜甫)",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "id": "q14",
+   "date": "0767",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "夔州（今重庆奉节）",
+   "ll": [
+    109.47,
+    31.04
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《登高》",
+   "summary": "重阳节，五十六岁的杜甫在夔州独自登高。长江滚滚，落叶萧萧，他老病孤身——后人称此诗为「古今七言律第一」。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "登高",
+    "form": "七言律诗",
+    "text": [
+     "风急天高猿啸哀，渚清沙白鸟飞回。",
+     "无边落木萧萧下，不尽长江滚滚来。",
+     "万里悲秋常作客，百年多病独登台。",
+     "艰难苦恨繁霜鬓，潦倒新停浊酒杯。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "high",
+   "dateNote": "大历二年（767）重阳，杜甫寓居夔州时登高所作（他766年到夔州，住到768年初）",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《登高》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《杜工部集》卷十二；《全唐诗》卷二百二十七",
+     "url": "https://zh.wikisource.org/wiki/登高",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "登高系年",
+     "detail": "通行系于大历二年（767）秋杜甫在夔州时，系年一致。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/登高_(杜甫)",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "id": "q15",
+   "date": "0768",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "岳阳楼",
+   "ll": [
+    113.09,
+    29.37
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《登岳阳楼》",
+   "summary": "杜甫乘一叶孤舟出三峡，到了岳阳。登楼看洞庭湖「乾坤日夜浮」，想到自己「老病有孤舟」，北方战事未平，凭栏落泪。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "登岳阳楼",
+    "form": "五言律诗",
+    "text": [
+     "昔闻洞庭水，今上岳阳楼。",
+     "吴楚东南坼，乾坤日夜浮。",
+     "亲朋无一字，老病有孤舟。",
+     "戎马关山北，凭轩涕泗流。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "high",
+   "dateNote": "大历三年（768）冬，杜甫出峡漂泊到岳阳",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《登岳阳楼》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷二百三十三",
+     "url": "https://zh.wikisource.org/wiki/登岳陽樓_(杜甫)",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "登岳阳楼系年",
+     "detail": "通行系于大历三年（768）岁暮杜甫到岳州时。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/登岳阳楼_(杜甫)",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "id": "q16",
+   "date": "0770",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "潭州（今湖南长沙）",
+   "ll": [
+    112.94,
+    28.23
+   ],
+   "who": [
+    "杜甫"
+   ],
+   "title": "杜甫《江南逢李龟年》",
+   "summary": "杜甫少年时在洛阳王公府上常听名歌手李龟年唱歌。四十年后在江南重逢，两人都流落他乡——只写「落花时节又逢君」，盛唐已经过去了。",
+   "debate": "少数学者怀疑此诗非杜甫所作。",
+   "poem": {
+    "poet": "杜甫",
+    "title": "江南逢李龟年",
+    "form": "七言绝句",
+    "text": [
+     "岐王宅里寻常见，崔九堂前几度闻。",
+     "正是江南好风景，落花时节又逢君。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "medium",
+   "dateNote": "一般系于大历五年（770）春潭州（今长沙），杜甫去世那年；也有人怀疑不是杜甫所作",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《江南逢李龟年》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷二百三十二",
+     "url": "https://zh.wikisource.org/wiki/江南逢李龜年",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "江南逢李龟年系年",
+     "detail": "通行系于大历五年（770）春杜甫在潭州时；有学者因岐王、崔涤卒年较早等理由疑其非杜甫作，但多数选本仍归杜甫。",
+     "stance": "supports",
+     "cite": "杜甫系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/江南逢李龟年",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "id": "q17",
+   "date": "0737",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "河西（凉州一带）",
+   "ll": [
+    102.64,
+    37.93
+   ],
+   "who": [
+    "王维"
+   ],
+   "title": "王维《使至塞上》",
+   "summary": "王维奉命出塞慰问河西守军。「大漠孤烟直，长河落日圆」，十个字画出了边塞。",
+   "poem": {
+    "poet": "王维",
+    "title": "使至塞上",
+    "form": "五言律诗",
+    "text": [
+     "单车欲问边，属国过居延。",
+     "征蓬出汉塞，归雁入胡天。",
+     "大漠孤烟直，长河落日圆。",
+     "萧关逢候骑，都护在燕然。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "high",
+   "dateNote": "开元二十五年（737），王维以监察御史出使河西节度使幕时",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《使至塞上》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷一百二十六",
+     "url": "https://zh.wikisource.org/wiki/使至塞上",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "出使河西系年",
+     "detail": "开元二十五年（737）河西节度副大使崔希逸破吐蕃，王维以监察御史出塞宣慰，此诗作于途中，系年一致。",
+     "stance": "supports",
+     "cite": "王维系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/使至塞上",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "id": "q18",
+   "date": "0750",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "蓝田辋川",
+   "ll": [
+    109.32,
+    34.1
+   ],
+   "who": [
+    "王维"
+   ],
+   "title": "王维《鹿柴》",
+   "summary": "王维在蓝田辋川买下别业，和好友裴迪各写二十首小诗，《鹿柴》是其中一首：空山无人，只有一缕夕阳照在青苔上。",
+   "debate": "只知道写于辋川隐居时，具体年份不详。",
+   "poem": {
+    "poet": "王维",
+    "title": "鹿柴",
+    "form": "五言绝句",
+    "text": [
+     "空山不见人，但闻人语响。",
+     "返景入深林，复照青苔上。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "low",
+   "dateNote": "《辋川集》二十首写于王维隐居辋川别业期间，大约天宝中后期，具体年份不详",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《鹿柴》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷一百二十八（《辋川集》）",
+     "url": "https://zh.wikisource.org/wiki/鹿柴_(王維)",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "辋川集写作年代",
+     "detail": "王维约天宝初年得辋川别业，《辋川集》约作于天宝年间，学界没有确切年份。",
+     "stance": "supports",
+     "cite": "王维系年通行研究",
+     "url": "https://zh.wikipedia.org/wiki/鹿柴",
+     "confidence": "low"
+    }
+   ]
+  },
+  {
+   "id": "q19",
+   "date": "0756",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "洛阳菩提寺",
+   "ll": [
+    112.45,
+    34.62
+   ],
+   "who": [
+    "王维"
+   ],
+   "title": "王维《凝碧池（口号诵示裴迪）》",
+   "summary": "安史叛军攻陷长安，王维被俘，押到洛阳关在菩提寺。好友裴迪来看他，说叛贼在凝碧池逼宫廷乐工奏乐。王维私下口占此诗，后来正因这首诗，他免了「从贼」的重罪。",
+   "poem": {
+    "poet": "王维",
+    "title": "菩提寺禁裴迪来相看说逆贼等凝碧池上作音乐供奉人等举声便一时泪下私成口号诵示裴迪",
+    "short": "凝碧池（口号诵示裴迪）",
+    "form": "七言绝句",
+    "text": [
+     "万户伤心生野烟，百僚何日更朝天。",
+     "秋槐叶落空宫里，凝碧池头奏管弦。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "high",
+   "dateNote": "至德元载（756）秋，王维被安禄山叛军拘于洛阳菩提寺",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《凝碧池口号》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷一百二十八",
+     "url": "https://zh.wikisource.org/wiki/菩提寺禁裴迪來相看說逆賊等凝碧池上作音樂供奉人等舉聲便一時淚下私成口號誦示裴迪",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "凝碧池诗与王维获免",
+     "detail": "《旧唐书·王维传》记王维陷贼时作此诗，乱平后肃宗因此诗及其弟王缙请削官赎罪而宽宥他。",
+     "stance": "supports",
+     "cite": "《旧唐书·王维传》",
+     "url": "https://zh.wikipedia.org/wiki/王维",
+     "confidence": "high"
+    }
+   ]
+  },
+  {
+   "id": "q20",
+   "date": "0729",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "长安",
+   "ll": [
+    108.94,
+    34.26
+   ],
+   "who": [
+    "孟浩然"
+   ],
+   "title": "孟浩然《岁暮归南山》",
+   "summary": "四十岁的孟浩然到长安考进士落第。「不才明主弃」——传说玄宗读到这句，不悦地说「卿不求仕，而朕未尝弃卿」，他从此与仕途无缘。传说未必可信。",
+   "debate": "玄宗读诗不悦的故事见于《新唐书》与唐人笔记，可能是附会。",
+   "poem": {
+    "poet": "孟浩然",
+    "title": "岁暮归南山",
+    "form": "五言律诗",
+    "text": [
+     "北阙休上书，南山归敝庐。",
+     "不才明主弃，多病故人疏。",
+     "白发催年老，青阳逼岁除。",
+     "永怀愁不寐，松月夜窗虚。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "medium",
+   "dateNote": "一般认为是开元十七年（729）前后在长安应试落第后所作",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《岁暮归南山》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "《全唐诗》卷一百六十",
+     "url": "https://zh.wikisource.org/wiki/歲暮歸南山",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "孟浩然入京落第系年",
+     "detail": "孟浩然约开元十六、十七年（728—729）在长安应进士不第，此诗多系于此后不久。玄宗读诗不悦一事出自《新唐书》及唐人笔记，属传闻。",
+     "stance": "supports",
+     "cite": "《新唐书·孟浩然传》及通行研究",
+     "url": "https://zh.wikipedia.org/wiki/孟浩然",
+     "confidence": "medium"
+    }
+   ]
+  },
+  {
+   "id": "q21",
+   "date": "0725",
+   "prec": "year",
+   "kind": "cul",
+   "place": "",
+   "placeName": "曲阜孔子宅（封泰山回程）",
+   "ll": [
+    117.1,
+    36.25
+   ],
+   "who": [
+    "唐玄宗"
+   ],
+   "title": "唐玄宗《经邹鲁祭孔子而叹之》",
+   "summary": "开元十三年玄宗东封泰山，回程绕道曲阜，亲自祭奠孔子，写下这首五律，叹孔子一生奔走、生不逢时。",
+   "poem": {
+    "poet": "唐玄宗",
+    "title": "经邹鲁祭孔子而叹之",
+    "short": "经邹鲁祭孔子而叹之",
+    "form": "五言律诗",
+    "text": [
+     "夫子何为者，栖栖一代中。",
+     "地犹鄹氏邑，宅即鲁王宫。",
+     "叹凤嗟身否，伤麟怨道穷。",
+     "今看两楹奠，当与梦时同。"
+    ],
+    "excerpt": false
+   },
+   "dateConf": "high",
+   "dateNote": "开元十三年（725）十一月，玄宗封泰山后回程经曲阜，祭孔子宅",
+   "evidence": [
+    {
+     "type": "text",
+     "title": "《经邹鲁祭孔子而叹之》全诗（维基文库）",
+     "detail": "诗文据维基文库该页，按通行本用字转为简体；该页列出的异文取第一种（通行）读法。",
+     "stance": "supports",
+     "cite": "维基文库收录本（亦见《唐诗三百首》）",
+     "url": "https://zh.wikisource.org/wiki/經鄒魯祭孔子而歎之",
+     "confidence": "high"
+    },
+    {
+     "type": "modern",
+     "title": "玄宗封禅回程祭孔",
+     "detail": "《旧唐书·玄宗纪》记开元十三年十一月封泰山，回程幸孔子宅、遣使致祭，此诗作于此时。",
+     "stance": "supports",
+     "cite": "《旧唐书·玄宗纪上》",
+     "url": "https://zh.wikipedia.org/wiki/经邹鲁祭孔子而叹之",
+     "confidence": "high"
+    }
+   ]
+  }
+ ]
+}

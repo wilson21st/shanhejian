@@ -1,0 +1,6 @@
+/* v136 (Wilson 08:42): every poem on every page is written in the 吟诗 brush — 志莽行书 (OFL, subset to all poem glyphs:
+   data/fonts/poem-brush.woff2), and only the four glyphs it lacks (纔 浥 鄜 咷) from 霞鹜臻楷 (OFL), per glyph via the stack.
+   Use: font-family:var(--poem). Licences: data/fonts/OFL-*.txt */
+@font-face{font-family:"PoemBrush";src:url("../data/fonts/poem-brush.woff2") format("woff2");font-display:block}
+@font-face{font-family:"PoemBrushFB";src:url("../data/fonts/poem-brush-fb.woff2") format("woff2");font-display:block;unicode-range:U+54B7,U+6D65,U+7E94,U+911C}
+:root{--poem:"PoemBrush","PoemBrushFB","LXGW WenKai","Kaiti SC",serif}

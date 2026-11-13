@@ -1,0 +1,87 @@
+gorge	Yangtze gorges Chinese painting scroll
+gorge	Ten thousand li Yangtze River scroll
+gorge	Wu Gorge painting Qing
+tower	Yellow Crane Tower Xia Yong
+tower	Yueyang Tower painting Yuan
+tower	Tengwang Pavilion painting
+tower	Jiang fan lou ge Li Sixun
+moon	Moon Chinese painting Ma Yuan
+moon	Viewing the moon Song dynasty album leaf
+moon	Moonlit night Chinese hanging scroll
+moonboat	Night mooring boat moon Chinese painting
+frontier	Wenji returning to Han
+frontier	Hu Gui Khitan hunting
+frontier	Lady Wenji's Return to China Met
+frontier	Zhaojun departing for frontier painting
+frontier	Chinese painting horsemen desert Yuan
+frontier	Great Wall Chinese painting Ming
+snow	Travelers in snowy mountains Chinese painting
+snow	Snowy landscape Fan Kuan
+snow	Clearing after snow Chinese painting
+snow	Wang Wei snow river painting
+farewell	Farewell at Xunyang Qiu Ying
+farewell	Parting at the riverside Chinese painting Ming
+farewell	Chinese painting willow bridge farewell
+refugee	Zhou Chen beggars and street characters
+refugee	Liumin tu refugees painting
+banquet	Night Revels of Han Xizai
+banquet	Palace concert Tang painting
+banquet	Literary gathering Chinese painting Song
+lady	Court ladies adorning hair flowers
+lady	Lady Guoguo spring outing
+lady	Court ladies preparing silk Zhang Xuan
+village	Peddler Li Song painting
+village	Herd boy water buffalo Song painting
+mountain	Early Spring Guo Xi
+mountain	Travelers among mountains and streams
+mountain	Wind in pines among myriad valleys
+mountain	Mount Lu Jing Hao
+mountain	Mount Tai painting Chinese
+mountain	Shitao landscape album
+river	Dwelling in the Fuchun mountains
+river	Pure and remote view of streams and mountains
+river	Fisherman cold river alone Ma Yuan
+river	Xiao Xiang river painting
+river	Chinese landscape river boat scroll Ming
+autumn	Autumn colors on the Qiao and Hua mountains
+autumn	Autumn mountains Chinese painting Song
+autumn	Chinese painting autumn trees cold forest
+autumn	Reading the stele Li Cheng
+birds	Song dynasty bird on branch painting
+birds	Egrets Chinese painting
+birds	Wild geese reeds Chinese painting
+birds	Oriole willow Chinese painting
+cicada	Cicada Chinese painting
+rain	Wind and rain Chinese painting Song
+rain	Returning boat in the rain Chinese painting
+rain	Spring rain Chinese painting
+spring	Peach blossom spring Chinese painting
+spring	Spring outing Zhan Ziqian
+spring	Plum blossom Chinese painting Song
+hut	Thatched cottage Chinese painting Ming
+hut	Scholar in thatched hut landscape painting
+kongzi	Confucius portrait painting
+kongzi	Pictorial biography of Confucius
+zhuge	Zhuge Liang portrait
+zhuge	Three visits to the thatched cottage painting
+music	Listening to the qin Huizong
+music	Tang dynasty female musicians painting
+music	Qin player Chinese painting
+wangchuan	Wangchuan villa scroll
+mengh	Meng Haoran painting
+mengh	Searching for plum blossoms in snow painting
+libai	Li Bai portrait Liang Kai
+libai	Li Bai poet painting
+dufu	Du Fu portrait
+dapeng	Roc Chinese painting
+dapeng	Eagle on pine Chinese painting
+yellowriver	Yellow River Chinese painting
+chongyang	Chrysanthemum Chinese painting
+chongyang	Climbing heights Double Ninth painting
+palace	Chinese palace painting Tang
+palace	Jiucheng palace painting
+war	Emperor Minghuang's journey to Shu
+war	Chinese painting cavalry battle
+drink	Drunken scholar Chinese painting
+drink	Li Bai drinking painting
+old	Old man Chinese painting walking stick

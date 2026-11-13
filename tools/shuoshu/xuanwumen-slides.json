@@ -1,0 +1,257 @@
+{
+"bunian": {
+"type": "img",
+"src": "bunian.jpg",
+"kb": "in",
+"cap": "传 阎立本《步辇图》局部 · 唐太宗",
+"lic": "Public domain",
+"pos": "50% 45%"
+},
+"taizong": {
+"type": "img",
+"src": "taizong.jpg",
+"kb": "in",
+"cap": "唐太宗像（Commons 标作阎立本）",
+"lic": "Public domain",
+"pos": "50% 28%"
+},
+"yuchi": {
+"type": "img",
+"src": "yuchi.jpg",
+"kb": "in",
+"cap": "《唐太宗二十四功臣》图册 · 尉迟敬德",
+"lic": "Public domain",
+"pos": "50% 30%"
+},
+"ministers": {
+"type": "img",
+"src": "ministers.jpg",
+"kb": "pan",
+"cap": "《唐太宗二十四功臣》图册",
+"lic": "Public domain"
+},
+"weizheng": {
+"type": "img",
+"src": "weizheng.jpg",
+"kb": "in",
+"cap": "魏征像",
+"lic": "Public domain",
+"pos": "50% 30%"
+},
+"nayan": {
+"type": "img",
+"src": "nayan.jpg",
+"kb": "up",
+"cap": "临阎立本《唐太宗纳谏图》",
+"lic": "Public domain"
+},
+"saluzi": {
+"type": "img",
+"src": "saluzi.jpg",
+"kb": "r",
+"cap": "昭陵六骏 · 飒露紫（复制品，西安碑林）",
+"lic": "CC BY-SA 4.0",
+"pos": "50% 50%"
+},
+"star": {
+"type": "img",
+"src": "star.jpg",
+"kb": "in",
+"cap": "敦煌星图（唐）",
+"lic": "Public domain",
+"pos": "50% 50%"
+},
+"oracle": {
+"type": "img",
+"src": "oracle.jpg",
+"kb": "out",
+"cap": "占卜用的甲骨（商，大英图书馆）",
+"lic": "CC0",
+"pos": "50% 50%"
+},
+"court": {
+"type": "img",
+"src": "court.jpg",
+"kb": "in",
+"cap": "唐 宫中仕女",
+"lic": "Public domain",
+"pos": "50% 35%"
+},
+"concert": {
+"type": "img",
+"src": "concert.jpg",
+"kb": "l",
+"cap": "唐《宫乐图》",
+"lic": "Public domain",
+"pos": "50% 50%"
+},
+"guoguo": {
+"type": "img",
+"src": "guoguo.jpg",
+"kb": "pan",
+"cap": "张萱《虢国夫人游春图》（宋摹本）",
+"lic": "Public domain"
+},
+"guards": {
+"type": "img",
+"src": "guards.jpg",
+"kb": "r",
+"cap": "长乐公主墓壁画 · 仪卫（贞观十七年）",
+"lic": "Public domain",
+"pos": "50% 40%"
+},
+"officer": {
+"type": "img",
+"src": "officer.jpg",
+"kb": "up",
+"cap": "长乐公主墓壁画 · 仪卫武官",
+"lic": "Public domain"
+},
+"tower": {
+"type": "img",
+"src": "tower.jpg",
+"kb": "up",
+"cap": "懿德太子墓壁画 · 阙楼",
+"lic": "Public domain"
+},
+"polo": {
+"type": "img",
+"src": "polo.jpg",
+"kb": "in",
+"cap": "章怀太子墓壁画 · 打马球",
+"lic": "Public domain",
+"pos": "50% 40%"
+},
+"horse": {
+"type": "img",
+"src": "horse.jpg",
+"kb": "l",
+"cap": "韩幹《照夜白图》",
+"lic": "Public domain",
+"pos": "50% 50%"
+},
+"tongjian": {
+"type": "img",
+"src": "tongjian.jpg",
+"kb": "up",
+"cap": "司马光《资治通鉴》残稿",
+"lic": "Public domain"
+},
+"changan": {
+"type": "img",
+"src": "changan.jpg",
+"kb": "out",
+"cap": "唐长安城平面示意",
+"lic": "CC BY-SA 4.0",
+"pos": "50% 50%"
+},
+"qingzhui": {
+"type": "img",
+"src": "qingzhui.jpg",
+"kb": "l",
+"cap": "昭陵六骏 · 青骓（西安碑林）",
+"lic": "CC BY-SA 4.0",
+"pos": "50% 50%"
+},
+"t_poem": {
+"type": "title",
+"big": "玄武门之变",
+"sub": "定场诗"
+},
+"t_how": {
+"type": "title",
+"big": "说 · 问 · 答",
+"sub": "说书人讲　您来答"
+},
+"t_night": {
+"type": "char",
+"ch": "夜",
+"sub": "武德九年　秦王府"
+},
+"t_end": {
+"type": "title",
+"big": "全书完",
+"sub": "玄武门之变"
+},
+"c_jian": {
+"type": "char",
+"ch": "箭"
+},
+"c_jiu": {
+"type": "char",
+"ch": "酒"
+},
+"c_xue": {
+"type": "char",
+"ch": "血",
+"red": 1
+},
+"c_bu": {
+"type": "char",
+"ch": "卜"
+},
+"c_bian": {
+"type": "char",
+"ch": "变",
+"red": 1,
+"sub": "武德九年六月初四"
+},
+"c_shi": {
+"type": "char",
+"ch": "史"
+},
+"c_chang": {
+"type": "seal",
+"seal": "常何",
+"name": "玄武门守将 常何",
+"c": "#6b6b6b"
+},
+"seals3": {
+"type": "seals",
+"who": [
+"lijiancheng",
+"lishimin",
+"liyuanji"
+]
+},
+"seal_wangzhi": {
+"type": "seal",
+"who": "wangzhi"
+},
+"seal_zhangjieyu": {
+"type": "seal",
+"who": "zhangjieyu"
+},
+"seal_yuanji": {
+"type": "seal",
+"who": "liyuanji"
+},
+"names": {
+"type": "names",
+"list": [
+"长孙无忌",
+"尉迟敬德",
+"侯君集",
+"张公谨",
+"刘师立",
+"公孙武达",
+"独孤彦云",
+"杜君绰",
+"郑仁泰",
+"李孟尝"
+],
+"sub": "旧唐书·长孙无忌传"
+},
+"map_xwm": {
+"type": "map",
+"at": "xwm"
+},
+"map_linhu": {
+"type": "map",
+"at": "linhu"
+},
+"map_haichi": {
+"type": "map",
+"at": "haichi"
+}
+}

@@ -1,0 +1,222 @@
+[
+[
+"bianqiao",
+"File:便桥会盟图1.jpg",
+2400,
+"陈及之《便桥会盟图》卷（元）· 前段"
+],
+[
+"bianqiao2",
+"File:便桥会盟图2.jpg",
+2400,
+"陈及之《便桥会盟图》卷（元）· 后段"
+],
+[
+"bq_a",
+"File:便桥会盟图1.jpg",
+8000,
+"陈及之《便桥会盟图》（元）局部",
+{
+"crop": [
+0.02,
+0.2
+]
+}
+],
+[
+"bq_b",
+"File:便桥会盟图1.jpg",
+8000,
+"陈及之《便桥会盟图》（元）局部",
+{
+"crop": [
+0.42,
+0.6
+]
+}
+],
+[
+"bq_c",
+"File:便桥会盟图1.jpg",
+8000,
+"陈及之《便桥会盟图》（元）局部",
+{
+"crop": [
+0.8,
+0.98
+]
+}
+],
+[
+"bq_d",
+"File:便桥会盟图2.jpg",
+8000,
+"陈及之《便桥会盟图》（元）局部",
+{
+"crop": [
+0.02,
+0.2
+]
+}
+],
+[
+"bq_e",
+"File:便桥会盟图2.jpg",
+8000,
+"陈及之《便桥会盟图》（元）局部",
+{
+"crop": [
+0.4,
+0.58
+]
+}
+],
+[
+"bq_f",
+"File:便桥会盟图2.jpg",
+8000,
+"陈及之《便桥会盟图》（元）局部",
+{
+"crop": [
+0.8,
+0.98
+]
+}
+],
+[
+"gaozu",
+"File:TangGaozu.jpg",
+0,
+"唐高祖李渊像"
+],
+[
+"zhaoling",
+"File:Stone Relief Panel of Zhaoling- Battle Steed of Tang Emperor Taizong 1.jpg",
+1600,
+"昭陵六骏石刻（西安碑林）"
+],
+[
+"lijing",
+"File:Chinese - The Twenty-Four Ministers of the Tang -T'ang- Dynasty Emperor Taizong -T'ai-Tsung- - Walters 3557 - Li Jing.jpg",
+0,
+"《唐太宗二十四功臣》图册 · 李靖"
+],
+[
+"kultegin",
+"File:Kultegin monument Mongolia.JPG",
+0,
+"阙特勤碑（732年，蒙古国鄂尔浑河畔）"
+],
+[
+"bilge",
+"File:Bilge Khagan monument Mongolia.JPG",
+0,
+"毗伽可汗碑（734年，蒙古国）"
+],
+[
+"runes",
+"File:Kyzyl orkhon inscription.jpg",
+0,
+"古突厥文碑铭（局部）"
+],
+[
+"turkstatue",
+"File:Turkic statue, southern Kazakhstan, 6-8th century CE.jpg",
+1400,
+"突厥石人（6-8世纪，哈萨克斯坦南部）"
+],
+[
+"turkbeys",
+"File:Göktürk Giysili Beyler, Pancikent (Panjakent)-Tacikistan.jpg",
+0,
+"片治肯特壁画 · 突厥装束的贵人（塔吉克斯坦）"
+],
+[
+"silk",
+"File:Tang Dynasty emissaries at the court of Varkhuman in Samarkand carrying silk and a string of silkworm cocoons, 648-651 CE, Afrasiyab murals, Samarkand.jpg",
+1600,
+"撒马尔罕大使厅壁画 · 唐朝使者捧着丝绸（7世纪）"
+],
+[
+"weihe",
+"File:Full View of Wei River in Xianyang 2012-09.jpg",
+2400,
+"今日咸阳渭河"
+],
+[
+"weishui",
+"File:Weishui.png",
+0,
+"《水经注》渭水图"
+],
+[
+"bashui",
+"File:八水绕长安地图 (cropped).jpg",
+1400,
+"八水绕长安 · 渭水在长安城北"
+],
+[
+"taizong",
+{
+"from": "xuanwumen"
+},
+0,
+"唐太宗像"
+],
+[
+"bunian",
+{
+"from": "xuanwumen"
+},
+0,
+"传 阎立本《步辇图》局部 · 唐太宗"
+],
+[
+"saluzi",
+{
+"from": "xuanwumen"
+},
+0,
+"昭陵六骏 · 飒露紫（复制品，西安碑林）"
+],
+[
+"yuchi",
+{
+"from": "xuanwumen"
+},
+0,
+"《唐太宗二十四功臣》图册 · 尉迟敬德"
+],
+[
+"ministers",
+{
+"from": "xuanwumen"
+},
+0,
+"《唐太宗二十四功臣》图册"
+],
+[
+"guards",
+{
+"from": "xuanwumen"
+},
+0,
+"长乐公主墓壁画 · 仪卫"
+],
+[
+"tongjian",
+{
+"from": "xuanwumen"
+},
+0,
+"司马光《资治通鉴》残稿"
+],
+[
+"concert",
+{
+"from": "xuanwumen"
+},
+0,
+"唐《宫乐图》"
+]
+]

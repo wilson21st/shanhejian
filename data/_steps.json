@@ -1,0 +1,1862 @@
+[
+ {
+  "step": 0,
+  "id": "s581",
+  "date": "0581-03-04",
+  "kind": "pol",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "杨坚受禅建隋",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 1,
+  "id": "s582",
+  "date": "0582-07-29",
+  "kind": "gov",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "营建新都大兴城",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 2,
+  "id": "s583",
+  "date": "0583",
+  "kind": "gov",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "开皇律与三省六部",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 3,
+  "id": "s583b",
+  "date": "0583",
+  "kind": "dip",
+  "place": "baidao",
+  "placeName": "白道（白道川）",
+  "ll": [
+   111.67,
+   40.93
+  ],
+  "title": "突厥分裂为东西两部",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 4,
+  "id": "p01",
+  "date": "0583",
+  "kind": "cul",
+  "place": "jiankang",
+  "placeName": "建康（台城）",
+  "ll": [
+   118.79,
+   32.05
+  ],
+  "title": "薛道衡作《人日思归》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 5,
+  "id": "s585",
+  "date": "0585",
+  "kind": "gov",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "大索貌阅与输籍定样",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 6,
+  "id": "s589",
+  "date": "0589-02-10",
+  "kind": "mil",
+  "place": "jiankang",
+  "placeName": "建康（台城）",
+  "ll": [
+   118.79,
+   32.05
+  ],
+  "title": "隋军攻陷建康，陈亡",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 7,
+  "id": "s594",
+  "date": "0594-08-30",
+  "kind": "nat",
+  "place": "luoyang",
+  "placeName": "洛阳",
+  "ll": [
+   112.45,
+   34.62
+  ],
+  "title": "关中大旱，文帝率民就食洛阳",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 8,
+  "id": "s600",
+  "date": "0600-11-20",
+  "kind": "pol",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "废太子杨勇，立晋王杨广",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 9,
+  "id": "s601",
+  "date": "0601",
+  "kind": "cul",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "陆法言撰成《切韵》",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 10,
+  "id": "s604",
+  "date": "0604-08-13",
+  "kind": "pol",
+  "place": "renshougong",
+  "placeName": "仁寿宫（唐九成宫）",
+  "ll": [
+   107.79,
+   34.68
+  ],
+  "title": "隋文帝崩于仁寿宫",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 11,
+  "id": "s605a",
+  "date": "0605-04-10",
+  "kind": "gov",
+  "place": "luoyang",
+  "placeName": "洛阳",
+  "ll": [
+   112.45,
+   34.62
+  ],
+  "title": "营建东都洛阳",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 12,
+  "id": "s605b",
+  "date": "0605-04-14",
+  "kind": "gov",
+  "place": "bianqu",
+  "placeName": "通济渠（宋州段，今商丘）",
+  "ll": [
+   115.65,
+   34.41
+  ],
+  "title": "开凿大运河",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 13,
+  "id": "s607",
+  "date": "0607",
+  "kind": "dip",
+  "place": "luoyang",
+  "placeName": "洛阳",
+  "ll": [
+   112.45,
+   34.62
+  ],
+  "title": "小野妹子使隋与日出处国书",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 14,
+  "id": "s607b",
+  "date": "0607",
+  "kind": "gov",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "炀帝设进士科",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 15,
+  "id": "s609",
+  "date": "0609-07-23",
+  "kind": "dip",
+  "place": "yanzhishan",
+  "placeName": "燕支山（焉支山）",
+  "ll": [
+   101.45,
+   38.45
+  ],
+  "title": "炀帝西巡，燕支山会见西域诸国",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 16,
+  "id": "s611",
+  "date": "0611",
+  "kind": "nat",
+  "place": "changbaishan",
+  "placeName": "长白山（邹平）",
+  "ll": [
+   117.6,
+   36.78
+  ],
+  "title": "山东河南大水，民变初起",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 17,
+  "id": "s612",
+  "date": "0612-02-08",
+  "kind": "mil",
+  "place": "liaodong",
+  "placeName": "辽东城（今辽阳）",
+  "ll": [
+   123.17,
+   41.27
+  ],
+  "title": "炀帝三征高句丽",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 18,
+  "id": "s613",
+  "date": "0613-06-25",
+  "kind": "mil",
+  "place": "liyang",
+  "placeName": "黎阳（黎阳仓）",
+  "ll": [
+   114.56,
+   35.68
+  ],
+  "title": "杨玄感黎阳起兵",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 19,
+  "id": "s615",
+  "date": "0615-09-10",
+  "kind": "mil",
+  "place": "yanmen",
+  "placeName": "雁门郡城（今代县）",
+  "ll": [
+   112.96,
+   39.07
+  ],
+  "title": "雁门之围",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 20,
+  "id": "s617b",
+  "date": "0617-03-21",
+  "kind": "mil",
+  "place": "luokou",
+  "placeName": "洛口仓（兴洛仓）",
+  "ll": [
+   113.05,
+   34.76
+  ],
+  "title": "李密袭取兴洛仓",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 21,
+  "id": "s617",
+  "date": "0617-08-11",
+  "kind": "mil",
+  "place": "taiyuan",
+  "placeName": "晋阳（太原）",
+  "ll": [
+   112.47,
+   37.71
+  ],
+  "title": "李渊太原起兵",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 22,
+  "id": "s618jd",
+  "date": "0618-04-11",
+  "kind": "pol",
+  "place": "jiangdu",
+  "placeName": "江都（扬州）",
+  "ll": [
+   119.43,
+   32.41
+  ],
+  "title": "江都之变：炀帝被弑",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 23,
+  "id": "s618",
+  "date": "0618-06-18",
+  "kind": "pol",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "李渊称帝，唐朝建立",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 24,
+  "id": "s621",
+  "date": "0621-05-28",
+  "kind": "mil",
+  "place": "hulao",
+  "placeName": "虎牢（武牢）",
+  "ll": [
+   113.21,
+   34.84
+  ],
+  "title": "虎牢之战：擒窦建德",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 25,
+  "id": "e622",
+  "date": "0622-12",
+  "kind": "mil",
+  "place": "weizhou",
+  "placeName": "魏州",
+  "ll": [
+   115.27,
+   36.28
+  ],
+  "title": "建成领兵讨刘黑闼",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 26,
+  "id": "s624",
+  "date": "0624-04-23",
+  "kind": "gov",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "颁行武德律令与租庸调法",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 27,
+  "id": "e624",
+  "date": "0624-07",
+  "kind": "pol",
+  "place": "renzhigong",
+  "placeName": "仁智宫",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "杨文干事件：高祖许诺改立世民",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 28,
+  "id": "e625",
+  "date": "0625-05",
+  "kind": "dip",
+  "place": "yaozhang_w",
+  "placeName": "西突厥牙帐（千泉）",
+  "ll": [
+   73.5,
+   42.6
+  ],
+  "title": "西突厥统叶护遣使向唐请婚",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 29,
+  "id": "e626a",
+  "date": "0626-05-21",
+  "kind": "mil",
+  "place": "lingzhou",
+  "placeName": "灵州",
+  "ll": [
+   106.3,
+   38.1
+  ],
+  "title": "李靖与颉利战于灵州硖石",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 30,
+  "id": "e626b",
+  "date": "0626-06",
+  "kind": "pol",
+  "place": "luoyang",
+  "placeName": "洛阳",
+  "ll": [
+   112.45,
+   34.62
+  ],
+  "title": "世民遣张亮去洛阳，阴结山东豪杰",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 31,
+  "id": "e626c",
+  "date": "0626-06",
+  "kind": "pol",
+  "place": "qinfu",
+  "placeName": "秦府·西宫",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "建成夜宴，世民饮酒后吐血",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 32,
+  "id": "e626d",
+  "date": "0626-06",
+  "kind": "pol",
+  "place": "qinfu",
+  "placeName": "秦府·西宫",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "建成以金银拉拢敬德被拒，元吉遣刺客",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 33,
+  "id": "e626e",
+  "date": "0626-06",
+  "kind": "pol",
+  "place": "qinfu",
+  "placeName": "秦府·西宫",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "程知节外放，房玄龄、杜如晦被逐出秦府",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 34,
+  "id": "e626f",
+  "date": "0626-06",
+  "kind": "mil",
+  "place": "wucheng",
+  "placeName": "乌城",
+  "ll": [
+   108.6,
+   39.4
+  ],
+  "title": "郁射设入塞围乌城，建成荐元吉北征",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 35,
+  "id": "e626g",
+  "date": "0626-06",
+  "kind": "pol",
+  "place": "kunmingchi",
+  "placeName": "昆明池",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "王晊告密：昆明池饯行时拉杀秦王",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 36,
+  "id": "e626h",
+  "date": "0626-06",
+  "kind": "pol",
+  "place": "qinfu",
+  "placeName": "秦府·西宫",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "秦府定计；李靖、李世勣都推辞；张公谨掷龟",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 37,
+  "id": "e626i",
+  "date": "0626-06",
+  "kind": "pol",
+  "place": "qinfu",
+  "placeName": "秦府·西宫",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "房杜扮道士潜回秦府",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 38,
+  "id": "e0629",
+  "date": "0626-06-29",
+  "kind": "nat",
+  "place": "taijidian",
+  "placeName": "太极殿",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "太白经天",
+  "scroll": true,
+  "poem": false
+ },
+ {
+  "step": 39,
+  "id": "a0705",
+  "date": "0626-07-05",
+  "kind": "pol",
+  "place": "taijidian",
+  "placeName": "太极殿",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "立世民为皇太子",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 40,
+  "id": "a0710",
+  "date": "0626-07",
+  "kind": "gov",
+  "place": "donggong",
+  "placeName": "东宫",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "魏征：「先太子早从征言，必无今日之祸」",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 41,
+  "id": "a0723",
+  "date": "0626-07-23",
+  "kind": "mil",
+  "place": "youzhou",
+  "placeName": "幽州",
+  "ll": [
+   116.4,
+   39.9
+  ],
+  "title": "幽州李瑗反，被王君廓所杀",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 42,
+  "id": "a0808",
+  "date": "0626-08-08",
+  "kind": "gov",
+  "place": "weizhou",
+  "placeName": "魏州",
+  "ll": [
+   115.27,
+   36.28
+  ],
+  "title": "魏征宣慰山东，释放押送的东宫旧部",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 43,
+  "id": "a0904",
+  "date": "0626-09-04",
+  "kind": "pol",
+  "place": "donggong",
+  "placeName": "东宫",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "太宗即位于东宫显德殿",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 44,
+  "id": "a0921",
+  "date": "0626-09-21",
+  "kind": "mil",
+  "place": "jingyang",
+  "placeName": "泾阳",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "敬德泾阳大破突厥",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 45,
+  "id": "a0923",
+  "date": "0626-09-23",
+  "kind": "dip",
+  "place": "bianqiao",
+  "placeName": "渭水便桥",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "颉利至渭水便桥；太宗出玄武门隔水对话",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 46,
+  "id": "a0925",
+  "date": "0626-09-25",
+  "kind": "dip",
+  "place": "bianqiao",
+  "placeName": "渭水便桥",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "斩白马，渭水之盟",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 47,
+  "id": "s626ws",
+  "date": "0626-09-25",
+  "kind": "dip",
+  "place": "bianqiao",
+  "placeName": "渭水便桥",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "渭水便桥之盟",
+  "scroll": true,
+  "poem": false
+ },
+ {
+  "step": 48,
+  "id": "s628",
+  "date": "0628-07",
+  "kind": "nat",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "关中旱蝗，太宗吞蝗",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 49,
+  "id": "s629",
+  "date": "0629",
+  "kind": "cul",
+  "place": "nalanda",
+  "placeName": "那烂陀寺",
+  "ll": [
+   85.44,
+   25.14
+  ],
+  "title": "玄奘西行求法",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 50,
+  "id": "s630",
+  "date": "0630-03-27",
+  "kind": "mil",
+  "place": "yaozhang_e",
+  "placeName": "东突厥牙帐",
+  "ll": [
+   111.5,
+   41.2
+  ],
+  "title": "灭东突厥，太宗称天可汗",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 51,
+  "id": "s635",
+  "date": "0635-07-07",
+  "kind": "mil",
+  "place": "fusicheng",
+  "placeName": "伏俟城",
+  "ll": [
+   99.583,
+   37.026
+  ],
+  "title": "李靖平吐谷浑",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 52,
+  "id": "s636",
+  "date": "0636-03-03",
+  "kind": "cul",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "梁陈齐周隋五代史修成",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 53,
+  "id": "s640",
+  "date": "0640-09-19",
+  "kind": "mil",
+  "place": "gaochang",
+  "placeName": "高昌城（高昌故城）",
+  "ll": [
+   89.527,
+   42.853
+  ],
+  "title": "灭高昌，置西州与安西都护府",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 54,
+  "id": "s641",
+  "date": "0641-03-02",
+  "kind": "dip",
+  "place": "lhasa",
+  "placeName": "逻些（拉萨）",
+  "ll": [
+   91.13,
+   29.65
+  ],
+  "title": "文成公主入藏",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 55,
+  "id": "s643",
+  "date": "0643-04-24",
+  "kind": "pol",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "废太子承乾，立晋王李治",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 56,
+  "id": "a643",
+  "date": "0643-08",
+  "kind": "cul",
+  "place": "taijidian",
+  "placeName": "太极殿",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "太宗亲阅实录，命改写「六月四日事」",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 57,
+  "id": "s645",
+  "date": "0645-07-18",
+  "kind": "mil",
+  "place": "anshi",
+  "placeName": "安市城",
+  "ll": [
+   122.78,
+   40.78
+  ],
+  "title": "太宗亲征高句丽：安市城之败",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 58,
+  "id": "s646",
+  "date": "0646-10-29",
+  "kind": "dip",
+  "place": "lingzhou",
+  "placeName": "灵州",
+  "ll": [
+   106.3,
+   38.1
+  ],
+  "title": "铁勒诸部灵州请尊天可汗",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 59,
+  "id": "s648",
+  "date": "0648",
+  "kind": "dip",
+  "place": "jilong",
+  "placeName": "吉隆",
+  "ll": [
+   85.31,
+   28.89
+  ],
+  "title": "王玄策借兵擒阿罗那顺",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 60,
+  "id": "s649",
+  "date": "0649-07-10",
+  "kind": "pol",
+  "place": "cuiweigong",
+  "placeName": "翠微宫",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "唐太宗崩于翠微宫",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 61,
+  "id": "s653",
+  "date": "0653-11",
+  "kind": "gov",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "《永徽律疏》颁行天下",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 62,
+  "id": "s655",
+  "date": "0655-11-22",
+  "kind": "pol",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "武则天立为皇后",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 63,
+  "id": "s657",
+  "date": "0657",
+  "kind": "mil",
+  "place": "yezhihe",
+  "placeName": "曳咥河（多比定为额尔齐斯河上游）",
+  "ll": [
+   89.5,
+   47
+  ],
+  "title": "苏定方灭西突厥",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 64,
+  "id": "s660",
+  "date": "0660-08-29",
+  "kind": "mil",
+  "place": "sabi",
+  "placeName": "泗沘城（所夫里，今韩国扶余）",
+  "ll": [
+   126.91,
+   36.28
+  ],
+  "title": "唐与新罗灭百济",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 65,
+  "id": "s663b",
+  "date": "0663-06-04",
+  "kind": "cul",
+  "place": "daminggong",
+  "placeName": "大明宫含元殿",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "高宗移居蓬莱宫（大明宫）",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 66,
+  "id": "s663",
+  "date": "0663-10-04",
+  "kind": "mil",
+  "place": "baekgang",
+  "placeName": "白江口（白村江）",
+  "ll": [
+   126.7,
+   36
+  ],
+  "title": "白江口之战",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 67,
+  "id": "s668",
+  "date": "0668-10-22",
+  "kind": "mil",
+  "place": "pyongyang",
+  "placeName": "平壤城",
+  "ll": [
+   125.75,
+   39.02
+  ],
+  "title": "唐灭高句丽",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 68,
+  "id": "p02",
+  "date": "0669",
+  "kind": "cul",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "王勃作《送杜少府之任蜀州》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 69,
+  "id": "s670",
+  "date": "0670-08-08",
+  "kind": "mil",
+  "place": "dafeichuan",
+  "placeName": "大非川（今青海共和县切吉草原）",
+  "ll": [
+   99.7,
+   36.1
+  ],
+  "title": "大非川之战",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 70,
+  "id": "s675",
+  "date": "0676-01-20",
+  "kind": "cul",
+  "place": "longmen",
+  "placeName": "龙门奉先寺卢舍那像龛",
+  "ll": [
+   112.472,
+   34.555
+  ],
+  "title": "龙门奉先寺卢舍那大佛落成",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 71,
+  "id": "p03",
+  "date": "0678",
+  "kind": "cul",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "骆宾王狱中作《在狱咏蝉》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 72,
+  "id": "s682b",
+  "date": "0682-05-15",
+  "kind": "nat",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "永淳关中大饥，高宗就食东都",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 73,
+  "id": "s682",
+  "date": "0682",
+  "kind": "mil",
+  "place": "yaozhang_e",
+  "placeName": "东突厥牙帐",
+  "ll": [
+   111.5,
+   41.2
+  ],
+  "title": "骨咄禄起兵，后突厥复兴",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 74,
+  "id": "s684",
+  "date": "0684-11-11",
+  "kind": "mil",
+  "place": "jiangdu",
+  "placeName": "江都（扬州）",
+  "ll": [
+   119.43,
+   32.41
+  ],
+  "title": "徐敬业扬州起兵",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 75,
+  "id": "s686",
+  "date": "0686-04-06",
+  "kind": "gov",
+  "place": "luoyang",
+  "placeName": "洛阳",
+  "ll": [
+   112.45,
+   34.62
+  ],
+  "title": "铜匦告密与酷吏政治",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 76,
+  "id": "s690",
+  "date": "0690-10-16",
+  "kind": "pol",
+  "place": "luoyang",
+  "placeName": "洛阳",
+  "ll": [
+   112.45,
+   34.62
+  ],
+  "title": "武则天称帝，改唐为周",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 77,
+  "id": "p04",
+  "date": "0696",
+  "kind": "cul",
+  "place": "youzhou",
+  "placeName": "幽州",
+  "ll": [
+   116.4,
+   39.9
+  ],
+  "title": "陈子昂随军作《登幽州台歌》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 78,
+  "id": "s696",
+  "date": "0696-06-16",
+  "kind": "mil",
+  "place": "yingzhou",
+  "placeName": "营州（柳城，今辽宁朝阳）",
+  "ll": [
+   120.45,
+   41.57
+  ],
+  "title": "契丹李尽忠营州之乱",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 79,
+  "id": "s698",
+  "date": "0698",
+  "kind": "pol",
+  "place": "dongmou",
+  "placeName": "东牟山（敦化城山子山城）",
+  "ll": [
+   128.15,
+   43.29
+  ],
+  "title": "大祚荣建震国（渤海）",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 80,
+  "id": "s705",
+  "date": "0705-02-20",
+  "kind": "pol",
+  "place": "luoyang",
+  "placeName": "洛阳",
+  "ll": [
+   112.45,
+   34.62
+  ],
+  "title": "神龙政变：中宗复位",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 81,
+  "id": "s710b",
+  "date": "0710",
+  "kind": "dip",
+  "place": "lhasa",
+  "placeName": "逻些（拉萨）",
+  "ll": [
+   91.13,
+   29.65
+  ],
+  "title": "金城公主入藏",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 82,
+  "id": "s710",
+  "date": "0710-07-21",
+  "kind": "pol",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "唐隆政变：诛韦后",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 83,
+  "id": "s713",
+  "date": "0713-07-29",
+  "kind": "gov",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "先天政变·开元之治",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 84,
+  "id": "s717",
+  "date": "0717",
+  "kind": "dip",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "阿倍仲麻吕等随遣唐使入唐",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 85,
+  "id": "p05",
+  "date": "0717",
+  "kind": "cul",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "王维作《九月九日忆山东兄弟》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 86,
+  "id": "p06",
+  "date": "0720",
+  "kind": "cul",
+  "place": "yinshan",
+  "placeName": "阴山（边塞诗泛指）",
+  "ll": [
+   110,
+   41
+  ],
+  "title": "王昌龄作《出塞》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 87,
+  "id": "p07",
+  "date": "0720",
+  "kind": "cul",
+  "place": "xiangyang",
+  "placeName": "襄阳（孟浩然隐居地）",
+  "ll": [
+   112.14,
+   32.02
+  ],
+  "title": "孟浩然作《春晓》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 88,
+  "id": "s721",
+  "date": "0721-03-12",
+  "kind": "gov",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "宇文融括户",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 89,
+  "id": "s724",
+  "date": "0724-05-20",
+  "kind": "cul",
+  "place": "yangcheng",
+  "placeName": "阳城测景台（今河南登封告成）",
+  "ll": [
+   113.141,
+   34.403
+  ],
+  "title": "南宫说、一行测量子午线",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 90,
+  "id": "s725",
+  "date": "0725-12-19",
+  "kind": "pol",
+  "place": "taishan",
+  "placeName": "泰山",
+  "ll": [
+   117.1,
+   36.25
+  ],
+  "title": "玄宗封禅泰山",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 91,
+  "id": "p08",
+  "date": "0726",
+  "kind": "cul",
+  "place": "yangzhou_inn",
+  "placeName": "扬州旅舍（存疑）",
+  "ll": [
+   119.4128,
+   32.3932
+  ],
+  "title": "李白作《静夜思》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 92,
+  "id": "p09",
+  "date": "0727",
+  "kind": "cul",
+  "place": "guanquelou",
+  "placeName": "鹳雀楼（蒲州故址／今重建楼）",
+  "ll": [
+   110.277,
+   34.849
+  ],
+  "title": "王之涣作《登鹳雀楼》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 93,
+  "id": "p10",
+  "date": "0727",
+  "kind": "cul",
+  "place": "yumenguan",
+  "placeName": "玉门关（汉故址，今敦煌）",
+  "ll": [
+   93.88,
+   40.36
+  ],
+  "title": "王之涣作《凉州词》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 94,
+  "id": "p11",
+  "date": "0730",
+  "kind": "cul",
+  "place": "huanghelou",
+  "placeName": "黄鹤楼",
+  "ll": [
+   114.29694,
+   30.54694
+  ],
+  "title": "崔颢作《黄鹤楼》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 95,
+  "id": "p12",
+  "date": "0730",
+  "kind": "cul",
+  "place": "huanghelou",
+  "placeName": "黄鹤楼",
+  "ll": [
+   114.29694,
+   30.54694
+  ],
+  "title": "李白作《黄鹤楼送孟浩然之广陵》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 96,
+  "id": "s734",
+  "date": "0734-07-10",
+  "kind": "dip",
+  "place": "chiling",
+  "placeName": "赤岭（今青海日月山）",
+  "ll": [
+   100.99,
+   36.56
+  ],
+  "title": "赤岭立碑，唐蕃划界",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 97,
+  "id": "p13",
+  "date": "0736",
+  "kind": "cul",
+  "place": "taishan",
+  "placeName": "泰山",
+  "ll": [
+   117.1,
+   36.25
+  ],
+  "title": "杜甫作《望岳》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 98,
+  "id": "s737",
+  "date": "0737-01-02",
+  "kind": "pol",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "张九龄罢相，李林甫专权",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 99,
+  "id": "p14",
+  "date": "0737",
+  "kind": "cul",
+  "place": "jingzhou_jiangling",
+  "placeName": "荆州（江陵）",
+  "ll": [
+   112.217,
+   30.333
+  ],
+  "title": "张九龄作《望月怀远》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 100,
+  "id": "s738",
+  "date": "0738-11-09",
+  "kind": "dip",
+  "place": "taihe",
+  "placeName": "太和城（大理）",
+  "ll": [
+   100.2,
+   25.63
+  ],
+  "title": "南诏统一六诏，皮逻阁封云南王",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 101,
+  "id": "p15",
+  "date": "0740",
+  "kind": "cul",
+  "place": "weicheng",
+  "placeName": "渭城（秦咸阳故城）",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "王维作《送元二使安西》（渭城曲）",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 102,
+  "id": "s742",
+  "date": "0742-02-15",
+  "kind": "gov",
+  "place": "yingzhou",
+  "placeName": "营州（柳城，今辽宁朝阳）",
+  "ll": [
+   120.45,
+   41.57
+  ],
+  "title": "天宝十节度与安禄山领平卢",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 103,
+  "id": "s744",
+  "date": "0744",
+  "kind": "dip",
+  "place": "otuken",
+  "placeName": "乌德犍山牙帐（鄂尔浑河谷）",
+  "ll": [
+   102.66,
+   47.43
+  ],
+  "title": "回纥汗国建立：骨力裴罗",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 104,
+  "id": "p16",
+  "date": "0744",
+  "kind": "cul",
+  "place": "yuezhou",
+  "placeName": "会稽永兴（今杭州萧山）",
+  "ll": [
+   120.27,
+   30.18
+  ],
+  "title": "贺知章辞官还乡作《回乡偶书》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 105,
+  "id": "p17",
+  "date": "0747",
+  "kind": "cul",
+  "place": "suiyang",
+  "placeName": "睢阳（今河南商丘）",
+  "ll": [
+   115.65,
+   34.41
+  ],
+  "title": "高适作《别董大》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 106,
+  "id": "s749",
+  "date": "0749-07",
+  "kind": "mil",
+  "place": "shibao",
+  "placeName": "石堡城（神武军、天威军）",
+  "ll": [
+   101.1,
+   36.57
+  ],
+  "title": "哥舒翰攻拔石堡城",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 107,
+  "id": "s751",
+  "date": "0751-07",
+  "kind": "mil",
+  "place": "talas",
+  "placeName": "怛罗斯",
+  "ll": [
+   72.24,
+   42.52
+  ],
+  "title": "怛罗斯之战",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 108,
+  "id": "s753",
+  "date": "0754-01",
+  "kind": "cul",
+  "place": "akime",
+  "placeName": "秋妻屋浦（萨摩坊津秋目）",
+  "ll": [
+   130.2,
+   31.36
+  ],
+  "title": "鉴真东渡成功",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 109,
+  "id": "s754",
+  "date": "0754-09",
+  "kind": "nat",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "天宝十三载关中霖雨饥荒",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 110,
+  "id": "p18",
+  "date": "0755",
+  "kind": "cul",
+  "place": "beiting",
+  "placeName": "北庭故城（岑参“轮台”诗中地）",
+  "ll": [
+   89.22,
+   44.07
+  ],
+  "title": "岑参作《白雪歌送武判官归京》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 111,
+  "id": "s755",
+  "date": "0755-12-16",
+  "kind": "mil",
+  "place": "youzhou",
+  "placeName": "幽州",
+  "ll": [
+   116.4,
+   39.9
+  ],
+  "title": "安禄山范阳起兵",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 112,
+  "id": "p19",
+  "date": "0756",
+  "kind": "cul",
+  "place": "fengqiao",
+  "placeName": "枫桥（寒山寺，今苏州）",
+  "ll": [
+   120.57,
+   31.3124
+  ],
+  "title": "张继作《枫桥夜泊》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 113,
+  "id": "s756",
+  "date": "0756-07-15",
+  "kind": "pol",
+  "place": "mawei",
+  "placeName": "马嵬驿",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "马嵬驿之变",
+  "scroll": true,
+  "poem": false
+ },
+ {
+  "step": 114,
+  "id": "p20",
+  "date": "0757",
+  "kind": "cul",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "杜甫陷贼中长安作《月夜》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 115,
+  "id": "p21",
+  "date": "0757",
+  "kind": "cul",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "杜甫陷贼中长安作《春望》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 116,
+  "id": "s757",
+  "date": "0757-11-14",
+  "kind": "mil",
+  "place": "changan",
+  "placeName": "长安",
+  "ll": [
+   108.94,
+   34.26
+  ],
+  "title": "唐军收复两京",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 117,
+  "id": "s757b",
+  "date": "0757-11-24",
+  "kind": "mil",
+  "place": "suiyang",
+  "placeName": "睢阳（今河南商丘）",
+  "ll": [
+   115.65,
+   34.41
+  ],
+  "title": "睢阳陷落：张巡、许远殉城",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 118,
+  "id": "s758",
+  "date": "0758-10-09",
+  "kind": "cul",
+  "place": "puzhou",
+  "placeName": "蒲州",
+  "ll": [
+   110.32,
+   34.84
+  ],
+  "title": "颜真卿书《祭侄文稿》",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 119,
+  "id": "p22",
+  "date": "0759",
+  "kind": "cul",
+  "place": "shihao",
+  "placeName": "石壕村（今河南三门峡陕州区观音堂镇一带）",
+  "ll": [
+   111.1,
+   34.7
+  ],
+  "title": "杜甫途经石壕村作《石壕吏》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 120,
+  "id": "p23",
+  "date": "0759",
+  "kind": "cul",
+  "place": "baidicheng",
+  "placeName": "白帝城（今重庆奉节）",
+  "ll": [
+   109.56,
+   31.02
+  ],
+  "title": "李白遇赦作《早发白帝城》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 121,
+  "id": "p24",
+  "date": "0761",
+  "kind": "cul",
+  "place": "chengdu_caotang",
+  "placeName": "成都杜甫草堂",
+  "ll": [
+   104.02611,
+   30.66194
+  ],
+  "title": "杜甫在成都草堂作《春夜喜雨》",
+  "scroll": false,
+  "poem": true
+ },
+ {
+  "step": 122,
+  "id": "s763",
+  "date": "0763-02",
+  "kind": "mil",
+  "place": "youzhou",
+  "placeName": "幽州",
+  "ll": [
+   116.4,
+   39.9
+  ],
+  "title": "史朝义自缢，安史之乱平定",
+  "scroll": false,
+  "poem": false
+ },
+ {
+  "step": 123,
+  "id": "p25",
+  "date": "0763",
+  "kind": "cul",
+  "place": "zizhou",
+  "placeName": "梓州（今四川三台）",
+  "ll": [
+   105.087,
+   31.092
+  ],
+  "title": "杜甫在梓州作《闻官军收河南河北》",
+  "scroll": false,
+  "poem": true
+ }
+]

@@ -1,0 +1,121 @@
+# v134 asset credits
+
+## Music (BGM beds)
+
+- **liushui** — "File:Liu Shui.ogg" by Charlie Huang (User:CharlieHuang, Wikimedia Commons), CC BY 2.5, Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Liu_Shui.ogg (normalised, trimmed, looped)
+- **pingsha** — "File:Pingsha Luoyan.ogg" by Charlie Huang (User:CharlieHuang, Wikimedia Commons), CC BY 2.5, Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Pingsha_Luoyan.ogg (normalised, trimmed, looped)
+- **kongziduyi** — "File:Kongzi Duyi.ogg" by Charlie Huang (User:CharlieHuang, Wikimedia Commons), CC BY 2.5, Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Kongzi_Duyi.ogg (normalised, trimmed, looped)
+- **jiukuang** — "File:Jiu Kuang.ogg" by Charlie Huang (User:CharlieHuang, Wikimedia Commons), CC BY 2.5, Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Jiu_Kuang.ogg (normalised, trimmed, looped)
+- **peilan** — "File:Pei Lan.ogg" by Charlie Huang (User:CharlieHuang, Wikimedia Commons), CC BY 2.5, Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Pei_Lan.ogg (normalised, trimmed, looped)
+- **qiufengci** — "File:Qiu Feng Ci.ogg" by Charlie Huang (User:CharlieHuang, Wikimedia Commons), CC BY 2.5, Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Qiu_Feng_Ci.ogg (normalised, trimmed, looped)
+- **shenyang** — "File:Shenyang (ISRC USUAN1600066).mp3" by Kevin MacLeod, CC BY 3.0, Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Shenyang_(ISRC_USUAN1600066).mp3 (normalised, trimmed, looped)
+- **cattails** — "File:Cattails (ISRC USUAN1100743).mp3" by Kevin MacLeod, CC BY 3.0, Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Cattails_(ISRC_USUAN1100743).mp3 (normalised, trimmed, looped)
+- **karst** — "Karst mountains" by neolein, CC0 1.0, Freesound: https://freesound.org/people/neolein/sounds/664200/
+- **rain** — "Chinese flute in rainforest2.wav" by Jim-Bretherick, CC0 1.0, Freesound: https://freesound.org/people/Jim-Bretherick/sounds/614022/
+- **solemn** — "Solemn Asian String Melody Loop (Wind, Water, Wood)" by CVLTIV8R, CC0 1.0, Freesound: https://freesound.org/people/CVLTIV8R/sounds/840945/
+- **guzheng** — "guzheng solo" by neolein, CC0 1.0, Freesound: https://freesound.org/people/neolein/sounds/472707/
+- **blossom** — "blossom valley in paradise" by neolein, CC0 1.0, Freesound: https://freesound.org/people/neolein/sounds/521367/
+- **erhu_street** — "Chinese Violin - The Enchanted Sound of the Erhu" by Lenguaverde, CC0 1.0, Freesound: https://freesound.org/people/Lenguaverde/sounds/423496/
+- **xiao** — "xiao-2.wav" by xserra, CC BY 4.0, Freesound: https://freesound.org/people/xserra/sounds/161911/ (normalised, trimmed, looped)
+- **guzheng_recital** — "GuZheng.wav" by xserra, CC BY 4.0, Freesound: https://freesound.org/people/xserra/sounds/162088/ (normalised, trimmed, looped)
+- **drums** — "Drums of Xian, China" by RTB45, CC BY 4.0, Freesound: https://freesound.org/people/RTB45/sounds/234922/ (normalised, trimmed, looped)
+- **meihua** — "Guqin-song.wav" by RafaelCaro, CC BY 4.0, Freesound: https://freesound.org/people/RafaelCaro/sounds/176265/ (normalised, trimmed, looped)
+
+## Paintings
+
+All public domain or CC0. Listed for provenance (no attribution legally required).
+
+- **autumn_angling** — 盛著《秋江垂钓》扇面（元，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/42261
+- **autumn_sun** — 潘允毓《秋江落日》扇面（明清之际，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/35992
+- **autumn_woods** — 王建章《秋林孤色》（明，克利夫兰） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Wang_Jianzhang_-_Solitary_Colors_of_the_Autumn_Woods_-_1972.68_-_Cleveland_Museum_of_Art.tif
+- **bamboo_rain** — 夏昶《春雨竹》（明） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Xia_Chang,_Chinese_-_Bamboo_under_Spring_Rain_-_Google_Art_Project.jpg
+- **beggars** — 周臣《流民图》局部（明，克利夫兰） · CC0 (Cleveland Museum of Art Open Access) · Wikimedia Commons: https://www.clevelandart.org/art/1964.94
+- **beneficent_rain** — 张羽材《霖雨图》（元，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/40454
+- **cicada** — 吴熙载《蝉柳》扇面（清，1852，大都会） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E6%B8%85_%E5%90%B3%E7%86%99%E8%BC%89_%E8%9F%AC%E6%9F%B3_%E6%89%87%E9%9D%A2-Cicada_MET_DP161400.jpg
+- **cjwl** — 夏圭（传）《长江万里图》局部（南宋） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E9%95%BF%E6%B1%9F%E4%B8%87%E9%87%8C%E5%9B%BE.jpg
+- **daolian** — 张萱（宋摹）《捣练图》局部（波士顿） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Court_ladies_pounding_silk_from_a_painting_(%E6%8D%A3%E7%BB%83%E5%9B%BE)_by_Emperor_Huizong.jpg
+- **dongting_xg** — 夏圭（传）《洞庭秋月》（南宋） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Xia_Gui_-_Autumn_Moonlight_on_Dongting_Lake.jpg
+- **dongyuan_xx** — 董源《潇湘图》局部（五代，故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Dong_Yuan_rivers_detail.jpg
+- **drunk_autumn** — 石涛《醉吟秋林》（清，约1702，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/49178
+- **dufu_qing** — 《杜甫像》（清宫旧藏） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Dufu.jpg
+- **dufu_zmf** — 赵孟頫（传）《杜甫像》（元） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E8%B5%B5%E5%AD%9F%E9%A0%AB%E7%94%BB%E6%9D%9C%E7%94%AB%E5%83%8F%E8%BD%B4.png
+- **eagle** — 高其佩《松鹰图》（清） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E9%AB%98%E5%85%B6%E4%BD%A9_%E6%9D%BE%E9%B9%B0%E5%9B%BE%E8%BD%B4.jpg
+- **earlyspring** — 郭熙《早春图》（北宋，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Kuo_Hsi_-_Early_Spring_-_Google_Art_Project.jpg
+- **egret_luji** — 吕纪《秋鹭芙蓉图》（明，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:L%C3%BC_Ji_Autumn_Egrets_and_Hibiscus._National_Palace_Museum_Taipei.jpg
+- **egret_reeds** — 佚名《芦鹭图》团扇（南宋，大都会） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E5%8D%97%E5%AE%8B_%E4%BD%9A%E5%90%8D_%E8%98%86%E9%B7%BA%E5%9C%96_%E5%9C%98%E6%89%87-Egrets_in_Water_Reeds_MET_DP153504.jpg
+- **fankuan** — 范宽《溪山行旅图》（北宋，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Fan_Kuan_-_Travelers_Among_Mountains_and_Streams_-_Google_Art_Project.jpg
+- **farewell_stream** — 赵原《晴川送客图》（元，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/45647
+- **ferry** — 佚名《待渡图》（南宋，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/36007
+- **fuchun** — 黄公望《富春山居图》局部（元，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Huang_Gongwang._Dwelling_in_the_Fuchun_Mountains._detail._National_Palace_Museum,_Taipei.jpg
+- **geese_winter** — 佚名《寒汀落雁》册页（宋，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/36063
+- **gongle** — 佚名《宫乐图》（晚唐，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E5%94%90%E4%BA%BA%E5%AE%AB%E4%B9%90%E5%9B%BE%E8%BD%B4.%E6%99%9A%E5%94%90%E7%BB%98.%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E8%97%8F.jpg
+- **guanmei** — 宋人《观梅图》（台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E8%A7%82%E6%A2%85%E5%9B%BE%E8%BD%B4.%E5%AE%8B%E4%BA%BA%E7%BB%98.%E7%BB%A2%E6%9C%AC%E8%AE%BE%E8%89%B2.%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E8%97%8F.tif
+- **guoguo** — 张萱（宋摹）《虢国夫人游春图》（辽宁省博） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E8%99%A2%E5%9B%BD%E5%A4%AB%E4%BA%BA%E6%B8%B8%E6%98%A5%E5%9B%BE.jpg
+- **hanpalace** — 仿仇英《汉宫春晓图》局部（沃尔特斯） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Qiu_Ying_-_Spring_Morning_in_the_Han_Palace_-_Walters_3548_-_View_B.jpg
+- **hanxizai** — 顾闳中（传）《韩熙载夜宴图》局部（五代，故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Gu_Hongzhong_15.jpg
+- **herdboy** — 佚名《牧童群羊》团扇（元，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/36004
+- **hhl_xy** — 夏永《黄鹤楼图》（元） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Xia_Yong_-_Huang_He_Lou.jpg
+- **horse_lasso** — 赵孟頫（传）《套马图》（元，普林斯顿） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Zhao_Mengfu_%E8%B6%99%E5%AD%9F%E9%A0%AB_-_Mongol_Horseman_Lassoing_Horse_-_y1946-116_-_Princeton_University_Art_Museum.jpg
+- **huangniao** — 宋人《桑枝黄鸟》（南宋） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E6%A1%91%E6%9E%9D%E9%BB%83%E9%B3%A5.jpg
+- **hut_wuli** — 吴历《墨井草堂消夏图》局部（清，大都会） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E6%B8%85_%E5%90%B3%E6%AD%B7_%E5%A2%A8%E4%BA%95%E8%8D%89%E5%A0%82%E6%B6%88%E5%A4%8F%E5%9C%96_%E5%8D%B7-Whiling_Away_the_Summer_MET_DP153655.jpg
+- **khitans** — 胡瓌（传）《回猎图》局部（五代） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Khitans.jpg
+- **kongzi_apricot** — 《孔子杏坛讲学》（局部） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Confucius_and_His_Disciples_Yanzi_and_Huizi_at_the_Apricot_Altar_(Confucius).jpg
+- **kongzi_qiqi** — 《孔子观欹器图》 · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Confucius_qiqi.jpg
+- **kuanglu** — 荆浩（传）《匡庐图》（五代，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Jing_Hao.Mount_Kuanglu._National_Palace_Museum,_Taipei,_Taiwan.jpg
+- **libai_lk** — 梁楷《李白行吟图》（南宋，东京国立博物馆） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Liang_Kai_-_Li_Bai_Strolling.jpg
+- **libai_ql** — 阙岚《李白吟诗图》（清） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Li_Bai_Chanting_Poetry,_by_Que_Lan.jpg
+- **litang** — 李唐《万壑松风图》（北宋，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Li_Tang_-_Wind_in_Pines_Among_a_Myriad_Valleys.jpg
+- **lute** — 丁云鹏《琵琶行图》（明，1585，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/35970
+- **midautumn** — 佚名《中秋夜景》（清，1686，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/49153
+- **minghuang** — 佚名（旧传李昭道）《明皇幸蜀图》（台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Li_Zhaodao_Minhuan_travel.jpg
+- **minghuang_freer** — 佚名《明皇幸蜀图》（弗利尔美术馆） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Emperor_Minghuang%27s_Journey_to_Sichuan,_Freer_Gallery_of_Art.jpg
+- **moon_drink** — 马远（传）《月下把杯》（南宋，克利夫兰） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Clevelandart_1997.89.jpg
+- **moon_duiyue** — 马远（传）《对月图》（南宋，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E5%AF%B9%E6%9C%88%E5%9B%BE%E8%BD%B4.%E4%BC%A0.%E5%8D%97%E5%AE%8B.%E9%A9%AC%E8%BF%9C%E7%BB%98.%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E8%97%8F.jpg
+- **moon_linbu** — 杜堇《林逋月下行吟》（明，克利夫兰） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Du_Jin_-_The_Poet_Lin_Bu_Wandering_in_the_Moonlight_-_1954.582_-_Cleveland_Museum_of_Art.tif
+- **moon_pine** — 佚名仿马远《松阴玩月图》（南宋，大都会） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E5%8D%97%E5%AE%8B_%E4%BD%9A%E5%90%8D_%E5%80%A3%E9%A6%AC%E9%81%A0_%E6%9D%BE%E9%99%B0%E7%8E%A9%E6%9C%88%E5%9C%96_%E5%86%8A%E9%A0%81-Viewing_the_Moon_under_a_Pine_Tree_MET_DP153498.jpg
+- **nightwhite** — 韩幹《照夜白图》（唐，大都会） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E5%94%90_%E9%9F%93%E5%B9%B9_%E7%85%A7%E5%A4%9C%E7%99%BD%E5%9C%96_%E5%8D%B7-Night-Shining_White_MET_DP153669.jpg
+- **oldboat** — 查士标《老人泛舟》（清，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/49130
+- **peachbirds** — 佚名《桃枝双禽》（南宋，克利夫兰） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:China,_Southern_Song_dynasty_-_Birds_on_a_Peach_Branch_-_1985.367_-_Cleveland_Museum_of_Art.tif
+- **peddler** — 李嵩《货郎图》（南宋，克利夫兰） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Li_Song_-_The_Knickknack_Peddler_-_1963.582_-_Cleveland_Museum_of_Art.tiff
+- **qianli_sec** — 王希孟《千里江山图》局部（北宋，故宫） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:A_Thousand_Li_of_Rivers_and_Mountains_Section_1.jpg
+- **qianli_start** — 王希孟《千里江山图》卷首（北宋，故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Wang_Ximeng_-_A_Thousand_Li_of_River_(Start).jpg
+- **qiaohua** — 赵孟頫《鹊华秋色图》（元，1295，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Zhao_Mengfu_1295.jpg
+- **qingming** — 张择端《清明上河图》局部（北宋，故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Along_the_River_During_the_Qingming_Festival_(detail_of_original).jpg
+- **rain_malin** — 马麟《芳春雨霁》（南宋，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E5%90%8D%E7%BB%98%E9%9B%86%E7%8F%8D%E5%86%8C_14_%E5%8D%97%E5%AE%8B_%E9%A9%AC%E9%BA%9F_%E8%8A%B3%E6%98%A5%E9%9B%A8%E9%9C%81.jpg
+- **rain_river** — 吴石僊《春江烟雨》扇面（近代，大都会） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E8%BF%91%E4%BB%A3_%E5%90%B3%E7%9F%B3%E5%83%8A_%E6%98%A5%E6%B1%9F%E7%85%99%E9%9B%A8_%E6%89%87%E9%9D%A2-Misty_Rain_on_the_River_in_Spring_MET_DP162538.jpg
+- **redstart** — 佚名《花枝鸣禽》（南宋，克利夫兰） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:China,_Southern_Song_dynasty_-_Bird_on_a_Flowering_Branch_-_1985.371_-_Cleveland_Museum_of_Art.tif
+- **sage_dufu** — 《古圣贤像传略》杜甫（清刻本） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:NAJDA-290-0047_%E5%8F%A4%E8%81%96%E8%B3%A2%E5%83%8F%E4%BC%9D%E7%95%A57_(%E6%9D%9C%E7%94%AB).jpg
+- **sage_hzz** — 《古圣贤像传略》贺知章（清刻本） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:NAJDA-290-0047_%E5%8F%A4%E8%81%96%E8%B3%A2%E5%83%8F%E4%BC%9D%E7%95%A57_(%E8%B3%80%E7%9F%A5%E7%AB%A0).jpg
+- **sage_mhr** — 《古圣贤像传略》孟浩然（清刻本） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:NAJDA-290-0047_%E5%8F%A4%E8%81%96%E8%B3%A2%E5%83%8F%E4%BC%9D%E7%95%A57_(%E5%AD%9F%E6%B5%A9%E7%84%B6).jpg
+- **sage_ww** — 《古圣贤像传略》王维（清刻本） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:NAJDA-290-0047_%E5%8F%A4%E8%81%96%E8%B3%A2%E5%83%8F%E4%BC%9D%E7%95%A57_(%E7%8E%8B%E7%B6%AD).jpg
+- **sangu_dj** — 戴进《三顾茅庐图》（明） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Dai_Jin-Looking_Three_Times_at_the_Thatched_Hut.jpg
+- **sangu_tw** — 旧传董展《三顾草庐图》（台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E4%B8%89%E9%A1%BE%E8%8D%89%E5%BA%90%E5%9B%BE%E8%BD%B4.%E6%97%A7%E4%BC%A0%E9%9A%8B.%E8%91%A3%E5%B1%95%E7%BB%98.%E7%BA%B8%E6%9C%AC%E8%AE%BE%E8%89%B2.%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E8%97%8F.jpg
+- **shitao_taibai** — 石涛《太白诗意山水图》（清） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E7%9F%B3%E6%B6%9B%E5%A4%AA%E7%99%BD%E8%AF%97%E6%84%8F%E5%B1%B1%E6%B0%B4%E5%9B%BE%E8%BD%B4.png
+- **snow_inn** — 袁耀《雪栈行旅图》（清，大都会） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E6%B8%85_%E8%A2%81%E8%80%80_%E9%9B%AA%E6%A3%A7%E8%A1%8C%E6%97%85%E5%9C%96_%E8%BB%B8-Hostelry_and_Travelers_in_Snowy_Mountains_MET_2003_246_O.jpg
+- **snow_wh** — 王翚《仿李成雪霁图》（清，大都会） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E6%B8%85_%E7%8E%8B%E7%BF%AC_%E5%80%A3%E6%9D%8E%E6%88%90%E9%9B%AA%E9%9C%BD%E5%9C%96_%E8%BB%B8_%E7%B4%99%E6%9C%AC-Snow_Clearing-_Landscape_after_Li_Cheng_MET_DP154140.jpg
+- **stele** — 李成、王晓《读碑窠石图》（北宋，大阪市立美术馆） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Li_Cheng_and_Wang_Xiao_-_Reading_The_Memorial_Stele_-_Google_Art_Project.jpg
+- **storm_boat** — 戴进《风雨归舟图》（明，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E9%A3%8E%E9%9B%A8%E5%BD%92%E8%88%9F%E5%9B%BE%E8%BD%B4.%E6%98%8E.%E6%88%B4%E8%BF%9B%E7%BB%98.%E7%BB%A2%E6%9C%AC%E6%B5%85%E8%AE%BE%E8%89%B2.%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%E8%97%8F.tif
+- **tai_pines** — 张宏《泰山高松》（明，耶鲁） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Zhang_Hong_-_Lofty_Pines_on_Mount_Tai_-_2000.45.1_-_Yale_University_Art_Gallery.jpg
+- **tao_chrys** — 《陶渊明赏菊图》（大都会） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Tao_Yuanming_Enjoying_Chrysanthemums_MET_DP-17818-002.jpg
+- **tengwang** — 黄应谌《滕王阁图》（清，1670） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%27Tengwang_Pavilion%27_by_Huang_Yingchen,_dated_1670,_ink_and_color_on_silk.JPG
+- **tingqin** — 赵佶（传）《听琴图》（北宋，故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Songhuizong8.jpg
+- **tsh_baidi** — 《唐诗选画本》早发白帝城（日本江户刻本） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Toshisen-ehon_shichigon-zekku_vol2_p12-13.jpg
+- **tsh_hhl** — 《唐诗选画本》黄鹤楼送孟浩然之广陵（日本江户刻本） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Toshisen-ehon_shichigon-zekku_vol2_p2-3.jpg
+- **tsh_liangzhou** — 《唐诗选画本》凉州词·王之涣（日本江户刻本） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Toshisen-ehon_shichigon-zekku_zokuhen_p18-19.jpg
+- **tsh_luzhai** — 《唐诗选画本》鹿柴（日本江户刻本） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Toshisen-ehon_gogon-zekku_vol1_p50-51.jpg
+- **tsh_maple** — 《唐诗选画本》枫桥夜泊（日本江户刻本） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Toshisen-ehon_shichigon-zekku_zokuhen_vol2_p16-17.jpg
+- **wangchuan_pan** — 潘恭寿《辋川别业图》（清） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Gongshou_Pan_-_Wangchuan_Villa_after_Wen_Zhengming_and_Dong_Qichang_Hanging_scroll,_ink_and_colour_on_paper_127_x_30_cm.jpg
+- **wenhui** — 赵佶（传）《文会图》（北宋，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E6%96%87%E6%9C%83%E5%9C%96.jpg
+- **wenji_chen** — 陈居中《文姬归汉图》（南宋，台北故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Lady_Wenji%27s_Return_to_China,_by_Chen_Juzhong.jpg
+- **wenji_liyao** — 李耀《文姬归汉》（清，1766） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Wenji_Returning_to_China,_by_Li_Yao,_1766.jpg
+- **willow_orioles** — 陈树人《柳莺》（近代） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Chen_Shuren_-_Willow_and_Orioles_(undated).jpg
+- **wintry_forest** — 佚名《寒林行旅》（北宋末，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/40003
+- **xuemei** — 《踏雪寻梅图》 · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Searching_for_Plum_Blossoms_in_the_Snow_-_Google_Art_Project.jpg
+- **xx_full** — 董源《潇湘图》（五代，故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Xiao_and_Xiang_rivers.jpg
+- **yaoshou_drink** — 姚绶《饮酒赋诗图》（明，1485，大都会） · Public Domain (Met Open Access, CC0) · The Metropolitan Museum of Art: https://www.metmuseum.org/art/collection/search/45675
+- **yinzhong** — 杜堇《古贤诗意图》局部·饮中八仙（明） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E6%9D%9C%E5%A0%87%E7%94%BB%E5%8F%A4%E8%B4%A4%E8%AF%97%E6%84%8F%E5%8D%B7%E5%B1%80%E9%83%A8_%E9%A5%AE%E4%B8%AD%E5%85%AB%E4%BB%99.jpg
+- **yyl_lv** — 佚名《吕洞宾过岳阳楼图》团扇（南宋，大都会） · CC0 · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:%E5%8D%97%E5%AE%8B_%E4%BD%9A%E5%90%8D-%E5%91%82%E6%B4%9E%E8%B3%93%E9%81%8E%E5%B2%B3%E9%99%BD%E6%A8%93%E5%9C%96_%E5%9C%98%E6%89%87-The_Immortal_L%C3%BC_Dongbin_Appearing_over_the_Yueyang_Pavilion_MET_DP153513.jpg
+- **yyl_xy** — 夏永《岳阳楼图》（元） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:XiaYong-YueYangLou.jpg
+- **zhaoboju** — 赵伯驹（传）《江山秋色图》局部（宋，故宫） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Autumn_Colors_on_Rivers_and_Mountains,_Northern_Song_Dynasty.jpg
+- **zhaojun** — 宫素然《明妃出塞图》（金，大阪市立美术馆） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Wang_Zhaojun_Departs_for_the_Frontier_by_Gong_Suran.jpg
+- **zhuge_zf** — 张风《诸葛亮像》（清） · Public domain · Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Zhuge_Liang_by_Zhang_Feng.jpg

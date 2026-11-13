@@ -1,0 +1,118 @@
+{
+ "options": [
+  {
+   "n": 1,
+   "id": "now",
+   "name": "现用 · 白文方印",
+   "text": "李白之印",
+   "place": "end",
+   "w": 1.05,
+   "h": 1.05,
+   "note": "而家吟诗用紧嘅；作对照。",
+   "file": "1-now.svg"
+  },
+  {
+   "n": 2,
+   "id": "baiwen",
+   "name": "白文方印 · 重刻",
+   "text": "李白之印",
+   "place": "end",
+   "w": 1.05,
+   "h": 1.05,
+   "rot": 0,
+   "note": "字刻得深、边宽，石边有崩口，印泥有颗粒、深浅不匀；冇加淡色底。",
+   "file": "2-baiwen.svg"
+  },
+  {
+   "n": 3,
+   "id": "zhuwen",
+   "name": "朱文方印",
+   "text": "李白之印",
+   "place": "end",
+   "w": 1.05,
+   "h": 1.05,
+   "rot": 0,
+   "note": "红字白底、细边框，纸色透出嚟，最清雅；边框有断口。",
+   "file": "3-zhuwen.svg"
+  },
+  {
+   "n": 4,
+   "id": "zhubai",
+   "name": "朱白相间印",
+   "text": "李白之印",
+   "place": "end",
+   "w": 1.05,
+   "h": 1.05,
+   "rot": 0,
+   "note": "右边「李白」白文、左边「之印」朱文，一个印两种刻法。",
+   "file": "4-zhubai.svg"
+  },
+  {
+   "n": 5,
+   "id": "round",
+   "name": "圆印 · 朱文",
+   "text": "太白",
+   "place": "end",
+   "w": 0.92,
+   "h": 0.92,
+   "rot": 0,
+   "note": "用字号「太白」，朱磦色（偏橙）圆印，细致活泼。",
+   "file": "5-round.svg"
+  },
+  {
+   "n": 6,
+   "id": "oval",
+   "name": "椭圆闲章",
+   "text": "长乐",
+   "place": "head",
+   "w": 0.62,
+   "h": 0.97,
+   "rot": 0,
+   "note": "闲章「长乐」，盖喺题目上方右边，唔系名章，通常同名章一齐用。",
+   "file": "6-oval.svg"
+  },
+  {
+   "n": 7,
+   "id": "yinshou",
+   "name": "引首章 · 竖长方",
+   "text": "诗词",
+   "place": "head",
+   "w": 0.55,
+   "h": 1.06,
+   "rot": 0,
+   "note": "白文「诗词」，竖长方，盖喺开头（题目右上），书画常见。",
+   "file": "7-yinshou.svg"
+  },
+  {
+   "n": 8,
+   "id": "pair",
+   "name": "名号对章",
+   "text": "李白之印 + 太白",
+   "place": "end2",
+   "w": 0.86,
+   "h": 0.86,
+   "rot": 0,
+   "note": "上面白文名章「李白之印」，下面朱文号章「太白之印」，一白一朱成对，最正式。",
+   "file": "8-pair.svg",
+   "file2": "8-pair-b.svg"
+  }
+ ],
+ "glyphs": {
+  "name": "崇羲篆體 Chongxi Small Seal",
+  "by": "中央研究院 小學堂",
+  "licence": "CC BY-ND 3.0 TW (or later)",
+  "source": "https://xiaoxue.iis.sinica.edu.tw/chongxi/",
+  "licenceUrl": "https://xiaoxue.iis.sinica.edu.tw/chongxi/copyright.htm"
+ },
+ "poem": {
+  "id": "p23",
+  "title": "早发白帝城",
+  "poet": "李白",
+  "text": [
+   "朝辞白帝彩云间，",
+   "千里江陵一日还。",
+   "两岸猿声啼不尽，",
+   "轻舟已过万重山。"
+  ]
+ }
+}

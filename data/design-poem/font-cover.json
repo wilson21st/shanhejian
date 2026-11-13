@@ -1,0 +1,41 @@
+{
+ "default": "zhimangxing",
+ "alt": [
+  "mashanzheng",
+  "liujianmaocao",
+  "longcang",
+  "wenkai"
+ ],
+ "miss": {
+  "p01": {
+   "mashanzheng": "纔",
+   "zhimangxing": "纔",
+   "liujianmaocao": "纔",
+   "longcang": "纔"
+  },
+  "p15": {
+   "mashanzheng": "浥",
+   "zhimangxing": "浥",
+   "liujianmaocao": "浥",
+   "longcang": "浥"
+  },
+  "p20": {
+   "mashanzheng": "鄜",
+   "zhimangxing": "鄜",
+   "liujianmaocao": "鄜",
+   "longcang": "鄜"
+  },
+  "q09": {
+   "mashanzheng": "咷",
+   "zhimangxing": "咷",
+   "liujianmaocao": "咷",
+   "longcang": "咷"
+  }
+ },
+ "use": {
+  "p01": "wenkai",
+  "p15": "wenkai",
+  "p20": "wenkai",
+  "q09": "wenkai"
+ }
+}

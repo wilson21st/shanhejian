@@ -1,0 +1,21 @@
+[
+ ["guifei", "File:Yang Guifei Mounting a Horse.jpg", 0, "钱选《杨贵妃上马图》（元）"],
+ ["xuanzong", "File:李隆基像.jpg", 0, "唐玄宗像"],
+ ["baimei", "File:古今百美圖之楊玉環（One hundred beauties Yang Yuhuan）.png", 1400, "吴友如《古今百美图》· 杨玉环（清）"],
+ ["huaqing", "File:华清宫.jpg", 1600, "今日华清宫（骊山脚下）"],
+ ["anlushan", "File:帝鉴图说.Recueil Historique des Principaux Traits de la Vie des Empereurs Chinois.95帧图.彩绘册页.约18世纪 (page 19 宠幸番将).jpg", 1400, "《帝鉴图说》· 宠幸番将（清彩绘本）"],
+ ["warmap", "File:An Lushan Rebellion-zh.png", 0, "安史之乱形势图"],
+ ["shield", "File:Dunhuang Tang mural shieldbearers.jpg", 0, "敦煌唐代壁画 · 持盾士兵"],
+ ["march", "File:Tang Mural of Zhang Yichao's departure.jpg", 0, "敦煌壁画《张议潮统军出行图》（唐）"],
+ ["xingshu", "File:Li Zhaodao Minhuan Taipei.jpg", 0, "《明皇幸蜀图》（传李昭道，台北故宫）"],
+ ["xingshu2", "File:Voyage de l'empereur Minghuang vers Shu détail 1.jpg", 0, "《明皇幸蜀图》局部"],
+ ["qiuying", "File:Emperor Minghuang's Journey to Sichuan, Freer Gallery of Art.jpg", 2400, "仇英（传）《明皇幸蜀图》（明，弗利尔美术馆）"],
+ ["tomb", "File:Yang guifei tomb.jpg", 1600, "马嵬坡 杨贵妃墓"],
+ ["chogonka", "File:Chogonka Emaki by Kano Sansetsu.jpg", 2400, "狩野山雪《长恨歌图卷》（日本，17世纪）"],
+ ["chogonka2", "File:Chogonka Emaki (Zukan) by Kano Sansetsu 2.jpg", 0, "狩野山雪《长恨歌图卷》局部"],
+ ["guoguo", {"from": "xuanwumen"}, 0, "张萱《虢国夫人游春图》（宋摹本）· 杨家姐妹出游"],
+ ["court", {"from": "xuanwumen"}, 0, "唐 宫中仕女"],
+ ["guards", {"from": "xuanwumen"}, 0, "长乐公主墓壁画 · 仪卫"],
+ ["officer", {"from": "xuanwumen"}, 0, "长乐公主墓壁画 · 仪卫武官"],
+ ["tongjian", {"from": "xuanwumen"}, 0, "司马光《资治通鉴》残稿"]
+]

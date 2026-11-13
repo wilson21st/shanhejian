@@ -1,0 +1,80 @@
+{
+ "options": [
+  {
+   "n": 1,
+   "id": "baiwen",
+   "name": "白文方印 · 汉印风",
+   "text": "李氏太白",
+   "place": "end",
+   "w": 1.05,
+   "h": 1.05,
+   "note": "单独一个印。右行「李氏」、左行「太白」，红底白字，方正饱满。",
+   "file": "1-baiwen.svg"
+  },
+  {
+   "n": 2,
+   "id": "yuanzhu",
+   "name": "朱文方印 · 元朱文",
+   "text": "李氏太白",
+   "place": "end",
+   "w": 1.05,
+   "h": 1.05,
+   "note": "单独一个印。红字幼笔、细边框，赵孟頫「赵氏子昂」就系呢种刻法。",
+   "file": "2-yuanzhu.svg"
+  },
+  {
+   "n": 3,
+   "id": "pair-qinglian",
+   "name": "对章：李氏太白 + 青莲居士",
+   "text": "李氏太白 + 青莲居士",
+   "place": "end2",
+   "w": 0.86,
+   "h": 0.86,
+   "note": "上白文「李氏太白」，下朱文「青莲居士」（号）。一白一朱，明清书画最常见嘅配法。",
+   "file": "3-pair-qinglian.svg",
+   "file2": "3-pair-qinglian-b.svg"
+  },
+  {
+   "n": 4,
+   "id": "pair-zhuyin",
+   "name": "对章：李氏太白 + 联珠「太白」",
+   "text": "李氏太白 + 太白",
+   "place": "end2",
+   "w": 0.86,
+   "h": 0.86,
+   "note": "上白文「李氏太白」，下朱文联珠「太白」，学唐太宗「贞观」两个细印连埋嘅格式。",
+   "file": "4-pair-zhuyin.svg",
+   "file2": "4-pair-zhuyin-b.svg"
+  },
+  {
+   "n": 5,
+   "id": "pair-zhubai",
+   "name": "对章：朱白调转",
+   "text": "李氏太白 + 青莲居士",
+   "place": "end2",
+   "w": 0.86,
+   "h": 0.86,
+   "note": "上朱文「李氏太白」，下白文「青莲居士」，同第 3 款相反，睇边个红色多啲好睇。",
+   "file": "5-pair-zhubai.svg",
+   "file2": "5-pair-zhubai-b.svg"
+  }
+ ],
+ "glyphs": {
+  "name": "崇羲篆體 Chongxi Small Seal",
+  "by": "中央研究院 小學堂",
+  "licence": "CC BY-ND 3.0 TW (or later)",
+  "source": "https://xiaoxue.iis.sinica.edu.tw/chongxi/",
+  "licenceUrl": "https://xiaoxue.iis.sinica.edu.tw/chongxi/copyright.htm"
+ },
+ "poem": {
+  "id": "p23",
+  "title": "早发白帝城",
+  "poet": "李白",
+  "text": [
+   "朝辞白帝彩云间，",
+   "千里江陵一日还。",
+   "两岸猿声啼不尽，",
+   "轻舟已过万重山。"
+  ]
+ }
+}

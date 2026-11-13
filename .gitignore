@@ -1,0 +1,30 @@
+# Local-only: models, backups, logs, drafts, design mocks
+tools/voice-spike/
+tools/design-people/
+backup-v130/
+look/
+server.log
+*.log
+.DS_Store
+node_modules/
+__pycache__/
+.venv/
+
+# Design drafts (design-poem.html stays: the map's 吟 scroll uses it)
+design-*.html
+!design-poem.html
+voice-spike.html
+
+# Data the public site does not need or may not redistribute
+data/voice-spike/
+data/design-people/
+# Music from personal downloads, not free-licensed (the site plays them; the repo does not carry them)
+data/bgm/
+data/design-poem/bgm/
+**/_old/
+
+# Internal working notes (the public README is .github/README.md)
+/README.md
+/METRICS.md
+/EVAL.md
+/REFACTOR.md

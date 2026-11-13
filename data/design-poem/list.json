@@ -1,0 +1,32 @@
+[
+ {
+  "id": "baidi",
+  "title": "早发白帝城",
+  "poet": "李白",
+  "year": 759,
+  "form": "七言绝句",
+  "hook": "流放路上，忽然接到一张赦令。",
+  "cover": "baidi.jpg",
+  "first": "朝辞白帝彩云间"
+ },
+ {
+  "id": "chunwang",
+  "title": "春望",
+  "poet": "杜甫",
+  "year": 757,
+  "form": "五言律诗",
+  "hook": "首都丢了，人被困在城里。",
+  "cover": "spring.jpg",
+  "first": "国破山河在"
+ },
+ {
+  "id": "huanghelou",
+  "title": "黄鹤楼",
+  "poet": "崔颢",
+  "year": 730,
+  "form": "七言律诗",
+  "hook": "一首诗，让李白都搁了笔。",
+  "cover": "hhl.jpg",
+  "first": "昔人已乘黄鹤去"
+ }
+]

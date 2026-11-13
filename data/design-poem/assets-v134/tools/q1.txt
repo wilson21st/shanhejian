@@ -1,0 +1,76 @@
+dufu	杜甫 像
+dufu	Du Fu portrait painting
+shiyi	唐人诗意图
+shiyi	诗意图 明
+shiyi	唐诗画谱
+shiyi	Toshisen ehon
+shiyi	唐詩選画本
+shiyi	詩歌写真鏡 北斎
+baidi	白帝城 图
+baidi	长江 三峡 图 古画
+baidi	Yangtze gorges Chinese painting
+hhl	黄鹤楼图
+hhl	Yellow Crane Tower painting
+yueyang	岳阳楼图
+maple	枫桥 寒山寺 图
+maple	文徵明 枫桥
+moon	赏月 图 宋
+moon	月夜 图 古画
+moon	望月 图 明
+frontier	胡瓌 出猎
+frontier	卓歇图
+frontier	明妃出塞图
+frontier	Hu Gui hunting
+frontier	边塞 图 古画
+frontier	射骑图
+snow	雪景寒林图
+snow	雪山行旅 图
+snow	Snow landscape Song dynasty painting
+farewell	送别 图 明
+farewell	仇英 浔阳送别
+farewell	Farewell at Xunyang Qiu Ying
+farewell	折柳 送别
+refugee	流民图 周臣
+refugee	Zhou Chen Beggars and Street Characters
+banquet	韩熙载夜宴图
+banquet	清明上河图
+banquet	宴饮图
+lady	簪花仕女图
+lady	捣练图
+village	货郎图 李嵩
+village	村童 图 宋
+mountain	读碑窠石图
+mountain	早春图 郭熙
+mountain	万壑松风图
+mountain	泰山 图 古画
+mountain	敬亭山
+mountain	匡庐图 荆浩
+river	长江万里图
+river	潇湘奇观图
+river	溪山清远图
+river	寒江独钓图
+river	江帆楼阁图
+autumn	秋山 图 宋 画
+autumn	鹊华秋色图
+birds	黄鹂 宋画
+birds	白鹭 宋 画
+birds	芦雁图
+birds	Song dynasty bird painting willow
+cicada	蝉 宋画
+rain	风雨 图 宋
+rain	风雨归舟
+hut	草堂 图 杜甫
+hut	茅屋 图 明
+kongzi	孔子圣迹图
+kongzi	孔子 像 明
+zhuge	武侯祠 图
+zhuge	三顾茅庐 图
+music	听琴图
+music	Tang dynasty musicians painting
+wangchuan	辋川图
+wangchuan	王维 雪溪图
+mengh	孟浩然 像
+mengh	踏雪寻梅
+dapeng	鹏 图 古画
+yellowriver	黄河 图 古画
+chongyang	重阳 登高 图

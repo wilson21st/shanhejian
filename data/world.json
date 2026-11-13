@@ -1,0 +1,2295 @@
+{
+ "meta": {
+  "title": "玄武门之变 · 时空沙盘 POC",
+  "anchor": {
+   "gz": "庚申",
+   "date": "0626-07-02",
+   "note": "武德九年六月初四 = 儒略历 626-07-02，所有干支日期由此推算"
+  },
+  "calendar": "儒略历；精度 day / month / year；同一日内的先后顺序按《资治通鉴》叙事，时刻为推定"
+ },
+ "factions": {
+  "qin": {
+   "name": "秦王府",
+   "color": "#e4572e"
+  },
+  "dong": {
+   "name": "东宫 / 齐府",
+   "color": "#4c6ef5"
+  },
+  "gaozu": {
+   "name": "高祖朝廷",
+   "color": "#c9a227"
+  },
+  "guard": {
+   "name": "北门禁军",
+   "color": "#8d6e63"
+  },
+  "neutral": {
+   "name": "观望",
+   "color": "#9e9e9e"
+  },
+  "tujue": {
+   "name": "突厥",
+   "color": "#2e9d6b"
+  },
+  "west": {
+   "name": "拜占庭 / 波斯 / 阿瓦尔",
+   "color": "#9c4dcc"
+  },
+  "japan": {
+   "name": "倭国",
+   "color": "#d6336c"
+  }
+ },
+ "places": {
+  "xuanwumen": {
+   "name": "玄武门",
+   "view": "palace",
+   "xy": [
+    200,
+    62
+   ]
+  },
+  "linhudian": {
+   "name": "临湖殿",
+   "view": "palace",
+   "xy": [
+    168,
+    104
+   ]
+  },
+  "haichi": {
+   "name": "海池",
+   "view": "palace",
+   "xy": [
+    118,
+    122
+   ]
+  },
+  "wudedian": {
+   "name": "武德殿",
+   "view": "palace",
+   "xy": [
+    282,
+    168
+   ]
+  },
+  "taijidian": {
+   "name": "太极殿",
+   "view": "palace",
+   "xy": [
+    200,
+    200
+   ]
+  },
+  "dongshang": {
+   "name": "东上阁门",
+   "view": "palace",
+   "xy": [
+    252,
+    222
+   ]
+  },
+  "donggong": {
+   "name": "东宫",
+   "view": "palace",
+   "xy": [
+    346,
+    160
+   ]
+  },
+  "xuandemen": {
+   "name": "玄德门",
+   "view": "palace",
+   "xy": [
+    346,
+    62
+   ]
+  },
+  "qinfu": {
+   "name": "秦府·西宫",
+   "view": "palace",
+   "xy": [
+    40,
+    150
+   ],
+   "approx": true
+  },
+  "jinyuan": {
+   "name": "禁苑",
+   "view": "palace",
+   "xy": [
+    200,
+    24
+   ]
+  },
+  "changan": {
+   "name": "长安",
+   "view": "geo",
+   "ll": [
+    108.94,
+    34.26
+   ]
+  },
+  "kunmingchi": {
+   "name": "昆明池",
+   "view": "geo",
+   "ll": [
+    108.72,
+    34.2
+   ]
+  },
+  "bianqiao": {
+   "name": "渭水便桥",
+   "view": "geo",
+   "ll": [
+    108.83,
+    34.36
+   ]
+  },
+  "jingyang": {
+   "name": "泾阳",
+   "view": "geo",
+   "ll": [
+    108.84,
+    34.53
+   ]
+  },
+  "renzhigong": {
+   "name": "仁智宫",
+   "view": "geo",
+   "ll": [
+    109.12,
+    35.4
+   ]
+  },
+  "luoyang": {
+   "name": "洛阳",
+   "view": "geo",
+   "ll": [
+    112.45,
+    34.62
+   ]
+  },
+  "lingzhou": {
+   "name": "灵州",
+   "view": "geo",
+   "ll": [
+    106.3,
+    38.1
+   ]
+  },
+  "wucheng": {
+   "name": "乌城",
+   "view": "geo",
+   "ll": [
+    108.6,
+    39.4
+   ],
+   "approx": true
+  },
+  "youzhou": {
+   "name": "幽州",
+   "view": "geo",
+   "ll": [
+    116.4,
+    39.9
+   ]
+  },
+  "weizhou": {
+   "name": "魏州",
+   "view": "geo",
+   "ll": [
+    115.27,
+    36.28
+   ]
+  },
+  "yaozhang_e": {
+   "name": "东突厥牙帐",
+   "view": "geo",
+   "ll": [
+    111.5,
+    41.2
+   ],
+   "approx": true
+  },
+  "yaozhang_w": {
+   "name": "西突厥牙帐（千泉）",
+   "view": "geo",
+   "ll": [
+    73.5,
+    42.6
+   ],
+   "approx": true
+  },
+  "constantinople": {
+   "name": "君士坦丁堡",
+   "view": "geo",
+   "ll": [
+    28.98,
+    41.01
+   ]
+  },
+  "chalcedon": {
+   "name": "迦克墩",
+   "view": "geo",
+   "ll": [
+    29.03,
+    40.98
+   ]
+  },
+  "ctesiphon": {
+   "name": "泰西封",
+   "view": "geo",
+   "ll": [
+    44.58,
+    33.09
+   ]
+  },
+  "tiflis": {
+   "name": "第比利斯",
+   "view": "geo",
+   "ll": [
+    44.8,
+    41.7
+   ]
+  },
+  "asuka": {
+   "name": "飞鸟",
+   "view": "geo",
+   "ll": [
+    135.82,
+    34.47
+   ]
+  },
+  "dunhuang": {
+   "name": "敦煌",
+   "view": "geo",
+   "ll": [
+    94.66,
+    40.14
+   ]
+  }
+ },
+ "people": {
+  "liyuan": {
+   "name": "李渊",
+   "role": "唐高祖",
+   "faction": "gaozu"
+  },
+  "lishimin": {
+   "name": "李世民",
+   "role": "秦王",
+   "faction": "qin"
+  },
+  "lijiancheng": {
+   "name": "李建成",
+   "role": "太子",
+   "faction": "dong",
+   "until": "0626-07-02",
+   "diedAt": "d5"
+  },
+  "liyuanji": {
+   "name": "李元吉",
+   "role": "齐王",
+   "faction": "dong",
+   "until": "0626-07-02",
+   "diedAt": "d6"
+  },
+  "zhangsun": {
+   "name": "长孙无忌",
+   "role": "秦府",
+   "faction": "qin"
+  },
+  "gaoshilian": {
+   "name": "高士廉",
+   "role": "无忌之舅",
+   "faction": "qin"
+  },
+  "fangxuanling": {
+   "name": "房玄龄",
+   "role": "秦府谋士",
+   "faction": "qin"
+  },
+  "duruhui": {
+   "name": "杜如晦",
+   "role": "秦府谋士",
+   "faction": "qin"
+  },
+  "yuchi": {
+   "name": "尉迟敬德",
+   "role": "秦府猛将",
+   "faction": "qin"
+  },
+  "zhanggongjin": {
+   "name": "张公谨",
+   "role": "秦府幕僚",
+   "faction": "qin"
+  },
+  "houjunji": {
+   "name": "侯君集",
+   "role": "秦府",
+   "faction": "qin"
+  },
+  "chengzhijie": {
+   "name": "程知节",
+   "role": "秦府",
+   "faction": "qin"
+  },
+  "zhangliang": {
+   "name": "张亮",
+   "role": "秦府·洛阳",
+   "faction": "qin"
+  },
+  "yuwenshiji": {
+   "name": "宇文士及",
+   "role": "天策府司马",
+   "faction": "qin"
+  },
+  "changhe": {
+   "name": "常何",
+   "role": "玄武门守将",
+   "faction": "guard"
+  },
+  "jingjunhong": {
+   "name": "敬君弘",
+   "role": "屯玄武门",
+   "faction": "guard",
+   "until": "0626-07-02",
+   "diedAt": "d7"
+  },
+  "weizheng": {
+   "name": "魏征",
+   "role": "太子洗马",
+   "faction": "dong"
+  },
+  "wangzhi": {
+   "name": "王晊",
+   "role": "东宫率更丞",
+   "faction": "dong"
+  },
+  "fengli": {
+   "name": "冯立",
+   "role": "东宫将领",
+   "faction": "dong"
+  },
+  "xuewanche": {
+   "name": "薛万彻",
+   "role": "东宫将领",
+   "faction": "dong"
+  },
+  "xieshufang": {
+   "name": "谢叔方",
+   "role": "齐府将领",
+   "faction": "dong"
+  },
+  "liyuan_wang": {
+   "name": "李瑗",
+   "role": "庐江王·幽州",
+   "faction": "dong",
+   "until": "0626-07-23"
+  },
+  "wangjunkuo": {
+   "name": "王君廓",
+   "role": "幽州",
+   "faction": "neutral"
+  },
+  "zhangjieyu": {
+   "name": "张婕妤",
+   "role": "高祖宠妃",
+   "faction": "gaozu"
+  },
+  "fuyi": {
+   "name": "傅奕",
+   "role": "太史令",
+   "faction": "gaozu"
+  },
+  "peiji": {
+   "name": "裴寂",
+   "role": "宰相",
+   "faction": "gaozu"
+  },
+  "xiaoyu": {
+   "name": "萧瑀",
+   "role": "宰相",
+   "faction": "gaozu"
+  },
+  "chenshuda": {
+   "name": "陈叔达",
+   "role": "宰相",
+   "faction": "gaozu"
+  },
+  "lijing": {
+   "name": "李靖",
+   "role": "灵州大都督",
+   "faction": "neutral"
+  },
+  "lishiji": {
+   "name": "李世勣",
+   "role": "行军总管",
+   "faction": "neutral"
+  },
+  "jieli": {
+   "name": "颉利可汗",
+   "role": "东突厥",
+   "faction": "tujue"
+  },
+  "yushe": {
+   "name": "郁射设",
+   "role": "东突厥",
+   "faction": "tujue"
+  },
+  "tongyehu": {
+   "name": "统叶护可汗",
+   "role": "西突厥",
+   "faction": "tujue"
+  },
+  "heraclius": {
+   "name": "希拉克略",
+   "role": "拜占庭皇帝",
+   "faction": "west"
+  },
+  "shahrbaraz": {
+   "name": "沙赫巴勒兹",
+   "role": "波斯大将",
+   "faction": "west"
+  },
+  "avarkhagan": {
+   "name": "阿瓦尔可汗",
+   "role": "阿瓦尔",
+   "faction": "west"
+  },
+  "soga": {
+   "name": "苏我马子",
+   "role": "倭国大臣",
+   "faction": "japan",
+   "until": "0626-06-19"
+  }
+ },
+ "sources": {
+  "qijuzhu": {
+   "name": "起居注",
+   "year": 626,
+   "kind": "primary-lost",
+   "extant": false,
+   "derivedFrom": [],
+   "note": "当时史官的原始记录，已佚"
+  },
+  "shilu": {
+   "name": "《高祖》《今上实录》",
+   "year": 643,
+   "author": "房玄龄、许敬宗",
+   "kind": "primary-lost",
+   "extant": false,
+   "derivedFrom": [
+    "qijuzhu"
+   ],
+   "edited": true,
+   "note": "太宗亲自看过并下令改写六月四日事，已佚"
+  },
+  "guoshi": {
+   "name": "唐国史",
+   "year": 760,
+   "author": "吴兢、韦述等",
+   "kind": "primary-lost",
+   "extant": false,
+   "derivedFrom": [
+    "shilu"
+   ]
+  },
+  "jts": {
+   "name": "《旧唐书》",
+   "year": 945,
+   "author": "刘昫等",
+   "kind": "official-history",
+   "extant": true,
+   "derivedFrom": [
+    "guoshi",
+    "shilu"
+   ],
+   "raw": "jts64.txt"
+  },
+  "xts": {
+   "name": "《新唐书》",
+   "year": 1060,
+   "author": "欧阳修、宋祁",
+   "kind": "official-history",
+   "extant": true,
+   "derivedFrom": [
+    "jts",
+    "shilu"
+   ]
+  },
+  "zztj": {
+   "name": "《资治通鉴》",
+   "year": 1084,
+   "author": "司马光",
+   "kind": "chronicle",
+   "extant": true,
+   "derivedFrom": [
+    "shilu",
+    "jts",
+    "xts"
+   ],
+   "raw": [
+    "zztj190.txt",
+    "zztj191.txt",
+    "zztj197.txt"
+   ]
+  },
+  "changhebei": {
+   "name": "《常何墓碑》",
+   "year": 680,
+   "author": "李义府（据陈寅恪）",
+   "kind": "epigraph",
+   "extant": true,
+   "derivedFrom": [],
+   "note": "敦煌写本；年代为约数；独立于实录系统"
+  },
+  "ruming": {
+   "name": "《唐太宗入冥记》",
+   "year": 900,
+   "kind": "folk",
+   "extant": true,
+   "derivedFrom": [],
+   "note": "敦煌写本，残卷；年代为约数；民间口头传统"
+  },
+  "xiyouji": {
+   "name": "《西游记》",
+   "year": 1592,
+   "author": "吴承恩（传）",
+   "kind": "folk",
+   "extant": true,
+   "derivedFrom": [
+    "ruming"
+   ]
+  },
+  "chenyinke": {
+   "name": "陈寅恪《唐代政治史述论稿》",
+   "year": 1943,
+   "kind": "modern",
+   "extant": true,
+   "derivedFrom": [
+    "changhebei",
+    "zztj",
+    "jts"
+   ]
+  },
+  "modern": {
+   "name": "现代史学（通说，作者未逐一核对）",
+   "year": 2000,
+   "kind": "modern",
+   "extant": true,
+   "derivedFrom": [
+    "zztj",
+    "jts"
+   ]
+  },
+  "paschale": {
+   "name": "《复活节编年史》",
+   "year": 630,
+   "kind": "primary",
+   "extant": true,
+   "derivedFrom": [],
+   "note": "拜占庭当时人记录"
+  },
+  "theophanes": {
+   "name": "狄奥法内斯《编年史》",
+   "year": 814,
+   "kind": "chronicle",
+   "extant": true,
+   "derivedFrom": []
+  },
+  "nihonshoki": {
+   "name": "《日本书纪》",
+   "year": 720,
+   "kind": "official-history",
+   "extant": true,
+   "derivedFrom": []
+  }
+ },
+ "lenses": {
+  "zhengshi": {
+   "name": "正史",
+   "desc": "两唐书、资治通鉴的讲法：建成元吉先动手，世民被迫反击"
+  },
+  "critical": {
+   "name": "史源批判",
+   "desc": "问一句：这句话最早出自谁手？谁改过？谁没说？"
+  },
+  "folk": {
+   "name": "民间",
+   "desc": "老百姓怎样记住这件事：地府、冤魂、索命"
+  }
+ },
+ "events": [
+  {
+   "id": "e622",
+   "date": "0622-12",
+   "prec": "month",
+   "place": "weizhou",
+   "who": [
+    "lijiancheng",
+    "weizheng"
+   ],
+   "title": "建成领兵讨刘黑闼",
+   "phase": "before",
+   "kind": "mil"
+  },
+  {
+   "id": "e624",
+   "date": "0624-07",
+   "prec": "month",
+   "place": "renzhigong",
+   "who": [
+    "liyuan",
+    "lishimin",
+    "lijiancheng"
+   ],
+   "title": "杨文干事件：高祖许诺改立世民",
+   "phase": "before",
+   "kind": "pol"
+  },
+  {
+   "id": "e625",
+   "date": "0625-05",
+   "prec": "month",
+   "place": "yaozhang_w",
+   "who": [
+    "tongyehu"
+   ],
+   "title": "西突厥统叶护遣使向唐请婚",
+   "phase": "before",
+   "kind": "dip"
+  },
+  {
+   "id": "e626a",
+   "date": "0626-05-21",
+   "gz": "戊寅",
+   "prec": "day",
+   "place": "lingzhou",
+   "who": [
+    "lijing",
+    "jieli"
+   ],
+   "title": "李靖与颉利战于灵州硖石",
+   "phase": "before",
+   "kind": "mil"
+  },
+  {
+   "id": "e626b",
+   "date": "0626-06",
+   "prec": "month",
+   "place": "luoyang",
+   "who": [
+    "zhangliang"
+   ],
+   "title": "世民遣张亮去洛阳，阴结山东豪杰",
+   "phase": "before",
+   "kind": "pol"
+  },
+  {
+   "id": "e626c",
+   "date": "0626-06",
+   "prec": "month",
+   "place": "qinfu",
+   "who": [
+    "lishimin",
+    "lijiancheng"
+   ],
+   "title": "建成夜宴，世民饮酒后吐血",
+   "phase": "before",
+   "contested": true,
+   "kind": "pol"
+  },
+  {
+   "id": "e626d",
+   "date": "0626-06",
+   "prec": "month",
+   "place": "qinfu",
+   "who": [
+    "yuchi",
+    "lijiancheng",
+    "liyuanji"
+   ],
+   "title": "建成以金银拉拢敬德被拒，元吉遣刺客",
+   "phase": "before",
+   "kind": "pol"
+  },
+  {
+   "id": "e626e",
+   "date": "0626-06",
+   "prec": "month",
+   "place": "qinfu",
+   "who": [
+    "chengzhijie",
+    "fangxuanling",
+    "duruhui"
+   ],
+   "title": "程知节外放，房玄龄、杜如晦被逐出秦府",
+   "phase": "before",
+   "kind": "pol"
+  },
+  {
+   "id": "e626f",
+   "date": "0626-06",
+   "prec": "month",
+   "place": "wucheng",
+   "who": [
+    "yushe"
+   ],
+   "title": "郁射设入塞围乌城，建成荐元吉北征",
+   "phase": "before",
+   "kind": "mil"
+  },
+  {
+   "id": "e626g",
+   "date": "0626-06",
+   "prec": "month",
+   "place": "kunmingchi",
+   "who": [
+    "wangzhi",
+    "lishimin"
+   ],
+   "title": "王晊告密：昆明池饯行时拉杀秦王",
+   "phase": "before",
+   "contested": true,
+   "kind": "pol"
+  },
+  {
+   "id": "e626h",
+   "date": "0626-06",
+   "prec": "month",
+   "place": "qinfu",
+   "who": [
+    "lishimin",
+    "zhangsun",
+    "yuchi",
+    "zhanggongjin",
+    "lijing",
+    "lishiji"
+   ],
+   "title": "秦府定计；李靖、李世勣都推辞；张公谨掷龟",
+   "phase": "before",
+   "contested": true,
+   "kind": "pol"
+  },
+  {
+   "id": "e626i",
+   "date": "0626-06",
+   "prec": "month",
+   "place": "qinfu",
+   "who": [
+    "fangxuanling",
+    "duruhui",
+    "zhangsun",
+    "yuchi"
+   ],
+   "title": "房杜扮道士潜回秦府",
+   "phase": "before",
+   "kind": "pol"
+  },
+  {
+   "id": "e0629",
+   "date": "0626-06-29",
+   "gz": "丁巳",
+   "prec": "day",
+   "place": "taijidian",
+   "who": [
+    "fuyi"
+   ],
+   "title": "太白经天",
+   "phase": "before",
+   "kind": "nat"
+  },
+  {
+   "id": "e0701a",
+   "date": "0626-07-01",
+   "gz": "己未",
+   "prec": "day",
+   "place": "taijidian",
+   "who": [
+    "fuyi",
+    "liyuan"
+   ],
+   "title": "傅奕密奏：「秦王当有天下」",
+   "phase": "before",
+   "kind": "pol"
+  },
+  {
+   "id": "e0701b",
+   "date": "0626-07-01",
+   "gz": "己未",
+   "prec": "day",
+   "place": "taijidian",
+   "who": [
+    "lishimin",
+    "liyuan"
+   ],
+   "title": "世民密奏建成元吉淫乱后宫；高祖约明日对质",
+   "phase": "before",
+   "kind": "pol"
+  },
+  {
+   "id": "e0701c",
+   "date": "0626-07-01",
+   "gz": "己未",
+   "prec": "day",
+   "place": "donggong",
+   "who": [
+    "zhangjieyu",
+    "lijiancheng"
+   ],
+   "title": "张婕妤连夜通风报信",
+   "phase": "before",
+   "kind": "pol"
+  },
+  {
+   "id": "d1",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "黎明",
+   "place": "xuanwumen",
+   "who": [
+    "lishimin",
+    "zhangsun",
+    "yuchi",
+    "houjunji",
+    "zhanggongjin"
+   ],
+   "title": "世民入宫，伏兵玄武门",
+   "phase": "day",
+   "contested": true,
+   "kind": "pol"
+  },
+  {
+   "id": "d2",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "黎明",
+   "place": "donggong",
+   "who": [
+    "lijiancheng",
+    "liyuanji"
+   ],
+   "title": "元吉主张托病不朝，建成坚持入宫",
+   "phase": "day",
+   "kind": "pol"
+  },
+  {
+   "id": "d3",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "清晨",
+   "place": "haichi",
+   "who": [
+    "liyuan",
+    "peiji",
+    "xiaoyu",
+    "chenshuda"
+   ],
+   "title": "高祖召宰相，准备当面审问",
+   "phase": "day",
+   "kind": "pol"
+  },
+  {
+   "id": "d4",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "清晨",
+   "place": "linhudian",
+   "who": [
+    "lijiancheng",
+    "liyuanji"
+   ],
+   "title": "建成元吉至临湖殿，觉变，掉头东归",
+   "phase": "day",
+   "kind": "pol"
+  },
+  {
+   "id": "d5",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "清晨",
+   "place": "linhudian",
+   "who": [
+    "lishimin",
+    "lijiancheng",
+    "liyuanji"
+   ],
+   "title": "元吉三次拉弓不满；世民射杀建成",
+   "phase": "day",
+   "kind": "pol"
+  },
+  {
+   "id": "d6",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "清晨",
+   "place": "wudedian",
+   "who": [
+    "yuchi",
+    "liyuanji",
+    "lishimin"
+   ],
+   "title": "世民坠马被元吉扼；敬德追射元吉",
+   "phase": "day",
+   "kind": "pol"
+  },
+  {
+   "id": "d7",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "上午",
+   "place": "xuanwumen",
+   "who": [
+    "fengli",
+    "xuewanche",
+    "xieshufang",
+    "zhanggongjin",
+    "jingjunhong"
+   ],
+   "title": "东宫齐府兵二千攻玄武门；张公谨独力闭关",
+   "phase": "day",
+   "kind": "mil"
+  },
+  {
+   "id": "d8",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "上午",
+   "place": "xuanwumen",
+   "who": [
+    "yuchi",
+    "xuewanche"
+   ],
+   "title": "敬德持两颗首级示众，宫府兵溃",
+   "phase": "day",
+   "kind": "mil"
+  },
+  {
+   "id": "d9",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "上午",
+   "place": "haichi",
+   "who": [
+    "yuchi",
+    "liyuan"
+   ],
+   "title": "敬德擐甲持矛直至海池",
+   "phase": "day",
+   "contested": true,
+   "kind": "pol"
+  },
+  {
+   "id": "d10",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "上午",
+   "place": "haichi",
+   "who": [
+    "liyuan",
+    "xiaoyu",
+    "chenshuda",
+    "peiji"
+   ],
+   "title": "高祖：「此吾之夙心也」",
+   "phase": "day",
+   "contested": true,
+   "kind": "pol"
+  },
+  {
+   "id": "d11",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "中午",
+   "place": "dongshang",
+   "who": [
+    "yuwenshiji"
+   ],
+   "title": "手敕：诸军并受秦王处分",
+   "phase": "day",
+   "kind": "pol"
+  },
+  {
+   "id": "d12",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "午后",
+   "place": "haichi",
+   "who": [
+    "lishimin",
+    "liyuan"
+   ],
+   "title": "世民跪而吮上乳，号恸",
+   "phase": "day",
+   "kind": "pol"
+  },
+  {
+   "id": "d13",
+   "date": "0626-07-02",
+   "gz": "庚申",
+   "prec": "day",
+   "hour": "当日",
+   "place": "donggong",
+   "who": [],
+   "title": "建成元吉十子皆诛，绝属籍",
+   "phase": "day",
+   "kind": "pol"
+  },
+  {
+   "id": "a0705",
+   "date": "0626-07-05",
+   "gz": "癸亥",
+   "prec": "day",
+   "place": "taijidian",
+   "who": [
+    "lishimin",
+    "liyuan"
+   ],
+   "title": "立世民为皇太子",
+   "phase": "after",
+   "kind": "pol"
+  },
+  {
+   "id": "a0710",
+   "date": "0626-07",
+   "prec": "month",
+   "place": "donggong",
+   "who": [
+    "weizheng",
+    "lishimin"
+   ],
+   "title": "魏征：「先太子早从征言，必无今日之祸」",
+   "phase": "after",
+   "kind": "gov"
+  },
+  {
+   "id": "a0723",
+   "date": "0626-07-23",
+   "gz": "辛巳",
+   "prec": "day",
+   "place": "youzhou",
+   "who": [
+    "liyuan_wang",
+    "wangjunkuo"
+   ],
+   "title": "幽州李瑗反，被王君廓所杀",
+   "phase": "after",
+   "kind": "mil"
+  },
+  {
+   "id": "a0808",
+   "date": "0626-08-08",
+   "gz": "丁酉",
+   "prec": "day",
+   "place": "weizhou",
+   "who": [
+    "weizheng"
+   ],
+   "title": "魏征宣慰山东，释放押送的东宫旧部",
+   "phase": "after",
+   "kind": "gov"
+  },
+  {
+   "id": "a0904",
+   "date": "0626-09-04",
+   "gz": "甲子",
+   "prec": "day",
+   "place": "donggong",
+   "who": [
+    "lishimin"
+   ],
+   "title": "太宗即位于东宫显德殿",
+   "phase": "after",
+   "kind": "pol"
+  },
+  {
+   "id": "a0921",
+   "date": "0626-09-21",
+   "gz": "辛巳",
+   "prec": "day",
+   "place": "jingyang",
+   "who": [
+    "yuchi",
+    "jieli"
+   ],
+   "title": "敬德泾阳大破突厥",
+   "phase": "after",
+   "kind": "mil"
+  },
+  {
+   "id": "a0923",
+   "date": "0626-09-23",
+   "gz": "癸未",
+   "prec": "day",
+   "place": "bianqiao",
+   "who": [
+    "jieli",
+    "lishimin"
+   ],
+   "title": "颉利至渭水便桥；太宗出玄武门隔水对话",
+   "phase": "after",
+   "kind": "dip"
+  },
+  {
+   "id": "a0925",
+   "date": "0626-09-25",
+   "gz": "乙酉",
+   "prec": "day",
+   "place": "bianqiao",
+   "who": [
+    "jieli",
+    "lishimin"
+   ],
+   "title": "斩白马，渭水之盟",
+   "phase": "after",
+   "kind": "dip"
+  },
+  {
+   "id": "a643",
+   "date": "0643-08",
+   "prec": "month",
+   "place": "taijidian",
+   "who": [
+    "lishimin",
+    "fangxuanling"
+   ],
+   "title": "太宗亲阅实录，命改写「六月四日事」",
+   "phase": "after",
+   "kind": "cul"
+  },
+  {
+   "id": "w_soga",
+   "date": "0626-06-19",
+   "prec": "month",
+   "place": "asuka",
+   "who": [
+    "soga"
+   ],
+   "title": "苏我马子去世",
+   "phase": "world",
+   "kind": "pol"
+  },
+  {
+   "id": "w_persia",
+   "date": "0626-07",
+   "prec": "month",
+   "place": "chalcedon",
+   "who": [
+    "shahrbaraz"
+   ],
+   "title": "波斯大军屯迦克墩，隔海望君士坦丁堡",
+   "phase": "world",
+   "kind": "mil"
+  },
+  {
+   "id": "w_avar1",
+   "date": "0626-07-29",
+   "prec": "day",
+   "place": "constantinople",
+   "who": [
+    "avarkhagan"
+   ],
+   "title": "阿瓦尔可汗兵临君士坦丁堡",
+   "phase": "world",
+   "kind": "mil"
+  },
+  {
+   "id": "w_avar2",
+   "date": "0626-08-07",
+   "prec": "day",
+   "place": "constantinople",
+   "who": [
+    "avarkhagan",
+    "shahrbaraz"
+   ],
+   "title": "海陆总攻失败，围城瓦解",
+   "phase": "world",
+   "kind": "mil"
+  },
+  {
+   "id": "w_tiflis",
+   "date": "0627",
+   "prec": "year",
+   "place": "tiflis",
+   "who": [
+    "heraclius",
+    "tongyehu"
+   ],
+   "title": "希拉克略与西突厥联兵围第比利斯",
+   "phase": "world",
+   "contested": true,
+   "kind": "mil"
+  }
+ ],
+ "relations": [
+  {
+   "a": "liyuan",
+   "b": "lijiancheng",
+   "type": "kin",
+   "label": "父子",
+   "claims": [
+    "k1"
+   ]
+  },
+  {
+   "a": "liyuan",
+   "b": "lishimin",
+   "type": "kin",
+   "label": "父子",
+   "claims": [
+    "k1"
+   ]
+  },
+  {
+   "a": "liyuan",
+   "b": "liyuanji",
+   "type": "kin",
+   "label": "父子",
+   "claims": [
+    "k1"
+   ]
+  },
+  {
+   "a": "lijiancheng",
+   "b": "liyuanji",
+   "type": "ally",
+   "label": "许立为太弟",
+   "claims": [
+    "c_taidi"
+   ]
+  },
+  {
+   "a": "zhangsun",
+   "b": "gaoshilian",
+   "type": "kin",
+   "label": "甥舅",
+   "claims": [
+    "c_gaoshilian"
+   ]
+  },
+  {
+   "a": "lijiancheng",
+   "b": "yuchi",
+   "type": "bribe",
+   "label": "金银拉拢（被拒）",
+   "since": "0626-06",
+   "claims": [
+    "c_bribe",
+    "c_bribe_spy"
+   ]
+  },
+  {
+   "a": "liyuanji",
+   "b": "yuchi",
+   "type": "attack",
+   "label": "遣刺客",
+   "since": "0626-06",
+   "claims": [
+    "c_assassin"
+   ]
+  },
+  {
+   "a": "wangzhi",
+   "b": "lishimin",
+   "type": "inform",
+   "label": "告密",
+   "since": "0626-06",
+   "claims": [
+    "c_kunming",
+    "m_kunming"
+   ]
+  },
+  {
+   "a": "zhangjieyu",
+   "b": "lijiancheng",
+   "type": "inform",
+   "label": "通风报信",
+   "since": "0626-07-01",
+   "claims": [
+    "c_jieyu"
+   ]
+  },
+  {
+   "a": "lishimin",
+   "b": "changhe",
+   "type": "bribe",
+   "label": "收买北门守将",
+   "since": "0626-06",
+   "claims": [
+    "m_changhe",
+    "o_changhe"
+   ],
+   "contested": true
+  },
+  {
+   "a": "weizheng",
+   "b": "lijiancheng",
+   "type": "advise",
+   "label": "劝早除秦王",
+   "until": "0626-07-02",
+   "claims": [
+    "c_weizheng_adv"
+   ]
+  },
+  {
+   "a": "weizheng",
+   "b": "lishimin",
+   "type": "ally",
+   "label": "改投",
+   "since": "0626-07-10",
+   "claims": [
+    "c_weizheng"
+   ]
+  },
+  {
+   "a": "lishimin",
+   "b": "lijiancheng",
+   "type": "kill",
+   "label": "射杀",
+   "since": "0626-07-02",
+   "claims": [
+    "c_shoot",
+    "j_shoot"
+   ]
+  },
+  {
+   "a": "yuchi",
+   "b": "liyuanji",
+   "type": "kill",
+   "label": "射杀",
+   "since": "0626-07-02",
+   "claims": [
+    "c_yuanji"
+   ]
+  },
+  {
+   "a": "yuchi",
+   "b": "liyuan",
+   "type": "control",
+   "label": "宿卫？挟持？",
+   "since": "0626-07-02",
+   "claims": [
+    "c_haichi",
+    "m_haichi"
+   ],
+   "contested": true
+  },
+  {
+   "a": "lijiancheng",
+   "b": "liyuan_wang",
+   "type": "ally",
+   "label": "密结",
+   "claims": [
+    "c_yuan_ally"
+   ]
+  },
+  {
+   "a": "wangjunkuo",
+   "b": "liyuan_wang",
+   "type": "kill",
+   "label": "缢杀",
+   "since": "0626-07-23",
+   "claims": [
+    "c_yuan"
+   ]
+  },
+  {
+   "a": "lishimin",
+   "b": "jieli",
+   "type": "treaty",
+   "label": "渭水之盟",
+   "since": "0626-09-25",
+   "claims": [
+    "c_meng"
+   ]
+  },
+  {
+   "a": "tongyehu",
+   "b": "liyuan",
+   "type": "treaty",
+   "label": "请婚",
+   "since": "0625-05",
+   "claims": [
+    "c_tongyehu"
+   ]
+  },
+  {
+   "a": "tongyehu",
+   "b": "heraclius",
+   "type": "ally",
+   "label": "联兵？",
+   "since": "0627",
+   "claims": [
+    "w_tiflis_c",
+    "w_ziebel"
+   ],
+   "contested": true
+  },
+  {
+   "a": "avarkhagan",
+   "b": "shahrbaraz",
+   "type": "ally",
+   "label": "合围",
+   "since": "0626-07",
+   "claims": [
+    "w_siege"
+   ]
+  }
+ ],
+ "claims": [
+  {
+   "id": "k1",
+   "src": "jts",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "高祖李渊有三个嫡子：建成、世民、元吉。",
+   "quote": null,
+   "loc": "旧唐书 卷64",
+   "verify": "common"
+  },
+  {
+   "id": "c_taidi",
+   "ev": "d13",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "建成答应元吉，登位后立他为太弟，所以元吉为他卖命。",
+   "quote": "建成許元吉以正位之後，立為太弟",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_gaoshilian",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "高士廉是长孙无忌的舅父。",
+   "quote": "與其舅雍州治中高士廉",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_heita",
+   "ev": "e622",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "建成奉诏领兵讨刘黑闼，河南河北诸州都归他调度。",
+   "quote": "詔太子建成將兵討黑闥",
+   "loc": "资治通鉴 卷190"
+  },
+  {
+   "id": "c_heita_why",
+   "ev": "e622",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "魏征劝建成出征的理由：殿下只是凭年长居东宫，没有大功服众。",
+   "quote": "殿下但以年長位居東宮，無大功以鎮服海內",
+   "loc": "资治通鉴 卷190"
+  },
+  {
+   "id": "c_yongliu",
+   "ev": "e622",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "司马光评：隐太子「庸劣」，却居于太宗之上。",
+   "quote": "隱太子以庸劣居其右",
+   "loc": "资治通鉴 卷191 臣光曰",
+   "conflicts": [
+    "m_jiancheng"
+   ]
+  },
+  {
+   "id": "m_jiancheng",
+   "ev": "e622",
+   "src": "modern",
+   "lens": "critical",
+   "stance": "doubts",
+   "text": "建成并非庸才：他平定刘黑闼，长期留守长安理政。「庸劣」是胜利者的评价，经实录传到司马光手上。",
+   "quote": null,
+   "loc": "现代通说",
+   "conflicts": [
+    "c_yongliu"
+   ]
+  },
+  {
+   "id": "c_wenggan",
+   "ev": "e624",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "杨文干事连建成，高祖对世民说：你亲自去平叛，回来立你为太子。之后高祖反悔。",
+   "quote": "汝宜自行，還，立汝為太子",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_tongyehu",
+   "ev": "e625",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "西突厥统叶护可汗遣使请婚；裴矩主张远交近攻，借西突厥牵制颉利。",
+   "quote": "西突厥統葉護可汗遣使請婚",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_xiashi",
+   "ev": "e626a",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "李靖在灵州硖石与颉利从早打到下午，突厥才退。",
+   "quote": "安州大都督李靖與突厥頡利可汗戰於靈州之硤石",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_zhangliang",
+   "ev": "e626b",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "世民怕长安有变，派张亮带千余人去洛阳，暗中结交山东豪杰，准备退路。",
+   "quote": "遣秦府車騎將軍滎陽張亮將左右王保等千餘人之洛陽，陰結納山東豪傑以俟變",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_luoyang",
+   "ev": "e626b",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "建成元吉商量：秦王去了洛阳有地有兵，不可再制；留在长安就是一个匹夫。",
+   "quote": "秦王若至洛陽，有土地甲兵，不可復制",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_poison",
+   "ev": "e626c",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "建成夜召世民饮酒下毒，世民心痛，吐血数升。",
+   "quote": "建成夜召世民，飲酒而鴆之，世民暴心痛，吐血數升",
+   "loc": "资治通鉴 卷191",
+   "conflicts": [
+    "m_poison"
+   ]
+  },
+  {
+   "id": "j_poison",
+   "ev": "e626c",
+   "src": "jts",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "旧唐书：建成与元吉合谋下毒，引太宗入宫夜宴，太宗心中暴痛，吐血数升。",
+   "quote": "後又與元吉謀行鴆毒，引太宗入宮夜宴，既而太宗心中暴痛，吐血數升",
+   "loc": "旧唐书 卷64",
+   "conflicts": [
+    "m_poison"
+   ]
+  },
+  {
+   "id": "m_poison",
+   "ev": "e626c",
+   "src": "modern",
+   "lens": "critical",
+   "stance": "doubts",
+   "text": "吐血数升而无事，事后高祖只说「以后不准再夜饮」。两部书讲法几乎一字不差，源头都是太宗朝修的实录，只等于一个证人。",
+   "quote": null,
+   "loc": "现代通说",
+   "conflicts": [
+    "c_poison",
+    "j_poison"
+   ]
+  },
+  {
+   "id": "c_bribe",
+   "ev": "e626d",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "建成送一车金银器给敬德，敬德拒绝：私交殿下就是二心。",
+   "quote": "若私交殿下，乃是貳心，徇利忘忠",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_bribe_spy",
+   "ev": "e626d",
+   "src": "zztj",
+   "lens": "critical",
+   "stance": "reinterprets",
+   "text": "同一段的另一面：世民对敬德说「收下也无妨，正好借此知道他们的计谋」。正史自己留下了秦府在做情报战的痕迹。",
+   "quote": "相遺但受，何所嫌也！且得以知其陰計",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_assassin",
+   "ev": "e626d",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "元吉派壮士夜刺敬德，敬德大开重门安卧，刺客不敢入。",
+   "quote": "元吉使壯士夜刺敬德",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_chengzhijie",
+   "ev": "e626e",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "程知节被外放，临走对世民说：羽翼尽矣，请早决计。",
+   "quote": "知節以死不去，願早決計",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_yushe",
+   "ev": "e626f",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "突厥郁射设数万骑围乌城，建成推荐元吉代世民北征，要把秦府猛将精兵调走。",
+   "quote": "會突厥郁射設將數萬騎屯河南，入塞，圍烏城，建成薦元吉代世民督諸軍北征",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_kunming",
+   "ev": "e626g",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "王晊密告：太子要在昆明池饯行时，让壮士在帐中拉杀秦王，上奏说暴毙。",
+   "quote": "吾與秦王餞汝於昆明池，使壯士拉殺之於幕下，奏雲暴卒",
+   "loc": "资治通鉴 卷191",
+   "conflicts": [
+    "m_kunming"
+   ]
+  },
+  {
+   "id": "m_kunming",
+   "ev": "e626g",
+   "src": "modern",
+   "lens": "critical",
+   "stance": "doubts",
+   "text": "整个密谋只有一个证人，而且是投向秦府的告密者；记录又出自秦府主导修的实录。无法证伪，也无法证实。",
+   "quote": null,
+   "loc": "现代通说",
+   "conflicts": [
+    "c_kunming"
+   ]
+  },
+  {
+   "id": "c_hesitate",
+   "ev": "e626h",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "世民叹：骨肉相残，古今大恶；我想等他们先动手，再以义讨之。",
+   "quote": "骨肉相殘，古今大惡。吾誠知禍在朝夕，欲俟其發，然後以義討之",
+   "loc": "资治通鉴 卷191",
+   "conflicts": [
+    "m_hesitate"
+   ]
+  },
+  {
+   "id": "m_hesitate",
+   "ev": "e626h",
+   "src": "modern",
+   "lens": "critical",
+   "stance": "reinterprets",
+   "text": "「犹豫—被部下逼—不得已」是一个经典叙事结构，把主动权推给部下。同一卷里敬德却说勇士八百多人已入宫披甲，说明准备早就做好。",
+   "quote": "大王素所畜養勇士八百餘人，在外者今已入宮，擐甲執兵，事勢已成",
+   "loc": "资治通鉴 卷191",
+   "conflicts": [
+    "c_hesitate"
+   ]
+  },
+  {
+   "id": "c_neutral",
+   "ev": "e626h",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "世民问李靖、李世勣，两人都推辞；世民因此更看重他们。",
+   "quote": "問於靈州大都督李靖，靖辭；問於行軍總管李世勣，世勣辭",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_turtle",
+   "ev": "e626h",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "世民命人占卜，张公谨把龟甲掷在地上：占卜是为了决疑，现在已无疑。",
+   "quote": "卜以決疑；今事在不疑，尚何卜乎",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_daoshi",
+   "ev": "e626i",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "房玄龄、杜如晦穿道士服混入秦府。",
+   "quote": "乃令玄齡、如晦著道士服",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_taibai0",
+   "ev": "e0629",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "六月初一，太白星白天出现，古人视为易主之兆。",
+   "quote": "六月，丁巳，太白經天",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_taibai",
+   "ev": "e0701a",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "太白复经天，傅奕密奏：太白现于秦地分野，秦王当有天下。高祖把奏状交给世民看。",
+   "quote": "太白見秦分，秦王當有天下",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_yinluan",
+   "ev": "e0701b",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "世民密奏建成元吉淫乱后宫，并说「臣今枉死」。",
+   "quote": "世民密奏建成、元吉淫亂後宮",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "j_yinluan",
+   "ev": "e0701b",
+   "src": "jts",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "旧唐书写明日期：六月三日密奏。",
+   "quote": "六月三日，密奏建成、元吉淫亂後宮",
+   "loc": "旧唐书 卷64"
+  },
+  {
+   "id": "c_jujian",
+   "ev": "e0701b",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "高祖愕然，回复：明天审问，你早点来。",
+   "quote": "明當鞫問，汝宜早參",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_jieyu",
+   "ev": "e0701c",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "张婕妤偷知奏表内容，飞报建成。",
+   "quote": "張婕妤竊知世民表意，馳語建成",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_fubing",
+   "ev": "d1",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "资治通鉴：世民率长孙无忌等入宫，伏兵于玄武门。",
+   "quote": "世民帥長孫無忌等入，伏兵於玄武門",
+   "loc": "资治通鉴 卷191",
+   "conflicts": [
+    "j_ziwei"
+   ]
+  },
+  {
+   "id": "j_ziwei",
+   "ev": "d1",
+   "src": "jts",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "旧唐书：太宗带左右九人到玄武门「自卫」。同一个早上，一个说埋伏，一个说自卫。",
+   "quote": "四日，太宗將左右九人至玄武門自衛",
+   "loc": "旧唐书 卷64",
+   "conflicts": [
+    "c_fubing"
+   ]
+  },
+  {
+   "id": "m_changhe",
+   "ev": "d1",
+   "src": "chenyinke",
+   "lens": "critical",
+   "stance": "asserts",
+   "text": "陈寅恪据敦煌写本《常何墓碑》指出：玄武门守将常何事前已被世民收买。控制北门禁军，才是政变成功的关键。",
+   "quote": null,
+   "loc": "唐代政治史述论稿 中篇",
+   "conf": "medium"
+  },
+  {
+   "id": "o_changhe",
+   "ev": "d1",
+   "src": "zztj",
+   "lens": "critical",
+   "stance": "omits",
+   "text": "《资治通鉴》写玄武门之变全程，没有一次提到常何。沉默本身就是证据。",
+   "quote": null,
+   "absent": "常何",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_bingbei",
+   "ev": "d2",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "元吉：应该集合宫府兵，托病不朝。建成：兵备已严，我们一起入宫探个究竟。",
+   "quote": "兵備已嚴，當與弟入參，自問消息",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_anwen",
+   "ev": "d3",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "高祖已召裴寂、萧瑀、陈叔达等，准备审问此事。",
+   "quote": "上時已召裴寂、蕭瑀、陳叔達等，欲按其事",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_linhu",
+   "ev": "d4",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "建成元吉到临湖殿，察觉有变，立即调转马头向东回宫府。",
+   "quote": "建成、元吉至臨湖殿，覺變，即跋馬東歸宮府",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_shoot",
+   "ev": "d5",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "元吉张弓射世民，三次都拉不满；世民射建成，杀之。",
+   "quote": "元吉張弓射世民，再三不彀，世民射建成，殺之",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "j_shoot",
+   "ev": "d5",
+   "src": "jts",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "旧唐书：建成应弦而毙。",
+   "quote": "建成應弦而斃",
+   "loc": "旧唐书 卷64"
+  },
+  {
+   "id": "c_yuanji",
+   "ev": "d6",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "世民马惊入林被树枝挂住坠地，元吉夺弓要扼杀他；敬德跃马叱退，元吉往武德殿跑，被敬德射杀。",
+   "quote": "元吉步欲趣武德殿，敬德追射，殺之",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_bimen",
+   "ev": "d7",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "冯立、薛万彻、谢叔方率东宫齐府精兵二千攻玄武门，张公谨力大，独自关上城门。",
+   "quote": "張公謹多力，獨閉關以拒之，不得入",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_shouji",
+   "ev": "d8",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "薛万彻扬言要攻秦府，敬德拿出建成元吉的首级示众，宫府兵溃散。",
+   "quote": "萬徹鼓噪欲攻秦府，將士大懼；尉遲敬德持建成、元吉首示之，宮府兵遂潰",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_haichi",
+   "ev": "d9",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "高祖正在海池泛舟。敬德披甲持矛直到皇帝身边，说秦王怕惊动陛下，派我来宿卫。",
+   "quote": "敬德擐甲持矛，直至上所。上大驚",
+   "loc": "资治通鉴 卷191",
+   "conflicts": [
+    "m_haichi"
+   ]
+  },
+  {
+   "id": "m_haichi",
+   "ev": "d9",
+   "src": "modern",
+   "lens": "critical",
+   "stance": "reinterprets",
+   "text": "同一句原文的另一种读法：全副武装的人站在皇帝船边，皇帝「大惊」。名义是宿卫，实际是控制。",
+   "quote": "上方泛舟海池",
+   "loc": "资治通鉴 卷191（同一原文）",
+   "conflicts": [
+    "c_haichi"
+   ]
+  },
+  {
+   "id": "c_suxin",
+   "ev": "d10",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "萧瑀、陈叔达劝立秦王，高祖说：好，这本来就是我的心愿。",
+   "quote": "上曰：「善！此吾之夙心也。」",
+   "loc": "资治通鉴 卷191",
+   "conflicts": [
+    "m_suxin"
+   ]
+  },
+  {
+   "id": "m_suxin",
+   "ev": "d10",
+   "src": "modern",
+   "lens": "critical",
+   "stance": "reinterprets",
+   "text": "这句话是在敬德持矛站在身边时说的。被控制状态下的表态，不能当作真实意愿。",
+   "quote": null,
+   "loc": "现代通说",
+   "conflicts": [
+    "c_suxin"
+   ]
+  },
+  {
+   "id": "c_shouchi",
+   "ev": "d11",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "敬德请高祖下手敕，令各军都听秦王处分；宇文士及出东上阁门宣敕，局面才定。",
+   "quote": "敬德請降手敕，令諸軍並受秦王處分",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_shunru",
+   "ev": "d12",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "高祖召世民抚慰，世民跪下吮父乳，号啕大哭。",
+   "quote": "世民跪而吮上乳，號慟久之",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_shizi",
+   "ev": "d13",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "建成五子、元吉五子全部处死，并从宗室属籍中除名。",
+   "quote": "皆坐誅，仍絕屬籍",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_diexue",
+   "ev": "d13",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "司马光评：最终「蹀血禁门，推刃同气」，贻讥千古。正史作者自己也不原谅。",
+   "quote": "遂至蹀血禁門，推刃同氣，貽譏千古",
+   "loc": "资治通鉴 卷191 臣光曰"
+  },
+  {
+   "id": "c_taizi",
+   "ev": "a0705",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "三日后立世民为皇太子，军国庶事都交太子处决。",
+   "quote": "癸亥，立世民為皇太子",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_weizheng_adv",
+   "ev": "a0710",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "魏征此前常劝建成早除秦王。",
+   "quote": "洗馬魏徵常勸太子建成早除秦王",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_weizheng",
+   "ev": "a0710",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "世民问魏征为何离间兄弟，魏征答：先太子早听我的，就不会有今日之祸。世民反而重用他。",
+   "quote": "先太子早從徵言，必無今日之禍",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_yuan_ally",
+   "ev": "a0723",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "建成谋害秦王时曾暗中结交幽州李瑗。",
+   "quote": "太子建成謀害秦王，密與瑗相結",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_yuan",
+   "ev": "a0723",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "李瑗被召入京，心不自安起兵，被副手王君廓所杀。",
+   "quote": "辛巳，幽州大都督廬江王瑗反，右領軍將軍王君廓殺之",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_jiezong",
+   "ev": "a0808",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "魏征在磁州遇到押送东宫旧部进京，全部释放：既已大赦，再抓就无人相信。",
+   "quote": "遂皆解縱之",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_jiwei",
+   "ev": "a0904",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "太宗即皇帝位于东宫显德殿——就在建成住过的地方。",
+   "quote": "甲子，太宗即皇帝位於東宮顯德殿",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_jingyang",
+   "ev": "a0921",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "敬德在泾阳大破突厥。",
+   "quote": "涇州道行軍總管尉遲敬德與突厥戰於涇陽，大破之",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_weishui",
+   "ev": "a0923",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "颉利到渭水便桥北。太宗亲自出玄武门，隔水与颉利对话，责其负约。",
+   "quote": "癸未，頡利可汗進至渭水便橋之北",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_weishui_why",
+   "ev": "a0923",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "太宗自己解释突厥为何倾国而来：因为我们国内有难，朕新即位。玄武门直接引来了渭水。",
+   "quote": "以我國內有難，朕新即位，謂我不能抗禦故也",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_meng",
+   "ev": "a0925",
+   "src": "zztj",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "斩白马，与颉利在便桥上结盟，突厥退兵。",
+   "quote": "乙酉，又幸城西，斬白馬，與頡利盟於便橋之上",
+   "loc": "资治通鉴 卷191"
+  },
+  {
+   "id": "c_shilu",
+   "ev": "a643",
+   "src": "zztj",
+   "lens": "critical",
+   "stance": "asserts",
+   "text": "贞观十七年，太宗坚持要看国史。房玄龄、许敬宗删成实录进呈；太宗见「六月四日事」写得隐晦，命令删去浮词，直书其事。",
+   "quote": "上見書六月四日事，語多微隱",
+   "loc": "资治通鉴 卷197"
+  },
+  {
+   "id": "c_shilu2",
+   "ev": "a643",
+   "src": "zztj",
+   "lens": "critical",
+   "stance": "asserts",
+   "text": "谏议大夫朱子奢反对：君主看了史书，史官必不免刑诛，以后谁还敢直书？太宗不听。",
+   "quote": "史官必不免刑誅",
+   "loc": "资治通鉴 卷197"
+  },
+  {
+   "id": "f_ruming",
+   "ev": "d13",
+   "src": "ruming",
+   "lens": "folk",
+   "stance": "reinterprets",
+   "text": "太宗死后入冥府受审，判官追问的正是杀兄逼父的「六月四日」之事。民间不接受「被迫反击」的版本。",
+   "quote": null,
+   "loc": "敦煌写本 唐太宗入冥记（残卷）",
+   "conf": "medium"
+  },
+  {
+   "id": "f_xiyou",
+   "ev": "d13",
+   "src": "xiyouji",
+   "lens": "folk",
+   "stance": "reinterprets",
+   "text": "西游记第十回：太宗游地府，建成、元吉的鬼魂上前揪打索命。民间传说把这笔账记了近千年。",
+   "quote": null,
+   "loc": "西游记 第十回",
+   "conf": "medium"
+  },
+  {
+   "id": "w_soga_c",
+   "ev": "w_soga",
+   "src": "nihonshoki",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "推古天皇三十四年五月，权臣苏我马子去世。",
+   "quote": null,
+   "loc": "日本书纪 卷22",
+   "conf": "medium"
+  },
+  {
+   "id": "w_siege",
+   "ev": "w_avar1",
+   "src": "paschale",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "阿瓦尔可汗带大军抵达君士坦丁堡城下，波斯大将沙赫巴勒兹隔着海峡屯兵迦克墩，两军相约夹击。希拉克略本人不在城中。",
+   "quote": null,
+   "loc": "Chronicon Paschale, 626",
+   "conf": "high"
+  },
+  {
+   "id": "w_siege2",
+   "ev": "w_avar2",
+   "src": "paschale",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "8 月 7 日海陆总攻失败，阿瓦尔的独木舟船队在金角湾被歼，围城瓦解。",
+   "quote": null,
+   "loc": "Chronicon Paschale, 626",
+   "conf": "high"
+  },
+  {
+   "id": "w_persia_c",
+   "ev": "w_persia",
+   "src": "paschale",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "波斯军驻迦克墩，但没有船渡海，与阿瓦尔军无法真正会师。",
+   "quote": null,
+   "loc": "Chronicon Paschale, 626",
+   "conf": "medium"
+  },
+  {
+   "id": "w_tiflis_c",
+   "ev": "w_tiflis",
+   "src": "theophanes",
+   "lens": "zhengshi",
+   "stance": "asserts",
+   "text": "希拉克略与「突厥人」首领 Ziebel 联兵围第比利斯。",
+   "quote": null,
+   "loc": "Theophanes, AM 6117",
+   "conf": "medium",
+   "conflicts": [
+    "w_ziebel"
+   ]
+  },
+  {
+   "id": "w_ziebel",
+   "ev": "w_tiflis",
+   "src": "modern",
+   "lens": "critical",
+   "stance": "doubts",
+   "text": "Ziebel 是否就是统叶护可汗（或其族人），学界一直有争论。如果是，西突厥同时连住长安同拜占庭。",
+   "quote": null,
+   "loc": "现代通说",
+   "conflicts": [
+    "w_tiflis_c"
+   ]
+  }
+ ],
+ "kinds": {
+  "mil": {
+   "name": "军事",
+   "glyph": "战",
+   "color": "#8e2a20",
+   "scope": "战争、征伐、叛乱、兵变、围城"
+  },
+  "pol": {
+   "name": "政局",
+   "glyph": "政",
+   "color": "#5b3a7a",
+   "scope": "权力斗争、政变、继承、即位、废立、诛杀"
+  },
+  "dip": {
+   "name": "外交",
+   "glyph": "外",
+   "color": "#2f6f73",
+   "scope": "遣使、和亲、盟约、朝贡、边境交涉"
+  },
+  "gov": {
+   "name": "治理",
+   "glyph": "治",
+   "color": "#4f7a3a",
+   "scope": "制度、法令、任免安抚、赋役经济、工程"
+  },
+  "cul": {
+   "name": "文化",
+   "glyph": "文",
+   "color": "#a87b14",
+   "scope": "思想、宗教、修史、学术、文艺"
+  },
+  "nat": {
+   "name": "天象灾异",
+   "glyph": "天",
+   "color": "#33507a",
+   "scope": "天象、灾害、疫病、祥瑞"
+  }
+ }
+}

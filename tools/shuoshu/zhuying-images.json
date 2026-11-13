@@ -1,0 +1,21 @@
+[
+["taizu", "File:宋太祖坐像 軸.jpg", 0, "《宋太祖坐像》轴（台北故宫）"],
+["taizu2", "File:宋代帝半身像册.02.宋太祖.jpg", 1600, "《宋代帝半身像册》· 宋太祖"],
+["taizong", "File:Taizong of Song.jpg", 1600, "《宋太宗坐像》（台北故宫）"],
+["taizong2", "File:宋代帝半身像册.03.宋太宗.jpg", 1600, "《宋代帝半身像册》· 宋太宗"],
+["xueye", "File:Liu Jun-Visiting Pu on a Snowy Night.jpg", 1600, "刘俊《雪夜访普图》（明）"],
+["zhaopu", "File:宋丞相赵普.jpg", 0, "赵普像"],
+["dutaihou", "File:宋宣祖后坐像 軸.jpg", 1600, "《宋宣祖后坐像》轴 · 昭宪杜太后"],
+["cuju", "File:Emperor Taizu play Cuju.jpg", 0, "钱选（传）《宋太祖蹴鞠图》"],
+["snowriver", "File:Guo Zhongshu-Traveling on the River in Snow.jpg", 2000, "郭忠恕（传）《雪霁江行图》"],
+["xiaoxue", "File:Wang Shen Light Snow Over Village.jpg", 0, "王诜《渔村小雪图》（北宋）局部", {"crop": [0.0, 0.32]}],
+["xiaoxue2", "File:Wang Shen Light Snow Over Village.jpg", 0, "王诜《渔村小雪图》（北宋）局部", {"crop": [0.55, 0.87]}],
+["candle", "File:Ma Lin-Strolling at Night Holding a Candle.jpg", 1600, "马麟《秉烛夜游图》（南宋）"],
+["qm_a", "File:Alongtheriver QingMing.jpg", 12000, "张择端《清明上河图》（北宋）局部", {"crop": [0.0, 0.11]}],
+["qm_b", "File:Alongtheriver QingMing.jpg", 12000, "张择端《清明上河图》（北宋）局部 · 虹桥", {"crop": [0.47, 0.58]}],
+["qm_c", "File:Alongtheriver QingMing.jpg", 12000, "张择端《清明上河图》（北宋）局部 · 城门", {"crop": [0.74, 0.85]}],
+["qm_d", "File:Alongtheriver QingMing.jpg", 12000, "张择端《清明上河图》（北宋）局部 · 街市", {"crop": [0.87, 0.98]}],
+["yongchang", "File:Yongchang, Emperor Taizu's Tomb - 1.jpg", 1600, "巩义 宋太祖永昌陵"],
+["kaifeng", "File:Kaifeng in Northern Song Dynasty a.jpg", 1600, "北宋东京开封城复原示意"],
+["tongjian", {"from": "xuanwumen"}, 0, "《资治通鉴》书影"]
+]

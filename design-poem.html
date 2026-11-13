@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>吟诗 · 设计稿</title>
+<link rel="icon" href="data:,">
+<!-- 吟诗 design mock (hs-poem-people-1110). design-poem.html = poem list; ?p=<id> plays one poem as a short show:
+     引子 (background over a PD painting) → 你猜 (a question, the show waits) → 吟 (the poem written column by column in a brush
+     font, right to left, while voice A recites it) → 字词 (tap a glowing character) → 争议 (two books) → 出处.
+     Data: data/design-poem/<id>.json from tools/design-poem/poems.mjs (build.mjs); audio: tools/design-poem/gen-audio.mjs.
+     Brush font: Ma Shan Zheng (OFL), subset to the poems' glyphs → data/design-poem/fonts/. Test hooks: window.__dp, ?mute=1,
+     ?speed=N, ?auto=1 (auto-start, auto-pick choice 0).
+     v2 (hs-poem-v2-1110, Wilson: 读诗要有感情 · 背景音乐 · 书法要生动、有几款字体拣): ⚙ panel / ?voice=<id> picks the reciting voice
+     (data/design-poem/yin.json from tools/design-poem/gen-yin.mjs: Edge 抑扬 voices + CosyVoice3 by mood, each line with per-character
+     start marks so the brush follows the voice); ?font=<id> picks the brush font (tools/design-poem/fonts.mjs subsets, all OFL);
+     ?compare=1 shows the poem in every font side by side. Each character is brushed in top-to-bottom with a little tilt/size/ink
+     jitter and a dry-brush edge. Music: data/design-poem/bgm/<poem>.mp3 through a Web Audio gain (iOS ignores .volume), started
+     on the 吟 tap, ducked under any voice, a little louder while the brush writes; ♪ in the ⚙ panel (remembered), ?bgm=0.
+     v3 (hs-poem-brush-1110, Wilson: 志莽行书 but wet ink, not a printed texture; 原版云健 only): the voice is locked to edge
+     (原版 云健) and the voice picker hidden. WET poems (黄鹤楼 only, the demo; ?ink=wet|dry overrides) drop the dry-brush noise
+     for #wet (blur + alpha threshold: crisp edges, ink pooled at stroke ends and joints, a faint bleed round it); each
+     character is written in top to bottom with its first row left to right (two masks, intersected) and darkens as it dries;
+     the seal is a carved 白文 篆书 stamp「姓氏+字」, data/design-poem/seal/<id>.svg from tools/design-poem/seal2.py (v135), pressed on. -->
+<link rel="stylesheet" href="data/vendor/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css">
+<style>
+@font-face{font-family:"DPBrush";src:url("data/design-poem/fonts/mashanzheng-sub.woff2") format("woff2");font-display:block}
+@font-face{font-family:"DP-zhimangxing";src:url("data/design-poem/fonts/zhimangxing-sub.woff2") format("woff2");font-display:block}
+@font-face{font-family:"DP-liujianmaocao";src:url("data/design-poem/fonts/liujianmaocao-sub.woff2") format("woff2");font-display:block}
+@font-face{font-family:"DP-longcang";src:url("data/design-poem/fonts/longcang-sub.woff2") format("woff2");font-display:block}
+@font-face{font-family:"DP-wenkai";src:url("data/design-poem/fonts/wenkai-sub.woff2") format("woff2");font-display:block}
+/* v136 (Wilson 08:42): 志莽行书 lacks 纔 浥 鄜 咷 — only those four glyphs come from 霞鹜臻楷 (OFL), per glyph via the font stack;
+   the poem is no longer switched whole to 霞鹜文楷 */
+@font-face{font-family:"DP-fb";src:url("data/design-poem/fonts/zhenkai-fb.woff2") format("woff2");font-display:block;unicode-range:U+54B7,U+6D65,U+7E94,U+911C}
+:root{--brush:"DPBrush"}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#15130e;color:#f3ead6;font-family:"LXGW WenKai","Kaiti SC","STKaiti",serif;-webkit-tap-highlight-color:transparent;overflow:hidden}
+/* v134 (Wilson 23:52: 喺电脑度个吟诗好窄) — the show takes the whole window on every screen, no 560px column */
+#app{position:fixed;inset:0;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+@media (min-width:900px){#set{left:auto;width:440px}body.pl #cards{left:50%;right:auto;width:min(640px,calc(100% - 16px));transform:translateX(-50%)}}
+/* top: the six beats */
+#top{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:8px 10px 6px}
+#top a{color:#f3ead6;text-decoration:none;font-size:14px;border:1.5px solid #f3ead640;border-radius:4px;padding:3px 8px}
+#beats{flex:1;display:flex;gap:4px}
+#beats b{flex:1;font-weight:normal;font-size:13px;text-align:center;border-bottom:3px solid #f3ead626;color:#f3ead670;padding-bottom:2px}
+#beats b.done{border-color:#b3261b88;color:#e8b9a8}
+#beats b.on{border-color:#e2584a;color:#fff}
+/* stage: painting + Ken Burns + the paper the poem is written on */
+#stage{flex:0 0 auto;height:56vh;position:relative;overflow:hidden;background:#0d0c09}
+.sl{position:absolute;inset:0;overflow:hidden;opacity:0}
+.sl .back{position:absolute;inset:-30px;background:center/cover;filter:blur(18px) brightness(.45)}
+.sl img{position:absolute;left:0;top:0;will-change:transform}
+.sl .vig{position:absolute;inset:0;background:radial-gradient(ellipse at center,#0000 55%,#0009),linear-gradient(#0000 75%,#000b)}
+.sl .cap{position:absolute;left:10px;right:10px;bottom:6px;font-size:11px;color:#f3ead6b0;text-shadow:0 1px 2px #000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* v133 (Wilson 13:15: no 宣纸 panel; 13:35: no dimming) — the poem is written straight onto the painting. layPaper samples the
+   painting under the text (tone()): a light one takes dark ink with a pale halo, a dark one light ink with an ink halo; #veil is a
+   feathered local wash (no edge) only as strong as the sampled background needs for the ink to read */
+/* v137 (Wilson 09:41: 诗字后面有层白雾): no #veil wash and no pale halo — the ink sits on the painting itself.
+   v138 (Wilson 10:28): black ink on a light painting, the pale ink (#paper.dk) on a dark one — tone() picks per poem */
+#chips{position:absolute;left:10px;top:10px;display:flex;gap:6px;z-index:3;transition:opacity .6s}
+#chips span{background:#16140fcc;border:1px solid #f3ead640;border-radius:12px;padding:2px 9px;font-size:13px}
+#chips span:first-child{border-color:#e2584a;color:#ffb3a3}
+#paper{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.96);opacity:0;transition:opacity .9s,transform .9s;z-index:2;
+  padding:16px 12px;display:flex;flex-direction:row-reverse;gap:var(--gap);color:#1b160e}
+#paper.dk{color:#f6efdd}
+#paper.on{opacity:1;transform:translate(-50%,-50%)}
+#paper .ttl{display:flex;flex-direction:column;align-items:center;font:calc(var(--cell)*.62) var(--brush),serif;line-height:1.1;color:#3a2e1c;padding-top:2px;margin-left:calc(var(--gap)*.6)}
+#paper .ttl small{font-size:.7em;color:#7a6440;margin-top:.5em}
+#paper .ttl span.vr{rotate:90deg}
+#paper .ttl{color:#1b160e}#paper .ttl small{color:#2e2416}#paper.dk .ttl{color:#fbf5e6}#paper.dk .ttl small{color:#f1e6c9}
+#paper.wet .ttl{filter:none}
+.col{display:flex;flex-direction:column}
+/* halo as text-shadow on each character (painted once with its glyph), not drop-shadow on the column: a column filter chain
+   re-rasterises every frame while ink animates over the moving slide (p23 jank) */
+.col{filter:url(#dry)}
+.col i{text-shadow:none}
+#paper.dk .col i{color:color-mix(in srgb,#f6efdd calc(var(--o,1)*100%),#cdbb96)}
+/* one character = one brush touch: wiped in top to bottom (mask), wet and soft at first, then dry; each keeps a small tilt,
+   size, offset and ink-density of its own (--r --s --x --y --o, set in layPaper) so the column is written, not typeset */
+.col i{font:var(--cell)/1 var(--brush),serif;font-style:normal;width:var(--cell);height:calc(var(--cell)*1.06);text-align:center;opacity:0;position:relative;
+  transform:translate(var(--x,0),var(--y,0)) rotate(var(--r,0deg)) scale(var(--s,1));color:color-mix(in srgb,#1b160e calc(var(--o,1)*100%),#5a4528)}
+.col i.ink{opacity:1;animation:brush var(--dur,.6s) cubic-bezier(.3,.6,.4,1) forwards;-webkit-mask-image:linear-gradient(#000 40%,#0000 60%);mask-image:linear-gradient(#000 40%,#0000 60%);
+  -webkit-mask-size:100% 250%;mask-size:100% 250%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:0 0;mask-position:0 0}
+@keyframes brush{0%{-webkit-mask-position:0 100%;mask-position:0 100%;text-shadow:0 0 calc(var(--cell)*.08) #1b160ecc;filter:blur(.8px)}
+  55%{text-shadow:0 0 calc(var(--cell)*.05) #1b160e66;filter:blur(.3px)}100%{-webkit-mask-position:0 0;mask-position:0 0;text-shadow:0 0 1px #1b160e33;filter:none}}
+.col i.shown{opacity:1}
+.col i.glow{cursor:pointer}   /* v136: black ink stays black; the pulsing red dot marks the word */
+.col i.glow::after{content:"";position:absolute;left:50%;bottom:-1px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#e2584a;animation:pulse 1.3s infinite}
+.col i.pick{background:#e2584a33;border-radius:4px}
+@keyframes pulse{50%{transform:scale(1.8);opacity:.4}}
+.col.now i.shown{color:#000}#paper.dk .col.now i.shown{color:#fff}#paper.dk .col i.glow{color:#ff9a8a}
+#paper .seal{align-self:flex-end;width:calc(var(--cell)*.8);height:calc(var(--cell)*.8);border:2px solid #b3261b;color:#b3261b;border-radius:3px;
+  font:calc(var(--cell)*.32)/1.05 var(--brush),serif;display:flex;align-items:center;justify-content:center;text-align:center;opacity:0;transform:scale(2) rotate(-8deg);margin-right:calc(var(--gap)*-.3)}
+/* v3 wet ink: the --ink each character dries to; the write mask: layer 1 top to bottom, layer 2 left to right, faster */
+/* v134 real ink (Wilson 23:52: 个书法效果好懵 — 要好似墨汁渗落纸咁): the glyph itself is drawn crisp — no #wet blur filter, no
+   halo, no soft fade. The brush front is a hard edge (the wipe's ramp is ~a quarter of a character, not two characters);
+   the stroke lands wet — glossy, blacker than it will be — and dries in 2.4 s to its own ink tone (dried ink is lighter and
+   browner); under it a copy of the glyph (::before, data-c) is the ink soaking into the paper: a soft spread that swells
+   while wet and stays as a faint feathered edge once dry. Light ink on a dark painting dries the same way, without the
+   lasting spread (pale ink would read as a glow). Only opacity / colour animate, per character, while it is written. */
+#paper.wet .col{filter:none}
+#paper.wet .col i{--ink:color-mix(in srgb,#0d0a06 calc(var(--o,1)*100%),#3b2d1b);color:var(--ink);text-shadow:none}
+#paper.wet.dk .col i{--ink:color-mix(in srgb,#fbf5e6 calc(var(--o,1)*100%),#d8c7a2)}
+#paper.wet .col i::before{content:attr(data-c);position:absolute;inset:0;color:var(--ink);opacity:0;pointer-events:none;
+  text-shadow:0 0 calc(var(--cell)*.035) var(--ink),0 0 calc(var(--cell)*.09) color-mix(in srgb,var(--ink) 55%,#0000)}
+#paper.wet .col i.ink{animation:write var(--dur,.9s) cubic-bezier(.35,.1,.45,1) forwards,dry 2.4s ease-out forwards;
+  -webkit-mask-image:linear-gradient(172deg,#000 46.5%,#0000 53.5%);mask-image:linear-gradient(172deg,#000 46.5%,#0000 53.5%);
+  -webkit-mask-size:100% 400%;mask-size:100% 400%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:0 0;mask-position:0 0}
+#paper.wet .col i.ink::before{animation:bleed 2.6s ease-out forwards}
+#paper.wet .col i.shown::before{opacity:.12}#paper.wet.dk .col i.shown::before{opacity:0}
+/* v3.1 seep: a line's characters all start at once, each delayed (--dl) so the next begins well before the last ends */
+#paper.wet .col i.ink.seep{animation:write var(--dur) linear var(--dl,0s) both,dry 2.4s ease-out var(--dl,0s) both}
+#paper.wet .col i.ink.seep::before{animation:bleed 2.6s ease-out var(--dl,0s) both}
+#paper.hold i,#paper.hold i::before,#paper.hold .seal{animation-play-state:paused}
+@keyframes write{0%{-webkit-mask-position:0 100%;mask-position:0 100%}100%{-webkit-mask-position:0 0;mask-position:0 0}}
+@keyframes dry{0%{color:#000}35%{color:color-mix(in srgb,#000 60%,var(--ink))}100%{color:var(--ink)}}
+@keyframes dryL{0%{color:#fff}35%{color:color-mix(in srgb,#fff 60%,var(--ink))}100%{color:var(--ink)}}
+@keyframes bleed{0%{opacity:0}18%{opacity:.42}100%{opacity:.12}}
+@keyframes bleedL{0%{opacity:0}18%{opacity:.3}100%{opacity:0}}
+#paper.wet.dk .col i.ink,#paper.wet.dk .col i.ink.seep{animation-name:write,dryL}
+#paper.wet.dk .col i.ink::before,#paper.wet.dk .col i.ink.seep::before{animation-name:bleedL}
+/* v138: pale ink keeps no glow at all, not even while wet (a pale blur around the stroke read as the fog Wilson removed) */
+#paper.wet.dk .col i::before{text-shadow:none}
+@media (prefers-reduced-motion:reduce){#paper.wet .col i::before{animation:none!important;opacity:.12}#paper.wet.dk .col i::before{opacity:0}}
+#paper.dk .seal{border-color:#ef5a4c;color:#ef5a4c}
+/* v135 seal (Wilson picked option 1 of design-poem-seals2.html): one 白文方印「姓氏+字」 per poet, 李氏太白 / 杜氏子美 …, from
+   tools/design-poem/seal2.py. Paper-pale behind the stone's middle only, so the cut characters read as paper on any painting;
+   pressed in as on the seals page: drops from above and larger, lands darker, the paste spreads from the middle, settles at .94 */
+#paper .seal.stamp{border:0;border-radius:0;width:calc(var(--cell)*1.05);height:auto;mix-blend-mode:normal;opacity:0;
+  background:linear-gradient(#f6efe0,#f6efe0) center/80% 80% no-repeat;
+  -webkit-mask-image:radial-gradient(closest-side,#000 70%,#0000);mask-image:radial-gradient(closest-side,#000 70%,#0000);
+  -webkit-mask-position:50% 50%;mask-position:50% 50%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:300% 300%;mask-size:300% 300%}
+#paper .seal.stamp.on{animation:press .62s cubic-bezier(.25,.7,.3,1) forwards}
+@keyframes press{0%{opacity:0;transform:translate(4%,-14%) scale(1.22) rotate(-3deg);filter:blur(1.2px);-webkit-mask-size:0% 0%;mask-size:0% 0%}
+  30%{opacity:1;transform:scale(.965);filter:saturate(1.35) brightness(.78)}
+  55%{transform:scale(1.008);-webkit-mask-size:300% 300%;mask-size:300% 300%}
+  100%{opacity:.94;transform:scale(1);filter:none;-webkit-mask-size:300% 300%;mask-size:300% 300%}}
+#paper .seal.on{animation:stamp .45s cubic-bezier(.5,0,.7,1.4) forwards}
+@keyframes stamp{60%{opacity:.95;transform:scale(.94) rotate(-6deg);filter:blur(.6px)}to{opacity:.88;transform:scale(1) rotate(-6deg);filter:url(#dry)}}
+/* ⚙ panel: voice, font, music */
+#set{position:absolute;inset:44px 8px auto 8px;z-index:8;background:#1d1a14f2;border:1px solid #f3ead633;border-radius:10px;padding:10px 12px 12px;max-height:calc(100% - 60px);overflow-y:auto;display:none;box-shadow:0 10px 30px #000c}
+#set.on{display:block}
+#set h5{font-weight:normal;font-size:13px;color:#e2584a;letter-spacing:.3em;margin:8px 0 6px}
+#set .vo{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:7px;border:1px solid #f3ead61f;margin-bottom:5px;cursor:pointer}
+#set .vo.sel{border-color:#e2584a;background:#e2584a1f}
+#set .vo b{font-weight:normal;font-size:15px;flex:0 0 auto}#set .vo span{font-size:11.5px;color:#f3ead699;flex:1;line-height:1.35}
+#set .vo button{flex:0 0 auto;font-size:13px;color:#f3ead6;background:#ffffff14;border:1px solid #f3ead633;border-radius:12px;padding:3px 9px}
+#set .fonts{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:6px}
+#set .fo{background:#efe4c8;color:#1b160e;border-radius:6px;padding:6px 4px 4px;text-align:center;border:2px solid transparent;cursor:pointer}
+#set .fo.sel{border-color:#e2584a}
+#set .fo div{font-size:22px;line-height:1.2;white-space:nowrap}#set .fo small{display:block;font:11px "LXGW WenKai",serif;color:#6b5a40}
+#set .row{display:flex;gap:8px;margin-top:10px}#set .row button{flex:1;font:15px "LXGW WenKai",serif;color:#f3ead6;background:#ffffff10;border:1px solid #f3ead633;border-radius:18px;padding:7px 0}
+#set .row button.off{opacity:.5}
+#cmp{position:fixed;inset:0;z-index:20;background:#15130ef7;overflow-y:auto;padding:12px 10px 24px;display:none}
+#cmp.on{display:block}
+#cmp h3{font-weight:normal;text-align:center;font-size:16px;letter-spacing:.2em;margin-bottom:10px}
+#cmp .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;max-width:1100px;margin:0 auto}
+#cmp .card{background:#efe4c8;background-image:radial-gradient(ellipse at 30% 20%,#f8f0dc,#e8dbbb 70%,#d6c59c);color:#1b160e;border-radius:4px;padding:10px 8px 8px;cursor:pointer;border:3px solid transparent;display:flex;flex-direction:column;align-items:center}
+#cmp .card.sel{border-color:#e2584a}
+#cmp .card .v{writing-mode:vertical-rl;font-size:var(--cmpc,22px);line-height:1.18;letter-spacing:.02em;height:calc(var(--cmpc,22px)*7.4);filter:url(#dry)}
+#cmp .card small{font:13px "LXGW WenKai",serif;color:#6b5a40;margin-top:6px;text-align:center}
+#cmp .x{position:sticky;top:0;float:right;font-size:15px;color:#f3ead6;background:#a3271c;border:none;border-radius:16px;padding:5px 12px;z-index:2}
+#title{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#0006;transition:opacity .8s}
+#title .t{font:clamp(48px,min(15vw,12vh),120px) var(--brush),serif;letter-spacing:.12em;text-shadow:0 2px 12px #000;display:flex;flex-direction:column;align-items:center;line-height:1.18;max-width:100%}
+#title .t .seg{white-space:nowrap}#title .t .sub{font-size:max(.36em,15px);letter-spacing:.3em;margin-top:.4em;color:#f3ead6dd}
+#title .p{font-size:16px;letter-spacing:.3em;color:#f3ead6cc}
+#title.off{opacity:0;pointer-events:none}
+/* v131 embed (opened from the map's 吟 button): ✕ back to the map, the poem's facts in the top bar; a poem without its own
+   paintings gets a plain ink-wash stage */
+#top .xb{color:#f3ead6;background:#a3271c;border:none;border-radius:4px;font-size:14px;padding:4px 10px;flex:0 0 auto}
+#top .eh{flex:1;min-width:0;font-size:13px;color:#f3ead6b0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+#stage.gen{background:radial-gradient(ellipse at 50% 40%,#2c261b,#0d0c09 75%)}
+.lm{margin:0 0 14px;text-align:center;font-size:14px}.lm a{color:#e8b9a8}
+.src .sum{margin-top:6px;font-size:14px;color:#3a2e1c}.src .ex{color:#a3271c;font-size:13px}
+@media (prefers-reduced-motion:reduce){#paper,#title,.ln,#tx>*,.sl,#stage.dim .sl{transition:none!important;animation:none!important}
+  #paper .col i,#paper .seal.on,#paper .seal.stamp.on{animation:none!important;opacity:1;transform:none}#start .big{animation:none}}
+/* the line being told + cards */
+#app{height:100dvh}
+#tx{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC",sans-serif;flex:1;min-height:0;overflow-y:auto;padding:12px 16px 20px;border-top:1px solid #f3ead61a;scroll-behavior:smooth}
+.ln{font-size:18px;line-height:1.65;margin-bottom:8px;opacity:.45;transition:opacity .4s}
+.ln.cur{opacity:1;font-size:19.5px}
+.ln i{font-style:normal;opacity:.12}
+.ln.yin{font-size:22px;line-height:1.5;font-weight:500;text-align:center;letter-spacing:.12em;color:#f0c27a}
+/* v3.1 phones: #tx is a subtitle band of fixed height, only the newest item shown; the one before fades out under it */
+@media (max-width:699px){
+  #stage{height:auto;flex:1 1 auto;min-height:90px}
+  #tx .q{font-size:17px;padding:8px 10px}
+  #tx{flex:0 0 auto;min-height:118px;max-height:46dvh;display:grid;align-items:end;overflow:hidden auto;padding:10px 18px 12px;scroll-behavior:auto;
+    background:linear-gradient(#15130e00,#0b0a07e6 35%)}
+  #tx .ln{text-shadow:0 1px 3px #000}#tx>.sec:nth-last-child(-n+2){display:flex}
+  #tx>*{display:none;grid-area:1/1;margin:0}
+  #tx>:nth-last-child(2){display:block;animation:subOut .45s ease forwards;pointer-events:none}
+  #tx>:last-child{display:block;animation:subIn .55s ease both}
+  #tx .ln,#tx .ln.cur{opacity:1;font-size:19px;line-height:1.55;text-align:center}#tx .ln i{opacity:.32}
+  #tx .ln.yin{font-size:23px;line-height:1.45}#tx .sec{align-self:center}
+  #tx .ln.you{text-align:center}
+}
+@media (max-width:699px) and (max-height:620px){#dock{padding:6px 10px 8px;gap:5px}#choices{gap:5px}.ch{font-size:16px;padding:7px 12px}#bar button{padding:6px 0}}
+@keyframes subIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes subOut{from{opacity:1}to{opacity:0}}
+.ln.you{text-align:right;opacity:1}.ln.you span{background:#a3271c;color:#fff;border-radius:12px 2px 12px 12px;padding:6px 12px;font-size:16px;display:inline-block}
+.sec{display:flex;align-items:center;gap:10px;color:#e2584acc;font-size:14px;margin:6px 0 10px;letter-spacing:.3em}
+.sec::before,.sec::after{content:"";flex:1;height:1px;background:#e2584a40}
+.q{margin:4px 0 12px;padding:10px 12px;border:1.5px solid #e2584a;border-radius:8px;background:#2a1b16cc;font-size:18px;line-height:1.55}
+.q small{display:block;color:#e2584a;font-size:12px;letter-spacing:3px;margin-bottom:4px}
+.books{display:flex;gap:8px;margin:8px 0 12px}
+.book{flex:1;background:#efe6d2;color:#2a2318;border-radius:6px;padding:9px;position:relative;min-width:0}
+.book .lens{font-size:11px;color:#8a6a3a}.book .src{font-size:14px;margin:2px 34px 4px 0}
+.book .bq{font:20px/1.4 var(--brush),serif;color:#1f1a12}
+.book .gist{position:absolute;right:6px;top:6px;border:2px solid #b3261b;color:#b3261b;border-radius:4px;padding:0 4px;font:16px var(--brush),serif;transform:rotate(-8deg)}
+.cite{margin:4px 0 12px;background:#efe6d2;color:#2a2318;border-radius:6px;padding:9px 12px;border-left:4px solid #b3261b;font-size:16px;line-height:1.6}
+.cite div{font-size:12px;color:#6b5a40;text-align:right}
+.word{margin:4px 0 12px;background:#efe6d2;color:#2a2318;border-radius:6px;padding:9px 12px;display:flex;gap:12px;align-items:center}
+.word b{font:44px/1 var(--brush),serif;color:#a3160c;font-weight:normal}
+.word span{font-size:16px;line-height:1.55}
+.src{margin:6px 0 12px;background:#efe6d2;color:#2a2318;border-radius:8px;padding:12px 14px;font-size:15px;line-height:1.7}
+.src h4{font:22px var(--brush),serif;font-weight:normal;color:#1f1a12}
+.src a{color:#8a2a1c}
+.src .conf{color:#6b5a40;font-size:13px}
+/* dock */
+#dock{flex:0 0 auto;padding:8px 12px 10px;border-top:1px solid #f3ead61a;display:flex;flex-direction:column;gap:7px}
+#choices{display:flex;flex-direction:column;gap:7px}#choices:empty{display:none}
+.ch{font:17px/1.35 "LXGW WenKai",serif;color:#2a2318;background:#efe6d2;border:none;border-radius:8px;padding:10px 14px;text-align:left;box-shadow:0 2px 0 #0008}
+.ch b{display:inline-block;width:23px;height:23px;border-radius:50%;background:#a3271c;color:#fff;font:13px/23px sans-serif;text-align:center;margin-right:8px}
+.ch.go{background:#a3271c;color:#fff;text-align:center}
+.hint{font-size:13px;color:#e2584a;letter-spacing:2px;text-align:center}
+#bar{display:flex;gap:8px}
+#bar button{flex:1;font:16px "LXGW WenKai",serif;color:#f3ead6;background:#ffffff10;border:1px solid #f3ead633;border-radius:20px;padding:8px 0}
+#bar button:disabled{opacity:.35}
+#start{position:fixed;inset:0;z-index:9;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 24px 13vh;gap:14px}
+#start .big{width:92px;height:92px;border-radius:50%;border:3px solid #c8321f;background:#c8321f33;color:#ffb3a3;font:28px var(--brush),serif;animation:pul 1.4s infinite}
+@keyframes pul{50%{box-shadow:0 0 0 12px #c8321f22}}
+#start p{font-size:15px;color:#f3ead6cc;text-align:center;line-height:1.7;text-shadow:0 1px 3px #000}
+#start.off{display:none}
+/* list */
+#list{position:fixed;inset:0;overflow-y:auto;padding:18px 14px 30px;max-width:560px;margin:0 auto;display:none}
+#list h1{font:44px var(--brush),serif;font-weight:normal;text-align:center;letter-spacing:.3em}
+#list .sub{text-align:center;color:#f3ead699;font-size:14px;margin:4px 0 16px}
+.pc{display:flex;height:150px;border-radius:10px;overflow:hidden;margin-bottom:12px;background:#231f18;text-decoration:none;color:#f3ead6;box-shadow:0 3px 0 #0008}
+.pc .im{flex:0 0 42%;background:center/cover}
+.pc .bd{flex:1;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.pc .tt{font:30px var(--brush),serif}.pc .me{font-size:13px;color:#f3ead699}.pc .hk{font-size:15px;color:#f0c27a;margin-top:auto}
+.pc .fl{font:17px var(--brush),serif;color:#f3ead6aa}
+.note{font-size:12px;color:#f3ead666;text-align:center;line-height:1.7;margin-top:14px}
+.note a{color:#f0c27a99}
+</style>
+<link rel="stylesheet" href="css/player.css"></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="dry" x="-5%" y="-5%" width="110%" height="110%">
+  <feTurbulence type="fractalNoise" baseFrequency=".9 .35" numOctaves="2" seed="7" result="n"/>
+  <feDisplacementMap in="SourceGraphic" in2="n" scale="1.8" xChannelSelector="R" yChannelSelector="G" result="d"/>
+  <feComponentTransfer in="n" result="g"><feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 0 1 1"/></feComponentTransfer>
+  <feComposite in="d" in2="g" operator="in"/></filter>
+  <filter id="wet" x="-10%" y="-6%" width="120%" height="112%" color-interpolation-filters="sRGB">
+  <feGaussianBlur in="SourceGraphic" stdDeviation=".85" result="b"/>
+  <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 13 -5.2" result="ink"/>
+  <feGaussianBlur in="ink" stdDeviation="1.6" result="bl"/>
+  <feColorMatrix in="bl" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 .2 0" result="bleed"/>
+  <feMerge><feMergeNode in="bleed"/><feMergeNode in="ink"/></feMerge></filter></svg>
+<div id="list"><h1>吟诗</h1><div class="sub">设计稿 · 先听来龙去脉，再听一首诗</div><div id="cards"></div>
+  <div class="note">设计稿（mock）· 图片来自 Wikimedia Commons（公有领域）<a href="data/design-poem/CREDITS.md">出处</a><br>书法字体：马善政楷书 · 志莽行书 · 刘建毛草 · 龙藏体 · 霞鹜文楷（全部 SIL OFL）<br><a href="design-poem.html?p=baidi&compare=1">五款字体并排对比</a></div></div>
+<div id="app" style="display:none">
+  <div id="top"><a href="design-poem.html">诗目</a><div id="beats"></div><button id="snd" aria-label="声音">🔊</button><button id="gear" aria-label="声音、字体、音乐">⚙</button></div>
+  <div id="set"><h5 hidden>谁来吟</h5><div id="voices" hidden></div><h5>什么字</h5><div class="fonts" id="fonts"></div>
+    <div class="row"><button id="bgmBtn">♪ 背景音乐</button><button id="cmpBtn">字体并排对比</button></div>
+    <div class="row"><button id="setAgain">↺ 用这个声音和字再吟一遍</button></div></div>
+  <div id="stage"><div id="chips"></div><div id="paper"></div><div id="title"><div class="t"></div><div class="p"></div></div></div>
+  <div id="tx"></div>
+  <div id="dock"><div id="choices"></div><div id="bar"><button id="pp">❚❚ 暂停</button><button id="again">↺ 再吟一遍</button><button id="skip">跳过 ▸</button></div></div>
+</div>
+<div id="start" class="off"><p id="hook"></p><button class="big" id="go">吟</button></div>
+<div id="cmp"><button class="x" id="cmpX">✕ 关</button><h3 id="cmpH"></h3><div class="grid" id="cmpG"></div></div>
+<audio id="au" preload="auto"></audio>
+<script src="js/player.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const P=new URLSearchParams(location.search),D='data/design-poem/';
+// v131: ?id=<poem id from poems.json / person-poems.json>&embed=1 — the map's 吟. The three poems with a recorded voice map to
+// their full shows (PID); every other poem is GEN: built from the map's data, written by the brush with its lines as timed
+// subtitles, no music, no paintings. EMB: inside the map's scroll overlay (✕ posts closeScroll).
+const AUD={p23:'baidi',p21:'chunwang',p11:'huanghelou'},ID=(P.get('id')||'').replace(/[^a-z0-9_-]/gi,'');
+const PID=(P.get('p')||AUD[ID]||'').replace(/[^a-z0-9_-]/gi,''),GEN=!!ID&&!AUD[ID],EMB=!!ID&&P.get('embed')==='1'&&window.parent!==window;
+const RMQ=matchMedia('(prefers-reduced-motion: reduce)');
+// seals (v135): one 白文「姓氏+字」 per poet (李氏太白), cut by tools/design-poem/seal2.py; ids below = its file names
+const SEALS={李白:'baidi',杜甫:'chunwang',崔颢:'huanghelou',薛道衡:'poet-xuedaoheng',王勃:'poet-wangbo',骆宾王:'poet-luobinwang',陈子昂:'poet-chenziang',
+  王维:'poet-wangwei',王昌龄:'poet-wangchangling',孟浩然:'poet-menghaoran',王之涣:'poet-wangzhihuan',张九龄:'poet-zhangjiuling',贺知章:'poet-hezhizhang',
+  高适:'poet-gaoshi',岑参:'poet-censhen',张继:'poet-zhangji',唐玄宗:'poet-lilongji'};
+const sealOf=()=>PID&&!GEN?PID:SEALS[S.poet]||'';
+// v133 chips 公元 / place / age like the three shows (age = year − birth, as baidi/chunwang); birth years only where they are not
+// seriously disputed (骆宾王 陈子昂 高适 岑参 张继 崔颢 get no age). A 引子 that names the age itself (王维十七岁) wins, so chip = voice.
+const BORN={薛道衡:540,王勃:650,王维:701,王昌龄:698,孟浩然:689,李白:701,王之涣:688,杜甫:712,张九龄:678,贺知章:659,唐玄宗:685};
+const CN={一:1,二:2,三:3,四:4,五:5,六:6,七:7,八:8,九:9};
+const cnNum=s=>{const m=s.match(/^([一二三四五六七八九])?十([一二三四五六七八九])?$/);return m?(m[1]?CN[m[1]]:1)*10+(m[2]?CN[m[2]]:0):CN[s]||0};
+function genAge(){if(S.yl==='年代不详')return 0;for(const c of S.yinIntro||[]){const m=c.t.match(/([一二三四五六七八九十]{1,3})岁/);if(m&&cnNum(m[1]))return cnNum(m[1])}
+  return BORN[S.poet]?S.year-BORN[S.poet]:0}
+const SPEED=+P.get('speed')||1,AUTO=P.get('auto')==='1';let mute=P.get('mute')==='1';
+const BEATS=['引子','你猜','吟','字词','争议','出处'];
+let CK=null,S,AU={},run=0,paused=false,skipNow=null,speaking=false,waiting=null,beat=-1,line=null;
+const stat={clips:0,slides:0,ink:0,words:0};
+const STOP={},au=$('au');
+const sleep=ms=>new Promise(r=>setTimeout(r,ms/SPEED));
+const chk=r=>{if(r!==run)throw STOP};
+function el(tag,cls,html,parent){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;if(parent)parent.appendChild(e);return e}
+/* v133 (Wilson 14:06: a long title broke onto two lines mid-phrase) — the opening title is one line, shrunk to fit (never below
+   34px); a （…） part becomes a small line under it; only a title still too long splits, and only at its phrase boundary
+   (TBRK, or before its last 送), each half unbreakable. test/poem-title.mjs */
+const TBRK={'黄鹤楼送孟浩然之广陵':'黄鹤楼|送孟浩然之广陵','九月九日忆山东兄弟':'九月九日|忆山东兄弟','白雪歌送武判官归京':'白雪歌|送武判官归京','鲁郡东石门送杜二甫':'鲁郡东石门|送杜二甫',
+  '经邹鲁祭孔子而叹之':'经邹鲁|祭孔子而叹之','闻官军收河南河北':'闻官军|收河南河北','茅屋为秋风所破歌':'茅屋|为秋风所破歌','自京赴奉先县咏怀':'自京赴奉先县|咏怀',
+  '自京赴奉先县咏怀五百字':'自京赴奉先县|咏怀五百字','江南逢李龟年':'江南|逢李龟年','送杜少府之任蜀州':'送杜少府|之任蜀州'};
+function fitTitle(){const t=$('title').querySelector('.t');if(!t||!S)return;const W=$('stage').clientWidth-32;
+  const m=String(S.title).match(/^(.*?)(?:[（(]([^）)]*)[）)])?$/),main=m[1]||S.title,sub=m[2]||'';
+  const put=segs=>{t.style.fontSize='';t.innerHTML=segs.map(s=>`<span class="seg">${esc(s)}</span>`).join('')+(sub?`<small class="seg sub">${esc(sub)}</small>`:'');
+    const F=parseFloat(getComputedStyle(t).fontSize),w=Math.max(...[...t.querySelectorAll('.seg:not(.sub)')].map(e=>e.scrollWidth));
+    const f=Math.min(F,F*W/Math.max(w,1));t.style.fontSize=f.toFixed(1)+'px';return f};
+  if(put([main])>=34)return;
+  const b=TBRK[main]||(main.lastIndexOf('送')>1?main.slice(0,main.lastIndexOf('送'))+'|'+main.slice(main.lastIndexOf('送')):'');
+  if(b)put(b.split('|'))}
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const SUB=matchMedia('(max-width:699px)').matches;
+const down=()=>{const t=$('tx');t.scrollTop=t.scrollHeight};
+const CPS={急:6,紧:5.4,平:4.8,缓:4.3,慢:3.8};
+// ---- v2 choices: brush font, reciting voice (yin.json), background music ----
+// j = how much each character wanders (tilt deg, size, offset): a 楷 stays upright, a 草 leans and swells
+const FONTS=[{id:'zhimangxing',name:'志莽行书',fam:'"DP-zhimangxing"',note:'行书 · 流动',j:1},{id:'mashanzheng',name:'马善政楷',fam:'"DPBrush"',note:'楷书 · v1',j:.55},
+  {id:'liujianmaocao',name:'刘建毛草',fam:'"DP-liujianmaocao"',note:'草书 · 奔放',j:1.3},{id:'longcang',name:'龙藏体',fam:'"DP-longcang"',note:'手札 · 清瘦',j:.9},
+  {id:'wenkai',name:'霞鹜文楷',fam:'"DP-wenkai"',note:'楷体 · 清秀',j:.45}];
+// v136 (Wilson 08:42, replaces v133's whole-poem switch to 霞鹜文楷): a glyph the brush lacks (纔浥鄜咷) alone comes from "DP-fb"
+const FONT_WHY='';
+const LS=(k,v)=>{try{if(v===undefined)return localStorage.getItem('dp.'+k);localStorage.setItem('dp.'+k,v)}catch(e){}};
+let FONT=FONTS.find(f=>f.id===(P.get('font')||LS('font')))||FONTS[0];
+// voice: 原版 云健 only (Wilson 2026-11-10); the other takes stay in yin.json, unoffered
+let YIN=null,VOICE='edge';
+const WET=P.get('ink')!=='dry';   // wet ink + one clock + carved seal on every poem (Wilson 22:03); ?ink=dry = the old look
+function setFont(id,keep){FONT=FONTS.find(f=>f.id===id)||FONTS[0];document.documentElement.style.setProperty('--brush',FONT.fam+',"DP-fb"');if(!keep)LS('font',FONT.id);urlSet('font',FONT.id);
+  document.querySelectorAll('#fonts .fo').forEach(e=>e.classList.toggle('sel',e.dataset.id===FONT.id));if(S&&$('paper').childElementCount)jitter()}
+function urlSet(k,v){if(!PID)return;const u=new URLSearchParams(location.search);u.set(k,v);history.replaceState(null,'','?'+u)}
+const yinOf=i=>{const k=PID||ID;return YIN&&YIN[k]&&YIN[k][VOICE]?YIN[k][VOICE][i]:null};
+// v132: every map poem without a show of its own is recited too (data/design-poem/yin-map.json, tools/design-poem/gen-yin-map.mjs:
+// the same Edge 云健 吟 voice and per-character marks as the three shows). HV = this poem has a voice.
+let HV=false;
+// music: one bed per poem, looped, through a Web Audio gain. Levels: base under the telling's gaps, duck under any voice,
+// a little up while the brush writes between lines, 0 when off/muted. Ramps are setTargetAtTime (no clicks).
+// v3.1: louder under the voice (.07 was lost on an iPhone speaker); still ~18 dB below it
+const BGV={base:.28,duck:.16,up:.4,end:.16};
+const BGM_NAME={baidi:'自得琴社《长安幻世绘》· 筝笛',chunwang:'自得琴社《桂枝香》· 开头',huanghelou:'古琴《平沙落雁》'};let bgmOn=P.get('bgm')!=='0'&&LS('bgm')!=='0',bgmAC=null,bgmG=null,bgmMode='base',bgmEl=null;
+function bgmLevel(){return !bgmOn||mute||!bgmAC?0:BK*(paused?BGV.duck*.5:BGV[bgmMode])}
+function bgmApply(tc=.35){if(!bgmAC)return;bgmG.gain.setTargetAtTime(bgmLevel(),bgmAC.currentTime,tc);
+  if(bgmLevel()>0){bgmAC.resume();bgmEl.play().catch(()=>{})}else setTimeout(()=>{if(bgmLevel()===0)bgmEl.pause()},tc*5000);$('bgmBtn').classList.toggle('off',!bgmOn)}
+function bgm(mode,tc){bgmMode=mode;bgmApply(tc)}
+// v133: a map poem plays the bed its map-shows.json entry names (one of the three shows' beds, by mood)
+// v134 (Wilson 23:52: 个音乐好似两首歌一齐播): every poem has its own bed from data/design-poem/v134.json (CC0 / CC BY, loudness-
+// matched to about −23 LUFS, so BK lifts it to the old beds' −21); the map's own music is silenced while a poem is open
+// (js/timeline.js openScroll → bgmTo('poem')), so this is the only music playing
+let RICH=null,V4=null,V4P=null,BK=1;const bgmId=()=>(V4P&&V4P.bgm)||PID||(RICH&&RICH.bgm)||'';
+const credit=()=>{const B=V4.bgm[V4P.bgm],a=(u,t)=>u?`<a href="${u}" target="_blank">${esc(t)}</a>`:esc(t);
+  return `<br><span class="conf">画：${V4P.img.map(k=>{const g=V4.img[k];return a(g.url,g.cap)+'（'+esc(g.lic)+'）'}).join('；')}<br>乐：${a(B.url,B.zh)} · ${esc(B.by)}（${esc(B.lic)}）<br><a href="${D}assets-v134/CREDITS.md" target="_blank">全部图片与音乐出处</a></span>`};
+const bedName=()=>V4P?V4.bgm[V4P.bgm].zh:(BGM_NAME[bgmId()]||'背景音乐');
+function bgmStart(){if(bgmAC||!bgmId())return;try{bgmEl=Object.assign(new Audio(V4P?D+V4.bgm[V4P.bgm].f:D+'bgm/'+bgmId()+'.mp3'),{loop:true,preload:'auto'});
+  bgmAC=new(window.AudioContext||window.webkitAudioContext)();bgmG=bgmAC.createGain();bgmG.gain.value=0;
+  bgmAC.createMediaElementSource(bgmEl).connect(bgmG).connect(bgmAC.destination);bgmAC.resume();bgmEl.play().catch(()=>{});bgmApply(1.5)}catch(e){console.warn('bgm',e)}}
+document.addEventListener('visibilitychange',()=>{if(!bgmAC)return;if(document.hidden)bgmAC.suspend();else bgmAC.resume()});
+// ---- stage: crossfading paintings with Ken Burns (same idea as shuoshu.html, copied) ----
+let cur=null;const imgs={};
+const iu=src=>src.startsWith('assets-')?D+src:D+'img/'+src;
+function pre(src){return imgs[src]||(imgs[src]=Object.assign(new Image(),{src:iu(src)}))}
+// v134: a v134 painting carries its focal box (focus, normalised x,y,w,h): it always fills the stage and the camera moves
+// between the widest stage-shaped window centred on the focus and one 1.35× tighter, alternately in and out
+function kb(sd,fg,img,st,n){const W=st.clientWidth,H=st.clientHeight,iw=img.naturalWidth,ih=img.naturalHeight,sar=W/H,f=sd.focus;
+  const cx=(f[0]+f[2]/2)*iw,cy=(f[1]+f[3]/2)*ih,win=k=>{let ww=iw/ih>sar?ih*sar:iw;ww/=k;const wh=ww/sar;
+    return{x:Math.max(0,Math.min(iw-ww,cx-ww/2)),y:Math.max(0,Math.min(ih-wh,cy-wh/2)),w:ww}};
+  const a=win(1),b=win(1.35),s0=W/a.w,tf=q=>{const s=W/q.w;return `translate(${(-q.x*s).toFixed(1)}px,${(-q.y*s).toFixed(1)}px) scale(${(s/s0).toFixed(4)})`};
+  Object.assign(fg.style,{width:iw*s0+'px',height:ih*s0+'px',transformOrigin:'0 0'});const k=n%2?[b,a]:[a,b];
+  fg._kb=[a,b].map(q=>{const s=W/q.w;return[-q.x*s,-q.y*s,iw*s,ih*s]});   // tone() reads the background at both ends of the move
+  fg.style.transform=tf(k[0]);fg.animate([{transform:tf(k[0])},{transform:tf(k[1])}],{duration:20000/SPEED,easing:'ease-in-out',fill:'forwards'})}
+function slide(id){const sd=S.slides[id];if(!sd||id===cur)return;cur=id;stat.slides++;
+  const st=$('stage'),e=el('div','sl','',null);st.insertBefore(e,$('chips'));
+  e.innerHTML=`${sd.focus?'':`<div class="back" style="background-image:url('${iu(sd.src)}')"></div>`}<img alt="" src="${iu(sd.src)}"><div class="vig"></div><div class="cap">${esc(sd.cap)} · ${esc(sd.lic)}</div>`;
+  const img=pre(sd.src),fg=e.querySelector('img'),n=stat.slides;
+  const go=()=>{if(sd.focus&&img.naturalWidth)return kb(sd,fg,img,st,n);const W=st.clientWidth,H=st.clientHeight,ar=(img.naturalWidth||W)/(img.naturalHeight||H),sar=W/H;let w,h;
+    const fit=Math.abs(Math.log(ar/sar))>.6;if(fit===(ar>sar)){w=W;h=W/ar}else{h=H;w=H*ar}
+    if(!fit&&ar>sar*1.25){h=H;w=H*ar;fg.style.width=w+'px';fg.style.height=h+'px';  // wide scroll: pan along it
+      fg.animate([{transform:`translate(0,0)`},{transform:`translate(${W-w}px,0)`}],{duration:22000/SPEED,easing:'ease-in-out',fill:'forwards'});return}
+    fg.style.width=w+'px';fg.style.height=h+'px';const b=`translate(${(W-w)/2}px,${(H-h)/2}px)`;
+    fg.animate([{transform:b+' scale(1.03)'},{transform:b+' scale(1.17)'}],{duration:16000/SPEED,easing:'ease-in-out',fill:'forwards'})};
+  if(img.complete&&img.naturalWidth)go();else{img.onload=go;img.onerror=go}
+  e.animate([{opacity:0},{opacity:1}],{duration:1000/SPEED,fill:'forwards'}).onfinish=()=>{const o=[...st.querySelectorAll('.sl')];o.slice(0,o.indexOf(e)).forEach(x=>x.remove())}}
+// ---- speaking: audio if rendered, else timed; onProg(f) drives the brush ----
+function speak(c,cls='',r=run,onProg){return new Promise((res,rej)=>{
+  stat.clips++;document.querySelectorAll('.ln.cur').forEach(e=>e.classList.remove('cur'));
+  if(!c.c||!line||cls||SUB){line=el('div','ln cur '+cls,'',$('tx'))}else line.classList.add('cur');
+  const sp=el('span','','',line),n=c.t.length;let shown=-1;
+  const est=c.dur?c.dur*1000:Math.max(.6,c.t.replace(/[，。！？、；：—…「」《》\s]/g,'').length/(c.w==='yin'?2.6:CPS[c.p||'平']))*1000;
+  const draw=(f,t)=>{const k=Math.min(n,Math.ceil(f*n*1.05));if(onProg)onProg(f,t==null?f*est/1000:t);if(k===shown)return;shown=k;sp.innerHTML=esc(c.t.slice(0,k))+'<i>'+esc(c.t.slice(k))+'</i>'};
+  draw(0);down();const file=c.src||(AU[`${c.w}|${c.p||'平'}|${c.t}`]?D+'audio/'+AU[`${c.w}|${c.p||'平'}|${c.t}`]:null);
+  let t0=performance.now(),acc=0,done=false,useA=!mute&&!!file;speaking=true;bgm('duck',.12);
+  const fin=()=>{if(done)return;done=true;speaking=false;skipNow=null;draw(1);down();bgm(c.w==='yin'?'up':'base',.5);res()};
+  skipNow=()=>{au.pause();fin()};
+  if(useA){au.src=file;au.onended=fin;au.onerror=()=>{useA=false;t0=performance.now()};if(!paused)au.play().catch(()=>{useA=false;t0=performance.now()})}
+  const tick=now=>{if(done)return;if(r!==run){done=true;speaking=false;au.pause();return rej(STOP)}
+    if(useA){const d=au.duration;if(d&&isFinite(d))draw(au.currentTime/d,au.currentTime)}else{if(!paused)acc+=(now-t0)*SPEED;t0=now;draw(acc/est);if(acc>=est)return fin()}
+    requestAnimationFrame(tick)};requestAnimationFrame(tick)})}
+async function gate(r){while(paused){await sleep(150);chk(r)}}
+async function say(cs,r){for(const c of cs){await gate(r);if(c.pre)await sleep(c.pre);chk(r);if(c.s)slide(c.s);await speak(c,'',r);chk(r);await sleep(mute?S.pace[c.p||'平'].gap*.5:S.pace[c.p||'平'].gap);chk(r)}line=null}
+function dock(opts,hint){return new Promise(res=>{const C=$('choices');C.innerHTML='';if(hint)el('div','hint',hint,C);
+  const done=i=>{C.innerHTML='';waiting=null;bar();res(i)};
+  opts.forEach((o,i)=>{const b=el('button','ch'+(o.go?' go':''),o.go?o.label:`<b>${'ABC'[i]}</b>${esc(o.label)}`,C);b.onclick=()=>done(i)});
+  waiting={opts,res:done};bar();setTimeout(down,300);if(AUTO)setTimeout(()=>waiting&&waiting.opts===opts&&done(0),600/SPEED)})}
+function sec(name){line=null;el('div','sec',name,$('tx'));down()}
+function setBeat(i){beat=i;[...$('beats').children].forEach((b,k)=>b.className=k===i?'on':k<i?'done':'')}
+// ---- the paper: one column per 句, right to left, cells on a grid so characters line up ----
+// v136 (Wilson 08:42): a vertical title's brackets / punctuation take their vertical form — the brush's own glyph turned a
+// quarter (no font has ︵︶ in this brush); ，。！？ sit in the cell's upper right as in vertical print
+const VR=/[（）()《》〈〉【】「」『』—…]/;
+function layPaper(){const pp=$('paper'),st=$('stage'),n=S.text.length,m=Math.max(...S.text.map(t=>t.length));
+  // v136 (Wilson 08:44: the calligraphy filled the screen): the painting stays full-bleed, the poem keeps to a restrained
+  // block in its middle — at most ~60% of the stage's height and ~56% of its width (78% on a phone, whose width is the
+  // tight side), and a cell no bigger than a tenth of the stage's short side (cap 72, was 128 in v134) for 留白 all round
+  const W=st.clientWidth,H=st.clientHeight,BW=W*(W<600?.78:.56),BH=H*.52;
+  const cell=Math.floor(Math.min(BH/(m*1.06),BW/(n+.8+n*.16),Math.min(W,H)*.1,72));
+  pp.style.setProperty('--cell',cell+'px');pp.style.setProperty('--gap',Math.round(cell*.16)+'px');
+  pp.innerHTML=`<div class="ttl">${[...S.title].map(c=>`<span${VR.test(c)?' class="vr"':''}>${c}</span>`).join('')}<small>${[...S.poet].join('<br>')}</small></div>`+
+    S.text.map((t,l)=>`<div class="col" data-l="${l}">${[...t].map((c,p)=>`<i data-l="${l}" data-p="${p}" data-c="${c}">${c}</i>`).join('')}</div>`).join('')+
+    (WET&&sealOf()?`<img class="seal stamp" alt="${esc(S.poet)}印章" src="${D}seal/${sealOf()}.svg?v=136">`:`<div class="seal">${[...S.poet].join('<br>')}</div>`);
+  pp.classList.toggle('wet',WET);
+  // the formula misses the title column, seal and padding: shrink until the paper fits the stage
+  for(let c=cell;c>14;c--){
+    if(pp.scrollWidth<=Math.max(BW,W*.6)&&pp.scrollHeight<=Math.max(BH,H*.6))break;
+    pp.style.setProperty('--cell',(c-1)+'px');pp.style.setProperty('--gap',Math.round((c-1)*.16)+'px')}
+  jitter()}
+// v133: the painting under the poem (no paper any more): each slide shown under the poem is drawn at its place on screen
+// with the stage's vignette, at both ends of its camera move, and the luminance under the poem's box decides the ink.
+// v138 (Wilson 10:28: 黑色睇唔到嘅就用白色): still no wash, no halo — the ink colour itself follows the painting. Per cell of
+// the box where a glyph stands (one character's size) the worst 10% of the background (darkest for black ink, brightest for light ink) gives
+// that cell's contrast. A colour's share is the mean, over the frames (slide × camera end), of the cells reaching 3:1 — the
+// characters that read; the poem takes the colour with the larger share. Within 2 points the tie goes to the higher worst
+// case (each frame's 5th-percentile cell, capped at 7:1, averaged), then black. (A pure worst case picked pale ink that left
+// 70-100% of q03/q08/q17/p22 under 3:1 where black left 20-45%; a strict min over frames let the first frame of a move, on
+// a dark mount edge the camera leaves within seconds, outvote the rest.) One colour for the
+// whole poem, title and seal included. TONE.split reports a slide whose own best colour differs and where the chosen one
+// falls below 3:1 although the other would pass (reported, never patched with a veil).
+const INK_L={dk:.0062,lt:.862},CR=(a,b)=>(Math.max(a,b)+.05)/(Math.min(a,b)+.05);
+// where a slide's painting sits on the stage at the two ends of its move (same geometry as kb() / slide())
+function geo(sd,img,W,H){const iw=img.naturalWidth,ih=img.naturalHeight;
+  if(sd.focus){const f=sd.focus,sar=W/H,cx=(f[0]+f[2]/2)*iw,cy=(f[1]+f[3]/2)*ih,win=k=>{let ww=iw/ih>sar?ih*sar:iw;ww/=k;const wh=ww/sar;
+    return{x:Math.max(0,Math.min(iw-ww,cx-ww/2)),y:Math.max(0,Math.min(ih-wh,cy-wh/2)),w:ww}};
+    return [win(1),win(1.35)].map(q=>{const s=W/q.w;return[-q.x*s,-q.y*s,iw*s,ih*s]})}
+  const ar=iw/ih,sar=W/H,fit=Math.abs(Math.log(ar/sar))>.6;let w,h;if(fit===(ar>sar)){w=W;h=W/ar}else{h=H;w=H*ar}
+  if(!fit&&ar>sar*1.25){h=H;w=H*ar;return[[0,0,w,h],[W-w,0,w,h]]}
+  return [1.03,1.17].map(k=>[(W-w*k)/2,(H-h*k)/2,w*k,h*k])}
+// the slides a full show puts under the poem after it is written (争议, 出处); an embedded poem keeps the one it was written on
+const laterSlides=()=>ID?[]:[...((S.debate&&S.debate.choices)||[]).flatMap(c=>c.react||[]),...((S.debate&&S.debate.reveal)||[]),...(S.outro||[])].map(c=>c.s).filter(Boolean);
+function tone(){const st=$('stage'),pp=$('paper'),W=st.clientWidth,H=st.clientHeight,pw=pp.offsetWidth,ph=pp.offsetHeight,px=(W-pw)/2,py=(H-ph)/2;
+  const pc=(a,f)=>{if(!a.length)return 0;const b=[...a].sort((u,v)=>u-v);return b[Math.floor(b.length*f)]};
+  const ids=[...new Set([cur,...laterSlides()])].filter(k=>k&&S.slides[k]),per=[];let L=[];
+  try{const k=.25,w=Math.ceil(W*k),h=Math.ceil(H*k),cv=document.createElement('canvas');cv.width=w;cv.height=h;
+    const g=cv.getContext('2d',{willReadFrequently:true}),lin=c=>(c/=255)<=.04045?c/12.92:((c+.055)/1.055)**2.4;
+    const bw=Math.max(1,Math.floor(pw*k)),bh=Math.max(1,Math.floor(ph*k)),cl=(v,n)=>Math.max(0,Math.min(n,Math.round(v*k)));
+    // only where a glyph will stand (each character, the title's and poet's): the box's padding and empty column ends may lie
+    // on a dark mount edge no character touches
+    const cells=[...pp.querySelectorAll('.col i,.ttl span,.ttl small')].map(e=>[cl(e.offsetLeft,bw),cl(e.offsetTop,bh),cl(e.offsetLeft+e.offsetWidth,bw),cl(e.offsetTop+e.offsetHeight,bh)]);
+    for(const id of ids){const sd=S.slides[id],img=pre(sd.src);if(!img.complete||!img.naturalWidth)continue;const D={id,dk:[],lt:[],f:[]};
+      for(const q of geo(sd,img,W,H)){const n0=D.dk.length;g.fillStyle='#0d0c09';g.fillRect(0,0,w,h);
+        // a letterboxed painting stands on its own blurred, darkened copy (.sl .back: inset −30px, cover, blur 18, brightness .45)
+        if(!sd.focus){const bW=W+60,bH=H+60,s=Math.max(bW/img.naturalWidth,bH/img.naturalHeight),dw=img.naturalWidth*s,dh=img.naturalHeight*s;
+          g.filter=`blur(${18*k}px) brightness(.45)`;g.drawImage(img,(-30+(bW-dw)/2)*k,(-30+(bH-dh)/2)*k,dw*k,dh*k);g.filter='none'}
+        g.drawImage(img,q[0]*k,q[1]*k,q[2]*k,q[3]*k);
+        g.save();g.translate(w/2,h/2);g.scale(w/2*Math.SQRT2,h/2*Math.SQRT2);const rg=g.createRadialGradient(0,0,0,0,0,1);rg.addColorStop(.55,'#0000');rg.addColorStop(1,'#0009');g.fillStyle=rg;g.fillRect(-1,-1,2,2);g.restore();
+        const lg=g.createLinearGradient(0,0,0,h);lg.addColorStop(.75,'#0000');lg.addColorStop(1,'#000b');g.fillStyle=lg;g.fillRect(0,0,w,h);
+        const d=g.getImageData(Math.floor(px*k),Math.floor(py*k),bw,bh).data,Y=[];
+        for(let i=0;i<d.length;i+=4)Y.push(.2126*lin(d[i])+.7152*lin(d[i+1])+.0722*lin(d[i+2]));for(const y of Y)L.push(y);
+        for(const [x0,y0,x1,y1] of cells){const b=[];for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)b.push(Y[y*bw+x]);if(!b.length)continue;
+          b.sort((u,v)=>u-v);D.dk.push(CR(INK_L.dk,b[Math.floor(b.length*.1)]));D.lt.push(CR(INK_L.lt,b[Math.floor(b.length*.9)]))}
+        const ok=a=>a.length?a.filter(x=>x>=3).length/a.length:0;D.f.push({dk:pc(D.dk.slice(n0),.05),lt:pc(D.lt.slice(n0),.05),okd:ok(D.dk.slice(n0)),okl:ok(D.lt.slice(n0))})}
+      per.push(D)}}catch(e){per.length=0}
+  const all=c=>per.flatMap(D=>D[c]),fr=per.flatMap(D=>D.f),avg=c=>fr.reduce((a,F)=>a+Math.min(7,F[c]),0)/Math.max(1,fr.length);
+  const sh=c=>fr.reduce((a,F)=>a+F[c],0)/Math.max(1,fr.length),sc={dk:avg('dk'),lt:avg('lt')},ok={dk:sh('okd'),lt:sh('okl')};
+  const dk=per.length?(Math.abs(ok.lt-ok.dk)>.02?ok.lt>ok.dk:sc.lt>sc.dk):false,ch=dk?'lt':'dk',ot=dk?'dk':'lt';
+  const split=per.filter(D=>pc(D[ch],.05)<3&&pc(D[ot],.05)>=3).map(D=>D.id);
+  L.sort((a,b)=>a-b);const q=f=>L.length?L[Math.floor(L.length*f)]:.03,m=L.length?L.reduce((a,b)=>a+b,0)/L.length:.03;
+  pp.classList.toggle('dk',dk);
+  TONE={m:+m.toFixed(3),p10:+q(.1).toFixed(3),p90:+q(.9).toFixed(3),dk,ink:dk?'light':'black',slides:per.map(D=>D.id),
+    score:{black:+sc.dk.toFixed(2),light:+sc.lt.toFixed(2)},legible:{black:+ok.dk.toFixed(2),light:+ok.lt.toFixed(2)},min:{black:+Math.min(...all('dk'),99).toFixed(2),light:+Math.min(...all('lt'),99).toFixed(2)},
+    frames:fr.map(F=>[+F.dk.toFixed(2),+F.lt.toFixed(2)]),split}}
+let TONE=null;
+// each character's own hand: seeded by its place, so a replay writes the same page; scaled by the font's j
+function jitter(){const rnd=s=>{const x=Math.sin(s*12.9898+78.233)*43758.5453;return x-Math.floor(x)},j=FONT.j;
+  $('paper').querySelectorAll('.col i').forEach(e=>{const s=+e.dataset.l*13+ +e.dataset.p*7+1,q=k=>rnd(s+k)*2-1;
+    e.style.setProperty('--r',(q(1)*3.2*j).toFixed(2)+'deg');e.style.setProperty('--s',(1+q(2)*.06*j).toFixed(3));
+    e.style.setProperty('--x',(q(3)*3.5*j).toFixed(1)+'%');e.style.setProperty('--y',(q(4)*2.5*j).toFixed(1)+'%');e.style.setProperty('--o',(.86+rnd(s+5)*.14).toFixed(2))})}
+// the brush follows the voice: with marks (seconds each character starts) a character is written as it is said, its
+// stroke as long as the syllable; without them, by the fraction of the line said so far
+function inkCol(l,f,t,mk){const col=$('paper').children[l+1],cs=[...col.children];cs.forEach((c,k)=>{if(c.classList.contains('ink')||c.classList.contains('shown'))return;
+  const due=mk&&mk.m?t>=mk.m[k]-.04:f>=k/cs.length*.92;if(!due)return;
+  const len=mk&&mk.m?((mk.m[k+1]??mk.d)-mk.m[k]):.5;c.style.setProperty('--dur',(WET?Math.min(1.8,Math.max(.9,len*3)):Math.min(1.1,Math.max(.3,len*1.25)))/SPEED+'s');c.classList.add('ink');stat.ink++})}
+// one clock for the whole poem (Wilson: still 窒下窒下 — each column waited for its line's voice, so the ink stood still
+// 0.7-1.3 s at every line end and eased to zero on each character). Now every character is laid on one timeline at a
+// constant pace (linear, each stroke overlapping the next INK.over characters), and the voice waits for its column to
+// have begun INK.lead s earlier — the ink never waits for the voice. test/reveal-timing.mjs measures it.
+const INK={lead:.3,over:2.6,gap:.95};
+function inkPlan(){const cols=[...$('paper').querySelectorAll('.col')],L=S.text.map(t=>t.length),n=L.reduce((a,b)=>a+b,0),
+    ds=S.yin.map(y=>{const mk=yinOf(y.line);return mk?mk.d:L[y.line]/2.6}),
+    v=n/(ds.reduce((a,b)=>a+b,0)+ds.length*(mute?.5:INK.gap)),at=[],t0=[];let g=0;   // v: characters a second
+  L.forEach((m,l)=>{t0[l]=g/v;at[l]=g/v+INK.lead;g+=m});
+  const a=$('paper').animate([],{duration:1e9});a.playbackRate=SPEED;   // the clock itself: pauses with the show
+  const now=()=>a.currentTime/1000,armed=new Set();
+  // a column's strokes are put on the clock just before it starts (delay = its time on the clock − now), so only the
+  // columns being written animate: arming all 56 at once made every column repaint its #wet filter each frame
+  const arm=()=>cols.forEach((col,l)=>{if(armed.has(l)||t0[l]-now()>.35)return;armed.add(l);
+    [...col.children].forEach((c,k)=>{c.style.setProperty('--dl',((t0[l]+k/v-now())/SPEED).toFixed(3)+'s');
+      c.style.setProperty('--dur',(INK.over/v/SPEED).toFixed(3)+'s');c.classList.add('ink','seep');stat.ink++})});
+  arm();const iv=setInterval(arm,50);
+  return {a,at,now,total:(n-1+INK.over)/v,stop(){clearInterval(iv);a.cancel()}}}
+async function recite(r){if(RMQ.matches)return reciteStill(r);$('chips').style.opacity=0;layPaper();tone();$('paper').classList.add('on');bgm('up',.8);await sleep(900);
+  const ck=WET?inkPlan():null;let end=-9;CK=ck;
+  for(const y0 of S.yin){await gate(r);const mk=yinOf(y0.line),y=mk?{...y0,src:D+'audio/yin/'+mk.f,dur:mk.d}:y0;
+    const col=$('paper').children[y.line+1];col.classList.add('now');
+    if(ck){const due=Math.max(ck.at[y.line],end+(mute?.2:.45));while(ck.now()<due){await sleep(20);chk(r)}}
+    await speak(y,'yin',r,ck?null:(f,t)=>inkCol(y.line,f,t,mk));chk(r);col.classList.remove('now');
+    if(ck)end=ck.now();else{inkCol(y.line,1,99,null);await sleep(mute?400:y.line%2?1300:700);chk(r)}}
+  if(ck){while(ck.now()<ck.total){await gate(r);await sleep(40);chk(r)}ck.stop();CK=null}
+  $('paper').querySelector('.seal').classList.add('on');await sleep(900);bgm('base',1.5);line=null}
+async function reciteStill(r){$('chips').style.opacity=0;layPaper();tone();$('paper').classList.add('on');
+  $('paper').querySelectorAll('.col i').forEach(c=>c.classList.add('shown'));$('paper').querySelector('.seal').classList.add('on');
+  for(const y0 of S.yin){await gate(r);const mk=yinOf(y0.line),y=mk?{...y0,src:D+'audio/yin/'+mk.f,dur:mk.d}:y0;
+    const col=$('paper').children[y0.line+1];col.classList.add('now');await speak(y,'yin',r);chk(r);col.classList.remove('now');await sleep(mute?200:500);chk(r)}
+  line=null}
+// ---- v131 embed: build a show for any poem on the map, and the short show the map's 吟 plays ----
+async function genS(id){const [a,b]=await Promise.all(['data/poems.json','data/person-poems.json'].map(u=>fetch(u).then(x=>x.ok?x.json():null).catch(()=>null)));
+  const ev=((a&&a.events)||[]).find(x=>x.id===id)||((b&&b.poems)||[]).find(x=>x.id===id);if(!ev)return null;
+  const p=ev.poem,und=b&&b._meta&&b._meta.undated&&b._meta.undated[id],y=+ev.date.slice(0,4);
+  // one column per 句; a long 歌行 (more than 10 句 of ≤7 characters) takes a couplet a column so the brush stays legible on a phone
+  let cl=p.text.join('').replace(/([，。！？；])/g,'$1\n').split('\n').map(t=>t.trim()).filter(t=>t.replace(/[，。！？；、：“”‘’「」《》—…\s]/g,''));
+  if(cl.length>10&&Math.max(...cl.map(t=>t.length))<=8){const m=[];for(let i=0;i<cl.length;i+=2)m.push(cl.slice(i,i+2).join(''));cl=m}
+  const said=cl.map(t=>t.replace(/[。！？；，]$/,'')),text=cl.map(t=>t.replace(/[，。！？；、：“”‘’「」《》—…\s]/g,''));
+  const yl=und||ev.dateConf==='low'?'年代不详':(ev.dateConf==='medium'?'约':'')+y+'年',e0=(ev.evidence||[]).find(x=>x.url)||{};
+  // v133: the chronicle's poems name a place id (poems.json places, else era.json places)
+  let pn=ev.placeName||P.get('at')||'';if(!pn&&ev.place){pn=(a&&a.places&&a.places[ev.place]||{}).name||'';
+    if(!pn)pn=((await fetch('data/era.json').then(x=>x.ok?x.json():null).catch(()=>null)||{}).places||{})[ev.place]?.name||''}
+  return {title:p.short||p.title,full:p.title,poet:p.poet,form:p.form,year:y,yl,place:pn,excerpt:!!p.excerpt,lines:p.text,
+    text,yin:said.map((t,i)=>({line:i,t,w:'yin'})),yinIntro:[],intro:[],outro:[],slides:{},pace:{平:{gap:300},缓:{gap:640},慢:{gap:950}},words:[],summary:ev.summary||'',
+    src:{book:'维基文库',url:e0.url||'',note:e0.cite||''},date:{said:yl,conf:und||ev.dateNote||ev.debate||''}}}
+const toMap=()=>{run++;au.pause();if(bgmAC){bgmG.gain.setTargetAtTime(0,bgmAC.currentTime,.15);setTimeout(()=>bgmEl.pause(),700)}if(CK){CK.stop();CK=null}if(EMB){parent.postMessage({type:'narr',on:false},'*');parent.postMessage({type:'closeScroll'},'*')}else location.href='design-poem.html'};
+async function eshow(){const r=++run;paused=false;$('choices').innerHTML='';waiting=null;bar();
+  if((PID||HV)&&!mute)parent.postMessage({type:'narr',on:true},'*');   // a recorded voice: the map's music ducks under it
+  try{setBeat(2);sec('吟');
+    if(GEN)el('div','ln',`${esc(S.poet)}《${esc(S.full)}》${S.excerpt?'（节选）':''} · ${esc(S.yl)}${S.place?' · '+esc(S.place):''}`,$('tx'));
+    if(!GEN||RICH){if(S.yinSlide&&!RMQ.matches)slide(S.yinSlide);await say(S.yinIntro,r)}
+    if(V4P&&!RMQ.matches){slide('v0');const g=[...$('stage').querySelectorAll('.sl img')].pop();await Promise.race([g.decode().catch(()=>{}),sleep(1500)]);chk(r)}
+    await recite(r);setBeat(3);
+    sec('出处');const body=GEN?S.lines.map(esc).join('<br>')+(S.excerpt?'<br><span class="ex">（节选）</span>':''):S.text.map((t,i)=>t+(i%2?'。<br>':'，')).join('');
+    el('div','src',`<h4>${esc(GEN?S.full:S.title)} · ${esc(S.poet)}</h4>${body}${GEN&&S.summary?`<div class="sum">${esc(S.summary)}</div>`:''}<br>出处：${S.src.url?`<a href="${S.src.url}" target="_blank">${esc(S.src.book)}</a>`:esc(S.src.book)}${GEN?'':'（维基文库）'}<br><span class="conf">${esc(S.src.note)}<br>系年：${esc(S.date.said)}${S.date.conf?' —— '+esc(S.date.conf):''}</span>${GEN?(HV?'<br><span class="conf">吟诵：合成语音（Edge 云健），与三首有声诗同一把声</span>':'<br><span class="conf">这首没有录音：毛笔写字，字幕代读</span>'):''}${V4P?credit():RICH?`<br><span class="conf">画：${esc(RICH.img.cap)}（${esc(RICH.img.lic)}） · 乐：${esc(BGM_NAME[RICH.bgm]||'')}</span>`:''}${FONT_WHY?`<br><span class="conf">字：${esc(FONT_WHY)}，整首改用${esc(FONT.name)}</span>`:''}`,$('tx'));down();
+    if(PID||HV)parent.postMessage({type:'narr',on:false},'*');bgm('end',3);
+    // v133 (Wilson 13:35: the end dimmed the page and popped two buttons — abrupt): no end overlay. The poem rests on its
+    // last frame; ↺ 再吟一遍 is in the bar, ✕ 回地图 at the top, and a show's 来龙去脉 is a link in its 出处 card
+    if(!GEN){const a=el('div','lm','<a href="#">听来龙去脉（引子 · 你猜 · 争议）›</a>',$('tx'));a.querySelector('a').onclick=e=>{e.preventDefault();
+      $('beats').innerHTML=BEATS.map(b=>`<b>${b}</b>`).join('');$('tx').innerHTML='';show(0)}}
+    bar();down()
+  }catch(e){if(e!==STOP)throw e}}
+// ---- the show ----
+async function show(from=0){const r=++run;paused=false;$('paper').classList.remove('hold');if(CK){CK.stop();CK=null}au.pause();$('choices').innerHTML='';waiting=null;bar();
+  try{
+    if(from<=0){setBeat(0);sec('引子');await say(S.intro,r)}
+    if(from<=1){setBeat(1);sec('你猜');const g=S.guess;el('div','q','<small>说书人问你</small>'+esc(g.t),$('tx'));down();
+      await speak(g.q,'',r);chk(r);line=null;const i=await dock(g.choices,'你猜——');chk(r);
+      el('div','ln you',`<span>${esc(g.choices[i].label)}</span>`,$('tx'));line=null;await say(g.choices[i].react,r);await say(g.reveal,r);
+      if(g.cite){el('div','cite',`${esc(g.cite.q)}<div>—— ${esc(g.cite.loc)}</div>`,$('tx'));down()}
+      await dock([{label:'听诗 ▸',go:1}]);chk(r)}
+    if(from<=2){setBeat(2);sec('吟');$('paper').classList.remove('on');$('chips').style.opacity=1;
+      if(S.yinSlide)slide(S.yinSlide);await say(S.yinIntro,r);await recite(r)}
+    if(from<=3){setBeat(3);sec('字词');if(!$('paper').classList.contains('on'))await recite(r);
+      for(const w of S.words){const c=$('paper').querySelector(`i[data-l="${w.line}"][data-p="${w.pos}"]`);c.classList.add('glow');c.onclick=()=>word(w,c)}
+      const seen=new Set();
+      for(;;){const k=await dock([{label:'下一段：争议 ▸',go:1}],'点纸上发红的字，听它的意思');chk(r);break}
+      $('paper').querySelectorAll('i.glow').forEach(c=>{c.classList.remove('glow')})}
+    if(from<=4&&S.debate){setBeat(4);sec('争议');const d=S.debate;el('div','q','<small>几部书 · 你信哪个</small>'+esc(d.t),$('tx'));
+      const B=el('div','books','',$('tx'));for(const b of d.books)el('div','book',`<div class="lens">${b.lens}</div><div class="src">《${esc(b.src)}》</div><div class="bq">${esc(b.q)}</div><div class="gist">${b.gist}</div>`,B);down();
+      await speak(d.q,'',r);chk(r);line=null;const i=await dock(d.choices,'你信哪个？');chk(r);
+      el('div','ln you',`<span>${esc(d.choices[i].label)}</span>`,$('tx'));line=null;await say(d.choices[i].react,r);await say(d.reveal,r)}
+    setBeat(5);sec('出处');await say(S.outro,r);
+    el('div','src',`<h4>${esc(S.title)} · ${esc(S.poet)}</h4>${S.text.map((t,i)=>t+(i%2?'。<br>':'，')).join('')}<br>出处：<a href="${S.src.url}" target="_blank">${esc(S.src.book)}</a>（维基文库）<br><span class="conf">${esc(S.src.note)}<br>系年：${esc(S.date.said)} —— ${esc(S.date.conf)}</span><br><a href="${D}CREDITS.md" target="_blank">图片出处</a>`,$('tx'));down();
+    // v133: the show ends quietly in every path (no end dock): ↺ 再吟一遍 is in the bar, 诗目 / ✕ at the top
+    setBeat(6);bgm('end',3);bar();down()
+  }catch(e){if(e!==STOP)throw e}}
+async function word(w,c){if(speaking&&skipNow)skipNow();stat.words++;
+  $('paper').querySelectorAll('i.pick').forEach(x=>x.classList.remove('pick'));c.classList.add('pick');
+  line=null;el('div','word',`<b>${w.ch}</b><span>${esc(w.t)}</span>`,$('tx'));down();
+  const file=AU[`narr|${w.a.p}|${w.a.t}`];if(file&&!mute){au.src=D+'audio/'+file;au.onended=null;au.play().catch(()=>{})}}
+function bar(){$('pp').innerHTML=paused?'▶ 继续':'❚❚ 暂停';$('skip').disabled=!speaking;$('again').disabled=beat<3}
+$('pp').onclick=()=>{paused=!paused;$('paper').classList.toggle('hold',paused);if(CK)paused?CK.a.pause():CK.a.play();if(paused)au.pause();else if(speaking&&!mute&&au.src&&!au.ended)au.play().catch(()=>{});bar();bgmApply(.4)};
+$('skip').onclick=()=>skipNow&&skipNow();
+$('again').onclick=async()=>{if(beat<3)return;const r=run;$('paper').querySelectorAll('i').forEach(c=>c.classList.remove('ink','seep','shown'));
+  if(speaking&&skipNow)skipNow();const nr=(PID||HV)&&!mute;if(nr)parent.postMessage({type:'narr',on:true},'*');try{await recite(r)}catch(e){}if(nr)parent.postMessage({type:'narr',on:false},'*')};
+$('snd').onclick=()=>{mute=!mute;$('snd').textContent=mute?'🔇':'🔊';if(mute)au.pause();bgmApply(.3)};
+// ---- ⚙ panel + font comparison ----
+$('gear').onclick=e=>{e.stopPropagation();$('set').classList.toggle('on')};
+document.addEventListener('click',e=>{if($('set').classList.contains('on')&&!$('set').contains(e.target)&&e.target!==$('gear'))$('set').classList.remove('on')});
+$('bgmBtn').onclick=()=>{bgmOn=!bgmOn;LS('bgm',bgmOn?'1':'0');bgmStart();bgmApply(.5)};
+$('setAgain').onclick=()=>{$('set').classList.remove('on');if(beat<2){show(2);return}$('again').disabled=false;$('again').onclick()};
+$('cmpBtn').onclick=()=>{$('set').classList.remove('on');compare()};
+$('cmpX').onclick=()=>{$('cmp').classList.remove('on');urlSet('compare','0')};
+let tryAu=null;
+function panel(){const V=$('voices');V.innerHTML='';
+  for(const v of (YIN&&YIN.voices)||[]){const e=el('div','vo'+(v.id===VOICE?' sel':''),`<b>${esc(v.label)}</b><span>${esc(v.note)}</span><button>▶ 试听</button>`,V);e.dataset.id=v.id;
+    e.onclick=()=>{VOICE=v.id;LS('voice',v.id);urlSet('voice',v.id);V.querySelectorAll('.vo').forEach(x=>x.classList.toggle('sel',x.dataset.id===VOICE))};
+    e.querySelector('button').onclick=ev=>{ev.stopPropagation();e.onclick();const mk=yinOf(0);if(!mk)return;bgmStart();if(tryAu)tryAu.pause();
+      tryAu=new Audio(D+'audio/yin/'+mk.f);bgm('duck',.1);tryAu.onended=()=>{bgm(speaking?'duck':'base',.6);const m2=yinOf(1);if(m2&&tryAu.dataset.n!=='1'){tryAu=Object.assign(new Audio(D+'audio/yin/'+m2.f),{onended:()=>bgm('base',.6)});tryAu.dataset.n='1';tryAu.play()}};tryAu.play().catch(()=>{})}}
+  const F=$('fonts');F.innerHTML='';const sample=S.text[0].slice(0,4);
+  for(const f of FONTS){const e=el('div','fo'+(f.id===FONT.id?' sel':''),`<div style='font-family:${f.fam},serif'>${esc(sample)}</div><small>${f.name}<br>${f.note}</small>`,F);e.dataset.id=f.id;e.onclick=()=>setFont(f.id)}
+  $('bgmBtn').textContent='♪ '+bedName();$('bgmBtn').classList.toggle('off',!bgmOn)}
+function compare(){const G=$('cmpG');$('cmp').classList.add('on');urlSet('compare','1');$('cmpH').textContent=`${S.title} · ${S.poet} —— 点一款就用它`;G.innerHTML='';
+  // phone: two across, the first four lines big enough to judge the brush; wider screens: three across, the whole poem
+  const cols=innerWidth<700?2:3,lines=cols===2?S.text.slice(0,4):S.text,m=Math.max(...lines.map(t=>t.length));
+  const cw=(Math.min(innerWidth,1100)-20-10*(cols-1))/cols,cell=Math.max(16,Math.min(44,Math.floor((cw-24)/(lines.length*1.2))));
+  G.style.gridTemplateColumns=`repeat(${cols},1fr)`;G.style.setProperty('--cmpc',cell+'px');
+  for(const f of FONTS){const e=el('div','card'+(f.id===FONT.id?' sel':''),`<div class='v' style='font-family:${f.fam},serif;height:${(cell*m*1.06).toFixed(0)}px'>${lines.map(esc).join('<br>')}</div><small>${f.name}<br>${f.note}</small>`,G);
+    e.onclick=()=>{setFont(f.id);G.querySelectorAll('.card').forEach(x=>x.classList.remove('sel'));e.classList.add('sel');setTimeout(()=>$('cmpX').onclick(),350)}}}
+setInterval(bar,300);
+window.__dp={state:()=>({beat,speaking,waiting:waiting?waiting.opts.map(o=>o.label):null,ink:document.querySelectorAll('#paper i.ink').length,tone:TONE,stat,font:document.fonts.check(`40px ${FONT.fam}`,'鹤'),fontId:FONT.id,fontWhy:FONT_WHY,voice:VOICE,
+    bgm:{on:bgmOn,mode:bgmMode,gain:bgmG?+bgmG.gain.value.toFixed(3):null,target:bgmLevel(),playing:!!bgmEl&&!bgmEl.paused,src:bgmEl?bgmEl.src.split('/').pop():null,k:+BK.toFixed(3),ac:bgmAC&&bgmAC.state}}),
+  setFont,setVoice:id=>{VOICE=id;panel()},compare,
+  choose:i=>waiting&&waiting.res(i),skip:()=>skipNow&&skipNow(),show,word:k=>{const w=S.words[k];word(w,$('paper').querySelector(`i[data-l="${w.line}"][data-p="${w.pos}"]`))}};
+(async()=>{
+  if(!PID&&!ID){const L=await fetch(D+'list.json').then(x=>x.json());$('list').style.display='block';
+    for(const p of L)el('a','pc',`<div class="im" style="background-image:url('${D}img/${p.cover}')"></div><div class="bd"><div class="tt">${esc(p.title)}</div><div class="me">${esc(p.poet)} · 公元${p.year} · ${esc(p.form)}</div><div class="fl">${esc(p.first)}……</div><div class="hk">${esc(p.hook)}</div></div>`,$('cards')).href='design-poem.html?p='+p.id;
+    window.__dp.ready=true;return}
+  PL.init({emb:EMB});   // v132: the shared player frame (css/player.css, js/player.js)
+  if(GEN){let YM;[S,YM]=await Promise.all([genS(ID),fetch(D+'yin-map.json').then(x=>x.ok?x.json():null).catch(()=>null)]);AU={};YIN=null;if(!S){document.body.textContent='没有这首诗：'+ID;return}
+    if(YM&&YM[ID]&&YM[ID].length===S.yin.length)YIN={[ID]:{edge:YM[ID]}}
+    // v133: the same parts as the three shows' map 吟 — painting, 引子 in the narrator's voice, music bed (map-shows.json)
+    const MS=await fetch(D+'map-shows.json').then(x=>x.ok?x.json():null).catch(()=>null);RICH=MS&&MS[ID]||null;
+    if(RICH){S.slides={m:{type:'img',...RICH.img}};S.cover=S.yinSlide='m';S.yinIntro=RICH.intro.map(c=>({...c,src:D+c.src}))}}
+  else [S,AU,YIN]=await Promise.all([D+PID+'.json',D+'audio/index.json',D+'yin.json'].map(u=>fetch(u).then(x=>x.ok?x.json():null).catch(()=>null)));AU=AU||{};
+  // v134: the map's poem (embedded, ?id=) plays its own bed and 3–4 paintings: cover + 引子 on paintings 2–4, the poem on the first
+  if(ID){V4=await fetch(D+'v134.json').then(x=>x.ok?x.json():null).catch(()=>null);V4P=V4&&V4.poems[GEN?ID:PID]||null}
+  if(V4P){const B=V4.bgm[V4P.bgm],im=V4P.img,n=im.length;BK=Math.min(1.6,10**((-21-B.lufs)/20));
+    S.slides={};im.forEach((k,i)=>{const g=V4.img[k];S.slides['v'+i]={type:'img',src:g.f,cap:g.cap,lic:g.lic,focus:g.focus}});
+    S.cover=S.yinSlide='v1';S.yinIntro=(S.yinIntro||[]).map((c,i)=>({...c,s:'v'+(1+(i+(n>3?1:0))%(n-1))}))}
+  const VS=((YIN&&YIN.voices)||[]).map(v=>v.id);if(!VS.includes(VOICE))VOICE=VS[0]||VOICE;HV=!!yinOf(0);
+
+  setFont(FONT.id,true);panel();if(P.get('compare')==='1')compare();
+  $('app').style.display='flex';$('beats').innerHTML=ID?'':BEATS.map(b=>`<b>${b}</b>`).join('');
+  if(ID){const a=$('top').querySelector('a'),x=el('button','xb',EMB?'✕ 回地图':'✕',null);a.replaceWith(x);x.onclick=toMap;
+    $('top').insertBefore(el('div','eh',`${esc(S.poet)} · ${esc(GEN?S.full:S.title)} · ${HV?'有声':'书写'}`,null),$('beats'));
+    addEventListener('keydown',e=>{if(e.key==='Escape')toMap()});if(GEN){if(!RICH)$('stage').classList.add('gen');$('gear').hidden=true}}
+  document.title='吟诗 · '+S.title;fitTitle();document.fonts.ready.then(fitTitle);addEventListener('resize',fitTitle);$('title').querySelector('.p').textContent=S.poet+' · '+S.form;
+  $('chips').innerHTML=GEN?`<span>${S.yl==='年代不详'?'年代不详':(S.yl[0]==='约'?'约':'')+'公元'+S.year}</span>${S.place?`<span>${esc(S.place.replace(/（.*/,''))}</span>`:''}<span>${esc(S.poet)}${genAge()?' '+genAge()+'岁':''}</span>`:`<span>公元${S.year}${S.pid==='p11'?' 前后':''}</span><span>${esc(S.place.replace(/（.*/,''))}</span><span>${esc(S.poet)}${S.age?' '+S.age+'岁':''}</span>`;
+  if((!GEN||RICH)&&!(ID&&RMQ.matches)){slide(S.cover);Object.values(S.slides).forEach(s=>pre(s.src))}if(mute)$('snd').textContent='🔇';
+  if(ID){$('title').querySelector('.p').textContent=S.poet+' · '+S.form+(HV?' · 有声':' · 书写');window.__dp.ready=true;
+    // no voice to unlock: straight in. A recorded voice: try to play (the map's tap usually lets it); refused → the 吟 button
+    // v139: inside the map the poem starts once the scroll has finished parting (the map posts 'shown'; 4 s fallback), so its
+    // voice and first ink never land in the middle of the unroll
+    let started=false;const go0=()=>{if(started)return;started=true;$('start').classList.add('off');setTimeout(()=>$('title').classList.add('off'),RMQ.matches?0:900);eshow()};
+    let shown=!EMB;if(EMB){addEventListener('message',e=>{if(e.data&&e.data.type==='shown'){shown=true;if(want)go0()}});setTimeout(()=>{shown=true;if(want)go0()},4000)}
+    let want=false;const go=()=>{want=true;if(shown||!$('start').classList.contains('off'))go0()};
+    // before 吟 is tapped, ❚❚ is a second way in (it would otherwise pause a show that has not begun); every other button just works
+    $('pp').addEventListener('click',e=>{if(!$('start').classList.contains('off')&&!started){e.stopImmediatePropagation();$('go').click()}},true);
+    if(!HV||mute){if(!mute)bgmStart();go();return}
+    const u0=GEN?D+'audio/yin/'+yinOf(0).f:D+'audio/'+(Object.values(AU)[0]||''),t=Object.assign(new Audio(u0),{volume:0});
+    t.play().then(()=>{t.pause();bgmStart();go()}).catch(()=>{$('hook').textContent='点「吟」开声，听'+S.poet+'《'+S.title+'》';$('start').classList.remove('off');
+      $('go').onclick=()=>{bgmStart();au.src=u0;au.play().then(()=>au.pause()).catch(()=>{});go()}});return}
+  $('hook').textContent=S.hook;$('start').classList.remove('off');window.__dp.ready=true;
+  $('go').onclick=()=>{bgmStart();au.src=D+'audio/'+(Object.values(AU)[0]||'');au.play().then(()=>au.pause()).catch(()=>{});$('start').classList.add('off');$('title').classList.add('off');show(+P.get('from')||0)};
+  if(AUTO)$('go').click();
+})();
+</script>
+</body></html>
